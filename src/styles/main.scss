@@ -1,6 +1,16 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import './colors.scss';
 
 body {
   background-color: white;
+}
+
+nav {
+  background-color: $mainText;
+  color: #dde9ee; 
+  
+  a {
+    color: #dde9ee
+  }
 }
