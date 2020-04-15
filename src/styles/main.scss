@@ -1,6 +1,39 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import './colors.scss';
+@import './fonts.scss';
 
 body {
   background-color: white;
+}
+
+nav {
+  background-color: $black;
+  color: $white;
+  font-family: $bigFonts; 
+  
+  div a {
+    color: $white;
+    font-family: $allFonts;
+    font-size: 20px;
+    margin: 0px 10px;
+    &:hover {
+      color: $gold;   
+    }
+  }
+  
+  button {
+    background-color: $primaryBlue;
+    padding: 10px;
+    border-radius: 5px;
+    border: $primaryBlue ;
+    color: $black;
+    &:hover {
+      background-color: #a7e1f1;   
+    }
+  }
+}
+
+.hide {
+  display: none;
 }
