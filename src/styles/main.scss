@@ -9,14 +9,22 @@ body {
 
 nav {
   background-color: $mainText;
-  color: #dde9ee;
+  color: $altText;
   font-family: $bigFonts; 
   
   div a {
-    color: #dde9ee;
+    color: $altText;
     font-family: $allFonts;
     &:hover {
       color: $secondary;   
     }
+  }
+  
+  button {
+    background-color: $primaryBlue;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: $primaryBlue;
+    color: $mainText;
   }
 }
