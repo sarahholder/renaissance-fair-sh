@@ -8,23 +8,28 @@ body {
 }
 
 nav {
-  background-color: $mainText;
-  color: $altText;
+  background-color: $black;
+  color: $white;
   font-family: $bigFonts; 
   
   div a {
-    color: $altText;
+    color: $white;
     font-family: $allFonts;
+    font-size: 20px;
+    margin: 0px 10px;
     &:hover {
-      color: $secondary;   
+      color: $gold;   
     }
   }
   
   button {
     background-color: $primaryBlue;
     padding: 10px;
-    border-radius: 10px;
-    border-color: $primaryBlue;
-    color: $mainText;
+    border-radius: 5px;
+    border: $primaryBlue ;
+    color: $black;
+    &:hover {
+      background-color: #a7e1f1;   
+    }
   }
 }
