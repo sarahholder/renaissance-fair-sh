@@ -8,15 +8,32 @@ body {
 }
 
 nav {
-  background-color: $mainText;
-  color: #dde9ee;
+  background-color: $black;
+  color: $white;
   font-family: $bigFonts; 
   
   div a {
-    color: #dde9ee;
+    color: $white;
     font-family: $allFonts;
+    font-size: 20px;
+    margin: 0px 10px;
     &:hover {
-      color: $secondary;   
+      color: $gold;   
     }
   }
+  
+  button {
+    background-color: $primaryBlue;
+    padding: 10px;
+    border-radius: 5px;
+    border: $primaryBlue ;
+    color: $black;
+    &:hover {
+      background-color: #a7e1f1;   
+    }
+  }
+}
+
+.hide {
+  display: none;
 }
