@@ -6,7 +6,7 @@
     "price": 3,
     "location": "Edinson Tudor Festival",
     "isAvailable": true,
-    "uid": ""
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "food2": {
     "type": "Lemonade",
@@ -15,7 +15,7 @@
     "price": 2,
     "location": "Edinson Tudor Festival",
     "isAvailable": true,
-    "uid": ""
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "food3": {
     "type": "Funnel Cake",
@@ -24,7 +24,7 @@
     "price": "6",
     "location": "Edinson Tudor Festival",
     "isAvailable": true,
-    "uid": ""
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "food4": {
     "type": "Chocolate Filled Doughnuts",
@@ -33,7 +33,7 @@
     "price": "8",
     "location": "Edinson Tudor Festival",
     "isAvailable": true,
-    "uid": ""
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "food5": {
     "type": "Turkey Leg",
@@ -42,7 +42,7 @@
     "price": "9",
     "location": "Edinson Tudor Festival",
     "isAvailable": true,
-    "uid": ""
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "food6": {
     "type": "Beer",
@@ -51,7 +51,7 @@
     "price": 3,
     "location": "Hopscote-by-Sea Faire",
     "isAvailable": true,
-    "uid": ""
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "food7": {
     "type": "Lemonade",
@@ -60,7 +60,7 @@
     "price": 2,
     "location": "Hopscote-by-Sea Faire",
     "isAvailable": true,
-    "uid": ""
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "food8": {
     "type": "Funnel Cake",
@@ -69,7 +69,7 @@
     "price": "6",
     "location": "Hopscote-by-Sea Faire",
     "isAvailable": true,
-    "uid": ""
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "food9": {
     "type": "Chocolate Filled Doughnuts",
@@ -78,7 +78,7 @@
     "price": "8",
     "location": "Hopscote-by-Sea Faire",
     "isAvailable": true,
-    "uid": ""
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "food10": {
     "type": "Turkey Leg",
@@ -87,7 +87,7 @@
     "price": "9",
     "location": "Hopscote-by-Sea Faire",
     "isAvailable": true,
-    "uid": ""
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "food11": {
     "type": "Beer",
@@ -96,7 +96,7 @@
     "price": 4,
     "location": "North Illinois Pleasure Faire",
     "isAvailable": true,
-    "uid": ""
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "food12": {
     "type": "Lemonade",
@@ -105,7 +105,7 @@
     "price": 3,
     "location": "North Illinois Pleasure Faire",
     "isAvailable": true,
-    "uid": ""
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "food13": {
     "type": "Funnel Cake",
@@ -114,7 +114,7 @@
     "price": "7",
     "location": "North Illinois Pleasure Faire",
     "isAvailable": true,
-    "uid": ""
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "food14": {
     "type": "Chocolate Filled Doughnuts",
@@ -123,7 +123,7 @@
     "price": "8",
     "location": "North Illinois Pleasure Faire",
     "isAvailable": true,
-    "uid": ""
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "food15": {
     "type": "Turkey Leg",
@@ -132,6 +132,6 @@
     "price": 11,
     "location": "North Illinois Pleasure Faire",
     "isAvailable": true,
-    "uid": ""
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   }
 }

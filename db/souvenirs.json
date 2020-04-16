@@ -6,7 +6,7 @@
     "imageUrl": "https://pixabay.com/photos/ocarina-flute-colorful-middle-ages-2652942/",
     "price": 20,
     "isAvailable": true,
-    "uid": ""
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "souvenir2": {
     "type": "Fairy Figure",
@@ -15,7 +15,7 @@
     "imageUrl": "https://pixabay.com/photos/fairy-dragon-figure-wrist-2709407/",
     "price": 35,
     "isAvailable": true,
-    "uid": ""
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "souvenir3": {
     "type": "Dragon Birdbath",
@@ -24,7 +24,7 @@
     "imageUrl": "https://pixabay.com/photos/dragons-with-water-bowl-mirroring-4212336/",
     "price": 40,
     "isAvailable": true,
-    "uid": ""
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "souvenir4": {
     "type": "Curved blade",
@@ -33,7 +33,7 @@
     "imageUrl": "https://pixabay.com/photos/arma-pugnale-cuky-nepalese-1176364/",
     "price": 60,
     "isAvailable": true,
-    "uid": ""
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "souvenir5": {
     "type": "Incense burner",
@@ -42,7 +42,7 @@
     "imageUrl": "https://pixabay.com/photos/incense-indian-aromatic-stick-1961430/",
     "price": 50,
     "isAvailable": true,
-    "uid": ""
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "souvenir6": {
     "type": "Ocarina",
@@ -51,7 +51,7 @@
     "imageUrl": "https://pixabay.com/photos/ocarina-flute-colorful-middle-ages-2652942/",
     "price": 20,
     "isAvailable": true,
-    "uid": ""
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "souvenir7": {
     "type": "Fairy Figure",
@@ -60,7 +60,7 @@
     "imageUrl": "https://pixabay.com/photos/fairy-dragon-figure-wrist-2709407/",
     "price": 35,
     "isAvailable": true,
-    "uid": ""
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "souvenir8": {
     "type": "Dragon Birdbath",
@@ -69,7 +69,7 @@
     "imageUrl": "https://pixabay.com/photos/dragons-with-water-bowl-mirroring-4212336/",
     "price": 40,
     "isAvailable": true,
-    "uid": ""
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "souvenir9": {
     "type": "Curved blade",
@@ -78,7 +78,7 @@
     "imageUrl": "https://pixabay.com/photos/arma-pugnale-cuky-nepalese-1176364/",
     "price": 60,
     "isAvailable": true,
-    "uid": ""
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "souvenir10": {
     "type": "Incense burner",
@@ -87,7 +87,7 @@
     "imageUrl": "https://pixabay.com/photos/incense-indian-aromatic-stick-1961430/",
     "price": 50,
     "isAvailable": true,
-    "uid": ""
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },  
   "souvenir11": {
     "type": "Ocarina",
@@ -96,7 +96,7 @@
     "imageUrl": "https://pixabay.com/photos/ocarina-flute-colorful-middle-ages-2652942/",
     "price": 20,
     "isAvailable": true,
-    "uid": ""
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "souvenir12": {
     "type": "Fairy Figure",
@@ -105,7 +105,7 @@
     "imageUrl": "https://pixabay.com/photos/fairy-dragon-figure-wrist-2709407/",
     "price": 35,
     "isAvailable": true,
-    "uid": ""
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "souvenir13": {
     "type": "Dragon Birdbath",
@@ -114,7 +114,7 @@
     "imageUrl": "https://pixabay.com/photos/dragons-with-water-bowl-mirroring-4212336/",
     "price": 40,
     "isAvailable": true,
-    "uid": ""
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "souvenir14": {
     "type": "Curved blade",
@@ -123,7 +123,7 @@
     "imageUrl": "https://pixabay.com/photos/arma-pugnale-cuky-nepalese-1176364/",
     "price": 60,
     "isAvailable": true,
-    "uid": ""
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "souvenir15": {
     "type": "Incense burner",
@@ -132,6 +132,6 @@
     "imageUrl": "https://pixabay.com/photos/incense-indian-aromatic-stick-1961430/",
     "price": 50,
     "isAvailable": true,
-    "uid": ""
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   }
 }
