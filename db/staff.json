@@ -1,0 +1,137 @@
+{
+  "staff1": {
+    "name": "May Jones",
+    "pay": 40,
+    "location": "Edinson Tudor Festival",
+    "characterType": "Noble",
+    "characterName": "Lady Isabetta Ricci",
+    "imageUrl": "https://66.media.tumblr.com/9a62a68aeddc2ad51ff01e392d92dfa7/tumblr_inline_mubfvd88eW1r1cctj.jpg",
+    "uid": ""
+  },
+  "staff2": {
+    "name": "Elias Bouchard",
+    "pay": 30,
+    "location": "Edinson Tudor Festival",
+    "characterType": "Benvenuto Bianchi",
+    "characterName": "Jester",
+    "imageUrl": "https://pixabay.com/photos/jester-city-middle-ages-costume-1714117/ ",
+    "uid": ""
+  },
+  "staff3": {
+    "name": "Daisy Tonner",
+    "pay": 25,
+    "location": "Edinson Tudor Festival",
+    "characterType": "Peasant",
+    "characterName": "Minerva Rossi",
+    "imageUrl": "https://assets.nydailynews.com/polopoly_fs/1.1937207.1410490630!/img/httpImage/image.jpg_gen/derivatives/article_750/inthenow12f-9-web.jpg",
+    "uid": ""
+  },
+  "staff4": {
+    "name": "Martin Blackwood",
+    "pay": 30,
+    "location": "Edinson Tudor Festival",
+    "characterType": "Peasant",
+    "characterName": "Aldo Bianchi",
+    "imageUrl": "https://pixabay.com/photos/portrait-man-medieval-cloak-940115/",
+    "uid": ""
+  },
+  "staff5": {
+    "name": "Jonathon Sims",
+    "pay": 35,
+    "location": "Edinson Tudor Festival",
+    "characterType": "Knight",
+    "characterName": "Alessio Rossi",
+    "imageUrl": "https://pixabay.com/photos/knight-middle-ages-tournament-1506896/",
+    "uid": ""
+  },
+  "staff6": {
+    "name": "May Jones",
+    "pay": 40,
+    "location": "Hopscote-by-Sea Faire",
+    "characterType": "Noble",
+    "characterName": "Lady Isabetta Ricci",
+    "imageUrl": "https://66.media.tumblr.com/9a62a68aeddc2ad51ff01e392d92dfa7/tumblr_inline_mubfvd88eW1r1cctj.jpg",
+    "uid": ""
+  },
+  "staff7": {
+    "name": "Elias Bouchard",
+    "pay": 30,
+    "location": "Hopscote-by-Sea Faire",
+    "characterType": "Benvenuto Bianchi",
+    "characterName": "Jester",
+    "imageUrl": "https://pixabay.com/photos/jester-city-middle-ages-costume-1714117/ ",
+    "uid": ""
+  },
+  "staff8": {
+    "name": "Daisy Tonner",
+    "pay": 25,
+    "location": "Hopscote-by-Sea Faire",
+    "characterType": "Peasant",
+    "characterName": "Minerva Rossi",
+    "imageUrl": "https://assets.nydailynews.com/polopoly_fs/1.1937207.1410490630!/img/httpImage/image.jpg_gen/derivatives/article_750/inthenow12f-9-web.jpg",
+    "uid": ""
+  },
+  "staff9": {
+    "name": "Martin Blackwood",
+    "pay": 30,
+    "location": "Hopscote-by-Sea Faire",
+    "characterType": "Peasant",
+    "characterName": "Aldo Bianchi",
+    "imageUrl": "https://pixabay.com/photos/portrait-man-medieval-cloak-940115/",
+    "uid": ""
+  },
+  "staff10": {
+    "name": "Jonathon Sims",
+    "pay": 35,
+    "location": "Hopscote-by-Sea Faire",
+    "characterType": "Knight",
+    "characterName": "Alessio Rossi",
+    "imageUrl": "https://pixabay.com/photos/knight-middle-ages-tournament-1506896/",
+    "uid": ""
+  },
+  "staff11": {
+    "name": "May Jones",
+    "pay": 40,
+    "location": "North Illinois Pleasure Faire",
+    "characterType": "Noble",
+    "characterName": "Lady Isabetta Ricci",
+    "imageUrl": "https://66.media.tumblr.com/9a62a68aeddc2ad51ff01e392d92dfa7/tumblr_inline_mubfvd88eW1r1cctj.jpg",
+    "uid": ""
+  },
+  "staff12": {
+    "name": "Elias Bouchard",
+    "pay": 30,
+    "location": "North Illinois Pleasure Faire",
+    "characterType": "Benvenuto Bianchi",
+    "characterName": "Jester",
+    "imageUrl": "https://pixabay.com/photos/jester-city-middle-ages-costume-1714117/ ",
+    "uid": ""
+  },
+  "staff13": {
+    "name": "Daisy Tonner",
+    "pay": 25,
+    "location": "North Illinois Pleasure Faire",
+    "characterType": "Peasant",
+    "characterName": "Minerva Rossi",
+    "imageUrl": "https://assets.nydailynews.com/polopoly_fs/1.1937207.1410490630!/img/httpImage/image.jpg_gen/derivatives/article_750/inthenow12f-9-web.jpg",
+    "uid": ""
+  },
+  "staff14": {
+    "name": "Martin Blackwood",
+    "pay": 30,
+    "location": "North Illinois Pleasure Faire",
+    "characterType": "Peasant",
+    "characterName": "Aldo Bianchi",
+    "imageUrl": "https://pixabay.com/photos/portrait-man-medieval-cloak-940115/",
+    "uid": ""
+  },
+  "staff15": {
+    "name": "Jonathon Sims",
+    "pay": 35,
+    "location": "North Illinois Pleasure Faire",
+    "characterType": "Knight",
+    "characterName": "Alessio Rossi",
+    "imageUrl": "https://pixabay.com/photos/knight-middle-ages-tournament-1506896/",
+    "uid": ""
+  }
+}
