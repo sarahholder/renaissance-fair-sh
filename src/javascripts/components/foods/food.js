@@ -1,10 +1,9 @@
-import foodData from '../../helpers/data/foodData';
 // import utils from '../../helpers/utils';
+import foodData from '../../helpers/data/foodData';
 
 const buildAllFoods = () => {
   foodData.getFoods()
     .then((foods) => {
-      // let domString = '';
       foods.forEach((foodInformation) => {
         console.error(foodInformation.type);
       });
