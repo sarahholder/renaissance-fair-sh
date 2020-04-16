@@ -5,14 +5,64 @@
   font-family: $bigFonts;
 }
 
-h2 {
-  font-family: $allFonts;
-}
-
 h3 {
+  font-family: $bigFonts;
+}
+
+h4 {
   font-family: $allFonts;
 }
 
-p {
+h5 {
   font-family: $allFonts;
 }
+
+img {
+  height: 350px;
+  width: auto;
+}
+
+#editBtn {
+    background-color: $gold;
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    border: $gold;
+    color: $black;
+    font-family: $allFonts;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 20px;
+    &:hover {
+      background-color: #ffd54d;   
+    }
+}    
+
+#deleteBtn {
+  background-color: $primaryRed;
+  padding: 10px;
+  width: 150px;
+  border-radius: 10px;
+  border: $gold;
+  color: $white;
+  font-family: $allFonts;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  font-size: 20px;
+  &:hover {
+    background-color: #a21129;   
+  }
+}
+
+#foodCardBody {
+  height: 300px;
+}
+
+
+#allFoodCards {
+  border: solid 10px black;
+  background-color: $white;
+}
+
