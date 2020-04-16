@@ -1,0 +1,137 @@
+{
+  "souvenir1": {
+    "type": "Ocarina",
+    "description": "A small wind instrument",
+    "location": "Edinson Tudor Festival",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
+    "price": 20,
+    "isAvailable": true,
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
+  },
+  "souvenir2": {
+    "type": "Fairy Figure",
+    "description": "A small figure depicting a colorful fairy",
+    "location": "Edinson Tudor Festival",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
+    "price": 35,
+    "isAvailable": true,
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
+  },
+  "souvenir3": {
+    "type": "Dragon Birdbath",
+    "description": "A birdbath with attached dragon figure",
+    "location": "Edinson Tudor Festival",
+    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
+    "price": 40,
+    "isAvailable": true,
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
+  },
+  "souvenir4": {
+    "type": "Curved blade",
+    "description": "A small curved blade",
+    "location": "Edinson Tudor Festival",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
+    "price": 60,
+    "isAvailable": true,
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
+  },
+  "souvenir5": {
+    "type": "Incense burner",
+    "description": "A beautiful incense burner for the home",
+    "location": "Hopscote-by-Sea Faire",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
+    "price": 50,
+    "isAvailable": true,
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
+  },
+  "souvenir6": {
+    "type": "Ocarina",
+    "description": "A small wind instrument",
+    "location": "Hopscote-by-Sea Faire",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
+    "price": 20,
+    "isAvailable": true,
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
+  },
+  "souvenir7": {
+    "type": "Fairy Figure",
+    "description": "A small figure depicting a colorful fairy",
+    "location": "Hopscote-by-Sea Faire",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
+    "price": 35,
+    "isAvailable": true,
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
+  },
+  "souvenir8": {
+    "type": "Dragon Birdbath",
+    "description": "A birdbath with attached dragon figure",
+    "location": "Hopscote-by-Sea Faire",
+    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
+    "price": 40,
+    "isAvailable": true,
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
+  },
+  "souvenir9": {
+    "type": "Curved blade",
+    "description": "A small curved blade",
+    "location": "Hopscote-by-Sea Faire",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
+    "price": 60,
+    "isAvailable": true,
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
+  },
+  "souvenir10": {
+    "type": "Incense burner",
+    "description": "A beautiful incense burner for the home",
+    "location": "Edinson Tudor Festival",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
+    "price": 50,
+    "isAvailable": true,
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
+  },  
+  "souvenir11": {
+    "type": "Ocarina",
+    "description": "A small wind instrument",
+    "location": "North Illinois Pleasure Faire",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
+    "price": 20,
+    "isAvailable": true,
+    "uid": "1234"
+  },
+  "souvenir12": {
+    "type": "Fairy Figure",
+    "description": "A small figure depicting a colorful fairy",
+    "location": "North Illinois Pleasure Faire",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
+    "price": 35,
+    "isAvailable": true,
+    "uid": "1234"
+  },
+  "souvenir13": {
+    "type": "Dragon Birdbath",
+    "description": "A birdbath with attached dragon figure",
+    "location": "North Illinois Pleasure Faire",
+    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
+    "price": 40,
+    "isAvailable": true,
+    "uid": "1234"
+  },
+  "souvenir14": {
+    "type": "Curved blade",
+    "description": "A small curved blade",
+    "location": "North Illinois Pleasure Faire",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
+    "price": 60,
+    "isAvailable": true,
+    "uid": "1234"
+  },
+  "souvenir15": {
+    "type": "Incense burner",
+    "description": "A beautiful incense burner for the home",
+    "location": "North Illinois Pleasure Faire",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
+    "price": 50,
+    "isAvailable": true,
+    "uid": "1234"
+  }
+}
