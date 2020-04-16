@@ -7,8 +7,10 @@ const buildAllFoods = () => {
   let domString = '';
   foodData.getFoods()
     .then((foods) => {
-      domString += '<h2 class="text-center p-4" id="foodTitle">FOODS</h2>';
-      domString += '<button id="addFoodBtn" class="hide">Add New Food Item <i class="far fa-trash-alt"></i></button>';
+      domString += '<div id="foodTitle">';
+      domString += '<h2 class="text-center p-3">FOODS</h2>';
+      domString += '<button class="hide" id="addFoodBtn">Add New Food Item <i class="fas fa-plus"></i></i></button>';
+      domString += '</div>';
       domString += '<div class="d-flex flex-wrap">';
       foods.forEach((food) => {
         domString += foodComponent.foodDataCardInfo(food);
