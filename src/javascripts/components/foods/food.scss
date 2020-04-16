@@ -1,7 +1,7 @@
 @import '../../../styles/colors';
 @import '../../../styles/fonts';
 
-#foodTitle {
+.foodTitle {
   background-color: $primaryRed;
   color: white;
 
@@ -78,12 +78,16 @@ img {
 }
  
 
-#foodCardBody {
+.foodCardBody {
   height: 300px;
 }
 
 
-#allFoodCards {
+.allFoodCards {
   border: solid 10px black;
+}
+
+.hide {
+  display: none;
 }
 

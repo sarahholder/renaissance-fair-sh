@@ -6,8 +6,8 @@ import food from '../../components/foods/food';
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
 // food buttons
-const editBtn = $('#editBtn');
-const deleteBtn = $('#deleteBtn');
+const editFoodBtn = $('#editFoodBtn');
+const deleteFoodBtn = $('#deleteFoodBtn');
 const addFoodBtn = $('#addFoodBtn');
 
 const checkLoginStatus = () => {
@@ -16,19 +16,18 @@ const checkLoginStatus = () => {
       loginButton.addClass('hide');
       logoutButton.removeClass('hide');
       // food login
-      food.buildAllFoods();
-      editBtn.removeClass('hide');
-      deleteBtn.removeClass('hide');
+      editFoodBtn.removeClass('hide');
+      deleteFoodBtn.removeClass('hide');
       addFoodBtn.removeClass('hide');
     } else {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
       // food logout
-      food.buildAllFoods();
-      editBtn.addClass('hide');
-      deleteBtn.addClass('hide');
+      editFoodBtn.addClass('hide');
+      deleteFoodBtn.addClass('hide');
       addFoodBtn.addClass('hide');
     }
+    food.buildAllFoods();
   });
 };
 

@@ -3,6 +3,15 @@ import foodData from '../../helpers/data/foodData';
 import foodComponent from './foodComponent';
 import './food.scss';
 
+const removeFoodCards = (e) => {
+  const foodId = e.target.closest('.card').id;
+  console.error(foodId, 'removeFoodCards');
+  foodData.deleteFoods(foodId)
+    // eslint-disable-next-line no-use-before-define
+    .then(() => buildAllFoods())
+    .catch((err) => console.error('delete foods failed', err));
+};
+
 const buildAllFoods = () => {
   let domString = '';
   foodData.getFoods()
@@ -17,6 +26,7 @@ const buildAllFoods = () => {
       });
       domString += '</div>';
       utils.printToDom('foodCards', domString);
+      $('body').on('click', '#deleteFoodBtn', removeFoodCards);
     })
     .catch((err) => console.error('build all foods has failed you', err));
 };
