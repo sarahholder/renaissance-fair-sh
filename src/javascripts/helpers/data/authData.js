@@ -1,6 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+import shows from '../../components/shows/shows';
+
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
 
@@ -13,6 +15,7 @@ const checkLoginStatus = () => {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
     }
+    shows.buildAllShows();
   });
 };
 
