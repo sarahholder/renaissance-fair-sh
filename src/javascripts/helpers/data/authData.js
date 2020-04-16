@@ -8,6 +8,7 @@ const logoutButton = $('#logoutButton');
 // food buttons
 const editBtn = $('#editBtn');
 const deleteBtn = $('#deleteBtn');
+const addFoodBtn = $('#addFoodBtn');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -18,6 +19,7 @@ const checkLoginStatus = () => {
       food.buildAllFoods();
       editBtn.removeClass('hide');
       deleteBtn.removeClass('hide');
+      addFoodBtn.removeClass('hide');
     } else {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
@@ -25,6 +27,7 @@ const checkLoginStatus = () => {
       food.buildAllFoods();
       editBtn.addClass('hide');
       deleteBtn.addClass('hide');
+      addFoodBtn.addClass('hide');
     }
   });
 };

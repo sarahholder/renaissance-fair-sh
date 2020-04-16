@@ -8,6 +8,7 @@ const buildAllFoods = () => {
   foodData.getFoods()
     .then((foods) => {
       domString += '<h2 class="text-center p-4" id="foodTitle">FOODS</h2>';
+      domString += '<button id="addFoodBtn" class="hide">Add New Food Item <i class="far fa-trash-alt"></i></button>';
       domString += '<div class="d-flex flex-wrap">';
       foods.forEach((food) => {
         domString += foodComponent.foodDataCardInfo(food);
