@@ -37,3 +37,17 @@ nav {
 .hide {
   display: none;
 }
+
+.jumbotron {
+  background-image: url("https://cdn.pixabay.com/photo/2016/07/09/21/27/knight-1506882_1280.jpg");
+  background-size: cover;
+  height: 735px;
+  color:white;
+  font-family: $bigFonts;
+    h1 {
+      font-size: 95px;
+      margin-top: 125px;
+      -webkit-text-stroke: 1.5px $black;
+    }
+}
+
