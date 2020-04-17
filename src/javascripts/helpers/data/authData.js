@@ -11,23 +11,16 @@ const logoutButton = $('#logoutButton');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
+    let login = false;
     if (user) {
       loginButton.addClass('hide');
       logoutButton.removeClass('hide');
-      // food login
-      food.viewFoodButtons();
-      $('#editFoodBtn').removeClass('hide');
-      $('#deleteFoodBtn').removeClass('hide');
-      $('#addFoodBtn').removeClass('hide');
+      login = true;
     } else {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
-      // food logout
-      $('#editFoodBtn').addClass('hide');
-      $('#deleteFoodBtn').addClass('hide');
-      $('#addFoodBtn').addClass('hide');
     }
-    food.buildAllFoods();
+    food.buildAllFoods(login);
     shows.buildAllShows();
     souvenirs.buildAllSouvenirs();
   });

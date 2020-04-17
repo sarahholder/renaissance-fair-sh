@@ -14,8 +14,8 @@ const foodDataCardInfo = (food) => {
   domString += `<h5>Currently Avaliable: ${food.isAvailable}</h5>`;
   domString += '</div>';
   domString += '</div>';
-  domString += '<button id="editFoodBtn" class="hide">Edit <i class="fas fa-feather-alt"></i></button>';
-  domString += '<button id="deleteFoodBtn" class="hide">Delete <i class="far fa-trash-alt"></i></button>';
+  domString += '<button id="editFoodBtn">Edit <i class="fas fa-feather-alt"></i></button>';
+  domString += '<button id="deleteFoodBtn">Delete <i class="far fa-trash-alt"></i></button>';
   domString += '</div>';
   domString += '</div>';
 

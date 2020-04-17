@@ -11,13 +11,14 @@ const removeFoodCards = (e) => {
     .catch((err) => console.error('delete foods failed', err));
 };
 
-const buildAllFoods = () => {
+const buildAllFoods = (login) => {
   let domString = '';
   foodData.getFoods()
     .then((foods) => {
       domString += '<div id="foodTitle">';
       domString += '<h2 class="text-center p-3">FOODS</h2>';
-      domString += '<button class="hide" id="addFoodBtn">Add New Food Item <i class="fas fa-plus"></i></i></button>';
+      domString += login ? '<button id="addFoodBtn">' : '<button class="hide" id="addFoodBtn">';
+      domString += 'Add New Food Item <i class="fas fa-plus"></i></i></button>';
       domString += '</div>';
       domString += '<div class="d-flex flex-wrap">';
       foods.forEach((food) => {
@@ -30,10 +31,10 @@ const buildAllFoods = () => {
     .catch((err) => console.error('build all foods has failed you', err));
 };
 
-const viewFoodButtons = () => {
-  $('#editFoodBtn').removeClass('hide');
-  $('#deleteFoodBtn').removeClass('hide');
-  $('#addFoodBtn').removeClass('hide');
-};
+// const viewFoodButtons = () => {
+//   $('#editFoodBtn').removeClass('hide');
+//   $('#deleteFoodBtn').removeClass('hide');
+//   $('#addFoodBtn').removeClass('hide');
+// };
 
-export default { buildAllFoods, viewFoodButtons };
+export default { buildAllFoods };
