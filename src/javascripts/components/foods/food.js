@@ -30,4 +30,10 @@ const buildAllFoods = () => {
     .catch((err) => console.error('build all foods has failed you', err));
 };
 
-export default { buildAllFoods };
+const viewFoodButtons = () => {
+  $('#editFoodBtn').removeClass('hide');
+  $('#deleteFoodBtn').removeClass('hide');
+  $('#addFoodBtn').removeClass('hide');
+};
+
+export default { buildAllFoods, viewFoodButtons };
