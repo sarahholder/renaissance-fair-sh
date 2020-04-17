@@ -8,6 +8,7 @@ import '../styles/main.scss';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
+  authData.buildFoodCards();
   authData.checkLoginStatus();
   auth.loginPage();
   auth.logoutPage();

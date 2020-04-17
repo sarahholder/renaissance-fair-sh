@@ -1,16 +1,7 @@
 import './food.scss';
 
-const buttons = (login) => {
-  let domString = '';
-  domString += login ? '<button id="editFoodBtn">' : '<button id="editFoodBtn" class="hide">';
-  domString += 'Edit <i class="fas fa-feather-alt"></i></button>';
-  domString += login ? '<button id="deleteFoodBtn">' : '<button id="deleteFoodBtn" class="hide">';
-  domString += 'Delete <i class="far fa-trash-alt"></i></button>';
 
-  return domString;
-};
-
-const foodDataCardInfo = (food, login) => {
+const foodDataCardInfo = (food) => {
   let domString = '';
   domString += '<div class="col-3 p-2 d-flex align-items-stretch">';
   domString += `<div id="${food.id}" class="card allFoodCards">`;
@@ -23,7 +14,8 @@ const foodDataCardInfo = (food, login) => {
   domString += `<h5>Where: ${food.location}</h5>`;
   domString += `<h5>Currently Avaliable: ${food.isAvailable}</h5>`;
   domString += '</div>';
-  domString += buttons(login);
+  domString += '<button id="editFoodBtn" class="hide">Edit <i class="fas fa-feather-alt"></i></<button>';
+  domString += '<button id="deleteFoodBtn">Delete <i class="far fa-trash-alt"></i></button>';
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';
@@ -31,4 +23,4 @@ const foodDataCardInfo = (food, login) => {
   return domString;
 };
 
-export default { foodDataCardInfo, buttons };
+export default { foodDataCardInfo };
