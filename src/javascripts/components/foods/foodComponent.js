@@ -2,7 +2,6 @@ import './food.scss';
 
 const foodDataCardInfo = (food) => {
   let domString = '';
-  console.error(food.id, 'console error food in food compoenent');
   domString += '<div class="col-3 p-2 d-flex align-items-stretch">';
   domString += `<div id="${food.id}" class="card allFoodCards">`;
   domString += `<h3 class="foodType text-center p-4">${food.type}</h3>`;
@@ -16,7 +15,7 @@ const foodDataCardInfo = (food) => {
   domString += '</div>';
   domString += '</div>';
   domString += '<button id="editFoodBtn" class="hide">Edit <i class="fas fa-feather-alt"></i></button>';
-  domString += '<button id="deleteFoodBtn" class="">Delete <i class="far fa-trash-alt"></i></button>';
+  domString += '<button id="deleteFoodBtn" class="hide">Delete <i class="far fa-trash-alt"></i></button>';
   domString += '</div>';
   domString += '</div>';
 

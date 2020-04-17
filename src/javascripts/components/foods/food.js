@@ -5,7 +5,6 @@ import './food.scss';
 
 const removeFoodCards = (e) => {
   const foodId = e.target.closest('.card').id;
-  console.error(foodId, 'removeFoodCards');
   foodData.deleteFoods(foodId)
     // eslint-disable-next-line no-use-before-define
     .then(() => buildAllFoods())

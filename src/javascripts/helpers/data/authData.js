@@ -12,6 +12,7 @@ const addFoodBtn = $('#addFoodBtn');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
+    food.buildAllFoods();
     if (user) {
       loginButton.addClass('hide');
       logoutButton.removeClass('hide');
@@ -27,7 +28,6 @@ const checkLoginStatus = () => {
       deleteFoodBtn.addClass('hide');
       addFoodBtn.addClass('hide');
     }
-    food.buildAllFoods();
   });
 };
 
