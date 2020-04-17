@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import souvenirs from '../../components/souvenirs/souvenirs';
 
 import food from '../../components/foods/food';
 
@@ -29,6 +30,7 @@ const checkLoginStatus = () => {
       deleteBtn.addClass('hide');
       addFoodBtn.addClass('hide');
     }
+    souvenirs.buildAllSouvenirs();
   });
 };
 
