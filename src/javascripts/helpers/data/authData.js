@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import souvenirs from '../../components/souvenirs/souvenirs';
 
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
@@ -13,6 +14,7 @@ const checkLoginStatus = () => {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
     }
+    souvenirs.buildAllSouvenirs();
   });
 };
 
