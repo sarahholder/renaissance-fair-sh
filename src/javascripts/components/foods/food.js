@@ -5,9 +5,8 @@ import './food.scss';
 
 const removeFoodCards = (e) => {
   const foodId = e.target.closest('.card').id;
-  e.preventDefault();
   foodData.deleteFoods(foodId)
-    // eslint-disable-next-line no-use-before-define
+  // eslint-disable-next-line no-use-before-define
     .then(() => buildAllFoods())
     .catch((err) => console.error('delete foods failed', err));
 };
@@ -18,7 +17,7 @@ const buildAllFoods = () => {
     .then((foods) => {
       domString += '<div id="foodTitle">';
       domString += '<h2 class="text-center p-3">FOODS</h2>';
-      domString += '<button class="hide" id="addFoodBtn">Add New Food Item <i class="fas fa-plus"></i></i></<button>';
+      domString += '<button id="addFoodBtn">Add New Food Item <i class="fas fa-plus"></i></i></<button>';
       domString += '</div>';
       domString += '<div class="d-flex flex-wrap">';
       foods.forEach((food) => {

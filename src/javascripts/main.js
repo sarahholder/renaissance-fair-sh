@@ -5,11 +5,12 @@ import authData from './helpers/data/authData';
 import auth from './components/auth/auth';
 
 import '../styles/main.scss';
+import food from './components/foods/food';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
-  authData.buildFoodCards();
   authData.checkLoginStatus();
+  food.buildAllFoods();
   auth.loginPage();
   auth.logoutPage();
 };
