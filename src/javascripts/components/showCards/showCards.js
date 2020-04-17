@@ -1,5 +1,4 @@
 import './showCards.scss';
-import '../../../styles/main.scss';
 
 const buildShowCards = (show) => {
   let domString = '';
