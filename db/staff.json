@@ -14,7 +14,7 @@
     "location": "Edinson Tudor Festival",
     "characterType": "Benvenuto Bianchi",
     "characterName": "Jester",
-    "imageUrl": "https://pixabay.com/photos/jester-city-middle-ages-costume-1714117/ ",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/10/04/11/43/jester-1714117_1280.jpg",
     "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "staff3": {
@@ -32,7 +32,7 @@
     "location": "Edinson Tudor Festival",
     "characterType": "Peasant",
     "characterName": "Aldo Bianchi",
-    "imageUrl": "https://pixabay.com/photos/portrait-man-medieval-cloak-940115/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2015/09/14/21/06/portrait-940115_1280.jpg",
     "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "staff5": {
@@ -41,7 +41,7 @@
     "location": "Edinson Tudor Festival",
     "characterType": "Knight",
     "characterName": "Alessio Rossi",
-    "imageUrl": "https://pixabay.com/photos/knight-middle-ages-tournament-1506896/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/07/09/21/28/knight-1506896_1280.jpg",
     "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },
   "staff6": {
@@ -59,7 +59,7 @@
     "location": "Hopscote-by-Sea Faire",
     "characterType": "Benvenuto Bianchi",
     "characterName": "Jester",
-    "imageUrl": "https://pixabay.com/photos/jester-city-middle-ages-costume-1714117/ ",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/10/04/11/43/jester-1714117_1280.jpg",
     "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "staff8": {
@@ -77,7 +77,7 @@
     "location": "Hopscote-by-Sea Faire",
     "characterType": "Peasant",
     "characterName": "Aldo Bianchi",
-    "imageUrl": "https://pixabay.com/photos/portrait-man-medieval-cloak-940115/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2015/09/14/21/06/portrait-940115_1280.jpg",
     "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "staff10": {
@@ -86,7 +86,7 @@
     "location": "Hopscote-by-Sea Faire",
     "characterType": "Knight",
     "characterName": "Alessio Rossi",
-    "imageUrl": "https://pixabay.com/photos/knight-middle-ages-tournament-1506896/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/07/09/21/28/knight-1506896_1280.jpg",
     "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "staff11": {
@@ -104,7 +104,7 @@
     "location": "North Illinois Pleasure Faire",
     "characterType": "Benvenuto Bianchi",
     "characterName": "Jester",
-    "imageUrl": "https://pixabay.com/photos/jester-city-middle-ages-costume-1714117/ ",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/10/04/11/43/jester-1714117_1280.jpg",
     "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "staff13": {
@@ -122,7 +122,7 @@
     "location": "North Illinois Pleasure Faire",
     "characterType": "Peasant",
     "characterName": "Aldo Bianchi",
-    "imageUrl": "https://pixabay.com/photos/portrait-man-medieval-cloak-940115/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2015/09/14/21/06/portrait-940115_1280.jpg",
     "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "staff15": {
@@ -131,7 +131,7 @@
     "location": "North Illinois Pleasure Faire",
     "characterType": "Knight",
     "characterName": "Alessio Rossi",
-    "imageUrl": "https://pixabay.com/photos/knight-middle-ages-tournament-1506896/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/07/09/21/28/knight-1506896_1280.jpg",
     "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   }
 }

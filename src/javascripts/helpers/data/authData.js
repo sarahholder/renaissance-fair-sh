@@ -4,6 +4,8 @@ import souvenirs from '../../components/souvenirs/souvenirs';
 
 import food from '../../components/foods/food';
 
+import shows from '../../components/shows/shows';
+
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
 // food buttons
@@ -30,6 +32,7 @@ const checkLoginStatus = () => {
       deleteBtn.addClass('hide');
       addFoodBtn.addClass('hide');
     }
+    shows.buildAllShows();
     souvenirs.buildAllSouvenirs();
   });
 };
