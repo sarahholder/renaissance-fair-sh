@@ -22,7 +22,7 @@ const buildAllFoods = (login) => {
       domString += '</div>';
       domString += '<div class="d-flex flex-wrap">';
       foods.forEach((food) => {
-        domString += foodComponent.foodDataCardInfo(food);
+        domString += foodComponent.foodDataCardInfo(food, login);
       });
       domString += '</div>';
       utils.printToDom('foodCards', domString);
