@@ -3,7 +3,7 @@
     "type": "Ocarina",
     "description": "A small wind instrument",
     "location": "Edinson Tudor Festival",
-    "imageUrl": "https://pixabay.com/photos/ocarina-flute-colorful-middle-ages-2652942/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
     "price": 20,
     "isAvailable": true,
     "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
@@ -12,7 +12,7 @@
     "type": "Fairy Figure",
     "description": "A small figure depicting a colorful fairy",
     "location": "Edinson Tudor Festival",
-    "imageUrl": "https://pixabay.com/photos/fairy-dragon-figure-wrist-2709407/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
     "price": 35,
     "isAvailable": true,
     "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
@@ -21,7 +21,7 @@
     "type": "Dragon Birdbath",
     "description": "A birdbath with attached dragon figure",
     "location": "Edinson Tudor Festival",
-    "imageUrl": "https://pixabay.com/photos/dragons-with-water-bowl-mirroring-4212336/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
     "price": 40,
     "isAvailable": true,
     "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
@@ -30,7 +30,7 @@
     "type": "Curved blade",
     "description": "A small curved blade",
     "location": "Edinson Tudor Festival",
-    "imageUrl": "https://pixabay.com/photos/arma-pugnale-cuky-nepalese-1176364/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
     "price": 60,
     "isAvailable": true,
     "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
@@ -39,16 +39,16 @@
     "type": "Incense burner",
     "description": "A beautiful incense burner for the home",
     "location": "Hopscote-by-Sea Faire",
-    "imageUrl": "https://pixabay.com/photos/incense-indian-aromatic-stick-1961430/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
     "price": 50,
     "isAvailable": true,
-    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
+    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
   },
   "souvenir6": {
     "type": "Ocarina",
     "description": "A small wind instrument",
     "location": "Hopscote-by-Sea Faire",
-    "imageUrl": "https://pixabay.com/photos/ocarina-flute-colorful-middle-ages-2652942/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
     "price": 20,
     "isAvailable": true,
     "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
@@ -57,7 +57,7 @@
     "type": "Fairy Figure",
     "description": "A small figure depicting a colorful fairy",
     "location": "Hopscote-by-Sea Faire",
-    "imageUrl": "https://pixabay.com/photos/fairy-dragon-figure-wrist-2709407/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
     "price": 35,
     "isAvailable": true,
     "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
@@ -66,7 +66,7 @@
     "type": "Dragon Birdbath",
     "description": "A birdbath with attached dragon figure",
     "location": "Hopscote-by-Sea Faire",
-    "imageUrl": "https://pixabay.com/photos/dragons-with-water-bowl-mirroring-4212336/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
     "price": 40,
     "isAvailable": true,
     "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
@@ -75,7 +75,7 @@
     "type": "Curved blade",
     "description": "A small curved blade",
     "location": "Hopscote-by-Sea Faire",
-    "imageUrl": "https://pixabay.com/photos/arma-pugnale-cuky-nepalese-1176364/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
     "price": 60,
     "isAvailable": true,
     "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
@@ -84,34 +84,30 @@
     "type": "Incense burner",
     "description": "A beautiful incense burner for the home",
     "location": "Edinson Tudor Festival",
-    "imageUrl": "https://pixabay.com/photos/incense-indian-aromatic-stick-1961430/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
     "price": 50,
     "isAvailable": true,
-    "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
+    "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
   },  
   "souvenir11": {
     "type": "Ocarina",
     "description": "A small wind instrument",
     "location": "North Illinois Pleasure Faire",
-    "imageUrl": "https://pixabay.com/photos/ocarina-flute-colorful-middle-ages-2652942/",
-    "price": 20,
-    "isAvailable": true,
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
     "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "souvenir12": {
     "type": "Fairy Figure",
     "description": "A small figure depicting a colorful fairy",
     "location": "North Illinois Pleasure Faire",
-    "imageUrl": "https://pixabay.com/photos/fairy-dragon-figure-wrist-2709407/",
-    "price": 35,
-    "isAvailable": true,
-    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
+      "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "souvenir13": {
     "type": "Dragon Birdbath",
     "description": "A birdbath with attached dragon figure",
     "location": "North Illinois Pleasure Faire",
-    "imageUrl": "https://pixabay.com/photos/dragons-with-water-bowl-mirroring-4212336/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
     "price": 40,
     "isAvailable": true,
     "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
@@ -120,7 +116,7 @@
     "type": "Curved blade",
     "description": "A small curved blade",
     "location": "North Illinois Pleasure Faire",
-    "imageUrl": "https://pixabay.com/photos/arma-pugnale-cuky-nepalese-1176364/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
     "price": 60,
     "isAvailable": true,
     "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
@@ -129,7 +125,7 @@
     "type": "Incense burner",
     "description": "A beautiful incense burner for the home",
     "location": "North Illinois Pleasure Faire",
-    "imageUrl": "https://pixabay.com/photos/incense-indian-aromatic-stick-1961430/",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
     "price": 50,
     "isAvailable": true,
     "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
