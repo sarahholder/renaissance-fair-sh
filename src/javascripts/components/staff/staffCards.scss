@@ -1,0 +1,15 @@
+@import '../../../styles/fonts.scss';
+
+img {
+  width: 100%;
+}
+
+.card {
+  height: 100%;
+  font-family: $allFonts;
+}
+
+#staff-collection h2 {
+  font-family: $bigFonts;
+  font-size: 50px;
+}

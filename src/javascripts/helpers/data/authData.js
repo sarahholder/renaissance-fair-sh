@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import souvenirs from '../../components/souvenirs/souvenirs';
 import shows from '../../components/shows/shows';
+import staff from '../../components/staff/staff';
 
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
@@ -24,6 +25,7 @@ const checkLoginStatus = () => {
     }
     shows.buildAllShows();
     souvenirs.buildAllSouvenirs();
+    staff.buildAllStaff();
   });
 };
 
