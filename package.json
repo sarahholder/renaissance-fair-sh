@@ -2,7 +2,7 @@
   "name": "nutshell-sithlords",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/javascripts/main.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production --module-bind js=babel-loader",
@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nss-evening-cohort-11/nutshell-sithlords/issues"
   },
@@ -42,7 +42,7 @@
     "@fortawesome/fontawesome-free": "^5.13.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
-    "firebase": "^7.14.0",
+    "firebase": "^7.14.1",
     "jquery": "^3.5.0",
     "popper.js": "^1.16.1"
   }

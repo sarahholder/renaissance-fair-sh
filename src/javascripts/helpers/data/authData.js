@@ -5,6 +5,7 @@ import souvenirs from '../../components/souvenirs/souvenirs';
 import food from '../../components/foods/food';
 
 import shows from '../../components/shows/shows';
+import staff from '../../components/staff/staff';
 
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
@@ -34,6 +35,7 @@ const checkLoginStatus = () => {
     }
     shows.buildAllShows();
     souvenirs.buildAllSouvenirs();
+    staff.buildAllStaff();
   });
 };
 
