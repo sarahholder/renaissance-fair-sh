@@ -50,3 +50,17 @@ nav {
       -webkit-text-stroke: 1.5px $black;
     }
 }
+
+#addFoodBtn {
+  background-color: $gold;
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  border: $gold;
+  color: $black;
+  font-family: $allFonts;
+  font-size: 20px;
+  &:hover {
+    background-color: #ffd54d;   
+  }
+}
