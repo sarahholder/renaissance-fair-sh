@@ -16,10 +16,11 @@ const buildAllFoods = () => {
   foodData.getFoods()
     .then((foods) => {
       domString += '<div id="foodTitle">';
-      domString += '<h2 class="text-center p-3">FOODS</h2>';
-      domString += '<button id="addFoodBtn">Add New Food Item <i class="fas fa-plus"></i></i></<button>';
+      domString += '<h2 class="text-center mt-3">Foods</h2>';
+      domString += '<h3 class="text-center">Delicious foods and beverages</h3>';
+      domString += '<button class="addFoodBtn btn btn-default btn-lg" id="addFoodBtn">Add New Food Item <i class="fas fa-plus"></i></i></button>';
       domString += '</div>';
-      domString += '<div class="d-flex flex-wrap">';
+      domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       foods.forEach((food) => {
         domString += foodComponent.foodDataCardInfo(food);
       });
