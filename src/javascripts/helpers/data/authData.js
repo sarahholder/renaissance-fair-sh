@@ -10,6 +10,7 @@ const logoutButton = $('#logoutButton');
 
 const builders = () => {
   food.buildAllFoods();
+  souvenirs.buildAllSouvenirs();
 };
 
 const checkLoginStatus = () => {

@@ -1,6 +1,6 @@
 const buildSouvenirsCards = (souvenir) => {
   let domString = '';
-  domString += '<div class="col-3 d-flex align-items-stretch">';
+  domString += '<div class="col-4 mb-2">';
   domString += `<div class="card" id="${souvenir.id}">`;
   domString += `<img src="${souvenir.imageUrl}" class="card-img-top img-fluid souvenirs-image">`;
   domString += `<div class="text-center">${souvenir.type}</div>`;
