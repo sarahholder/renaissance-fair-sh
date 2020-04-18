@@ -34,10 +34,10 @@ const buildAllFoods = () => {
   let domString = '';
   foodData.getFoods()
     .then((foods) => {
-      domString += '<div id="foodTitle">';
-      domString += '<h2 class="text-center mt-3">Foods</h2>';
-      domString += '<h3 class="text-center">Delicious foods and beverages</h3>';
-      domString += '<button class="hide btn btn-default btn-lg addFoodBtn" id="addFoodBtn"><i class="fas fa-plus"></i> Add new food item</button>';
+      domString += '<div class="text-center" id="foodTitle">';
+      domString += '<h2 class="mt-3">Foods</h2>';
+      domString += '<h3>Delicious foods and beverages</h3>';
+      domString += '<button class="btn btn-lg addFoodBtn" id="addFoodBtn"><i class="fas fa-plus"></i> Add new food item</button>';
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       foods.forEach((food) => {
