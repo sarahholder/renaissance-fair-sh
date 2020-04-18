@@ -26,6 +26,7 @@ const checkLoginStatus = () => {
       $('.souvenirs-delete-btn').removeClass('hide');
       $('.souvenirs-edit-btn').removeClass('hide');
       souvenirs.souvenirsEvents();
+      staff.staffEvents();
     } else {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');

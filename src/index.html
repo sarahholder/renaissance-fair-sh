@@ -17,7 +17,7 @@
           <a class="nav-link" href="#foodCards">FOOD<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#souvenirsRead">SOUVENIRS</a>
+          <a class="nav-link" href="#souvenirs">SOUVENIRS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#staff-collection">STAFF</a>
@@ -44,8 +44,61 @@
         </div>
   </div>
   
-
+<!-- Staff section begin -->
 <div id="staff-collection" class="align-items-center"></div>
+
+<!-- Staff modal begin -->
+<div class="modal" id="addStaffModal" data-target="#myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add a staff member</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="staffName">Enter name of new staff member</label>
+            <input type="text" class="form-control" id="staffName" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <label for="characterType">Enter the type of character</label>
+            <input type="text" class="form-control" id="characterType" placeholder="Type of character (enter n/a if it doesn't apply)">
+          </div>
+          <div class="form-group">
+            <label for="staffImageUrl">Staff member photo</label>
+            <input type="text" class="form-control" id="staffImageUrl" placeholder="image Url">
+          </div>
+          <div class="form-group">
+            <label for="characterName">Character name</label>
+            <input type="text" class="form-control" id="characterName" placeholder="Character name (enter n/a if it doesn't apply)">
+          </div>
+          <h6>Staff member location:</h6>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="location" value="Edinson Tudor Festival">
+            <label class="form-check-label" for="location">Edinson Tudor Festival</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="location" value="Hopscote-by-Sea Faire">
+            <label class="form-check-label" for="location">Hopscote-by-Sea Faire</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="location" value="North Illinois Pleasure Faire">
+            <label class="form-check-label" for="location">North Illinois Pleasure Faire</label>
+          </div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+      <button id="newStaffSubmit" class="btn btn-primary">Submit</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>  
+<!-- Staff modal end  -->
+<!-- Staff section end -->
 
   <div class="align-items-center" id="shows"></div>
 </body>
