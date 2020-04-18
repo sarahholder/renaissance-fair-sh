@@ -45,9 +45,10 @@ const buildAllFoods = () => {
       });
       domString += '</div>';
       utils.printToDom('foodCards', domString);
+      // needs to populate modal somehow RIP
+      $('body').on('click', '#newFoodSubmit', saveNewFoodItem);
       $('body').on('click', '#deleteFoodBtn', removeFoodCards);
       $('body').on('click', '#addFoodBtn', newFoodForm.newFoodForm);
-      $('body').on('click', '#newFoodSubmit', saveNewFoodItem);
     })
     .catch((err) => console.error('build all foods has failed you', err));
 };

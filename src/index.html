@@ -9,6 +9,7 @@
 </head>
 <body>
   <!-- NAVBAR -->
+  <div id="add-new-food-modal"></div>
   <nav class="navbar navbar-expand-lg fixed-top">
     <a class="navbar-brand d-flex flex-inline"><h1>RENIASSANCE FAIRE</h1></a>
     <div id="navbarNav" class="collapse navbar-collapse">
@@ -30,7 +31,6 @@
     <button id="loginButton" class="hide">LOGIN WITH GOOGLE</button>
     <button id="logoutButton" class="hide">LOGOUT</button>
   </nav>
-  <div id="add-new-food-modal"></div>
 <!--JUMBOTRON-->
   <div class="jumbotron">
     <h1 class="display-4">WELCOME TO<br>KING ARTHUR'S RENIASSANCE FAIRE</h1>
@@ -38,6 +38,66 @@
   
 <!--MAIN CONTENT-->
   <div id="foodCards"></div>
+  <!-- ADD FOOD MODAL -->
+  <div class="modal" id="addFoodModal" data-target="#myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a food item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputType">Type of Food</label>
+              <input type="type" class="form-control" id="foodType" placeholder="Type">
+            </div>
+            <div class="form-group">';
+              <label for="exampleInputDescription1">Description of Food</label>
+              <input type="description" class="form-control" id="foodDescription" placeholder="Description">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputImageUrl1">Image Url of Food</label>
+              <input type="imageUrl" class="form-control" id="foodImageUrl" placeholder="image Url">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPrice1">Price of Food</label>
+              <input type="price" class="form-control" id="foodPrice" placeholder="Price">
+            </div>
+            <h6>Locations Of Food:</h6>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Edinson Tudor Festival</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Hopscote-by-Sea Faire</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">North Illinois Pleasure Faire</label>
+            </div>
+            <h6>Is food avaliable?</h6>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">No</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+        <button id="newFoodSubmit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <!-- ADD FOOD MODAL END -->
   
   <div class="row">
     <div class="">
