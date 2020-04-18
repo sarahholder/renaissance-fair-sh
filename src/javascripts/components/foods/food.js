@@ -6,6 +6,28 @@ import editFoodForm from './editFoodForm';
 
 import './food.scss';
 
+const editFoodItem = (e) => {
+  e.preventDefault();
+  console.error('submit button on edit form working');
+  const editFood = {
+    type: $('#foodType').val(),
+    description: $('#foodDescription').val(),
+    imageUrl: $('#foodImageUrl').val(),
+    price: $('#foodPrice').val() * 1,
+    location: $('#foodLocation').val(),
+    isAvaliable: $('#avaliabilityOfFood').val(),
+  };
+  console.error('edit food', editFood);
+  foodData.updateFoods(editFood)
+    .then(() => {
+      document.getElementById('foodForm').reset();
+      $('#foodModal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllFoods();
+    })
+    .catch((err) => console.error('edit food failed', err));
+};
+
 const saveNewFoodItem = (e) => {
   e.preventDefault();
   const newFood = {
@@ -20,7 +42,6 @@ const saveNewFoodItem = (e) => {
     .then(() => {
       document.getElementById('foodForm').reset();
       $('#foodModal').modal('hide');
-      // utils.printToDom('foodModalBody', '');
       // eslint-disable-next-line no-use-before-define
       buildAllFoods();
     })
@@ -62,6 +83,7 @@ const buildAllFoods = () => {
 const foodEvents = () => {
   $('body').on('click', '#deleteFoodBtn', removeFoodCards);
   $('body').on('click', '#newFoodSubmit', saveNewFoodItem);
+  $('body').on('click', '#editFoodSubmit', editFoodItem);
   $('body').on('click', '#addFoodBtn', newFoodForm.newFoodForm);
   $('body').on('click', '#editFoodBtn', editFoodForm.editFoodForm);
 };
