@@ -1,8 +1,10 @@
 @import '../../../styles/fonts.scss';
 @import '../../../styles/colors.scss';
 
-img {
+.card .show-images {
   width: 100%;
+  height: 500px;
+  object-fit: cover;
 }
 
 .card {
@@ -14,6 +16,24 @@ img {
   font-family: $bigFonts
 }
 
+#foodTitle {
+  background-color: $primaryRed;
+  color: white;
+  padding: 10px;
+  margin: 10px 0px;
+  h2 {
+    font-family: $bigFonts;
+  }
+  h3 {
+    font-family: $allFonts;
+  }
+}
+
 #add-new-show-btn {
-  background-color: $primaryBlue;
+  margin: 0 auto;
+  display: block;
+  background-color: $gold;
+  &:hover {
+    background-color: #ffd54d;   
+  }
 }
