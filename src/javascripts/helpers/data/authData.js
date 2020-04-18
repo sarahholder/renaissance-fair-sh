@@ -1,9 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import souvenirs from '../../components/souvenirs/souvenirs';
-
 import food from '../../components/foods/food';
-
 import shows from '../../components/shows/shows';
 import staff from '../../components/staff/staff';
 
@@ -24,6 +22,10 @@ const checkLoginStatus = () => {
       editBtn.removeClass('hide');
       deleteBtn.removeClass('hide');
       addFoodBtn.removeClass('hide');
+      // souvenirs login
+      $('.souvenirs-delete-btn').removeClass('hide');
+      $('.souvenirs-edit-btn').removeClass('hide');
+      souvenirs.souvenirsEvents();
     } else {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
@@ -31,10 +33,12 @@ const checkLoginStatus = () => {
       food.buildAllFoods();
       editBtn.addClass('hide');
       deleteBtn.addClass('hide');
-      addFoodBtn.addClass('hide');
+      // addFoodBtn.addClass('hide');
+      // souvenirs logout
+      $('.souvenirs-delete-btn').addClass('hide');
+      $('.souvenirs-edit-btn').addClass('hide');
     }
     shows.buildAllShows();
-    souvenirs.buildAllSouvenirs();
     staff.buildAllStaff();
   });
 };

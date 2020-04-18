@@ -3,6 +3,7 @@ import apiKeys from './helpers/apiKeys.json';
 
 import authData from './helpers/data/authData';
 import auth from './components/auth/auth';
+import souvenirs from './components/souvenirs/souvenirs';
 
 import '../styles/main.scss';
 
@@ -11,6 +12,7 @@ const init = () => {
   authData.checkLoginStatus();
   auth.loginPage();
   auth.logoutPage();
+  souvenirs.buildAllSouvenirs();
 };
 
 init();
