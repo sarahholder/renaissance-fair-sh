@@ -20,4 +20,6 @@ const getShows = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getShows };
+const addShow = (newShow) => axios.post(`${baseUrl}/shows.json`, newShow);
+
+export default { getShows, addShow };
