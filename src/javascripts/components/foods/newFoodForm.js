@@ -1,5 +1,8 @@
+import './food.scss';
+
 const newFoodForm = () => {
-  $('#addFoodModal').modal('show');
+  $('#foodModal').modal('show');
+  $('#newFoodSubmit').removeClass('hide');
 };
 
 export default { newFoodForm };

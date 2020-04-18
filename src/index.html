@@ -39,7 +39,7 @@
 <!--MAIN CONTENT-->
   <div id="foodCards"></div>
   <!-- ADD FOOD MODAL -->
-  <div class="modal" id="addFoodModal" data-target="#myModal" tabindex="-1" role="dialog">
+  <div class="modal" id="foodModal" data-target="#myModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -86,7 +86,8 @@
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
-        <button type="submit" id="newFoodSubmit" class="btn btn-primary">Submit</button>
+        <button type="submit" id="newFoodSubmit" class="hide btn btn-primary">Submit New Food</button>
+        <button type="submit" id="editFoodSubmit" class="hide btn btn-primary">Submit Edit</button>
         </form>
         </div>
       </div>
