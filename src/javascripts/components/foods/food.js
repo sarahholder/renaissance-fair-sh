@@ -9,17 +9,19 @@ const saveNewFoodItem = (e) => {
   e.preventDefault();
   console.error('submit button is in fact working!');
   const newFood = {
-    type: $('#foodType').val,
-    description: $('#foodDescription').val,
-    imageUrl: $('#foodImageUrl').val,
-    price: $('#foodPrice').val * 1,
-    // location: $().val,
-    // isAvaliable: $().val,
+    type: $('#foodType').val(),
+    description: $('#foodDescription').val(),
+    imageUrl: $('#foodImageUrl').val(),
+    price: $('#foodPrice').val() * 1,
+    location: $().val(),
+    isAvaliable: $().val(),
   };
-  foodData.addFoods(newFood)
-    // eslint-disable-next-line no-use-before-define
-    .then(() => buildAllFoods())
-    .catch((err) => console.error('Save New Food Item failed', err));
+  console.error(newFood);
+  $('#addFoodModal').modal('hide');
+  // foodData.addFoods(newFood)
+  //   // eslint-disable-next-line no-use-before-define
+  //   .then(() => buildAllFoods())
+  //   .catch((err) => console.error('Save New Food Item failed', err));
 };
 
 const removeFoodCards = (e) => {
