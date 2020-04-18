@@ -1,6 +1,5 @@
 import './food.scss';
 
-
 const foodDataCardInfo = (food) => {
   let domString = '';
   domString += '<div class="col-4 mb-2">';
