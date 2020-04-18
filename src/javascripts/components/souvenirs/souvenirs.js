@@ -16,6 +16,7 @@ const buildAllSouvenirs = () => {
     .then((souvenirs) => {
       let domString = '<h2> Souvenirs </h2>';
       domString += '<h3 class="text-center">Make the memories last forever</h3>';
+      domString += '<button class="btn btn-default btn-lg id="add-new-souvenir-btn"> <i class="fas fa-dragon"></i> Add New Souvenir </button>';
       domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       souvenirs.forEach((souvenir) => {
         domString += souvenirComponent.buildSouvenirsCards(souvenir);
