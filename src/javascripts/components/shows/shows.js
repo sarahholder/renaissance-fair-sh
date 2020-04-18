@@ -27,9 +27,11 @@ const saveNewShowItem = (e) => {
 const buildAllShows = () => {
   showData.getShows()
     .then((shows) => {
-      let domString = '<h2 class="text-center mt-3">Shows</h2>';
-      domString += '<div class="text-center">';
-      domString += '<button class="btn btn-default mb-3 hide" id="add-new-show-btn"><i class="fas fa-plus"></i> <span class="pl-1">Add New Show</span></button>';
+      let domString = '';
+      domString += '<div class="show-title text-center">';
+      domString += '<h2 class="mt-3">Shows</h2>';
+      domString += '<h3>Fun Shows for All Ages</h3>';
+      domString += '<button class="btn btn-lg mb-2 hide new-show-btn" id="add-new-show-btn"><i class="fas fa-plus"></i> <span class="pl-1">Add New Show</span></button>';
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       shows.forEach((show) => {
