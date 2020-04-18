@@ -9,6 +9,7 @@ import '../styles/main.scss';
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
   authData.checkLoginStatus();
+  authData.builders();
   auth.loginPage();
   auth.logoutPage();
 };
