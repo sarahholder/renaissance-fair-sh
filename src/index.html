@@ -9,6 +9,7 @@
 </head>
 <body>
   <!-- NAVBAR -->
+  <div id="add-new-food-modal"></div>
   <nav class="navbar navbar-expand-lg fixed-top">
     <a class="navbar-brand d-flex flex-inline"><h1>RENIASSANCE FAIRE</h1></a>
     <div id="navbarNav" class="collapse navbar-collapse">
@@ -36,15 +37,75 @@
   </div>
   
 <!--MAIN CONTENT-->
+<<<<<<< HEAD
 <div id="foodCards"></div>
+=======
+  <div id="foodCards"></div>
+  <!-- ADD FOOD MODAL -->
+  <div class="modal" id="addFoodModal" data-target="#myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a food item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="foodModalBody" class="modal-body">
+          <form id="foodForm">
+            <div class="form-group">
+              <label for="foodType">Type of Food</label>
+              <input type="text" class="form-control" id="foodType" placeholder="Type">
+            </div>
+            <div class="form-group">
+              <label for="foodDescription">Description of Food</label>
+              <input type="text" class="form-control" id="foodDescription" placeholder="Description">
+            </div>
+            <div class="form-group">
+              <label for="foodImageUrl">Image Url of Food</label>
+              <input type="text" class="form-control" id="foodImageUrl" placeholder="image Url">
+            </div>
+            <div class="form-group">
+              <label for="foodPrice">Price of Food</label>
+              <input type="number" class="form-control" id="foodPrice" placeholder="Price">
+            </div>
+            <div class="form-group">
+              <label for="foodLocation">Locations Of Food:</label>
+              <select id="foodLocation" class="form-control" placeholder="">
+                <option value="">Select your option</option>
+                <option value="Edinson Tudor Festival">Edinson Tudor Festival</option>
+                <option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>
+                <option value="Hopscote-by-Sea Faire">Edinson Tudor Festival</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="avaliabilityOfFood">Avaliability Of Food:</label>
+              <select id="avaliabilityOfFood" class="form-control" placeholder="">
+                <option value="">Select your option</option>
+                <option value="true">Avaliable</option>
+                <option value="false">Not Avaliable</option>
+              </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+        <button type="submit" id="newFoodSubmit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <!-- ADD FOOD MODAL END -->
+>>>>>>> master
   
 <div class="align-items-center" id="souvenirs"></div>
 
   
 
-<div id="staff-collection" class="align-items-center"></div>
+  <div id="staff-collection" class="align-items-center"></div>
 
   <div class="align-items-center" id="shows"></div>
+<<<<<<< HEAD
   <div id="foodCards"></div>
   <!-- ADD FOOD MODAL -->
   <div class="modal" id="addSouvenirModal" data-target="#myModal" tabindex="-1" role="dialog">
@@ -105,5 +166,27 @@
       </div>
     </div>
   </div>  
+=======
+
+
+<!-- Add A Show Form Modal -->
+<div class="modal fade" id="add-new-show-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="add-new-show-modal-title">Add New Show</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="add-new-show-modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="save-new-show-btn">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> master
 </body>
 </html>

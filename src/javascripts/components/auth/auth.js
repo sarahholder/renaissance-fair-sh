@@ -6,11 +6,9 @@ const signMeIn = () => {
   firebase.auth().signInWithPopup(provider);
 };
 
-const logout = () => {
-  $('#logoutButton').click((e) => {
-    e.preventDefault();
-    firebase.auth().signOut();
-  });
+const logout = (e) => {
+  e.preventDefault();
+  firebase.auth().signOut();
 };
 
 const loginPage = () => {
