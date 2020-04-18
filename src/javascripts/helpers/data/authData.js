@@ -3,9 +3,8 @@ import 'firebase/auth';
 import souvenirs from '../../components/souvenirs/souvenirs';
 
 import food from '../../components/foods/food';
-
-import shows from '../../components/shows/shows';
 import staff from '../../components/staff/staff';
+import shows from '../../components/shows/shows';
 
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
@@ -24,6 +23,8 @@ const checkLoginStatus = () => {
       editBtn.removeClass('hide');
       deleteBtn.removeClass('hide');
       addFoodBtn.removeClass('hide');
+      $('#add-new-show-btn').removeClass('hide');
+      shows.showEvents();
     } else {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
@@ -32,8 +33,8 @@ const checkLoginStatus = () => {
       editBtn.addClass('hide');
       deleteBtn.addClass('hide');
       addFoodBtn.addClass('hide');
+      $('#add-new-show-btn').addClass('hide');
     }
-    shows.buildAllShows();
     souvenirs.buildAllSouvenirs();
     staff.buildAllStaff();
   });

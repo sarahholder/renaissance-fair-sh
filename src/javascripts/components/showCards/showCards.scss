@@ -1,4 +1,5 @@
 @import '../../../styles/fonts.scss';
+@import '../../../styles/colors.scss';
 
 img {
   width: 100%;
@@ -11,4 +12,8 @@ img {
 
 #shows h2 {
   font-family: $bigFonts
+}
+
+#add-new-show-btn {
+  background-color: $primaryBlue;
 }
