@@ -37,7 +37,7 @@ const buildAllFoods = () => {
       domString += '<div id="foodTitle">';
       domString += '<h2 class="text-center mt-3">Foods</h2>';
       domString += '<h3 class="text-center">Delicious foods and beverages</h3>';
-      domString += '<button class="btn btn-default btn-lg" id="addFoodBtn">Add New Food Item <i class="fas fa-plus"></i></button>';
+      domString += '<button class="hide btn btn-default btn-lg addFoodBtn" id="addFoodBtn"><i class="fas fa-plus"></i> Add new food item</button>';
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       foods.forEach((food) => {
@@ -45,16 +45,15 @@ const buildAllFoods = () => {
       });
       domString += '</div>';
       utils.printToDom('foodCards', domString);
-      // needs to populate modal somehow RIP
-      $('body').on('click', '#newFoodSubmit', saveNewFoodItem);
-      $('body').on('click', '#deleteFoodBtn', removeFoodCards);
-      $('body').on('click', '#addFoodBtn', newFoodForm.newFoodForm);
     })
     .catch((err) => console.error('build all foods has failed you', err));
 };
 
 const foodEvents = () => {
   $('body').on('click', '#deleteFoodBtn', removeFoodCards);
+  $('body').on('click', '#newFoodSubmit', saveNewFoodItem);
+  // needs to populate modal somehow RIP :'(
+  $('body').on('click', '#addFoodBtn', newFoodForm.newFoodForm);
 };
 
 export default { buildAllFoods, foodEvents };
