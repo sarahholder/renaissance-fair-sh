@@ -5,6 +5,23 @@ import newFoodForm from './newFoodForm';
 
 import './food.scss';
 
+const saveNewFoodItem = (e) => {
+  e.preventDefault();
+  console.error('submit button is in fact working!');
+  const newFood = {
+    type: $('#foodType').val,
+    description: $('#foodDescription').val,
+    imageUrl: $('#foodImageUrl').val,
+    price: $('#foodPrice').val * 1,
+    // location: $().val,
+    // isAvaliable: $().val,
+  };
+  foodData.addFoods(newFood)
+    // eslint-disable-next-line no-use-before-define
+    .then(() => buildAllFoods())
+    .catch((err) => console.error('Save New Food Item failed', err));
+};
+
 const removeFoodCards = (e) => {
   const foodId = e.target.closest('.card').id;
   foodData.deleteFoods(foodId)
@@ -30,6 +47,7 @@ const buildAllFoods = () => {
       utils.printToDom('foodCards', domString);
       $('body').on('click', '#deleteFoodBtn', removeFoodCards);
       $('body').on('click', '#addFoodBtn', newFoodForm.newFoodForm);
+      $('body').on('click', '#newFoodSubmit', saveNewFoodItem);
     })
     .catch((err) => console.error('build all foods has failed you', err));
 };
