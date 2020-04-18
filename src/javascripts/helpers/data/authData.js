@@ -3,16 +3,21 @@ import 'firebase/auth';
 import souvenirs from '../../components/souvenirs/souvenirs';
 import shows from '../../components/shows/shows';
 import staff from '../../components/staff/staff';
+import food from '../../components/foods/food';
 
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
 
+const builders = () => {
+  food.buildAllFoods();
+};
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       loginButton.addClass('hide');
       logoutButton.removeClass('hide');
+      food.foodEvents();
       $('#addFoodBtn').removeClass('hide');
       $('.editFoodBtn').removeClass('hide');
       $('.deleteFoodBtn').removeClass('hide');
@@ -29,4 +34,4 @@ const checkLoginStatus = () => {
   });
 };
 
-export default { checkLoginStatus };
+export default { checkLoginStatus, builders };

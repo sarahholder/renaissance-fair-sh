@@ -18,7 +18,7 @@ const buildAllFoods = () => {
       domString += '<div id="foodTitle">';
       domString += '<h2 class="text-center mt-3">Foods</h2>';
       domString += '<h3 class="text-center">Delicious foods and beverages</h3>';
-      domString += '<button class="addFoodBtn btn btn-default btn-lg" id="addFoodBtn">Add New Food Item <i class="fas fa-plus"></i></i></button>';
+      domString += '<button class="btn btn-default btn-lg" id="addFoodBtn">Add New Food Item <i class="fas fa-plus"></i></button>';
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       foods.forEach((food) => {
@@ -26,15 +26,12 @@ const buildAllFoods = () => {
       });
       domString += '</div>';
       utils.printToDom('foodCards', domString);
-      $('body').on('click', '#deleteFoodBtn', removeFoodCards);
     })
     .catch((err) => console.error('build all foods has failed you', err));
 };
 
-// const viewFoodButtons = () => {
-//   $('#editFoodBtn').removeClass('hide');
-//   $('#deleteFoodBtn').removeClass('hide');
-//   $('#addFoodBtn').removeClass('hide');
-// };
+const foodEvents = () => {
+  $('body').on('click', '#deleteFoodBtn', removeFoodCards);
+};
 
-export default { buildAllFoods };
+export default { buildAllFoods, foodEvents };
