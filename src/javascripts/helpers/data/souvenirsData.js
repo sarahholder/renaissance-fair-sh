@@ -19,4 +19,6 @@ const getSouvenirs = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getSouvenirs };
+const deleteSouvenirs = (souvenirId) => axios.delete(`${baseUrl}/souvenirs/${souvenirId}.json`);
+
+export default { getSouvenirs, deleteSouvenirs };
