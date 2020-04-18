@@ -6,7 +6,7 @@ const buildAllStaff = () => {
   staffData.getStaff()
     .then((allStaff) => {
       let domString = '<h2 class="text-center mt-3">Staff</h2>';
-      domString += '<div class="d-flex flex-wrap">';
+      domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       allStaff.forEach((staff) => {
         domString += staffCards.buildStaffCards(staff);
       });
