@@ -17,8 +17,6 @@ const checkLoginStatus = () => {
     if (user) {
       loginButton.addClass('hide');
       logoutButton.removeClass('hide');
-      // food login
-      food.foodEvents();
       $('#addFoodBtn').removeClass('hide');
       $('.editFoodBtn').removeClass('hide');
       $('.deleteFoodBtn').removeClass('hide');
@@ -37,6 +35,7 @@ const checkLoginStatus = () => {
       $('.souvenirs-delete-btn').addClass('hide');
       $('.souvenirs-edit-btn').addClass('hide');
     }
+    food.foodEvents();
     shows.buildAllShows();
     staff.buildAllStaff();
   });

@@ -14,12 +14,11 @@
   }
 }
 
-#addFoodBtn {
+.addFoodBtn {
   margin: 0 auto;
-  display: block;
-  background-color: $gold;
+  background-color: $gold !important;
   &:hover {
-    background-color: #ffd54d;   
+    background-color: #ffd54d !important;   
   }
 }
 
