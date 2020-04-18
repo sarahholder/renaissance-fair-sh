@@ -45,5 +45,65 @@
 <div id="staff-collection" class="align-items-center"></div>
 
   <div class="align-items-center" id="shows"></div>
+  <div id="foodCards"></div>
+  <!-- ADD FOOD MODAL -->
+  <div class="modal" id="addSouvenirModal" data-target="#myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a New Souvenir</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="souvenirType">Type of Souvenir</label>
+              <input type="text" class="form-control" id="souvenirType" placeholder="Type">
+            </div>
+            <div class="form-group">
+              <label for="souvenirDescription">Description of Souvenir</label>
+              <input type="text" class="form-control" id="souvenirDescription" placeholder="Description">
+            </div>
+            <div class="form-group">
+              <label for="souvenirImageUrl">Image Url of Souvenir</label>
+              <input type="text" class="form-control" id="souvenirImageUrl" placeholder="image Url">
+            </div>
+            <div class="form-group">
+              <label for="souvenirPrice">Price ofSouvenir</label>
+              <input type="number" class="form-control" id="souvenirPrice" placeholder="Price">
+            </div>
+            <h6>Locations Of Souvenir:</h6>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Edinson Tudor Festival</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Hopscote-by-Sea Faire</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">North Illinois Pleasure Faire</label>
+            </div>
+            <h6>Is souvenir avaliable?</h6>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">No</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+        <button id="newSouvenirSubmit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>  
 </body>
 </html>

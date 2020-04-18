@@ -1,6 +1,8 @@
 import souvenirsData from '../../helpers/data/souvenirsData';
 import souvenirComponent from './souvenirsCards';
 import utils from '../../helpers/utils';
+import souvenirForm from './newSouvenirForm';
+import './souvenirs.scss';
 
 const removeSouvenirCard = (e) => {
   const souvenirsId = e.target.closest('.card').id;
@@ -11,12 +13,34 @@ const removeSouvenirCard = (e) => {
     })
     .catch((err) => console.error('cannot delete souvenir', err));
 };
+
+const saveNewSouvenirItem = (e) => {
+  e.preventDefault();
+  console.error('submit button is in fact working!');
+  const newSouvenir = {
+    type: $('#souvenirType').val(),
+    description: $('#souvenirDescription').val(),
+    imageUrl: $('#souvenirImageUrl').val(),
+    price: $('#souvenirPrice').val() * 1,
+    // location: $().val(),
+    // isAvaliable: $().val(),
+  };
+  console.error(newSouvenir);
+  // $('#addSouvenirModal').modal('hide');
+  souvenirsData.addSouvenirs(newSouvenir)
+    // eslint-disable-next-line no-use-before-define
+    .then(() => buildAllSouvenirs())
+    .catch((err) => console.error('Save New Food Item failed', err));
+};
 const buildAllSouvenirs = () => {
   souvenirsData.getSouvenirs()
     .then((souvenirs) => {
-      let domString = '<h2> Souvenirs </h2>';
+      let domString = '';
+      domString += '<div class="text-center" id="souvenirsTitle>';
+      domString += '<h2 class="text-center"> Souvenirs </h2>';
       domString += '<h3 class="text-center">Make the memories last forever</h3>';
-      domString += '<button class="btn btn-default btn-lg id="add-new-souvenir-btn"> <i class="fas fa-dragon"></i> Add New Souvenir </button>';
+      domString += '<button class="align-item-center souvenirs-add-btn btn-lg" id="souvenirs-add-btn"> <i class="fas fa-dragon"></i> Add New Souvenir </button>';
+      domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       souvenirs.forEach((souvenir) => {
         domString += souvenirComponent.buildSouvenirsCards(souvenir);
@@ -28,5 +52,7 @@ const buildAllSouvenirs = () => {
 };
 const souvenirsEvents = () => {
   $('body').on('click', '.souvenirs-delete-btn', removeSouvenirCard);
+  $('body').on('click', '.souvenirs-add-btn', souvenirForm.newSouvenirForm);
+  $('body').on('click', '#newSouvenirSubmit', saveNewSouvenirItem);
 };
 export default { buildAllSouvenirs, souvenirsEvents };
