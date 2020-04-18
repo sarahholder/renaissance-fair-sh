@@ -2,8 +2,8 @@
 @import '../../../styles/colors';
 @import '../../../styles/fonts';
 
-.souvenirsTitle {
-  background-color: $primaryRed;
+.souvenirsContainer {
+  background-color: $primaryRed !important;
   color: white;
   padding: 10px;
   margin: 10px 0px;
@@ -13,43 +13,11 @@
   h3 {
     font-family: $allFonts;
   }
-}
-
-#add-new-souvenir-btn {
-  margin: 0 auto;
-  background-color: $gold;
-  &:hover {
-    background-color: #ffd54d;   
-  }
-}
-
-.card {
-  height: 100%;
-  font-family: $allFonts;
-}
-
-.card .souvenirs-edit-btn {
-  background-color: $gold;
+  .souvenirs-add-btn {
+    margin: 0 auto;
+    background-color: $gold !important;
     &:hover {
       background-color: #ffd54d;   
     }
-}    
-
-.card .souvenirs-delete-btn {
-  background-color: $primaryRed;
-  color: white;
-  &:hover {
-    background-color: #a21129;   
   }
-}
- 
-
-.hide {
-  display: none;
-}
-
-.souvenirs-image {
-  width: 100% !important;
-  height: 75% !important;
-  object-fit: cover;
 }

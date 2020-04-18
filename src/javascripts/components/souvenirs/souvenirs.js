@@ -36,7 +36,7 @@ const buildAllSouvenirs = () => {
   souvenirsData.getSouvenirs()
     .then((souvenirs) => {
       let domString = '';
-      domString += '<div class="text-center souvenirsTitle>';
+      domString += '<div class="text-center souvenirsContainer">';
       domString += '<h2 class="mt-3"> Souvenirs </h2>';
       domString += '<h3> Make the memories last forever </h3>';
       domString += '<button class="align-item-center souvenirs-add-btn btn btn-lg" id="souvenirs-add-btn"> <i class="fas fa-dragon"></i> Add New Souvenir </button>';

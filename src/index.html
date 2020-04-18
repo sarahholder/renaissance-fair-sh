@@ -93,7 +93,62 @@
     </div>
   </div>  
   <!-- ADD FOOD MODAL END -->
-  
+  <div id="souvenirs"></div>
+  <!-- ADD SOUVENIRS MODAL -->
+  <div class="modal" id="addSouvenirsModal" data-target="#myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add New Souvenir </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="foodModalBody" class="modal-body">
+          <form id="souvenirForm">
+            <div class="form-group">
+              <label for="foodType">Type of Food</label>
+              <input type="text" class="form-control" id="foodType" placeholder="Type">
+            </div>
+            <div class="form-group">
+              <label for="foodDescription">Description of Food</label>
+              <input type="text" class="form-control" id="foodDescription" placeholder="Description">
+            </div>
+            <div class="form-group">
+              <label for="foodImageUrl">Image Url of Food</label>
+              <input type="text" class="form-control" id="foodImageUrl" placeholder="image Url">
+            </div>
+            <div class="form-group">
+              <label for="foodPrice">Price of Food</label>
+              <input type="number" class="form-control" id="foodPrice" placeholder="Price">
+            </div>
+            <div class="form-group">
+              <label for="foodLocation">Locations Of Food:</label>
+              <select id="foodLocation" class="form-control" placeholder="">
+                <option value="">Select your option</option>
+                <option value="Edinson Tudor Festival">Edinson Tudor Festival</option>
+                <option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>
+                <option value="Hopscote-by-Sea Faire">Edinson Tudor Festival</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="avaliabilityOfFood">Avaliability Of Food:</label>
+              <select id="avaliabilityOfFood" class="form-control" placeholder="">
+                <option value="">Select your option</option>
+                <option value="true">Avaliable</option>
+                <option value="false">Not Avaliable</option>
+              </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+        <button type="submit" id="newFoodSubmit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <!-- ADD FOOD MODAL END -->
   <div class="row">
     <div class="">
       <div class="align-items-center" id="souvenirs"></div>

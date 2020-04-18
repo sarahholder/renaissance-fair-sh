@@ -1,10 +1,13 @@
+
+import './souvenirsCards.scss';
+
 const buildSouvenirsCards = (souvenir) => {
   let domString = '';
-  domString += '<div class="col-4 mb-2">';
+  domString += '<div class="col-4 mb-2 souvenir-card">';
   domString += `<div class="card" id="${souvenir.id}">`;
   domString += `<img src="${souvenir.imageUrl}" class="card-img-top img-fluid souvenirs-image">`;
-  domString += `<div class="text-center">${souvenir.type}</div>`;
   domString += '<div class="card-body">';
+  domString += `<div class="text-center card-title">${souvenir.type}</div>`;
   domString += `<p class="card-text">Description: ${souvenir.description}</p>`;
   domString += `<p class="card-text">Price: $ ${souvenir.price}</p>`;
   domString += `<p class="card-text">Availability: ${souvenir.isAvailable}</p>`;
