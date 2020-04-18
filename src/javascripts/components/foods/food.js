@@ -17,8 +17,9 @@ const saveNewFoodItem = (e) => {
   };
   foodData.addFoods(newFood)
     .then(() => {
-      $('#addFoodModal').modal('hide');
       document.getElementById('foodForm').reset();
+      $('#addFoodModal').modal('hide');
+      // utils.printToDom('foodModalBody', '');
       // eslint-disable-next-line no-use-before-define
       buildAllFoods();
     })
@@ -26,10 +27,14 @@ const saveNewFoodItem = (e) => {
 };
 
 const removeFoodCards = (e) => {
+  e.preventDefault();
   const foodId = e.target.closest('.card').id;
   foodData.deleteFoods(foodId)
   // eslint-disable-next-line no-use-before-define
-    .then(() => buildAllFoods())
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildAllFoods();
+    })
     .catch((err) => console.error('delete foods failed', err));
 };
 
@@ -48,6 +53,7 @@ const buildAllFoods = () => {
       });
       domString += '</div>';
       utils.printToDom('foodCards', domString);
+      // eslint-disable-next-line no-use-before-define
     })
     .catch((err) => console.error('build all foods has failed you', err));
 };
@@ -58,4 +64,4 @@ const foodEvents = () => {
   $('body').on('click', '#addFoodBtn', newFoodForm.newFoodForm);
 };
 
-export default { buildAllFoods, foodEvents, saveNewFoodItem };
+export default { buildAllFoods, foodEvents };
