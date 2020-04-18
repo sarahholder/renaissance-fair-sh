@@ -1,6 +1,5 @@
 import './food.scss';
 
-
 const foodDataCardInfo = (food) => {
   let domString = '';
   domString += '<div class="col-4 mb-2">';
@@ -12,7 +11,7 @@ const foodDataCardInfo = (food) => {
   domString += `<p class="card-text">Price: $${food.price}</p>`;
   domString += `<p class="card-text">Location: ${food.location}</p>`;
   domString += '<div class="d-flex justify-content-around">';
-  domString += '<button id="editFoodBtn" class=" col-5 btn btn-default editFoodBtn">Edit <i class="fas fa-feather-alt"></i></<button>';
+  domString += '<button id="editFoodBtn" class="col-5 btn btn-default editFoodBtn">Edit <i class="fas fa-feather-alt"></i></<button>';
   domString += '<button id="deleteFoodBtn" class="col-5 btn btn-default deleteFoodBtn">Delete <i class="far fa-trash-alt"></i></button>';
   domString += '</div>';
   domString += '</div>';
