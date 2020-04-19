@@ -22,14 +22,17 @@ const saveNewSouvenirItem = (e) => {
     description: $('#souvenirDescription').val(),
     imageUrl: $('#souvenirImageUrl').val(),
     price: $('#souvenirPrice').val() * 1,
-    // location: $().val(),
-    // isAvaliable: $().val(),
+    location: $('#souvenirLocation').val(),
+    isAvaliable: $('#souvenirAvailability').val(),
+    uid: utils.getMyUid(),
   };
   console.error(newSouvenir);
-  // $('#addSouvenirModal').modal('hide');
   souvenirsData.addSouvenirs(newSouvenir)
-    // eslint-disable-next-line no-use-before-define
-    .then(() => buildAllSouvenirs())
+    .then(() => {
+      $('#souvenirs-modal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllSouvenirs();
+    })
     .catch((err) => console.error('Save New Food Item failed', err));
 };
 const buildAllSouvenirs = () => {

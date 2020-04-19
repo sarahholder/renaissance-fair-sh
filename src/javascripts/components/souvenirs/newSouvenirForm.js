@@ -1,60 +1,46 @@
+import utils from '../../helpers/utils';
 
 const newSouvenirForm = () => {
-  <div class="modal" id="addSouvenirsModal" data-target="#myModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Add New Souvenir </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div id="souvenirModalBody" class="modal-body">
-        <form id="souvenirForm">
-          <div class="form-group">
-            <label for="souvenirType">Type of Souvenir</label>
-            <input type="text" class="form-control" id="souvenirType" placeholder="Type">
-          </div>
-          <div class="form-group">
-            <label for="souvenirDescription">Description of Souvenir</label>
-            <input type="text" class="form-control" id="souvenirDescription" placeholder="Description">
-          </div>
-          <div class="form-group">
-            <label for="souvenirImageUrl">Image Url of Souvenir</label>
-            <input type="text" class="form-control" id="souvenirImageUrl" placeholder="image Url">
-          </div>
-          <div class="form-group">
-            <label for="souvenirPrice">Price of Souvenir</label>
-            <input type="number" class="form-control" id="souvenirPrice" placeholder="Price">
-          </div>
-          <div class="form-group">
-            <label for="souvenirLocation">Locations Of Souvenir:</label>
-            <select id="souvenirLocation" class="form-control" placeholder="">
-              <option value="">Select your option</option>
-              <option value="Edinson Tudor Festival">Edinson Tudor Festival</option>
-              <option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>
-              <option value="Hopscote-by-Sea Faire">Edinson Tudor Festival</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="avaliabilityOfSouvenir">Avaliability Of Souvenir:</label>
-            <select id="avaliabilityOfSouvenir" class="form-control" placeholder="">
-              <option value="">Select your option</option>
-              <option value="true">Avaliable</option>
-              <option value="false">Not Avaliable</option>
-            </select>
-          </div>
-      </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
-      <button type="submit" id="newSouvenirSubmit" class="btn btn-primary">Submit</button>
-      </form>
-      </div>
-    </div>
-  </div>
-</div>  
-  console.error('new souvenir form button not working');
-  $('#addSouvenirModal').modal('show');
+  $('#souvenirs-modal').modal('show');
+  let domString = '';
+  domString += '<form>';
+  domString += '<div class="form-group">';
+  domString += '<label for="souvenirType">Souvenir Type:</label>';
+  domString += '<input type="text" class="form-control" id="souvenirType" placeholder="Ocarina">';
+  domString += '</div>';
+  domString += '<div class="form-group">';
+  domString += '<label for="souvenirDescription">Souvenir Description:</label>';
+  domString += '<input type="text" class="form-control" id="souvenirDescription" placeholder="A small wind instrument">';
+  domString += '</div>';
+  domString += '<div class="form-group">';
+  domString += '<label for="souvenirImage">Image:</label>';
+  domString += '<input type="text" class="form-control" id="souvenirImage" placeholder="Image Link">';
+  domString += '</div>';
+  domString += '<div class="form-group">';
+  domString += '<label for="souvenirPrice">Price:</label>';
+  domString += '<input type="text" class="form-control" id="souvenirPrice" placeholder="$20">';
+  domString += '</div>';
+  domString += '<div class="form-group">';
+  domString += '<label for="souvenirLocation">Please Pick a Location:</label>';
+  domString += '<select class="form-control" id="souvenirLocation">';
+  domString += '<option value="Edinson Tudor Festival">Edinson Tudor Festival</option>';
+  domString += '<option value="Hopscote-by-Sea Faire">Hopscote-by-Sea Faire</option>';
+  domString += '<option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>';
+  domString += '</select>';
+  domString += '</div>';
+  domString += '<div class="form-group">';
+  domString += '<label for="souvenirAvailability">Avaliability Of Souvenir:</label>';
+  domString += '<select id="souvenirAvailability" class="form-control" placeholder="">';
+  domString += '<option value="">Select your option</option>';
+  domString += '<option value="true">Avaliable</option>';
+  domString += '<option value="false">Not Avaliable</option>';
+  domString += '</select>';
+  domString += '</div>';
+  domString += '</div>';
+  domString += '</form>';
+
+  $('#save-new-souvenir-btn').removeClass('hide');
+  utils.printToDom('souvenirsModalBody', domString);
 };
 
 export default { newSouvenirForm };
