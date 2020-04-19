@@ -2,8 +2,30 @@ import utils from '../../helpers/utils';
 import foodData from '../../helpers/data/foodData';
 import foodComponent from './foodComponent';
 import newFoodForm from './newFoodForm';
+import editFoodForm from './editFoodForm';
 
 import './food.scss';
+
+const editFoodItem = (e) => {
+  e.preventDefault();
+  const foodId = $('.foodForm').data('id');
+  const editFood = {
+    type: $('#foodType').val(),
+    description: $('#foodDescription').val(),
+    imageUrl: $('#foodImageUrl').val(),
+    price: $('#foodPrice').val() * 1,
+    location: $('#foodLocation').val(),
+    isAvaliable: $('#avaliabilityOfFood').val(),
+  };
+  foodData.updateFoods(foodId, editFood)
+    .then(() => {
+      document.getElementById('foodForm').reset();
+      $('#foodModal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllFoods();
+    })
+    .catch((err) => console.error('edit food failed', err));
+};
 
 const saveNewFoodItem = (e) => {
   e.preventDefault();
@@ -18,8 +40,7 @@ const saveNewFoodItem = (e) => {
   foodData.addFoods(newFood)
     .then(() => {
       document.getElementById('foodForm').reset();
-      $('#addFoodModal').modal('hide');
-      // utils.printToDom('foodModalBody', '');
+      $('#foodModal').modal('hide');
       // eslint-disable-next-line no-use-before-define
       buildAllFoods();
     })
@@ -61,7 +82,9 @@ const buildAllFoods = () => {
 const foodEvents = () => {
   $('body').on('click', '#deleteFoodBtn', removeFoodCards);
   $('body').on('click', '#newFoodSubmit', saveNewFoodItem);
+  $('body').on('click', '#editFoodSubmit', editFoodItem);
   $('body').on('click', '#addFoodBtn', newFoodForm.newFoodForm);
+  $('body').on('click', '#editFoodBtn', editFoodForm.editFoodForm);
 };
 
 export default { buildAllFoods, foodEvents };
