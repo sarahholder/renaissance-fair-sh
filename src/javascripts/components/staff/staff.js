@@ -6,7 +6,6 @@ import './staffCards.scss';
 
 const saveNewStaffItem = (e) => {
   e.preventDefault();
-  console.error('submit button is working');
   const newStaff = {
     name: $('#staffName').val(),
     characterType: $('#characterType').val(),
@@ -14,7 +13,6 @@ const saveNewStaffItem = (e) => {
     characterName: $('#characterName').val(),
     location: $('.form-check-input:checked').val(),
   };
-  console.error('new staff', newStaff);
   staffData.addStaff(newStaff)
     // eslint-disable-next-line no-use-before-define
     .then(() => buildAllStaff())
