@@ -63,7 +63,7 @@ const buildAllShows = () => {
 const showEvents = () => {
   $('body').on('click', '#add-new-show-btn', addShow.addShowForm);
   $('body').on('click', '#save-new-show-btn', saveNewShowItem);
-  $('body').on('click', '.show-delete-btns', removeShow);
+  $('body').on('click', '.show-delete-btn', removeShow);
 };
 
 export default { buildAllShows, showEvents };
