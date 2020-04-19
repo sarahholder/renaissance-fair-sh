@@ -4,33 +4,30 @@ import souvenirs from '../../components/souvenirs/souvenirs';
 
 import food from '../../components/foods/food';
 import shows from '../../components/shows/shows';
-import staff from '../../components/staff/staff';
 
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
-
-const builders = () => {
-  food.buildAllFoods();
-  shows.buildAllShows();
-};
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       loginButton.addClass('hide');
       logoutButton.removeClass('hide');
+      // events
       food.foodEvents();
       shows.showEvents();
+      souvenirs.souvenirsEvents();
+      // food login
       $('#addFoodBtn').removeClass('hide');
       $('.editFoodBtn').removeClass('hide');
       $('.deleteFoodBtn').removeClass('hide');
+      // show login
       $('#add-new-show-btn').removeClass('hide');
       $('.show-delete-btn').removeClass('hide');
       $('.show-edit-btn').removeClass('hide');
       // souvenirs login
       $('.souvenirs-delete-btn').removeClass('hide');
       $('.souvenirs-edit-btn').removeClass('hide');
-      souvenirs.souvenirsEvents();
     } else {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
@@ -38,6 +35,7 @@ const checkLoginStatus = () => {
       $('#addFoodBtn').addClass('hide');
       $('.editFoodBtn').addClass('hide');
       $('.deleteFoodBtn').addClass('hide');
+      // show logout
       $('#add-new-show-btn').addClass('hide');
       $('.show-delete-btn').addClass('hide');
       $('.show-edit-btn').addClass('hide');
@@ -45,9 +43,7 @@ const checkLoginStatus = () => {
       $('.souvenirs-delete-btn').addClass('hide');
       $('.souvenirs-edit-btn').addClass('hide');
     }
-    souvenirs.buildAllSouvenirs();
-    staff.buildAllStaff();
   });
 };
 
-export default { checkLoginStatus, builders };
+export default { checkLoginStatus };
