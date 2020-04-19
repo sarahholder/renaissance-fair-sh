@@ -6,26 +6,25 @@ import editFoodForm from './editFoodForm';
 
 import './food.scss';
 
-const editFoodItem = () => {
-  // e.preventDefault();
-  console.error('submit button on edit form working');
-  // const editFood = {
-  //   type: $('#foodType').val(),
-  //   description: $('#foodDescription').val(),
-  //   imageUrl: $('#foodImageUrl').val(),
-  //   price: $('#foodPrice').val() * 1,
-  //   location: $('#foodLocation').val(),
-  //   isAvaliable: $('#avaliabilityOfFood').val(),
-  // };
-  // console.error('edit food', editFood);
-  // foodData.updateFoods(editFood)
-  //   .then(() => {
-  //     document.getElementById('foodForm').reset();
-  //     $('#foodModal').modal('hide');
-  //     // eslint-disable-next-line no-use-before-define
-  //     buildAllFoods();
-  //   })
-  //   .catch((err) => console.error('edit food failed', err));
+const editFoodItem = (e) => {
+  e.preventDefault();
+  const foodId = $('.foodForm').data('id');
+  const editFood = {
+    type: $('#foodType').val(),
+    description: $('#foodDescription').val(),
+    imageUrl: $('#foodImageUrl').val(),
+    price: $('#foodPrice').val() * 1,
+    location: $('#foodLocation').val(),
+    isAvaliable: $('#avaliabilityOfFood').val(),
+  };
+  foodData.updateFoods(foodId, editFood)
+    .then(() => {
+      document.getElementById('foodForm').reset();
+      $('#foodModal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllFoods();
+    })
+    .catch((err) => console.error('edit food failed', err));
 };
 
 const saveNewFoodItem = (e) => {
