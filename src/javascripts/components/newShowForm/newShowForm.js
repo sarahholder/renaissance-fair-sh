@@ -27,8 +27,12 @@ const addShowForm = () => {
   domString += '<option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>';
   domString += '</select>';
   domString += '</div>';
-  $('#add-new-show-modal').modal('show');
-  utils.printToDom('add-new-show-modal-body', domString);
+
+  $('#save-new-show-btn').removeClass('hide');
+  $('#update-show-btn').addClass('hide');
+
+  $('#shows-modal').modal('show');
+  utils.printToDom('shows-modal-body', domString);
 };
 
 export default { addShowForm };
