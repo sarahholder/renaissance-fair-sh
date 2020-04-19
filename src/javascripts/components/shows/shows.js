@@ -1,10 +1,13 @@
 import showData from '../../helpers/data/showData';
 
 import addShow from '../newShowForm/newShowForm';
+import editShow from '../editShowForm/editShowForm';
 import showCards from '../showCards/showCards';
 
 import utils from '../../helpers/utils';
 
+
+// add a new show
 const saveNewShowItem = (e) => {
   e.preventDefault();
   const newShow = {
@@ -17,13 +20,48 @@ const saveNewShowItem = (e) => {
   };
   showData.addShow(newShow)
     .then(() => {
-      $('#add-new-show-modal').modal('hide');
+      $('#shows-modal').modal('hide');
       // eslint-disable-next-line no-use-before-define
       buildAllShows();
     })
     .catch((err) => console.error('could not add show', err));
 };
 
+// update a show item
+const editShowItem = (e) => {
+  e.preventDefault();
+  const showId = $('.edit-show-form').data('id');
+  const editedShow = {
+    name: $('#edit-show-name').val(),
+    time: $('#edit-show-time').val(),
+    stage: $('#edit-show-stage').val(),
+    location: $('#edit-show-location').val(),
+    imageUrl: $('#edit-show-image').val(),
+    uid: utils.getMyUid(),
+  };
+  showData.updateShow(showId, editedShow)
+    .then(() => {
+      $('#shows-modal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllShows();
+    })
+    .catch((err) => console.error('could not update show', err));
+};
+
+// remove a show
+const removeShow = (e) => {
+  e.preventDefault();
+  const showId = e.target.closest('.card').id;
+  showData.deleteShow(showId)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildAllShows();
+    })
+    .catch((err) => console.error('cannot remove show', err));
+};
+
+
+// build all shows - on page load
 const buildAllShows = () => {
   showData.getShows()
     .then((shows) => {
@@ -43,9 +81,13 @@ const buildAllShows = () => {
     .catch((err) => console.error('get shows failed', err));
 };
 
+// events
 const showEvents = () => {
   $('body').on('click', '#add-new-show-btn', addShow.addShowForm);
   $('body').on('click', '#save-new-show-btn', saveNewShowItem);
+  $('body').on('click', '.show-delete-btn', removeShow);
+  $('body').on('click', '.show-edit-btn', editShow.editShowForm);
+  $('body').on('click', '#update-show-btn', editShowItem);
 };
 
 export default { buildAllShows, showEvents };

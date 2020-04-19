@@ -18,7 +18,7 @@
           <a class="nav-link" href="#foodCards">FOOD<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#souvenirsRead">SOUVENIRS</a>
+          <a class="nav-link" href="#souvenirs">SOUVENIRS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#staff-collection">STAFF</a>
@@ -38,117 +38,7 @@
   
 <!--MAIN CONTENT-->
   <div id="foodCards"></div>
-  <!-- ADD FOOD MODAL -->
-  <div class="modal" id="addFoodModal" data-target="#myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Add a food item</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div id="foodModalBody" class="modal-body">
-          <form id="foodForm">
-            <div class="form-group">
-              <label for="foodType">Type of Food</label>
-              <input type="text" class="form-control" id="foodType" placeholder="Type">
-            </div>
-            <div class="form-group">
-              <label for="foodDescription">Description of Food</label>
-              <input type="text" class="form-control" id="foodDescription" placeholder="Description">
-            </div>
-            <div class="form-group">
-              <label for="foodImageUrl">Image Url of Food</label>
-              <input type="text" class="form-control" id="foodImageUrl" placeholder="image Url">
-            </div>
-            <div class="form-group">
-              <label for="foodPrice">Price of Food</label>
-              <input type="number" class="form-control" id="foodPrice" placeholder="Price">
-            </div>
-            <div class="form-group">
-              <label for="foodLocation">Locations Of Food:</label>
-              <select id="foodLocation" class="form-control" placeholder="">
-                <option value="">Select your option</option>
-                <option value="Edinson Tudor Festival">Edinson Tudor Festival</option>
-                <option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>
-                <option value="Hopscote-by-Sea Faire">Edinson Tudor Festival</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="avaliabilityOfFood">Avaliability Of Food:</label>
-              <select id="avaliabilityOfFood" class="form-control" placeholder="">
-                <option value="">Select your option</option>
-                <option value="true">Avaliable</option>
-                <option value="false">Not Avaliable</option>
-              </select>
-            </div>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
-        <button type="submit" id="newFoodSubmit" class="btn btn-primary">Submit</button>
-        </form>
-        </div>
-      </div>
-    </div>
-  </div>  
-  <!-- ADD FOOD MODAL END -->
-  <div id="souvenirs"></div>
-  <!-- ADD SOUVENIRS MODAL -->
-  <div class="modal" id="addSouvenirsModal" data-target="#myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Add New Souvenir </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div id="souvenirModalBody" class="modal-body">
-          <form id="souvenirForm">
-            <div class="form-group">
-              <label for="souvenirType">Type of Souvenir</label>
-              <input type="text" class="form-control" id="souvenirType" placeholder="Type">
-            </div>
-            <div class="form-group">
-              <label for="souvenirDescription">Description of Souvenir</label>
-              <input type="text" class="form-control" id="souvenirDescription" placeholder="Description">
-            </div>
-            <div class="form-group">
-              <label for="souvenirImageUrl">Image Url of Souvenir</label>
-              <input type="text" class="form-control" id="souvenirImageUrl" placeholder="image Url">
-            </div>
-            <div class="form-group">
-              <label for="souvenirPrice">Price of Souvenir</label>
-              <input type="number" class="form-control" id="souvenirPrice" placeholder="Price">
-            </div>
-            <div class="form-group">
-              <label for="souvenirLocation">Locations Of Souvenir:</label>
-              <select id="souvenirLocation" class="form-control" placeholder="">
-                <option value="">Select your option</option>
-                <option value="Edinson Tudor Festival">Edinson Tudor Festival</option>
-                <option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>
-                <option value="Hopscote-by-Sea Faire">Edinson Tudor Festival</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="avaliabilityOfSouvenir">Avaliability Of Souvenir:</label>
-              <select id="avaliabilityOfSouvenir" class="form-control" placeholder="">
-                <option value="">Select your option</option>
-                <option value="true">Avaliable</option>
-                <option value="false">Not Avaliable</option>
-              </select>
-            </div>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
-        <button type="submit" id="newSouvenirSubmit" class="btn btn-primary">Submit</button>
-        </form>
-        </div>
-      </div>
-    </div>
-  </div>  
-  <!-- ADD FOOD MODAL END -->
+  
   <div class="row">
     <div class="">
       <div class="align-items-center" id="souvenirs"></div>
@@ -162,7 +52,7 @@
 
 
 <!-- Add A Show Form Modal -->
-<div class="modal fade" id="add-new-show-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="shows-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -171,13 +61,36 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body" id="add-new-show-modal-body"></div>
+      <div class="modal-body" id="shows-modal-body"></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-new-show-btn">Save changes</button>
+        <button type="button" class="btn btn-primary" id="update-show-btn">Save changes</button>
+        <button type="button" class="btn btn-primary" id="save-new-show-btn">Add New</button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- ADD FOOD MODAL -->
+<div class="modal" id="foodModal" data-target="#myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add a food item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="foodModalBody" class="modal-body">
+        <div id="modalFoodForm"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+          <button type="submit" id="newFoodSubmit" class="btn btn-primary">Submit New Food</button>
+          <button type="submit" id="editFoodSubmit" class="btn btn-primary">Submit Edit</button>
+      </div>
+    </div>
+  </div>
+</div>  
+<!-- ADD FOOD MODAL END -->
 </body>
 </html>

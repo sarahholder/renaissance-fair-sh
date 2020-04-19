@@ -10,6 +10,8 @@ const buildShowCards = (show) => {
   domString += `<p class="card-text">Time: ${show.time}</p>`;
   domString += `<p class="card-text">Stage: ${show.stage}</p>`;
   domString += `<p class="card-text">Location: ${show.location}</p>`;
+  domString += '<button class="btn btn-warning m-1 show-edit-btn"><i class="fas fa-feather-alt"></i> <span class="ml-2">Edit</span></button>';
+  domString += '<button class="btn btn-danger m-1 show-delete-btn"><i class="far fa-trash-alt"></i> <span class="ml-2">Delete</span></button>';
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';
