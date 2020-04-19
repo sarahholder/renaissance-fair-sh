@@ -19,6 +19,7 @@ const getShows = () => new Promise((resolve, reject) => {
     })
     .catch((err) => reject(err));
 });
+const getSingleShow = (showId) => axios.get(`${baseUrl}/shows/${showId}.json`);
 
 const addShow = (newShow) => axios.post(`${baseUrl}/shows.json`, newShow);
 
@@ -31,4 +32,5 @@ export default {
   addShow,
   deleteShow,
   updateShow,
+  getSingleShow,
 };
