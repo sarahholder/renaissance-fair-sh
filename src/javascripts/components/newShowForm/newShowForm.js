@@ -5,19 +5,19 @@ const addShowForm = () => {
   domString += '<form>';
   domString += '<div class="form-group">';
   domString += '<label for="new-show-name">Show Name:</label>';
-  domString += '<input type="text" class="form-control" id="new-show-name">';
+  domString += '<input type="text" class="form-control" id="new-show-name" placeholder="Robin Hood’s Grand Adventure Show">';
   domString += '</div>';
   domString += '<div class="form-group">';
   domString += '<label for="new-show-time">Show Time:</label>';
-  domString += '<input type="text" class="form-control" id="new-show-time">';
+  domString += '<input type="text" class="form-control" id="new-show-time" placeholder="2:00">';
   domString += '</div>';
   domString += '<div class="form-group">';
   domString += '<label for="new-show-stage">Stage:</label>';
-  domString += '<input type="text" class="form-control" id="new-show-stage">';
+  domString += '<input type="text" class="form-control" id="new-show-stage" placeholder="Stage 1">';
   domString += '</div>';
   domString += '<div class="form-group">';
   domString += '<label for="new-show-image">Image Link:</label>';
-  domString += '<input type="text" class="form-control" id="new-show-image">';
+  domString += '<input type="text" class="form-control" id="new-show-image" placeholder="Image Link">';
   domString += '</div>';
   domString += '<div class="form-group">';
   domString += '<label for="new-show-location">Please Pick a Location:</label>';
@@ -27,8 +27,12 @@ const addShowForm = () => {
   domString += '<option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>';
   domString += '</select>';
   domString += '</div>';
-  $('#add-new-show-modal').modal('show');
-  utils.printToDom('add-new-show-modal-body', domString);
+
+  $('#save-new-show-btn').removeClass('hide');
+  $('#update-show-btn').addClass('hide');
+
+  $('#shows-modal').modal('show');
+  utils.printToDom('shows-modal-body', domString);
 };
 
 export default { addShowForm };
