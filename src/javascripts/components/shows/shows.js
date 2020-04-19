@@ -5,6 +5,8 @@ import showCards from '../showCards/showCards';
 
 import utils from '../../helpers/utils';
 
+
+// add a new show
 const saveNewShowItem = (e) => {
   e.preventDefault();
   const newShow = {
@@ -24,6 +26,20 @@ const saveNewShowItem = (e) => {
     .catch((err) => console.error('could not add show', err));
 };
 
+// remove a show
+const removeShow = (e) => {
+  e.preventDefault();
+  const showId = e.target.closest('.card').id;
+  showData.deleteShow(showId)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildAllShows();
+    })
+    .catch((err) => console.error('cannot remove show', err));
+};
+
+
+// build all shows - on page load
 const buildAllShows = () => {
   showData.getShows()
     .then((shows) => {
@@ -43,9 +59,11 @@ const buildAllShows = () => {
     .catch((err) => console.error('get shows failed', err));
 };
 
+// events
 const showEvents = () => {
   $('body').on('click', '#add-new-show-btn', addShow.addShowForm);
   $('body').on('click', '#save-new-show-btn', saveNewShowItem);
+  $('body').on('click', '.show-delete-btns', removeShow);
 };
 
 export default { buildAllShows, showEvents };
