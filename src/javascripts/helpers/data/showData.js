@@ -22,4 +22,6 @@ const getShows = () => new Promise((resolve, reject) => {
 
 const addShow = (newShow) => axios.post(`${baseUrl}/shows.json`, newShow);
 
-export default { getShows, addShow };
+const deleteShow = (showId) => axios.delete(`${baseUrl}/shows/${showId}.json`);
+
+export default { getShows, addShow, deleteShow };
