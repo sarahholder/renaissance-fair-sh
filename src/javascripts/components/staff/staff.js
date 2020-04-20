@@ -23,6 +23,17 @@ const saveNewStaffItem = (e) => {
     .catch((err) => console.error('Save new staff member failed', err));
 };
 
+const removeStaffCards = (e) => {
+  e.preventDefault();
+  const staffId = e.target.closest('.card').id;
+  staffData.deleteStaffMember(staffId)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildAllStaff();
+    })
+    .catch((err) => console.error('delete staff member failed', err));
+};
+
 const buildAllStaff = () => {
   let domString = '';
   staffData.getStaff()
@@ -42,6 +53,7 @@ const buildAllStaff = () => {
 };
 
 const staffEvents = () => {
+  $('body').on('click', '#deleteStaffBtn', removeStaffCards);
   $('body').on('click', '#addStaffBtn', newStaffForm.newStaffForm);
   $('body').on('click', '#newStaffSubmit', saveNewStaffItem);
 };
