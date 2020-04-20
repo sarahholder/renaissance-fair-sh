@@ -9,6 +9,7 @@
 </head>
 <body>
   <!-- NAVBAR -->
+  <div id="add-new-food-modal"></div>
   <nav class="navbar navbar-expand-lg fixed-top">
     <a class="navbar-brand d-flex flex-inline"><h1>RENIASSANCE FAIRE</h1></a>
     <div id="navbarNav" class="collapse navbar-collapse">
@@ -101,5 +102,48 @@
 <!-- Staff section end -->
 
   <div class="align-items-center" id="shows"></div>
+
+
+<!-- Add A Show Form Modal -->
+<div class="modal fade" id="shows-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="add-new-show-modal-title">Add New Show</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="shows-modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="update-show-btn">Save changes</button>
+        <button type="button" class="btn btn-primary" id="save-new-show-btn">Add New</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD FOOD MODAL -->
+<div class="modal" id="foodModal" data-target="#myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add a food item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="foodModalBody" class="modal-body">
+        <div id="modalFoodForm"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+          <button type="submit" id="newFoodSubmit" class="btn btn-primary">Submit New Food</button>
+          <button type="submit" id="editFoodSubmit" class="btn btn-primary">Submit Edit</button>
+      </div>
+    </div>
+  </div>
+</div>  
+<!-- ADD FOOD MODAL END -->
 </body>
 </html>
