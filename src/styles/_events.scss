@@ -1,0 +1,33 @@
+@mixin titles {
+    background-color: $primaryRed;
+    color: white;
+    padding: 10px;
+    margin: 10px 0px;
+    h2 {
+      font-family: $bigFonts;
+    }
+    h3 {
+      font-family: $allFonts;
+    }
+}
+
+@mixin yellow-buttons {
+  background-color: $gold;
+  &:hover {
+    background-color: #ffd54d;   
+  }
+}
+
+@mixin red-buttons {
+  background-color: $primaryRed;
+  color: white;
+  &:hover {
+    background-color: #a21129;
+  }
+}
+
+@mixin card-styles {
+    height: 100%;
+    font-family: $allFonts;
+}
+

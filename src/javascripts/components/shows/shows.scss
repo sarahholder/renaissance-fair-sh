@@ -1,0 +1,12 @@
+@import '../../../styles/colors';
+@import '../../../styles/fonts';
+@import '../../../styles/events';
+
+
+.show-title {
+  @include titles;
+}
+
+.show-title .new-show-btn {
+  @include yellow-buttons
+}

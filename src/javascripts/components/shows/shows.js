@@ -4,6 +4,7 @@ import addShow from '../newShowForm/newShowForm';
 import editShow from '../editShowForm/editShowForm';
 import showCards from '../showCards/showCards';
 
+import './shows.scss';
 import utils from '../../helpers/utils';
 
 
@@ -71,7 +72,7 @@ const buildAllShows = () => {
       domString += '<h3>Fun Shows for All Ages</h3>';
       domString += '<button class="btn btn-lg mb-2 new-show-btn" id="add-new-show-btn"><i class="fas fa-plus"></i> <span class="pl-1">Add New Show</span></button>';
       domString += '</div>';
-      domString += '<div class="container-fluid d-flex flex-wrap col-9">';
+      domString += '<div class="container-fluid d-flex flex-wrap col-md-9 col-sm-10">';
       shows.forEach((show) => {
         domString += showCards.buildShowCards(show);
       });
