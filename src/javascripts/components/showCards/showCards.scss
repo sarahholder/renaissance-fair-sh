@@ -1,37 +1,18 @@
-@import '../../../styles/fonts.scss';
 @import '../../../styles/colors.scss';
+@import '../../../styles/events';
+@import '../../../styles/fonts.scss';
 
 .card .show-images {
-  width: 100%;
-  height: 500px;
+  width: auto;
+  height: 20rem;
   object-fit: cover;
 }
 
-.card {
-  height: 100%;
-  font-family: $allFonts;
+.card .show-edit-btn {
+  @include yellow-buttons;
 }
 
-#shows h2 {
-  font-family: $bigFonts
+.card .show-delete-btn {
+  @include red-buttons;
 }
 
-.show-title {
-  background-color: $primaryRed;
-  color: white;
-  padding: 10px;
-  margin: 10px 0px;
-  h2 {
-    font-family: $bigFonts;
-  }
-  h3 {
-    font-family: $allFonts;
-  }
-}
-
-.show-title .new-show-btn {
-  background-color: $gold;
-  &:hover {
-    background-color: #ffd54d;   
-  }
-}

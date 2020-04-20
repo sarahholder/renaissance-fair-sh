@@ -4,7 +4,6 @@ import utils from '../../helpers/utils';
 const newFoodForm = () => {
   $('#foodModal').modal('show');
   let domString = '';
-  domString += '<h1>TESTING</h1>';
   domString += '<form id="foodForm">';
   domString += '<div class="form-group">';
   domString += '<label for="foodType">Type of Food</label>';

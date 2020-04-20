@@ -1,49 +1,33 @@
 @import '../../../styles/colors';
 @import '../../../styles/fonts';
+@import '../../../styles/events';
 
 #foodTitle {
-  background-color: $primaryRed;
-  color: white;
-  padding: 10px;
-  margin: 10px 0px;
-  h2 {
-    font-family: $bigFonts;
-  }
-  h3 {
-    font-family: $allFonts;
-  }
+  @include titles;
 }
 
 .addFoodBtn {
-  margin: 0 auto;
-  background-color: $gold !important;
-  &:hover {
-    background-color: #ffd54d !important;   
-  }
+  @include yellow-buttons;
 }
 
 img {
   width: 100%;
 }
 
-.card {
-  height: 100%;
-  font-family: $allFonts;
-}
-
 #editFoodBtn {
-  background-color: $gold;
-    &:hover {
-      background-color: #ffd54d;   
-    }
+  @include yellow-buttons;
 }    
 
 #deleteFoodBtn {
-  background-color: $primaryRed;
-  color: white;
-  &:hover {
-    background-color: #a21129;   
-  }
+  @include red-buttons;
+}
+
+.editFoodSubmit {
+  @include yellow-buttons;
+}
+
+.newFoodSubmit {
+  @include yellow-buttons;
 }
  
 

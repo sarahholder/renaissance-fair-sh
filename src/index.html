@@ -32,14 +32,44 @@
   </nav>
 <!--JUMBOTRON-->
   <div class="jumbotron">
-    <h1 class="display-4">WELCOME TO<br>KING ARTHUR'S RENIASSANCE FAIRE</h1>
+    <h1 class="display-4">WELCOME TO KING ARTHUR'S RENIASSANCE FAIRE</h1>
   </div>
   
 <!--MAIN CONTENT-->
-  <div id="foodCards"></div>
-  <div class="align-items-center" id="souvenirs"></div>
-  <div id="staff-collection" class="align-items-center"></div>
-  <div class="align-items-center" id="shows"></div>
+  <div id="foodCards" class="offset"></div>
+  
+
+<div class="align-items-center offset" id="souvenirs"></div>
+
+  
+<!-- Staff section begin -->
+<div id="staff-collection" class="align-items-center offset"></div>
+
+<!-- Staff modal begin -->
+<div class="modal" id="addStaffModal" data-target="#myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add a staff member</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="modalStaffForm"></form>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+      <button type="submit" id="newStaffSubmit" class="newStaffSubmit btn btn-default">Submit</button>
+      <button type="submit" id="editStaffSubmit" class="editStaffSubmit btn btn-default">Submit Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>  
+<!-- Staff modal end  -->
+<!-- Staff section end -->
+
+  <div class="align-items-center offset" id="shows"></div>
 
 <!-- Add A Souvenir Form Modal -->
 <div class="modal" id="souvenirs-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -54,8 +84,8 @@
       <div id="souvenirsModalBody" class="modal-body"></div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
-          <button type="submit" id="save-new-souvenir-btn" class="btn btn-primary">Submit New Souvenir</button>
-          <button type="submit" id="update-souvenir-btn" class="btn btn-primary">Save Changes </button>
+          <button type="submit" id="save-new-souvenir-btn" class="save-new-souvenir-btn btn btn-default">Submit New Souvenir</button>
+          <button type="submit" id="update-souvenir-btn" class="update-souvenir-btn btn btn-default">Save Changes </button>
         </div>
     </div>
   </div>
@@ -74,8 +104,8 @@
       <div class="modal-body" id="shows-modal-body"></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="update-show-btn">Save changes</button>
-        <button type="button" class="btn btn-primary" id="save-new-show-btn">Add New</button>
+        <button type="button" class="update-show-btn btn btn-default" id="update-show-btn">Save changes</button>
+        <button type="button" class="save-new-show-btn btn btn-default" id="save-new-show-btn">Add New</button>
       </div>
     </div>
   </div>
@@ -95,8 +125,8 @@
         <div id="modalFoodForm"></div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
-          <button type="submit" id="newFoodSubmit" class="btn btn-primary">Submit New Food</button>
-          <button type="submit" id="editFoodSubmit" class="btn btn-primary">Submit Edit</button>
+          <button type="submit" id="newFoodSubmit" class="newFoodSubmit btn btn-default">Submit New Food</button>
+          <button type="submit" id="editFoodSubmit" class="editFoodSubmit btn btn-default">Submit Edit</button>
       </div>
     </div>
   </div>

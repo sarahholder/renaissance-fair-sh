@@ -1,15 +1,32 @@
 @import '../../../styles/fonts.scss';
+@import '../../../styles/colors.scss';
+@import '../../../styles/events';
 
-img {
-  width: 100%;
+.staff-image {
+  width: 100%!important;
+  height: 575px!important;
+  object-fit: cover;
 }
 
-.card {
-  height: 100%;
-  font-family: $allFonts;
+#staff-title {
+  @include titles;
+  .add-Staff-Btn {
+    @include yellow-buttons;
+  }
 }
 
-#staff-collection h2 {
-  font-family: $bigFonts;
-  font-size: 50px;
+.editStaffBtn {
+  @include yellow-buttons;
+}
+
+.delete-staff-btn {
+  @include red-buttons;
+}
+
+.newStaffSubmit {
+  @include yellow-buttons
+}
+
+.editStaffSubmit {
+  @include yellow-buttons
 }
