@@ -31,6 +31,7 @@ const checkLoginStatus = () => {
       $('.deleteFoodBtn').removeClass('hide');
       // show buttons
       $('#add-new-show-btn').removeClass('hide');
+      $('#souvenirs-add-btn').removeClass('hide');
       $('.show-delete-btn').removeClass('hide');
       $('.show-edit-btn').removeClass('hide');
       // souvenir buttons
@@ -53,6 +54,7 @@ const checkLoginStatus = () => {
       $('.show-delete-btn').addClass('hide');
       $('.show-edit-btn').addClass('hide');
       // souvenir buttons
+      $('#souvenirs-add-btn').addClass('hide');
       $('.souvenirs-delete-btn').addClass('hide');
       $('.souvenirs-edit-btn').addClass('hide');
     }
