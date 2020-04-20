@@ -1,12 +1,12 @@
-
 @import '../../../styles/colors';
 @import '../../../styles/fonts';
 @import '../../../styles/events';
-@import '../../../styles/main';
 
-.souvenirsContainer {
+
+.show-title {
   @include titles;
-  .souvenirs-add-btn {
-    @include yellow-buttons;
-  }
+}
+
+.show-title .new-show-btn {
+  @include yellow-buttons
 }

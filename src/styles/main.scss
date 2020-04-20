@@ -1,6 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import './colors.scss';
+@import './events';
 @import './fonts.scss';
 
 body {
@@ -52,9 +53,6 @@ nav {
     }
 }
 
-#shows {
-  font-family: $allFonts;
-}
 .card {
-  font-family: $allFonts;
+  @include card-styles;
 }
