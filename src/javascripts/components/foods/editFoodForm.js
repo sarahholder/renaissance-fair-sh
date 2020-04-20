@@ -15,7 +15,7 @@ const editFoodForm = (e) => {
       domString += '</div>';
       domString += '<div class="form-group">';
       domString += '<label for="foodDescription">Description of Food</label>';
-      domString += `<input type="text" class="form-control" id="foodDescription" placeholder=${foodPlaceholder.description}>`;
+      domString += `<input type="text" class="form-control" id="foodDescription" placeholder='${foodPlaceholder.description}'>`;
       domString += '</div>';
       domString += '<div class="form-group">';
       domString += '<label for="foodImageUrl">Image Url of Food</label>';
@@ -28,7 +28,7 @@ const editFoodForm = (e) => {
       domString += '<div class="form-group">';
       domString += '<label for="foodLocation">Locations Of Food:</label>';
       domString += '<select id="foodLocation" class="form-control" placeholder="">';
-      domString += '<option value="">Update Location</option>';
+      domString += `<option value="">${foodPlaceholder.location}</option>`;
       domString += '<option value="Edinson Tudor Festival">Edinson Tudor Festival</option>';
       domString += '<option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>';
       domString += '<option value="Hopscote-by-Sea Faire">Edinson Tudor Festival</option>';
