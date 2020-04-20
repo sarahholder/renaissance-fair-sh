@@ -5,6 +5,7 @@
     margin: 10px 0px;
     h2 {
       font-family: $bigFonts;
+      font-size: 3em;
     }
     h3 {
       font-family: $allFonts;
@@ -12,6 +13,7 @@
 }
 
 @mixin yellow-buttons {
+  margin: .5em;
   background-color: $gold;
   &:hover {
     background-color: #ffd54d;   
@@ -19,6 +21,7 @@
 }
 
 @mixin red-buttons {
+  margin: .5em;
   background-color: $primaryRed;
   color: white;
   &:hover {

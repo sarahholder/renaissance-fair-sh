@@ -1,24 +1,12 @@
 
 @import '../../../styles/colors';
 @import '../../../styles/fonts';
+@import '../../../styles/events';
 @import '../../../styles/main';
 
 .souvenirsContainer {
-  background-color: $primaryRed !important;
-  color: white;
-  padding: 10px;
-  margin: 10px 0px;
-  h2 {
-    font-family: $bigFonts;
-  }
-  h3 {
-    font-family: $allFonts;
-  }
+  @include titles;
   .souvenirs-add-btn {
-    margin: 0 auto;
-    background-color: $gold !important;
-    &:hover {
-      background-color: #ffd54d;   
-    }
+    @include yellow-buttons;
   }
 }

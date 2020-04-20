@@ -1,20 +1,14 @@
 
 @import '../../../../styles/colors.scss';
 @import '../../../../styles/fonts.scss';
+@import '../../../../styles/events';
 
 .souvenir-card {  
     .souvenirs-edit-btn {
-    background-color: $gold !important;
-      &:hover {
-        background-color: #ffd54d;   
-      }
+    @include yellow-buttons;
   }    
   
   .souvenirs-delete-btn {
-    background-color: $primaryRed !important;
-    color: white;
-    &:hover {
-      background-color: #a21129;   
-    }
+   @include red-buttons;
   }
  }
