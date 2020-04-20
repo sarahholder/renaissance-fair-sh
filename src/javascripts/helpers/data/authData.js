@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import souvenirs from '../../components/souvenirs/souvenirs';
 
+import souvenirs from '../../components/souvenirs/souvenirs';
 import food from '../../components/foods/food';
 import shows from '../../components/shows/shows';
 import staff from '../../components/staff/staff';
@@ -9,18 +9,12 @@ import staff from '../../components/staff/staff';
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
 
-const builders = () => {
-  food.buildAllFoods();
-  shows.buildAllShows();
-  staff.buildAllStaff();
-  souvenirs.buildAllSouvenirs();
-};
-
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       loginButton.addClass('hide');
       logoutButton.removeClass('hide');
+      // events
       food.foodEvents();
       shows.showEvents();
       // staff buttons
@@ -33,10 +27,10 @@ const checkLoginStatus = () => {
       $('.deleteFoodBtn').removeClass('hide');
       // show buttons
       $('#add-new-show-btn').removeClass('hide');
-      $('#souvenirs-add-btn').removeClass('hide');
       $('.show-delete-btn').removeClass('hide');
       $('.show-edit-btn').removeClass('hide');
       // souvenir buttons
+      $('#souvenirs-add-btn').removeClass('hide');
       $('.souvenirs-delete-btn').removeClass('hide');
       $('.souvenirs-edit-btn').removeClass('hide');
       souvenirs.souvenirsEvents();
@@ -44,7 +38,6 @@ const checkLoginStatus = () => {
     } else {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
-      // food logout
       // staff buttons
       $('#addStaffBtn').addClass('hide');
       $('.delete-staff-btn').addClass('hide');
@@ -65,4 +58,4 @@ const checkLoginStatus = () => {
   });
 };
 
-export default { checkLoginStatus, builders };
+export default { checkLoginStatus };

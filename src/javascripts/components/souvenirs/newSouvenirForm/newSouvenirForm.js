@@ -40,6 +40,7 @@ const newSouvenirForm = () => {
   domString += '</form>';
 
   $('#save-new-souvenir-btn').removeClass('hide');
+  $('#update-souvenir-btn').addClass('hide');
   utils.printToDom('souvenirsModalBody', domString);
 };
 

@@ -22,3 +22,11 @@
 .delete-staff-btn {
   @include red-buttons;
 }
+
+.newStaffSubmit {
+  @include yellow-buttons
+}
+
+.editStaffSubmit {
+  @include yellow-buttons
+}

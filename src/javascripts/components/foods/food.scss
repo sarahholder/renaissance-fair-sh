@@ -21,6 +21,14 @@ img {
 #deleteFoodBtn {
   @include red-buttons;
 }
+
+.editFoodSubmit {
+  @include yellow-buttons;
+}
+
+.newFoodSubmit {
+  @include yellow-buttons;
+}
  
 
 .hide {

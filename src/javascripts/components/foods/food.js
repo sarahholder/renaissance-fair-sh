@@ -16,6 +16,7 @@ const editFoodItem = (e) => {
     price: $('#foodPrice').val() * 1,
     location: $('#foodLocation').val(),
     isAvaliable: $('#avaliabilityOfFood').val(),
+    uid: utils.getMyUid(),
   };
   foodData.updateFoods(foodId, editFood)
     .then(() => {
@@ -36,6 +37,7 @@ const saveNewFoodItem = (e) => {
     price: $('#foodPrice').val() * 1,
     location: $('#foodLocation').val(),
     isAvaliable: $('#avaliabilityOfFood').val(),
+    uid: utils.getMyUid(),
   };
   foodData.addFoods(newFood)
     .then(() => {
