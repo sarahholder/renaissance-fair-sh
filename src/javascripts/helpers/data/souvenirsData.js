@@ -19,6 +19,8 @@ const getSouvenirs = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+const addSouvenirs = (newSouvenir) => axios.post(`${baseUrl}/souvenirs.json`, newSouvenir);
+
 const deleteSouvenirs = (souvenirId) => axios.delete(`${baseUrl}/souvenirs/${souvenirId}.json`);
 
-export default { getSouvenirs, deleteSouvenirs };
+export default { getSouvenirs, deleteSouvenirs, addSouvenirs };
