@@ -2,6 +2,7 @@ import staffData from '../../helpers/data/staffData';
 import staffCards from './staffCards';
 import utils from '../../helpers/utils';
 import newStaffForm from './newStaffForm';
+import editStaffMemberForm from './editStaffMemberForm';
 import './staffCards.scss';
 
 const saveNewStaffItem = (e) => {
@@ -21,6 +22,26 @@ const saveNewStaffItem = (e) => {
       buildAllStaff();
     })
     .catch((err) => console.error('Save new staff member failed', err));
+};
+
+const editStaffMemberItem = (e) => {
+  e.preventDefault();
+  const staffId = $('.staffForm').data('id');
+  const editStaff = {
+    name: $('#staffName').val(),
+    characterType: $('#characterType').val(),
+    imageUrl: $('#staffImageUrl').val(),
+    characterName: $('#characterName').val(),
+    location: $('.form-check-input:checked').val(),
+  };
+  staffData.updateStaffMember(staffId, editStaff)
+    .then(() => {
+      document.getElementById('modalStaffForm').reset();
+      $('#addStaffModal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllStaff();
+    })
+    .catch((err) => console.error('edit staff failed', err));
 };
 
 const removeStaffCards = (e) => {
@@ -56,6 +77,8 @@ const staffEvents = () => {
   $('body').on('click', '#deleteStaffBtn', removeStaffCards);
   $('body').on('click', '#addStaffBtn', newStaffForm.newStaffForm);
   $('body').on('click', '#newStaffSubmit', saveNewStaffItem);
+  $('body').on('click', '#editStaffBtn', editStaffMemberForm.editStaffMemberForm);
+  $('body').on('click', '#editStaffSubmit', editStaffMemberItem);
 };
 
 export default { buildAllStaff, staffEvents };
