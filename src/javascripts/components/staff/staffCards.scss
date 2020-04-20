@@ -1,7 +1,9 @@
 @import '../../../styles/fonts.scss';
 
-img {
-  width: 100%;
+.staff-image {
+  width: 100%!important;
+  height: 575px!important;
+  object-fit: cover;
 }
 
 .card {
