@@ -12,6 +12,8 @@ const logoutButton = $('#logoutButton');
 const builders = () => {
   food.buildAllFoods();
   shows.buildAllShows();
+  staff.buildAllStaff();
+  souvenirs.buildAllSouvenirs();
 };
 
 const checkLoginStatus = () => {
@@ -21,13 +23,17 @@ const checkLoginStatus = () => {
       logoutButton.removeClass('hide');
       food.foodEvents();
       shows.showEvents();
+      // staff buttons
+      $('#addStaffBtn').removeClass('hide');
+      // food buttons
       $('#addFoodBtn').removeClass('hide');
       $('.editFoodBtn').removeClass('hide');
       $('.deleteFoodBtn').removeClass('hide');
+      // show buttons
       $('#add-new-show-btn').removeClass('hide');
       $('.show-delete-btn').removeClass('hide');
       $('.show-edit-btn').removeClass('hide');
-      // souvenirs login
+      // souvenir buttons
       $('.souvenirs-delete-btn').removeClass('hide');
       $('.souvenirs-edit-btn').removeClass('hide');
       souvenirs.souvenirsEvents();
@@ -36,18 +42,20 @@ const checkLoginStatus = () => {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
       // food logout
+      // staff buttons
+      $('#addStaffBtn').addClass('hide');
+      // food buttons
       $('#addFoodBtn').addClass('hide');
       $('.editFoodBtn').addClass('hide');
       $('.deleteFoodBtn').addClass('hide');
+      // show buttons
       $('#add-new-show-btn').addClass('hide');
       $('.show-delete-btn').addClass('hide');
       $('.show-edit-btn').addClass('hide');
-      // souvenirs logout
+      // souvenir buttons
       $('.souvenirs-delete-btn').addClass('hide');
       $('.souvenirs-edit-btn').addClass('hide');
     }
-    souvenirs.buildAllSouvenirs();
-    staff.buildAllStaff();
   });
 };
 

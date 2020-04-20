@@ -14,8 +14,12 @@ const saveNewStaffItem = (e) => {
     location: $('.form-check-input:checked').val(),
   };
   staffData.addStaff(newStaff)
-    // eslint-disable-next-line no-use-before-define
-    .then(() => buildAllStaff())
+    .then(() => {
+      document.getElementById('modalStaffForm').reset();
+      $('#addStaffModal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllStaff();
+    })
     .catch((err) => console.error('Save new staff member failed', err));
 };
 
@@ -25,7 +29,7 @@ const buildAllStaff = () => {
     .then((allStaff) => {
       domString += '<div class="text-center" id="staff-title">';
       domString += '<h2 class="text-center mt-3">Staff</h2>';
-      domString += '<button class="btn btn-lg addStaffBtn" id="addStaffBtn"><i class="fas fa-plus"></i> Add a new staff member</button>';
+      domString += '<button class="btn btn-lg add-Staff-Btn" id="addStaffBtn"><i class="fas fa-plus"></i> Add a new staff member</button>';
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       allStaff.forEach((staff) => {

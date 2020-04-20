@@ -1,5 +1,4 @@
 const newStaffForm = () => {
-  console.error('new food form button working');
   $('#addStaffModal').modal('show');
 };
 
