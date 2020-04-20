@@ -25,6 +25,7 @@ const checkLoginStatus = () => {
       shows.showEvents();
       // staff buttons
       $('#addStaffBtn').removeClass('hide');
+      $('.delete-staff-btn').removeClass('hide');
       // food buttons
       $('#addFoodBtn').removeClass('hide');
       $('.editFoodBtn').removeClass('hide');
@@ -45,6 +46,7 @@ const checkLoginStatus = () => {
       // food logout
       // staff buttons
       $('#addStaffBtn').addClass('hide');
+      $('.delete-staff-btn').addClass('hide');
       // food buttons
       $('#addFoodBtn').addClass('hide');
       $('.editFoodBtn').addClass('hide');
