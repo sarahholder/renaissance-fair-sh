@@ -1,8 +1,30 @@
 import souvenirsData from '../../helpers/data/souvenirsData';
-import souvenirComponent from './souvenirsCards';
+import souvenirComponent from './souvenirsCards/souvenirsCards';
 import utils from '../../helpers/utils';
-import souvenirForm from './newSouvenirForm';
+import souvenirForm from './newSouvenirForm/newSouvenirForm';
+import editSouvenirs from './editSouvenirsForm/editSouvenirsForm';
 import './souvenirs.scss';
+
+const editSouvenirCard = (e) => {
+  e.preventDefault();
+  const souvenirId = $('.edit-souvenir-form').data('id');
+  const editSouvenir = {
+    type: $('#edit-souvenirType').val(),
+    description: $('#edit-souvenirDescription').val(),
+    imageUrl: $('#edit-souvenirImage').val(),
+    price: $('#edit-souvenirPrice').val() * 1,
+    location: $('#edit-souvenirLocation').val(),
+    isAvaliable: $('#edit-souvenirAvailability').val(),
+    uid: utils.getMyUid(),
+  };
+  souvenirsData.updateSouvenirs(souvenirId, editSouvenir)
+    .then(() => {
+      $('#souvenirs-modal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllSouvenirs();
+    })
+    .catch((err) => console.error('update failed', err));
+};
 
 const removeSouvenirCard = (e) => {
   const souvenirsId = e.target.closest('.card').id;
@@ -26,14 +48,13 @@ const saveNewSouvenirItem = (e) => {
     isAvaliable: $('#souvenirAvailability').val(),
     uid: utils.getMyUid(),
   };
-  console.error(newSouvenir);
   souvenirsData.addSouvenirs(newSouvenir)
     .then(() => {
       $('#souvenirs-modal').modal('hide');
       // eslint-disable-next-line no-use-before-define
       buildAllSouvenirs();
     })
-    .catch((err) => console.error('Save New Food Item failed', err));
+    .catch((err) => console.error('Save New Souvenir Item failed', err));
 };
 const buildAllSouvenirs = () => {
   souvenirsData.getSouvenirs()
@@ -55,7 +76,9 @@ const buildAllSouvenirs = () => {
 };
 const souvenirsEvents = () => {
   $('body').on('click', '.souvenirs-delete-btn', removeSouvenirCard);
+  $('body').on('click', '.souvenirs-edit-btn', editSouvenirs.editSouvenirsForm);
   $('body').on('click', '.souvenirs-add-btn', souvenirForm.newSouvenirForm);
-  $('body').on('click', '#newSouvenirSubmit', saveNewSouvenirItem);
+  $('body').on('click', '#save-new-souvenir-btn', saveNewSouvenirItem);
+  $('body').on('click', '#update-souvenir-btn', editSouvenirCard);
 };
 export default { buildAllSouvenirs, souvenirsEvents };

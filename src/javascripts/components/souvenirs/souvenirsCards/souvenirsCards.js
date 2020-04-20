@@ -10,7 +10,6 @@ const buildSouvenirsCards = (souvenir) => {
   domString += `<div class="text-center card-title">${souvenir.type}</div>`;
   domString += `<p class="card-text">Description: ${souvenir.description}</p>`;
   domString += `<p class="card-text">Price: $ ${souvenir.price}</p>`;
-  domString += `<p class="card-text">Availability: ${souvenir.isAvailable}</p>`;
   domString += `<p class="card-text">Location: ${souvenir.location}</p>`;
   domString += '<button id="souvenirs-edit-btn" class="col-5 btn  souvenirs-edit-btn"> <i class="fas fa-feather-alt"></i> Edit </button>';
   domString += '<button id="souvenirs-delete-btn" class="col-5 btn souvenirs-delete-btn"> <i class="far fa-trash-alt"></i> Delete </button>';

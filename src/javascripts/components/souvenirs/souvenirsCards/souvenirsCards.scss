@@ -1,9 +1,9 @@
 
-@import '../../../styles/colors';
-@import '../../../styles/fonts';
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/fonts.scss';
 
 .souvenir-card {  
-  .souvenirs-edit-btn {
+    .souvenirs-edit-btn {
     background-color: $gold !important;
       &:hover {
         background-color: #ffd54d;   

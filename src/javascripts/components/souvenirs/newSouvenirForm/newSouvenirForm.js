@@ -1,4 +1,4 @@
-import utils from '../../helpers/utils';
+import utils from '../../../helpers/utils';
 
 const newSouvenirForm = () => {
   $('#souvenirs-modal').modal('show');
