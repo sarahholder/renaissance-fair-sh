@@ -56,3 +56,10 @@ nav {
 .card {
   @include card-styles;
 }
+
+.offset:before {
+  content: "";
+  height: 70px;
+  margin-top: -70px;
+  display: flex;
+}
