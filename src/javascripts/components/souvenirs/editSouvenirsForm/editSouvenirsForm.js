@@ -43,7 +43,7 @@ const editSouvenirsForm = (e) => {
       domString += '</div>';
       domString += '</div>';
       domString += '</form>';
-      utils.printToDom('souvenirModalBody', domString);
+      utils.printToDom('souvenirsModalBody', domString);
       $('#update-souvenir-btn').removeClass('hide');
       $('#save-new-souvenir-btn').addClass('hide');
     }).catch((err) => console.error('could not get single souvenir', err));

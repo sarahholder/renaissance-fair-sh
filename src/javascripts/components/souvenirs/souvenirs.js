@@ -23,7 +23,7 @@ const editSouvenirCard = (e) => {
       // eslint-disable-next-line no-use-before-define
       buildAllSouvenirs();
     })
-    .catch((err) => console.error('Save New Food Item failed', err));
+    .catch((err) => console.error('update failed', err));
 };
 
 const removeSouvenirCard = (e) => {
@@ -48,7 +48,6 @@ const saveNewSouvenirItem = (e) => {
     isAvaliable: $('#souvenirAvailability').val(),
     uid: utils.getMyUid(),
   };
-  console.error(newSouvenir);
   souvenirsData.addSouvenirs(newSouvenir)
     .then(() => {
       $('#souvenirs-modal').modal('hide');

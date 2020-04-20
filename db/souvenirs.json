@@ -94,6 +94,8 @@
     "description": "A small wind instrument",
     "location": "North Illinois Pleasure Faire",
     "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
+    "price": 20,
+    "isAvailable": true,
     "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "souvenir12": {
@@ -101,7 +103,9 @@
     "description": "A small figure depicting a colorful fairy",
     "location": "North Illinois Pleasure Faire",
     "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
-      "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
+    "price": 35,
+    "isAvailable": true,
+    "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
   },
   "souvenir13": {
     "type": "Dragon Birdbath",
