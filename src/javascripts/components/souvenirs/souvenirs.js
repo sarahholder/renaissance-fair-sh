@@ -11,7 +11,7 @@ const editSouvenirCard = (e) => {
   const editSouvenir = {
     type: $('#edit-souvenirType').val(),
     description: $('#edit-souvenirDescription').val(),
-    imageUrl: $('#edit-souvenirImageUrl').val(),
+    imageUrl: $('#edit-souvenirImage').val(),
     price: $('#edit-souvenirPrice').val() * 1,
     location: $('#edit-souvenirLocation').val(),
     isAvaliable: $('#edit-souvenirAvailability').val(),
