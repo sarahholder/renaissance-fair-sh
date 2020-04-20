@@ -1,7 +1,7 @@
 import souvenirsData from '../../helpers/data/souvenirsData';
-import souvenirComponent from './souvenirsCards';
+import souvenirComponent from './souvenirsCards/souvenirsCards';
 import utils from '../../helpers/utils';
-import souvenirForm from './newSouvenirForm';
+import souvenirForm from './newSouvenirForm/newSouvenirForm';
 import editSouvenirs from './editSouvenirsForm/editSouvenirsForm';
 import './souvenirs.scss';
 
