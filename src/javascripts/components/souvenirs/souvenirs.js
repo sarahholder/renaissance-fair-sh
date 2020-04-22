@@ -1,3 +1,5 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import souvenirsData from '../../helpers/data/souvenirsData';
 import souvenirComponent from './souvenirsCards/souvenirsCards';
 import utils from '../../helpers/utils';
@@ -67,10 +69,14 @@ const buildAllSouvenirs = () => {
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       souvenirs.forEach((souvenir) => {
-        domString += souvenirComponent.buildSouvenirsCards(souvenir);
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            domString += souvenirComponent.buildSouvenirsCards(souvenir);
+          }
+        });
+        domString += '</div>';
+        utils.printToDom('souvenirs', domString);
       });
-      domString += '</div>';
-      utils.printToDom('souvenirs', domString);
     })
     .catch((err) => console.error('no souvenirs for you', err));
 };
