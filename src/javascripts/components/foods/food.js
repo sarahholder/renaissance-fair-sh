@@ -10,6 +10,7 @@ import './food.scss';
 const editFoodItem = (e) => {
   e.preventDefault();
   const foodId = $('.editFoodForm').data('id');
+  console.error('loc of edited item', $('#edit-foodLocation').val());
   const editFood = {
     type: $('#edit-foodType').val(),
     description: $('#edit-foodDescription').val(),
@@ -31,6 +32,7 @@ const editFoodItem = (e) => {
 
 const saveNewFoodItem = (e) => {
   e.stopImmediatePropagation();
+  console.error('availability status of new item', $('#availabilityOfFood').val());
   const newFood = {
     type: $('#foodType').val(),
     description: $('#foodDescription').val(),

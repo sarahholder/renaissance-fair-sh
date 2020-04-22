@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import './food.scss';
 
 const foodDataCardInfo = (food) => {
+  console.log('food item for editing', food);
   let domString = '';
   domString += '<div class="col-4 mb-2">';
   domString += `<div class="card" id="${food.id}">`;
@@ -12,6 +13,12 @@ const foodDataCardInfo = (food) => {
   domString += `<p class="card-text">${food.description}</p>`;
   domString += `<p class="card-text">Price: $${food.price}</p>`;
   domString += `<p class="card-text">Location: ${food.location}</p>`;
+  console.error('food availability status', `${food.isAvailable}`);
+  if (`${food.isAvailable}` === 'true') {
+    domString += '<p class="card-text">Now available!</p>';
+  } else {
+    domString += '<p class="card-text">Still cooking and prepping! Please come back later!</p>';
+  }
   domString += '<div class="d-flex justify-content-around">';
   const user = firebase.auth().currentUser;
   if (user !== null) {

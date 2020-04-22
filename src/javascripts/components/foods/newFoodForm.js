@@ -31,11 +31,11 @@ const newFoodForm = () => {
   domString += '</select>';
   domString += '</div>';
   domString += '<div class="form-group">';
-  domString += '<label for="avaliabilityOfFood">Avaliability Of Food:</label>';
-  domString += '<select id="avaliabilityOfFood" class="form-control" placeholder="">';
+  domString += '<label for="availabilityOfFood">Availability Of Food:</label>';
+  domString += '<select id="availabilityOfFood" class="form-control" placeholder="">';
   domString += '<option value="">Select your option</option>';
-  domString += '<option value="true">Avaliable</option>';
-  domString += '<option value="false">Not Avaliable</option>';
+  domString += '<option value=true>Available</option>';
+  domString += '<option value=false>Not Available</option>';
   domString += '</select>';
   domString += '</div>';
   domString += '</div>';
