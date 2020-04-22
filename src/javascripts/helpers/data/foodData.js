@@ -8,10 +8,12 @@ const getFoods = () => new Promise((resolve, reject) => {
     .then((response) => {
       const allFoods = response.data;
       const foods = [];
-      Object.keys(allFoods).forEach((foodId) => {
-        allFoods[foodId].id = foodId;
-        foods.push(allFoods[foodId]);
-      });
+      if (foods) {
+        Object.keys(allFoods).forEach((foodId) => {
+          allFoods[foodId].id = foodId;
+          foods.push(allFoods[foodId]);
+        });
+      }
       resolve(foods);
     })
     .catch((err) => reject(err));

@@ -15,16 +15,15 @@ const checkLoginStatus = () => {
       loginButton.addClass('hide');
       logoutButton.removeClass('hide');
       // events
-      food.foodEvents();
       shows.showEvents();
       // staff buttons
       $('#addStaffBtn').removeClass('hide');
       $('.delete-staff-btn').removeClass('hide');
       $('.editStaffBtn').removeClass('hide');
       // food buttons
-      $('#addFoodBtn').removeClass('hide');
-      $('.editFoodBtn').removeClass('hide');
-      $('.deleteFoodBtn').removeClass('hide');
+      // $('#addFoodBtn').removeClass('hide');
+      // $('.editFoodBtn').removeClass('hide');
+      // $('.deleteFoodBtn').removeClass('hide');
       // show buttons
       $('#add-new-show-btn').removeClass('hide');
       $('.show-delete-btn').removeClass('hide');
@@ -43,9 +42,9 @@ const checkLoginStatus = () => {
       $('.delete-staff-btn').addClass('hide');
       $('.editStaffBtn').addClass('hide');
       // food buttons
-      $('#addFoodBtn').addClass('hide');
-      $('.editFoodBtn').addClass('hide');
-      $('.deleteFoodBtn').addClass('hide');
+      // $('#addFoodBtn').addClass('hide');
+      // $('.editFoodBtn').addClass('hide');
+      // $('.deleteFoodBtn').addClass('hide');
       // show buttons
       $('#add-new-show-btn').addClass('hide');
       $('.show-delete-btn').addClass('hide');
@@ -55,6 +54,8 @@ const checkLoginStatus = () => {
       $('.souvenirs-delete-btn').addClass('hide');
       $('.souvenirs-edit-btn').addClass('hide');
     }
+    food.foodEvents();
+    food.buildAllFoods();
   });
 };
 
