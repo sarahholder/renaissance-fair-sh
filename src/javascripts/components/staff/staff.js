@@ -3,10 +3,11 @@ import staffCards from './staffCards';
 import utils from '../../helpers/utils';
 import newStaffForm from './newStaffForm';
 import editStaffMemberForm from './editStaffMemberForm';
+
 import './staffCards.scss';
 
 const saveNewStaffItem = (e) => {
-  e.preventDefault();
+  e.stopImmediatePropagation();
   const newStaff = {
     name: $('#staffName').val(),
     characterType: $('#characterType').val(),
