@@ -37,7 +37,7 @@ const removeSouvenirCard = (e) => {
 };
 
 const saveNewSouvenirItem = (e) => {
-  e.preventDefault();
+  e.stopImmediatePropagation();
   console.error('submit button is in fact working!');
   const newSouvenir = {
     type: $('#souvenirType').val(),
