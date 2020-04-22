@@ -8,19 +8,19 @@ import './food.scss';
 
 const editFoodItem = (e) => {
   e.preventDefault();
-  const foodId = $('.foodForm').data('id');
+  const foodId = $('.editFoodForm').data('id');
   const editFood = {
-    type: $('#foodType').val(),
-    description: $('#foodDescription').val(),
-    imageUrl: $('#foodImageUrl').val(),
-    price: $('#foodPrice').val() * 1,
-    location: $('#foodLocation').val(),
-    isAvaliable: $('#avaliabilityOfFood').val(),
+    type: $('#edit-foodType').val(),
+    description: $('#edit-foodDescription').val(),
+    imageUrl: $('#edit-foodImageUrl').val(),
+    price: $('#edit-foodPrice').val() * 1,
+    location: $('#edit-foodLocation').val(),
+    isAvailable: $('#edit-availabilityOfFood').val(),
     uid: utils.getMyUid(),
   };
   foodData.updateFoods(foodId, editFood)
     .then(() => {
-      document.getElementById('foodForm').reset();
+      document.getElementById('editFoodForm').reset();
       $('#foodModal').modal('hide');
       // eslint-disable-next-line no-use-before-define
       buildAllFoods();
@@ -29,14 +29,14 @@ const editFoodItem = (e) => {
 };
 
 const saveNewFoodItem = (e) => {
-  e.preventDefault();
+  e.stopImmediatePropagation();
   const newFood = {
     type: $('#foodType').val(),
     description: $('#foodDescription').val(),
     imageUrl: $('#foodImageUrl').val(),
     price: $('#foodPrice').val() * 1,
     location: $('#foodLocation').val(),
-    isAvaliable: $('#avaliabilityOfFood').val(),
+    isAvailable: $('#availabilityOfFood').val(),
     uid: utils.getMyUid(),
   };
   foodData.addFoods(newFood)
@@ -50,10 +50,9 @@ const saveNewFoodItem = (e) => {
 };
 
 const removeFoodCards = (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   const foodId = e.target.closest('.card').id;
   foodData.deleteFoods(foodId)
-  // eslint-disable-next-line no-use-before-define
     .then(() => {
       // eslint-disable-next-line no-use-before-define
       buildAllFoods();
@@ -76,7 +75,6 @@ const buildAllFoods = () => {
       });
       domString += '</div>';
       utils.printToDom('foodCards', domString);
-      // eslint-disable-next-line no-use-before-define
     })
     .catch((err) => console.error('build all foods has failed you', err));
 };

@@ -21,7 +21,7 @@
     "type": "Funnel Cake",
     "description": "Fresh hot and served with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1581618478941-515a55d3fce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-    "price": "6",
+    "price": 6,
     "location": "Edinson Tudor Festival",
     "isAvailable": true,
     "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
@@ -30,7 +30,7 @@
     "type": "Chocolate Filled Doughnuts",
     "description": "Soft, perfectly fried and filled with delicious chocolate, topped with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1552417656-f5c5bbb00244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-    "price": "8",
+    "price": 8,
     "location": "Edinson Tudor Festival",
     "isAvailable": true,
     "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
@@ -39,7 +39,7 @@
     "type": "Turkey Leg",
     "description": "Huge, deliciously seasoned meat roasted fresh all day",
     "imageUrl": "https://i.redd.it/k0ncshj5gqgx.jpg",
-    "price": "9",
+    "price": 9,
     "location": "Edinson Tudor Festival",
     "isAvailable": true,
     "uid": "FBJDYp4TBxhZcPFOjVgPDQ37UhB2"
@@ -66,7 +66,7 @@
     "type": "Funnel Cake",
     "description": "Fresh hot and served with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1581618478941-515a55d3fce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-    "price": "6",
+    "price": 6,
     "location": "Hopscote-by-Sea Faire",
     "isAvailable": true,
     "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
@@ -75,7 +75,7 @@
     "type": "Chocolate Filled Doughnuts",
     "description": "Soft, perfectly fried and filled with delicious chocolate, topped with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1552417656-f5c5bbb00244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-    "price": "8",
+    "price": 8,
     "location": "Hopscote-by-Sea Faire",
     "isAvailable": true,
     "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
@@ -84,7 +84,7 @@
     "type": "Turkey Leg",
     "description": "Huge, deliciously seasoned meat roasted fresh all day",
     "imageUrl": "https://i.redd.it/k0ncshj5gqgx.jpg",
-    "price": "9",
+    "price": 9,
     "location": "Hopscote-by-Sea Faire",
     "isAvailable": true,
     "uid": "BWUEmi5EiggZG9IyK5FnHzHLks83"
@@ -111,7 +111,7 @@
     "type": "Funnel Cake",
     "description": "Fresh hot and served with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1581618478941-515a55d3fce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-    "price": "7",
+    "price": 7,
     "location": "North Illinois Pleasure Faire",
     "isAvailable": true,
     "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"
@@ -120,7 +120,7 @@
     "type": "Chocolate Filled Doughnuts",
     "description": "Soft, perfectly fried and filled with delicious chocolate, topped with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1552417656-f5c5bbb00244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-    "price": "8",
+    "price": 8,
     "location": "North Illinois Pleasure Faire",
     "isAvailable": true,
     "uid": "Kstvrmi6WBgyBcqoqg4rben5rMt2"

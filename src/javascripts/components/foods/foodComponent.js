@@ -1,3 +1,5 @@
+import firebase from 'firebase/app';
+
 import './food.scss';
 
 const foodDataCardInfo = (food) => {
@@ -11,8 +13,11 @@ const foodDataCardInfo = (food) => {
   domString += `<p class="card-text">Price: $${food.price}</p>`;
   domString += `<p class="card-text">Location: ${food.location}</p>`;
   domString += '<div class="d-flex justify-content-around">';
-  domString += '<button id="editFoodBtn" class="col-5 btn btn-default editFoodBtn"><i class="fas fa-feather-alt"></i> Edit</<button>';
-  domString += '<button id="deleteFoodBtn" class="col-5 btn btn-default deleteFoodBtn"><i class="far fa-trash-alt"></i> Delete</button>';
+  const user = firebase.auth().currentUser;
+  if (user !== null) {
+    domString += '<button id="editFoodBtn" class="col-5 btn btn-default editFoodBtn"><i class="fas fa-feather-alt"></i> Edit</<button>';
+    domString += '<button id="deleteFoodBtn" class="col-5 btn btn-default deleteFoodBtn"><i class="far fa-trash-alt"></i> Delete</button>';
+  }
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';
