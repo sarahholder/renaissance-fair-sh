@@ -1,3 +1,4 @@
+import firebase from 'firebase/app';
 import utils from '../../helpers/utils';
 import foodData from '../../helpers/data/foodData';
 import foodComponent from './foodComponent';
@@ -67,7 +68,10 @@ const buildAllFoods = () => {
       domString += '<div class="text-center" id="foodTitle">';
       domString += '<h2 class="mt-3">Foods</h2>';
       domString += '<h3>Delicious foods and beverages</h3>';
-      domString += '<button class="btn btn-lg addFoodBtn" id="addFoodBtn"><i class="fas fa-plus"></i> Add new food item</button>';
+      const user = firebase.auth().currentUser;
+      if (user !== null) {
+        domString += '<button class="btn btn-lg addFoodBtn" id="addFoodBtn"><i class="fas fa-plus"></i> Add new food item</button>';
+      }
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       foods.forEach((food) => {
