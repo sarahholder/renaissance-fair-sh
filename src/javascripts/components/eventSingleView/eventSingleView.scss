@@ -1,0 +1,7 @@
+@import '../../../styles/colors';
+@import '../../../styles/fonts';
+@import '../../../styles/events';
+
+.singleEventTitle {
+  @include titles;
+}

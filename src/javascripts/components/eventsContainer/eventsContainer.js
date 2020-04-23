@@ -1,5 +1,6 @@
 import eventData from '../../helpers/data/eventData';
 import eventCard from '../eventCard/eventCard';
+import eventSingleView from '../eventSingleView/eventSingleView';
 
 import utils from '../../helpers/utils';
 
@@ -18,6 +19,7 @@ const buildAllEvents = () => {
       });
       domString += '</div>';
       utils.printToDom('events', domString);
+      $('body').on('click', '#viewEventBtn', eventSingleView.viewSingleEventCall);
     })
     .catch((error) => console.error('build all events has failed', error));
 };
