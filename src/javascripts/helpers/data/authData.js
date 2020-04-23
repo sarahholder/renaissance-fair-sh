@@ -30,7 +30,6 @@ const checkLoginStatus = () => {
       $('.souvenirs-delete-btn').removeClass('hide');
       $('.souvenirs-edit-btn').removeClass('hide');
       souvenirs.souvenirsEvents();
-      staff.staffEvents();
     } else {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
@@ -50,6 +49,7 @@ const checkLoginStatus = () => {
     food.foodEvents();
     food.buildAllFoods();
     eventsContainer.buildAllEvents();
+    eventsContainer.eventActions();
     staff.staffEvents();
     staff.buildAllStaff();
   });
