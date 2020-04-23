@@ -21,6 +21,16 @@ const getEvents = () => new Promise((resolve, reject) => {
 
 const getSingleEvent = (eventId) => axios.get(`${baseURL}/events/${eventId}.json`);
 
+const getSingleEventWithDetails = (eventId) => new Promise((resolve, reject) => {
+  getSingleEvent(eventId)
+    .then((response) => {
+      const selectedEvent = response.data;
+      // event.id = eventId;
+      resolve(selectedEvent);
+    })
+    .catch((error) => reject(error));
+});
+
 const deleteEvent = (eventId) => axios.delete(`${baseURL}/events/${eventId}.json`);
 
-export default { getEvents, getSingleEvent, deleteEvent };
+export default { getEvents, getSingleEventWithDetails, deleteEvent };
