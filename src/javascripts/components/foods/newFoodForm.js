@@ -27,7 +27,7 @@ const newFoodForm = () => {
   domString += '<option value="">Select your option</option>';
   domString += '<option value="Edinson Tudor Festival">Edinson Tudor Festival</option>';
   domString += '<option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>';
-  domString += '<option value="Hopscote-by-Sea Faire">Edinson Tudor Festival</option>';
+  domString += '<option value="Hopscote-by-Sea Faire">Hopscote-by-Sea Faire</option>';
   domString += '</select>';
   domString += '</div>';
   domString += '<div class="form-group">';
