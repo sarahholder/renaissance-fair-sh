@@ -29,6 +29,15 @@
   }
 }
 
+@mixin blue-buttons {
+  margin: .5em;
+  background-color: $primaryBlue;
+  color: white;
+  &:hover {
+    background-color: $primaryBlue;
+  }
+}
+
 @mixin card-styles {
     height: 100%;
     font-family: $allFonts;

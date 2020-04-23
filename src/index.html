@@ -25,6 +25,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#shows">SHOWS</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#events">EVENTS</a>
+        </li>
       </ul>
     </div>
     <button id="loginButton" class="hide">LOGIN WITH GOOGLE</button>
@@ -37,14 +40,18 @@
   
 <!--MAIN CONTENT-->
   <div id="foodCards" class="offset"></div>
-  
+  <div class="align-items-center offset" id="souvenirs"></div>
+  <div id="staff-collection" class="align-items-center offset"></div>
+  <div class="align-items-center offset" id="shows"></div>
+  <div class="align-items-center offset" id="events"></div>
 
-<div class="align-items-center offset" id="souvenirs"></div>
+<!-- SINGLE VIEW OF EVENT -->
+  <div class="align-items-center offset" id="single-view-event"></div>
 
   
+<!-- MODALS BELOW! -->
+
 <!-- Staff section begin -->
-<div id="staff-collection" class="align-items-center offset"></div>
-
 <!-- Staff modal begin -->
 <div class="modal" id="addStaffModal" data-target="#myModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -68,8 +75,6 @@
 </div>  
 <!-- Staff modal end  -->
 <!-- Staff section end -->
-
-  <div class="align-items-center offset" id="shows"></div>
 
 <!-- Add A Souvenir Form Modal -->
 <div class="modal" id="souvenirs-modal" tabindex="-1" role="dialog" aria-hidden="true">
