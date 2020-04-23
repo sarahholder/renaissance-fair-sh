@@ -19,4 +19,6 @@ const getEvents = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getEvents };
+const getSingleEvent = (eventId) => axios.get(`${baseURL}/events/${eventId}.json`);
+
+export default { getEvents, getSingleEvent };

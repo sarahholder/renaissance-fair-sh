@@ -1,3 +1,4 @@
+import firebase from 'firebase/app';
 import './staffCards.scss';
 
 const buildStaffCards = (staff) => {
@@ -10,8 +11,11 @@ const buildStaffCards = (staff) => {
   domString += `<p class="card-text">Character Type: ${staff.characterType}</p>`;
   domString += `<p class="card-text">Character Name: ${staff.characterName}</p>`;
   domString += `<p class="card-text">Location: ${staff.location}</p>`;
-  domString += '<button id="editStaffBtn" class="col-5 btn editStaffBtn"><i class="fas fa-feather-alt"></i> Edit</<button>';
-  domString += '<button class="col-5 btn delete-staff-btn" id="deleteStaffBtn"><i class="far fa-trash-alt"></i> Delete</button>';
+  const user = firebase.auth().currentUser;
+  if (user !== null) {
+    domString += '<button id="editStaffBtn" class="col-5 btn editStaffBtn"><i class="fas fa-feather-alt"></i> Edit</<button>';
+    domString += '<button class="col-5 btn delete-staff-btn" id="deleteStaffBtn"><i class="far fa-trash-alt"></i> Delete</button>';
+  }
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';
