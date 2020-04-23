@@ -10,7 +10,7 @@ import utils from '../../helpers/utils';
 
 // add a new show
 const saveNewShowItem = (e) => {
-  e.preventDefault();
+  e.stopImmediatePropagation();
   const newShow = {
     name: $('#new-show-name').val(),
     time: $('#new-show-time').val(),
