@@ -17,9 +17,7 @@ const checkLoginStatus = () => {
       // events
       shows.showEvents();
       // staff buttons
-      $('#addStaffBtn').removeClass('hide');
-      $('.delete-staff-btn').removeClass('hide');
-      $('.editStaffBtn').removeClass('hide');
+      // ('.editStaffBtn').removeClass('hide');
       // food buttons
       // $('#addFoodBtn').removeClass('hide');
       // $('.editFoodBtn').removeClass('hide');
@@ -38,9 +36,9 @@ const checkLoginStatus = () => {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
       // staff buttons
-      $('#addStaffBtn').addClass('hide');
-      $('.delete-staff-btn').addClass('hide');
-      $('.editStaffBtn').addClass('hide');
+      // $('#addStaffBtn').addClass('hide');
+      // $('.delete-staff-btn').addClass('hide');
+      // $('.editStaffBtn').addClass('hide');
       // food buttons
       // $('#addFoodBtn').addClass('hide');
       // $('.editFoodBtn').addClass('hide');
@@ -56,6 +54,8 @@ const checkLoginStatus = () => {
     }
     food.foodEvents();
     food.buildAllFoods();
+    staff.staffEvents();
+    staff.buildAllStaff();
   });
 };
 
