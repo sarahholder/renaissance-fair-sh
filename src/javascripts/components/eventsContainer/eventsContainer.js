@@ -3,6 +3,17 @@ import eventCard from '../eventCard/eventCard';
 
 import utils from '../../helpers/utils';
 
+const removeEvent = (e) => {
+  e.preventDefault();
+  const eventId = e.target.closest('.card').id;
+  eventData.deleteEvent(eventId)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildAllEvents();
+    })
+    .catch((err) => console.error('delete staff member failed', err));
+};
+
 const buildAllEvents = () => {
   let domString = '';
   eventData.getEvents()
@@ -22,4 +33,8 @@ const buildAllEvents = () => {
     .catch((error) => console.error('build all events has failed', error));
 };
 
-export default { buildAllEvents };
+const eventActions = () => {
+  $('body').on('click', '#deleteEventBtn', removeEvent);
+};
+
+export default { buildAllEvents, eventActions };

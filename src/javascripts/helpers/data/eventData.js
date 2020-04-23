@@ -21,4 +21,6 @@ const getEvents = () => new Promise((resolve, reject) => {
 
 const getSingleEvent = (eventId) => axios.get(`${baseURL}/events/${eventId}.json`);
 
-export default { getEvents, getSingleEvent };
+const deleteEvent = (eventId) => axios.delete(`${baseURL}/events/${eventId}.json`);
+
+export default { getEvents, getSingleEvent, deleteEvent };
