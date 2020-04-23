@@ -7,14 +7,12 @@ import auth from './components/auth/auth';
 
 import shows from './components/shows/shows';
 import souvenirs from './components/souvenirs/souvenirs';
-import staff from './components/staff/staff';
-// import food from './components/foods/food';
+// import staff from './components/staff/staff';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
-  // food.buildAllFoods();
   souvenirs.buildAllSouvenirs();
-  staff.buildAllStaff();
+  // staff.buildAllStaff();
   shows.buildAllShows();
   setInterval(authData.checkLoginStatus(), 8000);
   auth.loginPage();

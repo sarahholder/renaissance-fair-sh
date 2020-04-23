@@ -50,6 +50,8 @@ const checkLoginStatus = () => {
     food.foodEvents();
     food.buildAllFoods();
     eventsContainer.buildAllEvents();
+    staff.staffEvents();
+    staff.buildAllStaff();
   });
 };
 
