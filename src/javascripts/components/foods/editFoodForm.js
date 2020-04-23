@@ -28,7 +28,7 @@ const editFoodForm = (e) => {
       domString += '<div class="form-group">';
       domString += '<label for="edit-foodLocation">Locations Of Food:</label>';
       domString += `<select id="edit-foodLocation" class="form-control" placeholder="" value="${foodPlaceholder.location}">`;
-      domString += `<option value="">${foodPlaceholder.location}</option>`;
+      domString += `<option value="${foodPlaceholder.location}">${foodPlaceholder.location}</option>`;
       domString += '<option value="Edinson Tudor Festival">Edinson Tudor Festival</option>';
       domString += '<option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>';
       domString += '<option value="Hopscote-by-Sea Faire">Hopscote-by-Sea Faire</option>';
@@ -37,7 +37,7 @@ const editFoodForm = (e) => {
       domString += '<div class="form-group">';
       domString += '<label for="edit-availabilityOfFood">Availability Of Food:</label>';
       domString += `<select id="edit-availabilityOfFood" class="form-control" placeholder="" value="${foodPlaceholder.isAvailable}">`;
-      domString += `<option value="">${foodPlaceholder.isAvailable}</option>`;
+      domString += `<option value="${foodPlaceholder.isAvailable}">${foodPlaceholder.isAvailable}</option>`;
       console.error('avail status in edit form', `${foodPlaceholder.isAvailable}`);
       domString += '<option value="Available">Available</option>';
       domString += '<option value="Not Available">Not Available</option>';
