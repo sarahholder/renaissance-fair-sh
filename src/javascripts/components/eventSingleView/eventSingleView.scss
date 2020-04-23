@@ -5,3 +5,11 @@
 .singleEventTitle {
   @include titles;
 }
+
+.eventSectionTitle {
+  @include sectionTitle;
+}
+
+.closeEventBtn {
+  @include yellow-buttons;
+} 
