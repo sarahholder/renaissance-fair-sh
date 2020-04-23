@@ -23,7 +23,7 @@ const newFoodForm = () => {
   domString += '</div>';
   domString += '<div class="form-group">';
   domString += '<label for="foodLocation">Locations Of Food:</label>';
-  domString += '<select id="foodLocation" class="form-control" placeholder="">';
+  domString += '<select id="foodLocation" class="form-control" placeholder="Where?">';
   domString += '<option value="">Select your option</option>';
   domString += '<option value="Edinson Tudor Festival">Edinson Tudor Festival</option>';
   domString += '<option value="North Illinois Pleasure Faire">North Illinois Pleasure Faire</option>';
@@ -32,10 +32,10 @@ const newFoodForm = () => {
   domString += '</div>';
   domString += '<div class="form-group">';
   domString += '<label for="availabilityOfFood">Availability Of Food:</label>';
-  domString += '<select id="availabilityOfFood" class="form-control" placeholder="">';
+  domString += '<select id="availabilityOfFood" class="form-control" placeholder="Is it available today?">';
   domString += '<option value="">Select your option</option>';
-  domString += '<option value=true>Available</option>';
-  domString += '<option value=false>Not Available</option>';
+  domString += '<option value="Available">Available</option>';
+  domString += '<option value="Not Available">Not Available</option>';
   domString += '</select>';
   domString += '</div>';
   domString += '</div>';

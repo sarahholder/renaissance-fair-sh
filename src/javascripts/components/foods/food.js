@@ -20,6 +20,7 @@ const editFoodItem = (e) => {
     isAvailable: $('#edit-availabilityOfFood').val(),
     uid: utils.getMyUid(),
   };
+  console.error('edited food item', editFood);
   foodData.updateFoods(foodId, editFood)
     .then(() => {
       document.getElementById('editFoodForm').reset();
@@ -42,6 +43,7 @@ const saveNewFoodItem = (e) => {
     isAvailable: $('#availabilityOfFood').val(),
     uid: utils.getMyUid(),
   };
+  console.error('new food item created', newFood);
   foodData.addFoods(newFood)
     .then(() => {
       document.getElementById('foodForm').reset();

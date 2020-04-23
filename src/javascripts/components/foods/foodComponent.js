@@ -14,7 +14,7 @@ const foodDataCardInfo = (food) => {
   domString += `<p class="card-text">Price: $${food.price}</p>`;
   domString += `<p class="card-text">Location: ${food.location}</p>`;
   console.error('food availability status', `${food.isAvailable}`);
-  if (`${food.isAvailable}` === 'true') {
+  if (`${food.isAvailable}` === 'Available') {
     domString += '<p class="card-text">Now available!</p>';
   } else {
     domString += '<p class="card-text">Still cooking and prepping! Please come back later!</p>';
