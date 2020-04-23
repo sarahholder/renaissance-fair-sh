@@ -9,12 +9,18 @@ import eventsContainer from '../../components/eventsContainer/eventsContainer';
 
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
+const eventsButton = $('#eventsLink');
+const eventsDiv = $('#events');
+const singleViewDiv = $('#single-view-event');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       loginButton.addClass('hide');
       logoutButton.removeClass('hide');
+      eventsButton.removeClass('hide');
+      eventsDiv.removeClass('hide');
+      singleViewDiv.removeClass('hide');
       // events
       shows.showEvents();
       // staff buttons
@@ -33,6 +39,9 @@ const checkLoginStatus = () => {
     } else {
       loginButton.removeClass('hide');
       logoutButton.addClass('hide');
+      eventsButton.addClass('hide');
+      eventsDiv.addClass('hide');
+      singleViewDiv.addClass('hide');
       // staff buttons
       $('#addStaffBtn').addClass('hide');
       $('.delete-staff-btn').addClass('hide');
