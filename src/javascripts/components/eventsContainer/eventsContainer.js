@@ -11,7 +11,7 @@ const removeEvent = (e) => {
       // eslint-disable-next-line no-use-before-define
       buildAllEvents();
     })
-    .catch((err) => console.error('delete staff member failed', err));
+    .catch((err) => console.error('delete event failed', err));
 };
 
 const buildAllEvents = () => {
