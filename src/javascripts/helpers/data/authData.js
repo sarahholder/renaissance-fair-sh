@@ -5,6 +5,7 @@ import souvenirs from '../../components/souvenirs/souvenirs';
 import food from '../../components/foods/food';
 import shows from '../../components/shows/shows';
 import staff from '../../components/staff/staff';
+import eventsContainer from '../../components/eventsContainer/eventsContainer';
 
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
@@ -20,10 +21,6 @@ const checkLoginStatus = () => {
       $('#addStaffBtn').removeClass('hide');
       $('.delete-staff-btn').removeClass('hide');
       $('.editStaffBtn').removeClass('hide');
-      // food buttons
-      // $('#addFoodBtn').removeClass('hide');
-      // $('.editFoodBtn').removeClass('hide');
-      // $('.deleteFoodBtn').removeClass('hide');
       // show buttons
       $('#add-new-show-btn').removeClass('hide');
       $('.show-delete-btn').removeClass('hide');
@@ -41,10 +38,6 @@ const checkLoginStatus = () => {
       $('#addStaffBtn').addClass('hide');
       $('.delete-staff-btn').addClass('hide');
       $('.editStaffBtn').addClass('hide');
-      // food buttons
-      // $('#addFoodBtn').addClass('hide');
-      // $('.editFoodBtn').addClass('hide');
-      // $('.deleteFoodBtn').addClass('hide');
       // show buttons
       $('#add-new-show-btn').addClass('hide');
       $('.show-delete-btn').addClass('hide');
@@ -56,6 +49,7 @@ const checkLoginStatus = () => {
     }
     food.foodEvents();
     food.buildAllFoods();
+    eventsContainer.buildAllEvents();
   });
 };
 
