@@ -24,6 +24,7 @@ const viewSingleEvent = (eventId) => {
       domString += `<h2>${singleEvent.name}</h2>`;
       domString += '<button id="closeSingleEvent" class="col-3 btn btn-default closeEventBtn ml-auto"><i class="fas fa-times"></i> Close</button>';
       domString += '</div>';
+      domString += `<h5>${singleEvent.date}</h5>`;
       domString += `<h5>${singleEvent.location}</h5>`;
       domString += `<h5>${singleEvent.timeStart} - ${singleEvent.timeEnd}</h5>`;
       domString += '</div>';
