@@ -30,7 +30,7 @@ const eventFoodDetails = (singleEvent) => {
     domString += '<tr>';
     domString += `<th scope="row">${foodItem.type}</th>`;
     domString += `<td>$${foodItem.price}</>`;
-    domString += '<td>TBD</td>';
+    domString += `<td>${foodItem.quantity}</td>`;
     domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
