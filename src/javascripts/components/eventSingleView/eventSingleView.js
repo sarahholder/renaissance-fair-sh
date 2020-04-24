@@ -2,6 +2,7 @@ import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
 import eventFoodSmash from '../../helpers/data/eventFoodSmash';
+// import eventStaffSmash from '../../helpers/data/eventStaffSmash';
 
 import utils from '../../helpers/utils';
 
@@ -40,8 +41,34 @@ const eventFoodDetails = (singleEvent) => {
   return domString;
 };
 
+// const eventStaffDetails = (singleEvent) => {
+//   let domString = '';
+//   domString += '<table class="table table-dark">';
+//   domString += '<thead>';
+//   domString += '<tr>';
+//   domString += '<th scope="col">Staff Member</th>';
+//   domString += '<th scope="col">Wage</th>';
+//   domString += '<th scope="col">Quantity</th>';
+//   domString += '</tr>';
+//   domString += '</thead>';
+//   domString += '<tbody>';
+//   singleEvent.staff.forEach((staffMember) => {
+//     domString += '<tr>';
+//     domString += `<th scope="row">${staffMember.name}</th>`;
+//     domString += `<td>$${staffMember.pay}</>`;
+//     domString += `<td>${staffMember.quantity}</td>`;
+//     domString += '<td><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+//     domString += '</tr>';
+//   });
+//   domString += '</tbody>';
+//   domString += '</table>';
+
+//   return domString;
+// };
+
 const viewSingleEvent = (eventId) => {
   eventFoodSmash.getSingleEventWithDetails(eventId)
+  // eventStaffSmash.getSingleEventWithInfo(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -63,7 +90,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
-      domString += '<p>DETAILS HERE!!!!</p>';
+      // domString += eventStaffDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
