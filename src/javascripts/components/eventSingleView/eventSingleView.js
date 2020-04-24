@@ -1,7 +1,7 @@
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
-import eventData from '../../helpers/data/eventData';
+import eventFoodSmash from '../../helpers/data/eventFoodSmash';
 
 import utils from '../../helpers/utils';
 
@@ -15,23 +15,47 @@ const closeSingleEvent = () => {
   $('#single-view-event').addClass('hide');
 };
 
+const eventFoodDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Food Type</th>';
+  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Quantity</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.food.forEach((foodItem) => {
+    domString += '<tr>';
+    domString += `<th scope="row">${foodItem.type}</th>`;
+    domString += `<td>$${foodItem.price}</>`;
+    domString += `<td>${foodItem.quantity}</td>`;
+    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
+
+  return domString;
+};
+
 const viewSingleEvent = (eventId) => {
-  eventData.getSingleEventWithDetails(eventId)
+  eventFoodSmash.getSingleEventWithDetails(eventId)
     .then((singleEvent) => {
+      console.error('SINGLE EVENT', singleEvent);
       let domString = '';
       domString += '<div class="singleEventTitle">';
-      domString += '<div class="row">';
       domString += `<h2>${singleEvent.name}</h2>`;
-      domString += '<button id="closeSingleEvent" class="col-3 btn btn-default closeEventBtn ml-auto"><i class="fas fa-times"></i> Close</button>';
-      domString += '</div>';
-      domString += `<h5>${singleEvent.date}</h5>`;
       domString += `<h5>${singleEvent.location}</h5>`;
+      domString += `<h5>${singleEvent.date}</h5>`;
       domString += `<h5>${singleEvent.timeStart} - ${singleEvent.timeEnd}</h5>`;
+      domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close event details</button>';
       domString += '</div>';
       domString += '<div id="eventDetails">';
       domString += '<div id="eventFoodSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Food Details</h4>';
-      domString += '<p>DETAILS HERE!!!!</p>';
+      domString += eventFoodDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
