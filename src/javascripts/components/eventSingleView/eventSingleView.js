@@ -18,15 +18,14 @@ const closeSingleEvent = () => {
 const viewSingleEvent = (eventId) => {
   eventFoodSmash.getSingleEventWithDetails(eventId)
     .then((singleEvent) => {
+      console.error('SINGLE EVENT', singleEvent);
       let domString = '';
       domString += '<div class="singleEventTitle">';
-      domString += '<div class="row">';
       domString += `<h2>${singleEvent.name}</h2>`;
-      domString += '<button id="closeSingleEvent" class="col-3 btn btn-default closeEventBtn ml-auto"><i class="fas fa-times"></i> Close</button>';
-      domString += '</div>';
-      domString += `<h5>${singleEvent.date}</h5>`;
       domString += `<h5>${singleEvent.location}</h5>`;
+      domString += `<h5>${singleEvent.date}</h5>`;
       domString += `<h5>${singleEvent.timeStart} - ${singleEvent.timeEnd}</h5>`;
+      domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close event details</button>';
       domString += '</div>';
       domString += '<div id="eventDetails">';
       domString += '<div id="eventFoodSection" class="quad">';
