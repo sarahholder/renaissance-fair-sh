@@ -23,10 +23,6 @@ const checkLoginStatus = () => {
       singleViewDiv.removeClass('hide');
       // events
       shows.showEvents();
-      // staff buttons
-      $('#addStaffBtn').removeClass('hide');
-      $('.delete-staff-btn').removeClass('hide');
-      $('.editStaffBtn').removeClass('hide');
       // show buttons
       $('#add-new-show-btn').removeClass('hide');
       $('.show-delete-btn').removeClass('hide');
@@ -42,10 +38,6 @@ const checkLoginStatus = () => {
       eventsButton.addClass('hide');
       eventsDiv.addClass('hide');
       singleViewDiv.addClass('hide');
-      // staff buttons
-      $('#addStaffBtn').addClass('hide');
-      $('.delete-staff-btn').addClass('hide');
-      $('.editStaffBtn').addClass('hide');
       // show buttons
       $('#add-new-show-btn').addClass('hide');
       $('.show-delete-btn').addClass('hide');
