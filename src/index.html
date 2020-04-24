@@ -25,26 +25,33 @@
         <li class="nav-item">
           <a class="nav-link" href="#shows">SHOWS</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link hide" id="eventsLink" href="#events">EVENTS</a>
+        </li>
       </ul>
     </div>
     <button id="loginButton" class="hide">LOGIN WITH GOOGLE</button>
-    <button id="logoutButton" class="hide">LOGOUT</button>
+    <button id="logoutButton" class="hide" onClick="history.go(0);">LOGOUT</button>
   </nav>
 <!--JUMBOTRON-->
   <div class="jumbotron">
     <h1 class="display-4">WELCOME TO KING ARTHUR'S RENAISSANCE FAIRE</h1>
   </div>
-  
+
 <!--MAIN CONTENT-->
   <div id="foodCards" class="offset"></div>
-  
+  <div class="align-items-center offset" id="souvenirs"></div>
+  <div id="staff-collection" class="align-items-center offset"></div>
+  <div class="align-items-center offset" id="shows"></div>
+  <div class="align-items-center offset hide" id="events"></div>
 
-<div class="align-items-center offset" id="souvenirs"></div>
+<!-- SINGLE VIEW OF EVENT -->
+  <div class="align-items-center offset hide" id="single-view-event"></div>
 
-  
+
+<!-- MODALS BELOW! -->
+
 <!-- Staff section begin -->
-<div id="staff-collection" class="align-items-center offset"></div>
-
 <!-- Staff modal begin -->
 <div class="modal" id="addStaffModal" data-target="#myModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -58,18 +65,16 @@
       <div class="modal-body">
         <form id="modalStaffForm"></form>
       <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       <button type="submit" id="newStaffSubmit" class="newStaffSubmit btn btn-default">Submit</button>
       <button type="submit" id="editStaffSubmit" class="editStaffSubmit btn btn-default">Submit Edit</button>
       </div>
     </div>
   </div>
 </div>
-</div>  
+</div>
 <!-- Staff modal end  -->
 <!-- Staff section end -->
-
-  <div class="align-items-center offset" id="shows"></div>
 
 <!-- Add A Souvenir Form Modal -->
 <div class="modal" id="souvenirs-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -83,7 +88,7 @@
       </div>
       <div id="souvenirsModalBody" class="modal-body"></div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" id="save-new-souvenir-btn" class="save-new-souvenir-btn btn btn-default">Submit New Souvenir</button>
           <button type="submit" id="update-souvenir-btn" class="update-souvenir-btn btn btn-default">Save Changes </button>
         </div>
@@ -124,13 +129,13 @@
       <div id="foodModalBody" class="modal-body">
         <div id="modalFoodForm"></div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" id="newFoodSubmit" class="newFoodSubmit btn btn-default">Submit New Food</button>
           <button type="submit" id="editFoodSubmit" class="editFoodSubmit btn btn-default">Submit Edit</button>
       </div>
     </div>
   </div>
-</div>  
+</div>
 <!-- ADD FOOD MODAL END -->
 
 </body>

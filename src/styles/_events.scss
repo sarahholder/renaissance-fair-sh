@@ -10,6 +10,18 @@
     h3 {
       font-family: $allFonts;
     }
+    h4 {
+      background-color: $primaryBlue;
+    }
+}
+
+@mixin sectionTitle {
+  background-color: $primaryBlue;
+  color: white;
+  h4 {
+    font-family: $bigFonts;
+    font-size: 3em;
+  }
 }
 
 @mixin yellow-buttons {
@@ -26,6 +38,15 @@
   color: white;
   &:hover {
     background-color: #a21129;
+  }
+}
+
+@mixin blue-buttons {
+  margin: .5em;
+  background-color: $primaryBlue;
+  color: white;
+  &:hover {
+    background-color: $primaryBlue;
   }
 }
 

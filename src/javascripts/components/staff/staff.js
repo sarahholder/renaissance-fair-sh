@@ -1,12 +1,14 @@
+import firebase from 'firebase/app';
 import staffData from '../../helpers/data/staffData';
 import staffCards from './staffCards';
 import utils from '../../helpers/utils';
 import newStaffForm from './newStaffForm';
 import editStaffMemberForm from './editStaffMemberForm';
+
 import './staffCards.scss';
 
 const saveNewStaffItem = (e) => {
-  e.preventDefault();
+  e.stopImmediatePropagation();
   const newStaff = {
     name: $('#staffName').val(),
     characterType: $('#characterType').val(),
@@ -28,10 +30,10 @@ const editStaffMemberItem = (e) => {
   e.preventDefault();
   const staffId = $('.staffForm').data('id');
   const editStaff = {
-    name: $('#staffName').val(),
-    characterType: $('#characterType').val(),
-    imageUrl: $('#staffImageUrl').val(),
-    characterName: $('#characterName').val(),
+    name: $('#edit-staffName').val(),
+    characterType: $('#edit-characterType').val(),
+    imageUrl: $('#edit-staffImageUrl').val(),
+    characterName: $('#edit-characterName').val(),
     location: $('.form-check-input:checked').val(),
   };
   staffData.updateStaffMember(staffId, editStaff)
@@ -61,7 +63,10 @@ const buildAllStaff = () => {
     .then((allStaff) => {
       domString += '<div class="text-center" id="staff-title">';
       domString += '<h2 class="text-center mt-3">Staff</h2>';
-      domString += '<button class="btn btn-lg add-Staff-Btn" id="addStaffBtn"><i class="fas fa-plus"></i> Add a new staff member</button>';
+      const user = firebase.auth().currentUser;
+      if (user !== null) {
+        domString += '<button class="btn btn-lg add-Staff-Btn" id="addStaffBtn"><i class="fas fa-plus"></i> Add a new staff member</button>';
+      }
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-9">';
       allStaff.forEach((staff) => {

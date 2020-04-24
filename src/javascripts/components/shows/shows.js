@@ -1,3 +1,5 @@
+import firebase from 'firebase/app';
+
 import showData from '../../helpers/data/showData';
 
 import addShow from '../newShowForm/newShowForm';
@@ -10,6 +12,7 @@ import utils from '../../helpers/utils';
 
 // add a new show
 const saveNewShowItem = (e) => {
+  e.preventDefault();
   e.stopImmediatePropagation();
   const newShow = {
     name: $('#new-show-name').val(),
@@ -70,7 +73,10 @@ const buildAllShows = () => {
       domString += '<div class="show-title text-center">';
       domString += '<h2 class="mt-3">Shows</h2>';
       domString += '<h3>Fun Shows for All Ages</h3>';
-      domString += '<button class="btn btn-lg mb-2 new-show-btn" id="add-new-show-btn"><i class="fas fa-plus"></i> <span class="pl-1">Add New Show</span></button>';
+      const user = firebase.auth().currentUser;
+      if (user !== null) {
+        domString += '<button class="btn btn-lg mb-2 new-show-btn" id="add-new-show-btn"><i class="fas fa-plus"></i> <span class="pl-1">Add New Show</span></button>';
+      }
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-md-9 col-sm-10">';
       shows.forEach((show) => {
