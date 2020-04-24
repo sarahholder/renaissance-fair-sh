@@ -3,7 +3,7 @@ import './staffCards.scss';
 
 const buildStaffCards = (staff) => {
   let domString = '';
-  domString += '<div class="col-4 mb-2">';
+  domString += '<div class="col-md-4 col-sm-12 mb-2">';
   domString += `<div class="card" id="${staff.id}">`;
   domString += `<img src="${staff.imageUrl}" class="card-img-top img-fluid staff-image" alt="Photo of ${staff.name}">`;
   domString += '<div class="card-body">';
