@@ -1,0 +1,42 @@
+{
+  "eventFood1": {
+    "eventId": "event5",
+    "foodId": "food1"
+  },
+  "eventFood2": {
+    "eventId": "event5",
+    "foodId": "food2"
+  },
+  "eventFood3": {
+    "eventId": "event5",
+    "foodId": "food3"
+  }, 
+  "eventFood4": {
+    "eventId": "event5",
+    "foodId": "food4"
+  },
+  "eventFood5": {
+    "eventId": "event5",
+    "foodId": "food5"
+  },
+  "eventFood6": {
+    "eventId": "event6",
+    "foodId": "food1"
+  },
+  "eventFood7": {
+    "eventId": "event6",
+    "foodId": "food2"
+  },
+  "eventFood8": {
+    "eventId": "event6",
+    "foodId": "food3"
+  },
+  "eventFood9": {
+    "eventId": "event6",
+    "foodId": "food4"
+  },
+  "eventFood10": {
+    "eventId": "event6",
+    "foodId": "food5"
+  }
+}

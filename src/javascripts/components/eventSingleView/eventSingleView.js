@@ -1,7 +1,7 @@
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
-import eventData from '../../helpers/data/eventData';
+import eventFoodSmash from '../../helpers/data/eventFoodSmash';
 
 import utils from '../../helpers/utils';
 
@@ -16,7 +16,7 @@ const closeSingleEvent = () => {
 };
 
 const viewSingleEvent = (eventId) => {
-  eventData.getSingleEventWithDetails(eventId)
+  eventFoodSmash.getSingleEventWithDetails(eventId)
     .then((singleEvent) => {
       let domString = '';
       domString += '<div class="singleEventTitle">';
