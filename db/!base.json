@@ -3,6 +3,7 @@
   "shows": "val",
   "souvenirs": "val",
   "staff": "val",
-  "events": "val"
+  "events": "val",
+  "eventStaff": "val"
 }
 
