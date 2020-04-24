@@ -1,6 +1,5 @@
 {
   "staff1": {
-    "id": "staff1",
     "name": "May Jones",
     "pay": 40,
     "location": "Edinson Tudor Festival",
@@ -10,7 +9,6 @@
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "staff2": {
-    "id": "staff2",
     "name": "Elias Bouchard",
     "pay": 30,
     "location": "Edinson Tudor Festival",
@@ -20,7 +18,6 @@
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "staff3": {
-    "id": "staff3",
     "name": "Daisy Tonner",
     "pay": 25,
     "location": "Edinson Tudor Festival",
@@ -30,7 +27,6 @@
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "staff4": {
-    "id": "staff4",
     "name": "Martin Blackwood",
     "pay": 30,
     "location": "Edinson Tudor Festival",
@@ -40,7 +36,6 @@
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "staff5": {
-    "id": "staff5",
     "name": "Jonathon Sims",
     "pay": 35,
     "location": "Edinson Tudor Festival",
@@ -50,7 +45,6 @@
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "staff6": {
-    "id": "staff6",
     "name": "May Jones",
     "pay": 40,
     "location": "Hopscote-by-Sea Faire",
@@ -60,7 +54,6 @@
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "staff7": {
-    "id": "staff7",
     "name": "Elias Bouchard",
     "pay": 30,
     "location": "Hopscote-by-Sea Faire",
@@ -70,7 +63,6 @@
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "staff8": {
-    "id": "staff8",
     "name": "Daisy Tonner",
     "pay": 25,
     "location": "Hopscote-by-Sea Faire",
@@ -80,7 +72,6 @@
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "staff9": {
-    "id": "staff9",
     "name": "Martin Blackwood",
     "pay": 30,
     "location": "Hopscote-by-Sea Faire",
@@ -90,7 +81,6 @@
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "staff10": {
-    "id": "staff10",
     "name": "Jonathon Sims",
     "pay": 35,
     "location": "Hopscote-by-Sea Faire",
@@ -100,7 +90,6 @@
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "staff11": {
-    "id": "staff11",
     "name": "May Jones",
     "pay": 40,
     "location": "North Illinois Pleasure Faire",
@@ -110,7 +99,6 @@
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "staff12": {
-    "id": "staff12",
     "name": "Elias Bouchard",
     "pay": 30,
     "location": "North Illinois Pleasure Faire",
@@ -120,7 +108,6 @@
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "staff13": {
-    "id": "staff13",
     "name": "Daisy Tonner",
     "pay": 25,
     "location": "North Illinois Pleasure Faire",
@@ -130,7 +117,6 @@
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "staff14": {
-    "id": "staff14",
     "name": "Martin Blackwood",
     "pay": 30,
     "location": "North Illinois Pleasure Faire",
@@ -140,7 +126,6 @@
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "staff15": {
-    "id": "staff15",
     "name": "Jonathon Sims",
     "pay": 35,
     "location": "North Illinois Pleasure Faire",
@@ -150,7 +135,6 @@
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "staff16": {
-    "id": "staff16",
     "name": "May Jones",
     "pay": 40,
     "location": "Tennesee Arrington",
@@ -160,7 +144,6 @@
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "staff17": {
-    "id": "staff17",
     "name": "Elias Bouchard",
     "pay": 30,
     "location": "Tennesee Arrington",
@@ -170,7 +153,6 @@
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "staff18": {
-    "id": "staff18",
     "name": "Daisy Tonner",
     "pay": 25,
     "location": "Tennesee Arrington",
@@ -180,7 +162,6 @@
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "staff19": {
-    "id": "staff19",
     "name": "Martin Blackwood",
     "pay": 30,
     "location": "Tennesee Arrington",
@@ -190,7 +171,6 @@
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "staff20": {
-    "id": "staff20",
     "name": "Jonathon Sims",
     "pay": 35,
     "location": "Tennesee Arrington",
