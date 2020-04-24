@@ -61,6 +61,7 @@ const checkLoginStatus = () => {
     eventsContainer.eventActions();
     staff.staffEvents();
     staff.buildAllStaff();
+    shows.buildAllShows();
   });
 };
 

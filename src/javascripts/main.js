@@ -13,7 +13,7 @@ const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
   souvenirs.buildAllSouvenirs();
   // staff.buildAllStaff();
-  shows.buildAllShows();
+  // shows.buildAllShows();
   setInterval(authData.checkLoginStatus(), 8000);
   auth.loginPage();
   auth.logoutPage();
