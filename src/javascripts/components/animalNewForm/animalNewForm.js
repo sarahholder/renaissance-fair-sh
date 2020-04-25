@@ -3,6 +3,7 @@ import utils from '../../helpers/utils';
 
 const showAddAnimalModalForm = () => {
   $('#animalModal').modal('show');
+  console.log('modal is showing');
   let domString = '';
   domString += '<form id="animalForm">';
   domString += '<div class="form-group">';
@@ -20,7 +21,6 @@ const showAddAnimalModalForm = () => {
   domString += '<div class="form-group">';
   domString += '<label for="animalPrice">Price of Animal</label>';
   domString += '<input type="number" class="form-control" id="animalPrice" placeholder="Price">';
-  domString += '</div>';
   domString += '</div>';
   domString += '</form>';
 
