@@ -1,9 +1,8 @@
-import './animalNewForm.scss';
+import './animals.scss';
 import utils from '../../helpers/utils';
 
 const showAddAnimalModalForm = () => {
   $('#animalModal').modal('show');
-  console.log('modal is showing');
   let domString = '';
   domString += '<form id="animalForm">';
   domString += '<div class="form-group">';
