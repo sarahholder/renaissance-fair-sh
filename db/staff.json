@@ -178,5 +178,50 @@
     "characterName": "Alessio Rossi",
     "imageUrl": "https://cdn.pixabay.com/photo/2016/07/09/21/28/knight-1506896_1280.jpg",
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
+  },
+  "staff21": {
+    "name": "May Jones",
+    "pay": 40,
+    "location": "Tennesee Arrington",
+    "characterType": "Noble",
+    "characterName": "Lady Isabetta Ricci",
+    "imageUrl": "https://66.media.tumblr.com/9a62a68aeddc2ad51ff01e392d92dfa7/tumblr_inline_mubfvd88eW1r1cctj.jpg",
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+  },
+  "staff22": {
+    "name": "Elias Bouchard",
+    "pay": 30,
+    "location": "Tennesee Arrington",
+    "characterType": "Benvenuto Bianchi",
+    "characterName": "Jester",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/10/04/11/43/jester-1714117_1280.jpg",
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+  },
+  "staff23": {
+    "name": "Daisy Tonner",
+    "pay": 25,
+    "location": "Tennesee Arrington",
+    "characterType": "Peasant",
+    "characterName": "Minerva Rossi",
+    "imageUrl": "https://assets.nydailynews.com/polopoly_fs/1.1937207.1410490630!/img/httpImage/image.jpg_gen/derivatives/article_750/inthenow12f-9-web.jpg",
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+  },
+  "staff24": {
+    "name": "Martin Blackwood",
+    "pay": 30,
+    "location": "Tennesee Arrington",
+    "characterType": "Peasant",
+    "characterName": "Aldo Bianchi",
+    "imageUrl": "https://cdn.pixabay.com/photo/2015/09/14/21/06/portrait-940115_1280.jpg",
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+  },
+  "staff25": {
+    "name": "Jonathon Sims",
+    "pay": 35,
+    "location": "Tennesee Arrington",
+    "characterType": "Knight",
+    "characterName": "Alessio Rossi",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/07/09/21/28/knight-1506896_1280.jpg",
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   }
 }
