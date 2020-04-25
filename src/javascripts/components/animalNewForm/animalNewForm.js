@@ -7,6 +7,10 @@ const showAddAnimalModalForm = () => {
   let domString = '';
   domString += '<form id="animalForm">';
   domString += '<div class="form-group">';
+  domString += '<label for="animalName">Name of Animal</label>';
+  domString += '<input type="text" class="form-control" id="animalName" placeholder="Name">';
+  domString += '</div>';
+  domString += '<div class="form-group">';
   domString += '<label for="animalType">Type of Animal</label>';
   domString += '<input type="text" class="form-control" id="animalType" placeholder="Type">';
   domString += '</div>';
@@ -15,12 +19,16 @@ const showAddAnimalModalForm = () => {
   domString += '<input type="text" class="form-control" id="animalDescription" placeholder="Description">';
   domString += '</div>';
   domString += '<div class="form-group">';
-  domString += '<label for="animalImageUrl">Image Url of Animal</label>';
-  domString += '<input type="text" class="form-control" id="animalImageUrl" placeholder="image Url">';
+  domString += '<label for="animalImageUrl">Photo of Animal</label>';
+  domString += '<input type="text" class="form-control" id="animalImageUrl" placeholder="Image Url">';
   domString += '</div>';
   domString += '<div class="form-group">';
   domString += '<label for="animalPrice">Price of Animal</label>';
   domString += '<input type="number" class="form-control" id="animalPrice" placeholder="Price">';
+  domString += '</div>';
+  domString += '<div class="form-group">';
+  domString += '<label for="animalAvailability">Is it available?</label>';
+  domString += '<input type="number" class="form-control" id="animalAvailability" placeholder="Available?">';
   domString += '</div>';
   domString += '</form>';
 
