@@ -5,6 +5,17 @@ import animalCard from '../animalCard/animalCard';
 
 import utils from '../../helpers/utils';
 
+const removeAnimalCard = (e) => {
+  e.preventDefault();
+  const animalId = e.target.closest('.card').id;
+  animalData.deleteAnimal(animalId)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildAllAnimals();
+    })
+    .catch((err) => console.error('delete animals failed', err));
+};
+
 const buildAllAnimals = () => {
   let domString = '';
   animalData.getAnimals()
@@ -27,4 +38,8 @@ const buildAllAnimals = () => {
     .catch((err) => console.error('build all animals has failed you', err));
 };
 
-export default { buildAllAnimals };
+const animalEvents = () => {
+  $('body').on('click', '#deleteAnimalBtn', removeAnimalCard);
+};
+
+export default { buildAllAnimals, animalEvents };

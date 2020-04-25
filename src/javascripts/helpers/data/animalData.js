@@ -22,4 +22,4 @@ const getAnimals = () => new Promise((resolve, reject) => {
 
 const deleteAnimal = (animalId) => axios.delete(`${baseURL}/animals/${animalId}.json`);
 
-export default { getAnimals };
+export default { getAnimals, deleteAnimal };

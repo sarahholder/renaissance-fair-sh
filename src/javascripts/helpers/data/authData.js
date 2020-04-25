@@ -56,6 +56,7 @@ const checkLoginStatus = () => {
     staff.staffEvents();
     staff.buildAllStaff();
     shows.buildAllShows();
+    animals.animalEvents();
   });
 };
 
