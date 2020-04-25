@@ -2,8 +2,30 @@ import firebase from 'firebase/app';
 import animalData from '../../helpers/data/animalData';
 
 import animalCard from '../animalCard/animalCard';
+import animalNewForm from '../animalNewForm/animalNewForm';
 
 import utils from '../../helpers/utils';
+
+const makeNewAnimal = (e) => {
+  e.preventDefault();
+  const newAnimal = {
+    name: $('#animalName').val(),
+    type: $('#animalType').val(),
+    description: $('#animalDescription').val(),
+    imageUrl: $('#animalImageUrl').val(),
+    cost: $('#animalCost').val() * 1,
+    isAvailable: $('#availabilityOfAnimal').val(),
+    uid: utils.getMyUid(),
+  };
+  animalData.addAnimal(newAnimal)
+    .then(() => {
+      document.getElementById('animalForm').reset();
+      $('#animalModal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllAnimals();
+    })
+    .catch((error) => console.error('could not add a new animal', error));
+};
 
 const buildAllAnimals = () => {
   let domString = '';
@@ -27,4 +49,9 @@ const buildAllAnimals = () => {
     .catch((err) => console.error('build all animals has failed you', err));
 };
 
-export default { buildAllAnimals };
+const animalEvents = () => {
+  $('body').on('click', '#addAnimalBtn', animalNewForm.showAddAnimalModalForm);
+  $('body').on('click', '#newAnimalSubmit', makeNewAnimal);
+};
+
+export default { buildAllAnimals, animalEvents };
