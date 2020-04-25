@@ -20,6 +20,8 @@ const getAnimals = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+const deleteAnimal = (animalId) => axios.delete(`${baseURL}/animals/${animalId}.json`);
+
 const addAnimal = (newAnimal) => axios.post(`${baseURL}/animals.json`, newAnimal);
 
-export default { getAnimals, addAnimal };
+export default { getAnimals, addAnimal, deleteAnimal };
