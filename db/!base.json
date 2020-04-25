@@ -6,6 +6,7 @@
   "staff": "val",
   "events": "val",
   "eventStaff": "val",
+  "eventSouvenir": "val",
   "animals": "val"
 }
 
