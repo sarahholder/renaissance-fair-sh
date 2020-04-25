@@ -1,8 +1,8 @@
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
-import eventFoodSmash from '../../helpers/data/eventFoodSmash';
-// import eventStaffSmash from '../../helpers/data/eventStaffSmash';
+// import eventFoodSmash from '../../helpers/data/eventFoodSmash';
+import eventStaffSmash from '../../helpers/data/eventStaffSmashData';
 
 import utils from '../../helpers/utils';
 
@@ -67,7 +67,8 @@ const eventStaffDetails = (singleEvent) => {
 };
 
 const viewSingleEvent = (eventId) => {
-  eventFoodSmash.getSingleEventWithDetails(eventId)
+  // eventFoodSmash.getSingleEventWithDetails(eventId)
+  eventStaffSmash.getSingleEventWithStaffInfo(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
