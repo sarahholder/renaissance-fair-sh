@@ -50,6 +50,7 @@ const checkLoginStatus = () => {
     }
     food.foodEvents();
     food.buildAllFoods();
+    animals.animalEvents();
     animals.buildAllAnimals();
     eventsContainer.buildAllEvents();
     eventsContainer.eventActions();
