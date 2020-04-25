@@ -1,4 +1,3 @@
-
 import './souvenirsCards.scss';
 
 const buildSouvenirsCards = (souvenir) => {
@@ -19,6 +18,5 @@ const buildSouvenirsCards = (souvenir) => {
 
   return domString;
 };
-
 
 export default { buildSouvenirsCards };
