@@ -5,6 +5,7 @@ import souvenirs from '../../components/souvenirs/souvenirs';
 import food from '../../components/foods/food';
 import shows from '../../components/shows/shows';
 import staff from '../../components/staff/staff';
+import animals from '../../components/animalContainer/animalContainer';
 import eventsContainer from '../../components/eventsContainer/eventsContainer';
 
 const loginButton = $('#loginButton');
@@ -49,6 +50,7 @@ const checkLoginStatus = () => {
     }
     food.foodEvents();
     food.buildAllFoods();
+    animals.buildAllAnimals();
     eventsContainer.buildAllEvents();
     eventsContainer.eventActions();
     staff.staffEvents();
