@@ -144,6 +144,60 @@
   </div>
 </div>
 <!-- ADD FOOD MODAL END -->
+<!-- MODAL FOR ADD EVENT STARTS HERE  -->
+<div class="modal fade" id="modalAddEnviroment" tabindex="-1" role="dialog" aria-labelledby="addEnviromentModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modalDisplay">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addEnviromentModalTitle">Add New Enviroment Data</h5>
+        <button type="button" class="close buttonSaveEdit" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="modalBodyAddEnviroment" class="modal-body">
+        <form id="modalForm">
+          <div class="form-group">
+            <label for="destinationId">destinationId:</label>
+            <input type="text" class="form-control" id="destinationId" aria-describedby="location" placeholder="destinationId">
+          </div>
+          <div class="form-group">
+            <label for="enviroment-temperature">Temperture/Celsius:</label>
+            <input type="number" class="form-control" id="enviroment-temperature" aria-describedby="temperature" placeholder="Enter a temperature">
+          </div>
+          <div class="form-group">
+            <label for="enviroment-latitude">Latitude:</label>
+            <input type="number" class="form-control" id="enviroment-latitude" aria-describedby="latitude" placeholder="Enter the latitude">
+          </div>
+          <div class="form-group">
+            <label for="enviroment-longitude">Longitude:</label>
+            <input type="number" class="form-control" id="enviroment-longitude" aria-describedby="longitude" placeholder="Enter the longitude">
+          </div>
+          <div class="form-group">
+            <label for="enviroment-imageUrl">Photo:</label>
+            <input type="text" class="form-control" id="enviroment-imageUrl" aria-describedby="photoUrl" placeholder="Enter a photo link">
+          </div>
+          <div class="form-group">
+            <label for="enviroment-depth">Depth:</label>
+            <input type="number" class="form-control" id="enviroment-depth" aria-describedby="depth" placeholder="Enter depth">
+          </div>
+          <div class="form-group">
+            <label for="enviroment-current">Current:</label>
+            <input type="text" class="form-control" id="enviroment-current" aria-describedby="current" placeholder="Enter the current">
+          </div>
+          <div class="form-group">
+            <label for="enviroment-presuure">Pressure:</label>
+            <input type="number" class="form-control" id="enviroment-pressure" aria-describedby="pressure" placeholder="Enter a pressure">
+          </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn buttonSaveEdit glowing" data-dismiss="modal">Close</button>
+        <button id="button-save-enviroment" type="button" class="btn buttonSaveEdit glowing">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ADD EVENT MODAL ENDS HERE -->
 
 </body>
 </html>
