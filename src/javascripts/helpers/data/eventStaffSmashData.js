@@ -3,13 +3,13 @@ import eventStaffData from './eventStaffData';
 import staffData from './staffData';
 
 const getSingleEventWithStaffInfo = (eventId) => new Promise((resolve, reject) => {
-  eventData.getSingleEvent(eventId)
+  eventStaffData.getEventStaffByEventId(eventId)
     .then((response) => {
-      const selectedEvent = response.data;
-      selectedEvent.id = eventId;
-      selectedEvent.staff = [];
-      eventStaffData.getEventStaffByEventId(selectedEvent.id)
-        .then((eventStaff) => {
+      const selectedStaff = response.data;
+      selectedStaff.id = eventId;
+      selectedStaff.staff = [];
+      staffData.getStaff()
+        .then((staff) => {
           console.error('selected event', selectedEvent);
           console.error('event id', eventId);
           console.error('eventStaff', eventStaff);
