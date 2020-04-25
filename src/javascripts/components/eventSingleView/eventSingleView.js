@@ -1,9 +1,11 @@
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
-import eventFoodSmash from '../../helpers/data/eventFoodSmash';
+// import eventFoodSmash from '../../helpers/data/eventFoodSmash';
+import eventIdSmash from '../../helpers/data/eventIdSmash';
 
 import utils from '../../helpers/utils';
+import eventFoodData from '../../helpers/data/eventFoodData';
 
 const closeSingleEvent = () => {
   utils.printToDom('single-view-event', '');
@@ -26,12 +28,14 @@ const eventFoodDetails = (singleEvent) => {
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
+  console.log('foods on event', singleEvent.food);
   singleEvent.food.forEach((foodItem) => {
-    domString += '<tr>';
+    domString += `<tr class="eventFoodItem" data-id="${foodItem.id}">`;
+    console.log('indiv food item for a row', foodItem);
     domString += `<th scope="row">${foodItem.type}</th>`;
-    domString += `<td>$${foodItem.price}</>`;
+    domString += `<td>$${foodItem.price}</td>`;
     domString += `<td>${foodItem.quantity}</td>`;
-    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -40,8 +44,19 @@ const eventFoodDetails = (singleEvent) => {
   return domString;
 };
 
+const removeEventFood = () => {
+  const eventFoodId = $('.eventFoodItem').data('id');
+  console.log('event food item id selected for deletion', eventFoodId);
+  eventFoodData.deleteEventFood(eventFoodId)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      viewSingleEvent();
+    })
+    .catch((error) => console.error('could not delete food item from event', error));
+};
+
 const viewSingleEvent = (eventId) => {
-  eventFoodSmash.getSingleEventWithDetails(eventId)
+  eventIdSmash.getSingleEventWithDetails(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -56,6 +71,7 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Food Details</h4>';
       domString += eventFoodDetails(singleEvent);
+      console.log('event food items', eventFoodDetails());
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
@@ -72,6 +88,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       utils.printToDom('single-view-event', domString);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
+      $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
