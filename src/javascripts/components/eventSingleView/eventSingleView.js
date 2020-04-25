@@ -68,7 +68,7 @@ const eventStaffDetails = (singleEvent) => {
 
 const viewSingleEvent = (eventId) => {
   // eventFoodSmash.getSingleEventWithDetails(eventId)
-  eventStaffSmash.getSingleEventWithStaffInfo(eventId)
+  eventStaffSmash.getSingleEventWithStaff(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';

@@ -2,25 +2,23 @@ import eventData from './eventData';
 import eventStaffData from './eventStaffData';
 import staffData from './staffData';
 
-const getSingleEventWithStaffInfo = (eventId) => new Promise((resolve, reject) => {
-  eventStaffData.getEventStaffByEventId(eventId)
+const getSingleEventWithStaff = (eventId) => new Promise((resolve, reject) => {
+  eventData.getSingleEvent(eventId)
     .then((response) => {
-      const selectedStaff = response.data;
-      selectedStaff.id = eventId;
-      selectedStaff.staff = [];
-      staffData.getStaff()
-        .then((staff) => {
-          console.error('selected event', selectedEvent);
-          console.error('event id', eventId);
-          console.error('eventStaff', eventStaff);
+      const event = response.data;
+      console.error('event info', event);
+      event.id = eventId;
+      event.staff = [];
+      eventStaffData.getEventStaffByEventId()
+        .then((eventStaff) => {
           staffData.getStaff()
             .then((allStaff) => {
               console.error('all staff info', allStaff);
               eventStaff.forEach((eventStaffInfo) => {
                 const foundEventStaffInfo = allStaff.find((x) => x.id === eventStaffInfo.staffId);
-                selectedEvent.staff.push(foundEventStaffInfo);
+                event.staff.push(foundEventStaffInfo);
               });
-              resolve(selectedEvent);
+              resolve(event);
             });
         });
     })
@@ -28,4 +26,4 @@ const getSingleEventWithStaffInfo = (eventId) => new Promise((resolve, reject) =
 });
 
 
-export default { getSingleEventWithStaffInfo };
+export default { getSingleEventWithStaff };
