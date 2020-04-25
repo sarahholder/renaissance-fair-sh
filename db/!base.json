@@ -5,7 +5,11 @@
   "souvenirs": "val",
   "staff": "val",
   "events": "val",
+<<<<<<< HEAD
+  "eventStaff": "val"
+=======
   "eventStaff": "val",
   "animals": "val"
+>>>>>>> master
 }
 
