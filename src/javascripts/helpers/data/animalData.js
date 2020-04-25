@@ -20,4 +20,6 @@ const getAnimals = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getAnimals };
+const addAnimal = (newAnimal) => axios.post(`${baseURL}/animals.json`, newAnimal);
+
+export default { getAnimals, addAnimal };
