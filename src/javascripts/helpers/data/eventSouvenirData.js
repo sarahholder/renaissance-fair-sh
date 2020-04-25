@@ -12,6 +12,7 @@ const getEventSouvenirByEventId = (eventId) => new Promise((resolve, reject) => 
       Object.keys(allEventSouvenirItems).forEach((eventSouvenirId) => {
         allEventSouvenirItems[eventSouvenirId].id = eventSouvenirId;
         eventSouvenirList.push(allEventSouvenirItems[eventSouvenirId]);
+        console.log('eventSouvenir id?', eventSouvenirId);
       });
       console.log('event souvenir list from eventsouvenir data file', eventSouvenirList);
       resolve(eventSouvenirList);

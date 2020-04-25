@@ -68,7 +68,7 @@ const eventSouvenirDetails = (singleEvent) => {
 
 const viewSingleEvent = (eventId) => {
   eventFoodSmash.getSingleEventWithDetails(eventId);
-  eventSouvenirSmash.getSingleEventWithDetails(eventId)
+  eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -87,6 +87,7 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
       domString += eventSouvenirDetails(singleEvent);
+      console.log('souvenir details', eventSouvenirDetails(singleEvent));
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
