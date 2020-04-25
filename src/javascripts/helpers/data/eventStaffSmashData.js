@@ -11,6 +11,7 @@ const getSingleEventWithStaff = (eventId) => new Promise((resolve, reject) => {
       event.staff = [];
       eventStaffData.getEventStaffByEventId()
         .then((eventStaff) => {
+          console.error('eventStaff info', eventStaff);
           staffData.getStaff()
             .then((allStaff) => {
               console.error('all staff info', allStaff);
