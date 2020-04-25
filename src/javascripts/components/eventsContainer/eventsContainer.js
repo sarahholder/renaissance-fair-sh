@@ -33,6 +33,7 @@ const updateEvent = (e) => {
     timeStart: $('#edit-event-timeStart').val(),
     timeEnd: $('#edit-event-timeEnd').val(),
     date: $('#edit-event-date').val() * 1,
+    imageUrl: $('#edit-event-photo').val(),
     cost: $('#edit-event-cost').val() * 1,
     uid: utils.getMyUid(),
   };
@@ -53,7 +54,6 @@ const buildAllEvents = () => {
       domString += '<h2 class="mt-3">Events</h2>';
       domString += '<h3>Fun celebrations for the whole family!</h3>';
       domString += '<button class="btn btn-lg addEventBtn" id="addEventBtn"><i class="fas fa-plus"></i> Add a New Event</button>';
-      domString += '<button class="btn btn-lg editEventBtn" id="addEventBtn"><i class="fas fa-plus"></i> Modify an Existing Event</button>';
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-md-9 col-sm-10">';
       events.forEach((event) => {

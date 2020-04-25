@@ -24,8 +24,12 @@ const showEditEventForm = (eventId) => {
       domString += `<input type="text" class="form-control" id="edit-event-timeEnd" aria-describedby="timeEnd" placeholder="End Time" value="${selectedEvent.timeEnd}">`;
       domString += '</div>';
       domString += '<div class="form-group">';
-      domString += '<label for="edit-event-date">Photo</label>';
+      domString += '<label for="edit-event-date">Date</label>';
       domString += `<input type="text" class="form-control" id="edit-event-date" aria-describedby="date" placeholder="Enter a Date" value="${selectedEvent.date}">`;
+      domString += '</div>';
+      domString += '<div class="form-group">';
+      domString += '<label for="edit-event-photo">Photo</label>';
+      domString += `<input type="text" class="form-control" id="edit-event-photo" aria-describedby="photo" placeholder="Enter an Image URL" value="${selectedEvent.imageUrl}">`;
       domString += '</div>';
       domString += '<div class="form-group">';
       domString += '<label for="edit-event-cost">Cost</label>';
