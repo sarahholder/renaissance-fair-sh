@@ -1,7 +1,13 @@
+
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
 import eventData from '../../helpers/data/eventData';
 import eventCard from '../eventCard/eventCard';
 import eventSingleView from '../eventSingleView/eventSingleView';
 import editEventForm from '../editEventForm/editEventForm';
+import addEventModal from './eventModalForm/eventModalForm.js';
+
 
 import utils from '../../helpers/utils';
 
@@ -45,7 +51,26 @@ const updateEvent = (e) => {
     })
     .catch((error) => console.error('could not update the event', error));
 };
-
+const makeNewEvent = (e) => {
+  e.preventDefault();
+  const newEventData = {
+    name: $('#event-Name').val(),
+    location: $('#event-location').val(),
+    imageUrl: $('#event-imageUrl').val(),
+    timeStart: $('#event-timeStart').val(),
+    timeEnd: $('#event-timeEnd').val(),
+    date: $('#event-date').val(),
+    uid: firebase.auth().currentUser.uid,
+  };
+  eventData.addEventData(newEventData)
+    .then(() => {
+      $('.modal-body input').val('');
+      $('#modalAddEvent').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllEvents();
+    })
+    .catch((err) => console.error('could not add Data', err));
+};
 const buildAllEvents = () => {
   let domString = '';
   eventData.getEvents()
@@ -70,6 +95,8 @@ const eventActions = () => {
   $('body').on('click', '#deleteEventBtn', removeEvent);
   $('body').on('click', '#button-save-edit-event', updateEvent);
   $('body').on('click', '#editEventBtn', editNewEvent);
+  $('body').on('click', '#button-save-event', makeNewEvent);
+  $('body').on('click', '#addEventBtn', addEventModal.showEventModalForm);
 };
 
 export default { buildAllEvents, eventActions, editNewEvent };

@@ -167,6 +167,53 @@
   </div>
 </div>
 <!-- ADD FOOD MODAL END -->
+<!-- MODAL FOR ADD EVENT STARTS HERE  -->
+<div class="modal fade" id="modalAddEvent" tabindex="-1" role="dialog" aria-labelledby="addEnviromentModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modalDisplay">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addEventtModalTitle">Add Event Information</h5>
+        <button type="button" class="close buttonSaveEdit" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="modalBodyAddEvent" class="modal-body">
+        <form id="modalForm">
+          <div class="form-group">
+            <label for="event-Name">Name:</label>
+            <input type="text" class="form-control" id="event-Name" aria-describedby="event-Name" placeholder="event-Name">
+          </div>
+          <div class="form-group">
+            <label for="event-location">Location:</label>
+            <input type="text" class="form-control" id="event-location" aria-describedby="location" placeholder="Enter a location">
+          </div>
+          <div class="form-group">
+            <label for="event-imageUrl">Image:</label>
+            <input type="text" class="form-control" id="event-imageUrl" aria-describedby="imageUrl" placeholder="Enter the image-Url">
+          </div>
+          <div class="form-group">
+            <label for="event-timeStart">Start Time:</label>
+            <input type="text" class="form-control" id="event-timeStart" aria-describedby="event-TimeStart" placeholder="Enter the start time">
+          </div>
+          <div class="form-group">
+            <label for="enviroment-timeEnd">End Time:</label>
+            <input type="text" class="form-control" id="event-timeEnd" aria-describedby="event-timeEnd" placeholder="Enter the end time">
+          </div>
+          <div class="form-group">
+            <label for="event-date">Date:</label>
+            <input type="text" class="form-control" id="event-date" aria-describedby="event-date" placeholder="Enter date">
+          </div>
+          <div class="form-group">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn buttonSaveEdit glowing" data-dismiss="modal">Close</button>
+        <button id="button-save-event" type="button" class="btn buttonSaveEdit glowing">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ADD EVENT MODAL ENDS HERE -->
 
 <!-- ADD ANIMAL MODAL -->
 <div class="modal fade show" id="animalModal" tabindex="-1" role="dialog" aria-labelledby="animalAddModalTitle" aria-hidden="true">
