@@ -142,5 +142,43 @@
   "timeEnd": "8:00 PM",
   "date": "May 26-30, 2020",
   "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  }
-  }
+  },
+  "event17": {
+    "name": "Edinson Tudor Festival",
+    "location": "Edinson, MN",
+    "imageUrl": "http://www.renaissancefest.com/renfest_2017/wp-content/uploads/2017/05/flame-throwers.jpg",
+    "timeStart": "10:00 AM",
+    "timeEnd": "8:00 PM",
+    "date": "July 14-17, 2020",
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+    },
+    "event18": {
+    "name": "Hopscote-by-Sea Faire",
+    "location": "Hopscotch, FL",
+    "imageUrl": "https://i.pinimg.com/originals/f3/29/bd/f329bdd38f95f3123795e028f68ba04d.jpg",
+    "timeStart": "10:00 AM",
+    "timeEnd": "8:00 PM",
+    "date": "June 1-4, 2020",
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+    },
+    "event19": {
+    "name": "North Illinois Pleasure Faire",
+    "location": "Chicago, IL",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ6bwDXZXuTI2bpOeK2YR6MQ8bnAZd_iD4c5r2ivUi5fiOAHMCS&usqp=CAU",
+    "timeStart": "10:00 AM",
+    "timeEnd": "8:00 PM",
+    "date": "June 22-26, 2020",
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+    },
+    "event20": {
+    "name": "Arrington Renaissance Festival",
+    "location": "Arrington, TN",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQDZQsNMm9lyTbyKcEhDRS_1V7uew6tcrjqcYYWjOo56_ylk5cO&usqp=CAU",
+    "timeStart": "10:00 AM",
+    "timeEnd": "8:00 PM",
+    "date": "May 26-30, 2020",
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+    }
+    }
+  
+  
