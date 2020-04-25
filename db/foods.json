@@ -5,7 +5,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1471421298428-1513ab720a8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80",
     "price": 3,
     "location": "Edinson Tudor Festival",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "food2": {
@@ -14,34 +15,38 @@
     "imageUrl": "https://images.unsplash.com/photo-1568919722116-90b266c5ccd2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
     "price": 2,
     "location": "Edinson Tudor Festival",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "food3": {
     "type": "Funnel Cake",
     "description": "Fresh hot and served with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1581618478941-515a55d3fce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-    "price": "6",
+    "price": 6,
     "location": "Edinson Tudor Festival",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "food4": {
     "type": "Chocolate Filled Doughnuts",
     "description": "Soft, perfectly fried and filled with delicious chocolate, topped with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1552417656-f5c5bbb00244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-    "price": "8",
+    "price": 8,
     "location": "Edinson Tudor Festival",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "food5": {
     "type": "Turkey Leg",
     "description": "Huge, deliciously seasoned meat roasted fresh all day",
     "imageUrl": "https://i.redd.it/k0ncshj5gqgx.jpg",
-    "price": "9",
+    "price": 9,
     "location": "Edinson Tudor Festival",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "food6": {
@@ -50,7 +55,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1471421298428-1513ab720a8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80",
     "price": 3,
     "location": "Hopscote-by-Sea Faire",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "food7": {
@@ -59,34 +65,37 @@
     "imageUrl": "https://images.unsplash.com/photo-1568919722116-90b266c5ccd2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
     "price": 2,
     "location": "Hopscote-by-Sea Faire",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "food8": {
     "type": "Funnel Cake",
     "description": "Fresh hot and served with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1581618478941-515a55d3fce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-    "price": "6",
+    "price": 6,
     "location": "Hopscote-by-Sea Faire",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "food9": {
     "type": "Chocolate Filled Doughnuts",
     "description": "Soft, perfectly fried and filled with delicious chocolate, topped with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1552417656-f5c5bbb00244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-    "price": "8",
+    "price": 8,
     "location": "Hopscote-by-Sea Faire",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "food10": {
     "type": "Turkey Leg",
     "description": "Huge, deliciously seasoned meat roasted fresh all day",
     "imageUrl": "https://i.redd.it/k0ncshj5gqgx.jpg",
-    "price": "9",
+    "price": 9,
     "location": "Hopscote-by-Sea Faire",
-    "isAvailable": true,
+    "isAvailable": "Available",
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "food11": {
@@ -95,7 +104,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1471421298428-1513ab720a8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80",
     "price": 4,
     "location": "North Illinois Pleasure Faire",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "food12": {
@@ -104,25 +114,28 @@
     "imageUrl": "https://images.unsplash.com/photo-1568919722116-90b266c5ccd2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
     "price": 3,
     "location": "North Illinois Pleasure Faire",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "food13": {
     "type": "Funnel Cake",
     "description": "Fresh hot and served with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1581618478941-515a55d3fce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-    "price": "7",
+    "price": 7,
     "location": "North Illinois Pleasure Faire",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "food14": {
     "type": "Chocolate Filled Doughnuts",
     "description": "Soft, perfectly fried and filled with delicious chocolate, topped with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1552417656-f5c5bbb00244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-    "price": "8",
+    "price": 8,
     "location": "North Illinois Pleasure Faire",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "food15": {
@@ -131,7 +144,8 @@
     "imageUrl": "https://i.redd.it/k0ncshj5gqgx.jpg",
     "price": 11,
     "location": "North Illinois Pleasure Faire",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "food16": {
@@ -140,7 +154,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1471421298428-1513ab720a8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80",
     "price": 4,
     "location": "Tennesee Arrington",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "food17": {
@@ -149,7 +164,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1568919722116-90b266c5ccd2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
     "price": 3,
     "location": "Tennesee Arrington",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "food18": {
@@ -158,7 +174,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1581618478941-515a55d3fce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
     "price": "7",
     "location": "Tennesee Arrington",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "food19": {
@@ -167,7 +184,8 @@
     "imageUrl": "https://images.unsplash.com/photo-1552417656-f5c5bbb00244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
     "price": "8",
     "location": "Tennesee Arrington",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "food20": {
@@ -176,7 +194,8 @@
     "imageUrl": "https://i.redd.it/k0ncshj5gqgx.jpg",
     "price": 11,
     "location": "Tennesee Arrington",
-    "isAvailable": true,
+    "isAvailable": "Available",
+    "quantity": 100,
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   }
 }
