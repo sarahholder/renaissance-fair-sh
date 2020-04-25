@@ -64,19 +64,19 @@
 		"showId": "show16"
 	},
 	"eventShow17": {
-		"eventId": "event1",
+		"eventId": "event17",
 		"showId": "show17"
 	},
 	"eventShow18": {
-		"eventId": "event9",
+		"eventId": "event18",
 		"showId": "show18"
 	},
 	"eventShow19": {
-		"eventId": "event10",
+		"eventId": "event19",
 		"showId": "show19"
 	},
 	"eventShow20": {
-		"eventId": "event8",
+		"eventId": "event20",
 		"showId": "show20"
 	}
 }

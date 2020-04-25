@@ -178,5 +178,52 @@
     "price": 50,
     "isAvailable": true,
     "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
+  },
+  "souvenir21": {
+    "type": "Ocarina",
+    "description": "A small wind instrument",
+    "location": "Tennesee Arrington",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
+    "price": 20,
+    "isAvailable": true,
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+  },
+  "souvenir22": {
+    "type": "Fairy Figure",
+    "description": "A small figure depicting a colorful fairy",
+    "location": "Tennesee Arrington",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
+    "price": 35,
+    "isAvailable": true,
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+  },
+  "souvenir23": {
+    "type": "Dragon Birdbath",
+    "description": "A birdbath with attached dragon figure",
+    "location": "Tennesee Arrington",
+    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
+    "price": 40,
+    "isAvailable": true,
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+  },
+  "souvenir24": {
+    "type": "Curved blade",
+    "description": "A small curved blade",
+    "location": "Tennesee Arrington",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
+    "price": 60,
+    "isAvailable": true,
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+  },
+  "souvenir25": {
+    "type": "Incense burner",
+    "description": "A beautiful incense burner for the home",
+    "location": "Tennesee Arrington",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
+    "price": 50,
+    "isAvailable": true,
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   }
 }
+
+
