@@ -56,7 +56,7 @@ const makeNewEvent = (e) => {
   const newEventData = {
     name: $('#event-Name').val(),
     location: $('#event-location').val(),
-    imageUrl: $('event-imageUrl'),
+    imageUrl: $('#event-imageUrl').val(),
     timeStart: $('#event-timeStart').val(),
     timeEnd: $('#event-timeEnd').val(),
     date: $('#event-date').val() * 1,
@@ -95,7 +95,7 @@ const eventActions = () => {
   $('body').on('click', '#deleteEventBtn', removeEvent);
   $('body').on('click', '#button-save-edit-event', updateEvent);
   $('body').on('click', '#editEventBtn', editNewEvent);
-  $('body').on('click', '#button-add-event', makeNewEvent);
+  $('body').on('click', '#button-save-event', makeNewEvent);
   $('body').on('click', '#addEventBtn', addEventModal.showEventModalForm);
 };
 
