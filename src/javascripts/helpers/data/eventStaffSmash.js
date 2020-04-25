@@ -25,4 +25,5 @@ const getSingleEventWithInfo = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+
 export default { getSingleEventWithInfo };
