@@ -4,12 +4,19 @@
 
 .singleEventTitle {
   @include titles;
+  text-align: center;
 }
 
 .eventSectionTitle {
   @include sectionTitle;
+  padding-bottom: 5px;
 }
 
 .closeEventBtn {
   @include yellow-buttons;
 } 
+
+.deleteEventBtn {
+  @include red-buttons;
+}
+
