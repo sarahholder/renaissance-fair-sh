@@ -12,6 +12,15 @@
     }
 }
 
+@mixin sectionTitle {
+  background-color: $primaryBlue;
+  color: white;
+  h4 {
+    font-family: $bigFonts;
+    font-size: 3em;
+  }
+}
+
 @mixin yellow-buttons {
   margin: .5em;
   background-color: $gold;
@@ -26,6 +35,15 @@
   color: white;
   &:hover {
     background-color: #a21129;
+  }
+}
+
+@mixin blue-buttons {
+  margin: .5em;
+  background-color: $primaryBlue;
+  color: white;
+  &:hover {
+    background-color: $primaryBlue;
   }
 }
 

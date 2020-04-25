@@ -67,7 +67,7 @@ const buildAllSouvenirs = () => {
       domString += '<h3> Make the memories last forever </h3>';
       domString += '<button class="align-item-center souvenirs-add-btn btn btn-lg" id="souvenirs-add-btn"> <i class="fas fa-dragon"></i> Add New Souvenir </button>';
       domString += '</div>';
-      domString += '<div class="container-fluid d-flex flex-wrap col-9">';
+      domString += '<div class="container-fluid d-flex flex-wrap col-md-9 col-sm-10">';
       souvenirs.forEach((souvenir) => {
         firebase.auth().onAuthStateChanged((user) => {
           if (user) {

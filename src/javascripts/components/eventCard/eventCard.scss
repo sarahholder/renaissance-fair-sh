@@ -1,0 +1,41 @@
+@import '../../../styles/colors';
+@import '../../../styles/fonts';
+@import '../../../styles/events';
+
+#eventTitle {
+  @include titles;
+}
+
+.addEventBtn {
+  @include yellow-buttons;
+}
+
+.eventImg {
+  height: 200px;
+}
+
+#viewEventBtn {
+  @include blue-buttons;
+} 
+
+#editEventBtn {
+  @include yellow-buttons;
+}    
+
+#deleteEventBtn {
+  @include red-buttons;
+}
+
+.editEventSubmit {
+  @include yellow-buttons;
+}
+
+.newEventSubmit {
+  @include yellow-buttons;
+}
+ 
+
+.hide {
+  display: none;
+}
+

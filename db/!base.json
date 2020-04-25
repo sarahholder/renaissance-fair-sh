@@ -1,7 +1,11 @@
 {
   "foods": "val",
+  "eventFood": "val",
   "shows": "val",
   "souvenirs": "val",
-  "staff": "val"
+  "staff": "val",
+  "events": "val",
+  "eventStaff": "val",
+  "animals": "val"
 }
 
