@@ -59,7 +59,7 @@ const makeNewEvent = (e) => {
     imageUrl: $('#event-imageUrl').val(),
     timeStart: $('#event-timeStart').val(),
     timeEnd: $('#event-timeEnd').val(),
-    date: $('#event-date').val() * 1,
+    date: $('#event-date').val(),
     uid: firebase.auth().currentUser.uid,
   };
   eventData.addEventData(newEventData)
