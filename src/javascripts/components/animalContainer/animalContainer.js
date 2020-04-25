@@ -9,8 +9,13 @@ import utils from '../../helpers/utils';
 const makeNewAnimal = (e) => {
   e.preventDefault();
   const newAnimal = {
-    name: $('#animal-name').val(),
-    imageUrl: $('#animal-imageUrl').val(),
+    name: $('#animalName').val(),
+    type: $('#animalType').val(),
+    description: $('#animalDescription').val(),
+    imageUrl: $('#animalImageUrl').val(),
+    cost: $('#animalCost').val() * 1,
+    isAvailable: $('#availabilityOfAnimal').val(),
+    uid: utils.getMyUid(),
   };
   animalData.addAnimal(newAnimal)
     .then(() => {

@@ -23,13 +23,16 @@ const showAddAnimalModalForm = () => {
   domString += '<input type="text" class="form-control" id="animalImageUrl" placeholder="Image Url">';
   domString += '</div>';
   domString += '<div class="form-group">';
-  domString += '<label for="animalPrice">Price of Animal</label>';
-  domString += '<input type="number" class="form-control" id="animalPrice" placeholder="Price">';
+  domString += '<label for="animalCost">Price of Animal</label>';
+  domString += '<input type="number" class="form-control" id="animalCost" placeholder="Price">';
   domString += '</div>';
   domString += '<div class="form-group">';
-  domString += '<label for="animalAvailability">Is it available?</label>';
-  domString += '<input type="number" class="form-control" id="animalAvailability" placeholder="Available?">';
-  domString += '</div>';
+  domString += '<label for="availabilityOfAnimal">Availability Of Animal:</label>';
+  domString += '<select id="availabilityOfAnimal" class="form-control" placeholder="Is it available today?">';
+  domString += '<option value="">Select your option</option>';
+  domString += '<option value="Available">Available</option>';
+  domString += '<option value="Not Available">Not Available</option>';
+  domString += '</select>';
   domString += '</form>';
 
   $('#newAnimalSubmit').removeClass('hide');
