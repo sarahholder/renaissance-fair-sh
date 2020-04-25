@@ -1,6 +1,7 @@
 import eventData from '../../helpers/data/eventData';
 import eventCard from '../eventCard/eventCard';
 import eventSingleView from '../eventSingleView/eventSingleView';
+import editEventForm from '../editEventForm/editEventForm';
 
 import utils from '../../helpers/utils';
 
@@ -15,6 +16,36 @@ const removeEvent = (e) => {
     .catch((err) => console.error('delete event failed', err));
 };
 
+const editNewEvent = (e) => {
+  e.preventDefault();
+  const eventId = e.target.closest('.card').id;
+  $('#modalEditEvent').modal('show');
+  editEventForm.showEditEventForm(eventId);
+};
+
+const updateEvent = (e) => {
+  e.preventDefault();
+  const eventId = $('.edit-event-form-tag').data('id');
+  console.error('event id from update function', eventId);
+  const editedEvent = {
+    name: $('#edit-event-name').val(),
+    location: $('#edit-event-location').val(),
+    timeStart: $('#edit-event-timeStart').val(),
+    timeEnd: $('#edit-event-timeEnd').val(),
+    date: $('#edit-event-date').val() * 1,
+    imageUrl: $('#edit-event-photo').val(),
+    cost: $('#edit-event-cost').val() * 1,
+    uid: utils.getMyUid(),
+  };
+  eventData.updateEvent(eventId, editedEvent)
+    .then(() => {
+      $('#modalEditEvent').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildAllEvents();
+    })
+    .catch((error) => console.error('could not update the event', error));
+};
+
 const buildAllEvents = () => {
   let domString = '';
   eventData.getEvents()
@@ -22,7 +53,7 @@ const buildAllEvents = () => {
       domString += '<div class="text-center" id="eventTitle">';
       domString += '<h2 class="mt-3">Events</h2>';
       domString += '<h3>Fun celebrations for the whole family!</h3>';
-      domString += '<button class="btn btn-lg addEventBtn" id="addEventBtn"><i class="fas fa-plus"></i> Add a new event</button>';
+      domString += '<button class="btn btn-lg addEventBtn" id="addEventBtn"><i class="fas fa-plus"></i> Add a New Event</button>';
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-md-9 col-sm-10">';
       events.forEach((event) => {
@@ -37,6 +68,8 @@ const buildAllEvents = () => {
 
 const eventActions = () => {
   $('body').on('click', '#deleteEventBtn', removeEvent);
+  $('body').on('click', '#button-save-edit-event', updateEvent);
+  $('body').on('click', '#editEventBtn', editNewEvent);
 };
 
-export default { buildAllEvents, eventActions };
+export default { buildAllEvents, eventActions, editNewEvent };
