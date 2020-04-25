@@ -68,7 +68,7 @@ const buildAllStaff = () => {
         domString += '<button class="btn btn-lg add-Staff-Btn" id="addStaffBtn"><i class="fas fa-plus"></i> Add a new staff member</button>';
       }
       domString += '</div>';
-      domString += '<div class="container-fluid d-flex flex-wrap col-9">';
+      domString += '<div class="container-fluid d-flex flex-wrap col-md-9 col-sm-10">';
       allStaff.forEach((staff) => {
         domString += staffCards.buildStaffCards(staff);
       });

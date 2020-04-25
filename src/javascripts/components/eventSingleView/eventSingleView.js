@@ -17,12 +17,12 @@ const closeSingleEvent = () => {
 
 const eventFoodDetails = (singleEvent) => {
   let domString = '';
-  domString += '<table class="table table-dark">';
+  domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Food Type</th>';
   domString += '<th scope="col">Price</th>';
-  domString += '<th scope="col">Quantity</th>';
+  domString += '<th scope="col">Qty</th>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
@@ -52,8 +52,8 @@ const viewSingleEvent = (eventId) => {
       domString += `<h5>${singleEvent.timeStart} - ${singleEvent.timeEnd}</h5>`;
       domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close event details</button>';
       domString += '</div>';
-      domString += '<div id="eventDetails">';
-      domString += '<div id="eventFoodSection" class="quad">';
+      domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
+      domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Food Details</h4>';
       domString += eventFoodDetails(singleEvent);
       domString += '</div>';
