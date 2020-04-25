@@ -167,59 +167,53 @@
 </div>
 <!-- ADD FOOD MODAL END -->
 <!-- MODAL FOR ADD EVENT STARTS HERE  -->
-<div class="modal fade" id="modalAddEnviroment" tabindex="-1" role="dialog" aria-labelledby="addEnviromentModalTitle" aria-hidden="true">
+<div class="modal fade" id="modalAddEvent" tabindex="-1" role="dialog" aria-labelledby="addEnviromentModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content modalDisplay">
       <div class="modal-header">
-        <h5 class="modal-title" id="addEnviromentModalTitle">Add New Enviroment Data</h5>
+        <h5 class="modal-title" id="addEventtModalTitle">Add Event Information</h5>
         <button type="button" class="close buttonSaveEdit" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div id="modalBodyAddEnviroment" class="modal-body">
+      <div id="modalBodyAddEvent" class="modal-body">
         <form id="modalForm">
           <div class="form-group">
-            <label for="destinationId">destinationId:</label>
-            <input type="text" class="form-control" id="destinationId" aria-describedby="location" placeholder="destinationId">
+            <label for="event-Name">Name:</label>
+            <input type="text" class="form-control" id="event-Name" aria-describedby="event-Name" placeholder="event-Name">
           </div>
           <div class="form-group">
-            <label for="enviroment-temperature">Temperture/Celsius:</label>
-            <input type="number" class="form-control" id="enviroment-temperature" aria-describedby="temperature" placeholder="Enter a temperature">
+            <label for="event-location">Location:</label>
+            <input type="number" class="form-control" id="enviroment-location" aria-describedby="location" placeholder="Enter a location">
           </div>
           <div class="form-group">
-            <label for="enviroment-latitude">Latitude:</label>
-            <input type="number" class="form-control" id="enviroment-latitude" aria-describedby="latitude" placeholder="Enter the latitude">
+            <label for="event-imageUrl">Image:</label>
+            <input type="number" class="form-control" id="event-imageUrl" aria-describedby="imageUrl" placeholder="Enter the image-Url">
           </div>
           <div class="form-group">
-            <label for="enviroment-longitude">Longitude:</label>
-            <input type="number" class="form-control" id="enviroment-longitude" aria-describedby="longitude" placeholder="Enter the longitude">
+            <label for="event-timeStart">Start Time:</label>
+            <input type="number" class="form-control" id="event-timeStart" aria-describedby="event-TimeStart" placeholder="Enter the start time">
           </div>
           <div class="form-group">
-            <label for="enviroment-imageUrl">Photo:</label>
-            <input type="text" class="form-control" id="enviroment-imageUrl" aria-describedby="photoUrl" placeholder="Enter a photo link">
+            <label for="enviroment-timeEnd">End Time:</label>
+            <input type="text" class="form-control" id="event-timeEnd" aria-describedby="event-timeEnd" placeholder="Enter the end time">
           </div>
           <div class="form-group">
-            <label for="enviroment-depth">Depth:</label>
-            <input type="number" class="form-control" id="enviroment-depth" aria-describedby="depth" placeholder="Enter depth">
+            <label for="event-date">Date:</label>
+            <input type="number" class="form-control" id="event-date" aria-describedby="event-date" placeholder="Enter date">
           </div>
           <div class="form-group">
-            <label for="enviroment-current">Current:</label>
-            <input type="text" class="form-control" id="enviroment-current" aria-describedby="current" placeholder="Enter the current">
-          </div>
-          <div class="form-group">
-            <label for="enviroment-presuure">Pressure:</label>
-            <input type="number" class="form-control" id="enviroment-pressure" aria-describedby="pressure" placeholder="Enter a pressure">
-          </div>
-          </form>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn buttonSaveEdit glowing" data-dismiss="modal">Close</button>
-        <button id="button-save-enviroment" type="button" class="btn buttonSaveEdit glowing">Save</button>
+        <button id="button-save-event" type="button" class="btn buttonSaveEdit glowing">Save</button>
       </div>
     </div>
   </div>
 </div>
 <!-- ADD EVENT MODAL ENDS HERE -->
+
 
 </body>
 </html>
