@@ -2,7 +2,7 @@ import './eventCard.scss';
 
 const buildEventCard = (event) => {
   let domString = '';
-  domString += '<div class="col-4 mb-2">';
+  domString += '<div class="col-md-4 col-sm-12 mb-2">';
   domString += `<div class="card" id="${event.id}">`;
   domString += `<img src="${event.imageUrl}" class="eventImg card-img-top" alt="...">`;
   domString += '<div class="card-body">';
