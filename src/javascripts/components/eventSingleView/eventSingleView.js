@@ -2,6 +2,7 @@ import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
 import eventFoodSmash from '../../helpers/data/eventFoodSmash';
+import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
 
 import utils from '../../helpers/utils';
 
@@ -40,8 +41,34 @@ const eventFoodDetails = (singleEvent) => {
   return domString;
 };
 
+const eventSouvenirDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Souvenir Type</th>';
+  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Qty</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.souvenir.forEach((souvItem) => {
+    domString += '<tr>';
+    domString += `<th scope="row">${souvItem.type}</th>`;
+    domString += `<td>$${souvItem.price}</>`;
+    domString += `<td>${souvItem.isAvailable}</td>`;
+    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
+
+  return domString;
+};
+
 const viewSingleEvent = (eventId) => {
-  eventFoodSmash.getSingleEventWithDetails(eventId)
+  eventFoodSmash.getSingleEventWithDetails(eventId);
+  eventSouvenirSmash.getSingleEventWithDetails(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -59,7 +86,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
-      domString += '<p>DETAILS HERE!!!!</p>';
+      domString += eventSouvenirDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
