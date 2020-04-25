@@ -1,10 +1,21 @@
 import firebase from 'firebase/app';
 import animalData from '../../helpers/data/animalData';
 
-import animalCard from '../animalCard/animalCard';
-import animalNewForm from '../animalNewForm/animalNewForm';
+import animalCard from './animalCard';
+import animalNewForm from './animalNewForm';
 
 import utils from '../../helpers/utils';
+
+const removeAnimalCard = (e) => {
+  e.preventDefault();
+  const animalId = e.target.closest('.card').id;
+  animalData.deleteAnimal(animalId)
+    .then(() => {
+      // eslint-disable-next-line no-use-before-define
+      buildAllAnimals();
+    })
+    .catch((err) => console.error('delete animals failed', err));
+};
 
 const makeNewAnimal = (e) => {
   e.preventDefault();
@@ -50,6 +61,7 @@ const buildAllAnimals = () => {
 };
 
 const animalEvents = () => {
+  $('body').on('click', '#deleteAnimalBtn', removeAnimalCard);
   $('body').on('click', '#addAnimalBtn', animalNewForm.showAddAnimalModalForm);
   $('body').on('click', '#newAnimalSubmit', makeNewAnimal);
 };
