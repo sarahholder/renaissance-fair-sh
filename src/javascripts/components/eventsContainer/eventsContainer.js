@@ -1,4 +1,3 @@
-import firebase from 'firebase/auth';
 import eventData from '../../helpers/data/eventData';
 import eventCard from '../eventCard/eventCard';
 import eventSingleView from '../eventSingleView/eventSingleView';
@@ -35,7 +34,7 @@ const updateEvent = (e) => {
     timeEnd: $('#edit-event-timeEnd').val(),
     date: $('#edit-event-date').val() * 1,
     cost: $('#edit-event-cost').val() * 1,
-    uid: firebase.auth().currentUser.uid,
+    uid: utils.getMyUid(),
   };
   eventData.updateEvent(eventId, editedEvent)
     .then(() => {
@@ -43,7 +42,7 @@ const updateEvent = (e) => {
       // eslint-disable-next-line no-use-before-define
       buildAllEvents();
     })
-    .catch((error) => console.error('could not update the crew', error));
+    .catch((error) => console.error('could not update the event', error));
 };
 
 const buildAllEvents = () => {
@@ -71,7 +70,6 @@ const eventActions = () => {
   $('body').on('click', '#deleteEventBtn', removeEvent);
   $('body').on('click', '#button-save-edit-event', updateEvent);
   $('body').on('click', '#editEventBtn', editNewEvent);
-  console.log('is EVENT edit button working?', editNewEvent);
 };
 
 export default { buildAllEvents, eventActions, editNewEvent };
