@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 
-import './animalCard.scss';
+import './animals.scss';
 
 const buildAnimalCard = (animal) => {
   let domString = '';
