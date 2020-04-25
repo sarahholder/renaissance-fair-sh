@@ -77,7 +77,7 @@ const buildAllFoods = () => {
         domString += '<button class="btn btn-lg addFoodBtn" id="addFoodBtn"><i class="fas fa-plus"></i> Add new food item</button>';
       }
       domString += '</div>';
-      domString += '<div class="container-fluid d-flex flex-wrap col-9">';
+      domString += '<div class="container-fluid d-flex flex-wrap col-md-9 col-sm-10">';
       foods.forEach((food) => {
         domString += foodComponent.foodDataCardInfo(food);
       });
