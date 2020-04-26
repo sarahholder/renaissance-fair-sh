@@ -65,36 +65,36 @@ const removeEventFood = () => {
     .catch((error) => console.error('could not delete food item from event', error));
 };
 
-const viewSingleEvent = (eventId) => {
-  smashData.allPromises(eventId)
-const eventSouvenirDetails = (singleEvent) => {
-  let domString = '';
-  domString += '<table class="table-responsive table-dark">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Souvenir Type</th>';
-  domString += '<th scope="col">Price</th>';
-  domString += '<th scope="col">Qty</th>';
-  domString += '</tr>';
-  domString += '</thead>';
-  domString += '<tbody>';
-  singleEvent.souvenir.forEach((souvItem) => {
-    domString += '<tr>';
-    domString += `<th scope="row">${souvItem.type}</th>`;
-    domString += `<td>$${souvItem.price}</td>`;
-    domString += `<td>${souvItem.isAvailable}</td>`;
-    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
-    domString += '</tr>';
-  });
-  domString += '</tbody>';
-  domString += '</table>';
+// const eventSouvenirDetails = (singleEvent) => {
+//   let domString = '';
+//   domString += '<table class="table-responsive table-dark">';
+//   domString += '<thead>';
+//   domString += '<tr>';
+//   domString += '<th scope="col">Souvenir Type</th>';
+//   domString += '<th scope="col">Price</th>';
+//   domString += '<th scope="col">Qty</th>';
+//   domString += '</tr>';
+//   domString += '</thead>';
+//   domString += '<tbody>';
+//   singleEvent.souvenir.forEach((souvItem) => {
+//     domString += '<tr>';
+//     domString += `<th scope="row">${souvItem.type}</th>`;
+//     domString += `<td>$${souvItem.price}</td>`;
+//     domString += `<td>${souvItem.isAvailable}</td>`;
+//     domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+//     domString += '</tr>';
+//   });
+//   domString += '</tbody>';
+//   domString += '</table>';
 
-  return domString;
-};
+//   return domString;
+// };
 
 const viewSingleEvent = (eventId) => {
+  smashData.getCompleteEvent(eventId)
+  // smashData.allPromises()
   // eventFoodSmash.getSingleEventWithDetails(eventId);
-  eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
+  // eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -112,8 +112,8 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
-      domString += eventSouvenirDetails(singleEvent);
-      console.log('souvenir details', eventSouvenirDetails(singleEvent));
+      // domString += eventSouvenirDetails(singleEvent);
+      // console.log('souvenir details', eventSouvenirDetails(singleEvent));
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
@@ -138,7 +138,8 @@ const viewSingleEvent = (eventId) => {
 };
 
 const viewSingleEventCall = (e) => {
-  const eventId = e.target.closest('.card').id;
+  const eventId = e.target.dataset.id;
+  console.log('eventid on view button', eventId);
   viewSingleEvent(eventId);
 };
 

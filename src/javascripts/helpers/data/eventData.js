@@ -19,6 +19,14 @@ const getEvents = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getEventById = (eventId) => new Promise((resolve, reject) => {
+  axios.get(`${baseURL}/events/${eventId}.json`)
+    .then((response) => {
+      resolve(response.data);
+    })
+    .catch((error) => reject(error));
+});
+
 const getSingleEvent = (eventId) => axios.get(`${baseURL}/events/${eventId}.json`);
 
 const deleteEvent = (eventId) => axios.delete(`${baseURL}/events/${eventId}.json`);
@@ -28,6 +36,7 @@ const updateEvent = (eventId, editedEvent) => axios.put(`${baseURL}/events/${eve
 const addEventData = (newEventData) => axios.post(`${baseURL}/events.json`, newEventData);
 
 export default {
+  getEventById,
   getEvents,
   getSingleEvent,
   deleteEvent,
