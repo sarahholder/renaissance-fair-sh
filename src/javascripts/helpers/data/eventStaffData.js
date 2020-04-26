@@ -6,17 +6,18 @@ const baseUrl = apiKeys.firebaseKeys.databaseURL;
 const getEventStaffByEventId = (eventId) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/eventStaff.json?orderBy="eventId"&equalTo="${eventId}"`)
     .then((response) => {
-      const theEventStaff = response.data;
-      console.error('response data for eventStaff by eventid', theEventStaff);
-      const eventStaff = [];
-      Object.keys(theEventStaff).forEach((eventStaffId) => {
-        theEventStaff[eventStaffId].id = eventStaffId;
-        eventStaff.push(theEventStaff[eventStaffId]);
+      const allEventStaffMembers = response.data;
+      console.error('response data for eventStaff by eventid', allEventStaffMembers);
+      const eventStaffMembers = [];
+      Object.keys(allEventStaffMembers).forEach((eventStaffId) => {
+        allEventStaffMembers[eventStaffId].id = eventStaffId;
+        eventStaffMembers.push(allEventStaffMembers[eventStaffId]);
+        console.error('eventStaff id?', eventStaffId);
       });
-      console.error('event staff members from eventStaff data file', eventStaff);
-      resolve(eventStaff);
+      console.error('event staff members from eventstaff data file', eventStaffMembers);
+      resolve(eventStaffMembers);
     })
-    .catch((err) => reject(err));
+    .catch((error) => reject(error));
 });
 
 export default { getEventStaffByEventId };

@@ -2,7 +2,8 @@ import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
 // import eventFoodSmash from '../../helpers/data/eventFoodSmash';
-import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
+// import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
+import eventStaffSmash from '../../helpers/data/eventStaffSmash';
 
 import utils from '../../helpers/utils';
 
@@ -65,10 +66,35 @@ const eventSouvenirDetails = (singleEvent) => {
 
   return domString;
 };
+const eventStaffDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Staff Member</th>';
+  domString += '<th scope="col">Wage</th>';
+  domString += '<th scope="col">Character</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.staff.forEach((staffMember) => {
+    domString += '<tr>';
+    domString += `<th scope="row">${staffMember.name}</th>`;
+    domString += `<td>$${staffMember.pay}/hr.</td>`;
+    domString += `<td>${staffMember.characterType}</td>`;
+    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
+
+  return domString;
+};
 
 const viewSingleEvent = (eventId) => {
   // eventFoodSmash.getSingleEventWithDetails(eventId);
-  eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
+  // eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
+  eventStaffSmash.getSingleEventWithStaffDetails(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -86,12 +112,12 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
-      domString += eventSouvenirDetails(singleEvent);
-      console.log('souvenir details', eventSouvenirDetails(singleEvent));
+      // domString += eventSouvenirDetails(singleEvent);
+      // console.log('souvenir details', eventSouvenirDetails(singleEvent));
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
-      domString += '<p>DETAILS HERE!!!!</p>';
+      domString += eventStaffDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
