@@ -4,6 +4,7 @@ import '../styles/main.scss';
 import apiKeys from './helpers/apiKeys.json';
 import authData from './helpers/data/authData';
 import auth from './components/auth/auth';
+import newSmash from './helpers/data/newSmash';
 
 import souvenirs from './components/souvenirs/souvenirs';
 
@@ -15,6 +16,7 @@ const init = () => {
   setInterval(authData.checkLoginStatus(), 8000);
   auth.loginPage();
   auth.logoutPage();
+  newSmash.getCompleteEvent();
 };
 
 init();
