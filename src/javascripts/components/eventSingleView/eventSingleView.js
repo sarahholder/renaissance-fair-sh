@@ -2,7 +2,8 @@ import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
 // import eventFoodSmash from '../../helpers/data/eventFoodSmash';
-import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
+// import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
+import eventShowSmash from '../../helpers/data/eventShowSmash';
 
 import utils from '../../helpers/utils';
 
@@ -66,9 +67,34 @@ const eventSouvenirDetails = (singleEvent) => {
   return domString;
 };
 
+const eventShowDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Show Name</th>';
+  domString += '<th scope="col">Cost</th>';
+  domString += '<th scope="col">Qty</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.show.forEach((showItem) => {
+    domString += '<tr>';
+    domString += `<th scope="row">${showItem.name}</th>`;
+    domString += `<td>$${showItem.cost}</td>`;
+    domString += `<td>${showItem.quantity}</td>`;
+    domString += '<td><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
+
+  return domString;
+};
 const viewSingleEvent = (eventId) => {
   // eventFoodSmash.getSingleEventWithDetails(eventId);
-  eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
+  // eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId);
+  eventShowSmash.getSingleEventWithShowDetails(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -86,8 +112,8 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
-      domString += eventSouvenirDetails(singleEvent);
-      console.log('souvenir details', eventSouvenirDetails(singleEvent));
+      // domString += eventSouvenirDetails(singleEvent);
+      // console.log('souvenir details', eventSouvenirDetails(singleEvent));
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
@@ -95,7 +121,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
-      domString += '<p>DETAILS HERE!!!!</p>';
+      domString += eventShowDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
       utils.printToDom('single-view-event', domString);
