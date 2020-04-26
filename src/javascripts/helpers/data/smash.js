@@ -3,6 +3,8 @@ import eventFoodData from './eventFoodData';
 import foodData from './foodData';
 import eventSouvenirData from './eventSouvenirData';
 import souvenirsData from './souvenirsData';
+import eventStaffData from './eventStaffData';
+import staffData from './staffData';
 
 
 const getEventFood = (eventId) => new Promise((resolve, reject) => {
@@ -38,6 +40,25 @@ const getEventSouvenirs = (eventId) => new Promise((resolve, reject) => {
           selectedEventSouvenirItems.push(foundEventSouvenirItem);
         });
         resolve(selectedEventSouvenirItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
+const getEventStaff = (eventId) => new Promise((resolve, reject) => {
+  console.log('event id', eventId);
+  eventStaffData.getEventStaffByEventId(eventId)
+    .then((eventStaff) => {
+      console.log('selected event staff', eventStaff);
+      staffData.getStaff().then((allStaff) => {
+        const selectedEventStaffMembers = [];
+        console.log('all staff items', allStaff);
+        eventStaff.forEach((eventStaffPerson) => {
+          const foundEventStaffPerson = allStaff.find((x) => x.id === eventStaffPerson.staffId);
+          console.log(foundEventStaffPerson);
+          selectedEventStaffMembers.push(foundEventStaffPerson);
+        });
+        resolve(selectedEventStaffMembers);
       });
     })
     .catch((error) => reject(error));
@@ -85,14 +106,17 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
     .then((event) => {
       getEventFood(eventId).then((eventFood) => {
         getEventSouvenirs(eventId).then((eventSouvenirs) => {
-          const finalEvent = { ...event };
-          finalEvent.food = eventFood;
-          finalEvent.souvenirs = eventSouvenirs;
-          resolve(finalEvent);
+          getEventStaff(eventId).then((eventStaff) => {
+            const finalEvent = { ...event };
+            finalEvent.food = eventFood;
+            finalEvent.souvenirs = eventSouvenirs;
+            finalEvent.staff = eventStaff;
+            resolve(finalEvent);
+          });
         });
       });
     })
     .catch((error) => reject(error));
 });
 
-export default { getEventFood, getCompleteEvent };
+export default { getEventFood, getCompleteEvent, getEventStaff };

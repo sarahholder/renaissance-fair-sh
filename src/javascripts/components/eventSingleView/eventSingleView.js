@@ -42,8 +42,8 @@ const eventFoodDetails = (singleEvent) => {
   domString += '</tbody>';
   domString += '</table>';
 
-//   return domString;
-// };
+  return domString;
+};
 
 // const eventSouvenirDetails = (singleEvent) => {
 //   let domString = '';
@@ -87,7 +87,7 @@ const removeEventFood = () => {
     .catch((error) => console.error('could not delete food item from event', error));
 };
 
-const eventSouvenirDetails = (singleEvent) => {
+const eventStaffDetails = (singleEvent) => {
   let domString = '';
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
@@ -98,7 +98,7 @@ const eventSouvenirDetails = (singleEvent) => {
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
-  singleEvent.souvenirs.forEach((souvItem) => {
+  singleEvent.staff.forEach((staffMember) => {
     domString += '<tr>';
     domString += `<th scope="row">${staffMember.name}</th>`;
     domString += `<td>$${staffMember.pay}/hr.</td>`;
@@ -134,7 +134,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
-      domString += eventSouvenirDetails(singleEvent);
+      // domString += eventSouvenirDetails(singleEvent);
       // console.log('souvenir details', eventSouvenirDetails(singleEvent));
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';

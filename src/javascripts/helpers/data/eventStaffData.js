@@ -20,4 +20,18 @@ const getEventStaffByEventId = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getEventStaffByEventId };
+const getEventStaff = () => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/eventStaff.json`)
+    .then((response) => {
+      const allEventStaffMembers = response.data;
+      const eventStaffList = [];
+      Object.keys(allEventStaffMembers).forEach((eventStaffId) => {
+        allEventStaffMembers[eventStaffId].id = eventStaffId;
+        eventStaffList.push(allEventStaffMembers[eventStaffId]);
+      });
+      resolve(eventStaffList);
+    })
+    .catch((error) => reject(error));
+});
+
+export default { getEventStaffByEventId, getEventStaff };
