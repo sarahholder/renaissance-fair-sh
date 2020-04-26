@@ -19,6 +19,8 @@ const getEventFoodByEventId = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSingleEventFood = (eventFoodId) => axios.get(`${baseUrl}/eventFood/${eventFoodId}.json`);
+
 const deleteEventFood = (eventFoodId) => axios.delete(`${baseUrl}/eventFood/${eventFoodId}.json`);
 
-export default { getEventFoodByEventId, deleteEventFood };
+export default { getEventFoodByEventId, deleteEventFood, getSingleEventFood };

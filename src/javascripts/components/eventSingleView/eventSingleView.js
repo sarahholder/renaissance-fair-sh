@@ -18,7 +18,8 @@ const closeSingleEvent = () => {
 
 const eventFoodDetails = (singleEvent) => {
   let domString = '';
-  domString += '<table class="table-responsive table-dark">';
+  domString += `<table class="table-responsive table-dark foodTable" data-id=${singleEvent.id}>`;
+  console.log('event id for food details table', singleEvent.id);
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Food Type</th>';
@@ -44,12 +45,21 @@ const eventFoodDetails = (singleEvent) => {
 };
 
 const removeEventFood = () => {
-  const eventFoodId = $('.eventFoodItem').data('id');
-  console.log('event food item id selected for deletion', eventFoodId);
-  eventFoodData.deleteEventFood(eventFoodId)
+  const eventId = $('.foodTable').data('id');
+  console.log('event from which to delete food', eventId);
+  const foodItemId = $('.eventFoodItem').data('id');
+  const eventFoodItem = eventFoodData.find((x, y) => x.id === eventId && y === foodItemId);
+  console.log('event food item id selected for deletion', foodItemId);
+  const eventFoodId = eventFoodItem.id;
+  eventFoodData.getSingleEventFood()
+  // smashData.getSingleEventWithDetails(eventId)
     .then(() => {
-      // eslint-disable-next-line no-use-before-define
-      viewSingleEvent();
+      eventFoodData.deleteEventFood(eventFoodId)
+        .then((resolve) => {
+          resolve(eventFoodId);
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
     })
     .catch((error) => console.error('could not delete food item from event', error));
 };
