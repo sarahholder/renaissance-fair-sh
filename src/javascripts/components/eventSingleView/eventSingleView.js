@@ -1,11 +1,12 @@
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
-// import eventFoodSmash from '../../helpers/data/eventFoodSmash';
+import eventFoodSmash from '../../helpers/data/eventFoodSmash';
+import utils from '../../helpers/utils';
+
 // import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
 import eventShowSmash from '../../helpers/data/eventShowSmash';
 
-import utils from '../../helpers/utils';
 
 const closeSingleEvent = () => {
   utils.printToDom('single-view-event', '');
@@ -68,6 +69,7 @@ const eventSouvenirDetails = (singleEvent) => {
 };
 
 const eventShowDetails = (singleEvent) => {
+  eventShowSmash.getSingleEventWithShowDetails(singleEvent);
   let domString = '';
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
@@ -88,13 +90,15 @@ const eventShowDetails = (singleEvent) => {
   });
   domString += '</tbody>';
   domString += '</table>';
+  utils.printToDom('#eventShowsSection', domString);
 
-  return domString;
+  // return domString;
 };
+
 const viewSingleEvent = (eventId) => {
-  // eventFoodSmash.getSingleEventWithDetails(eventId);
-  // eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId);
-  eventShowSmash.getSingleEventWithShowDetails(eventId)
+  eventFoodSmash.getSingleEventWithDetails(eventId)
+  // eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
+  // eventShowSmash.getSingleEventWithShowDetails(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -108,7 +112,7 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
       domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Food Details</h4>';
-      // domString += eventFoodDetails(singleEvent);
+      domString += eventFoodDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
@@ -121,7 +125,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
-      domString += eventShowDetails(singleEvent);
+      // domString += eventShowDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
       utils.printToDom('single-view-event', domString);
