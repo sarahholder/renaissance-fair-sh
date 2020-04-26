@@ -1,7 +1,8 @@
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
-import eventFoodSmash from '../../helpers/data/eventFoodSmash';
+// import eventFoodSmash from '../../helpers/data/eventFoodSmash';
+import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
 
 import utils from '../../helpers/utils';
 
@@ -29,7 +30,7 @@ const eventFoodDetails = (singleEvent) => {
   singleEvent.food.forEach((foodItem) => {
     domString += '<tr>';
     domString += `<th scope="row">${foodItem.type}</th>`;
-    domString += `<td>$${foodItem.price}</>`;
+    domString += `<td>$${foodItem.price}</td>`;
     domString += `<td>${foodItem.quantity}</td>`;
     domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
@@ -40,8 +41,34 @@ const eventFoodDetails = (singleEvent) => {
   return domString;
 };
 
+const eventSouvenirDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Souvenir Type</th>';
+  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Qty</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.souvenir.forEach((souvItem) => {
+    domString += '<tr>';
+    domString += `<th scope="row">${souvItem.type}</th>`;
+    domString += `<td>$${souvItem.price}</td>`;
+    domString += `<td>${souvItem.isAvailable}</td>`;
+    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
+
+  return domString;
+};
+
 const viewSingleEvent = (eventId) => {
-  eventFoodSmash.getSingleEventWithDetails(eventId)
+  // eventFoodSmash.getSingleEventWithDetails(eventId);
+  eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -55,11 +82,12 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
       domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Food Details</h4>';
-      domString += eventFoodDetails(singleEvent);
+      // domString += eventFoodDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
-      domString += '<p>DETAILS HERE!!!!</p>';
+      domString += eventSouvenirDetails(singleEvent);
+      console.log('souvenir details', eventSouvenirDetails(singleEvent));
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
