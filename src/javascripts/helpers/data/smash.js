@@ -1,8 +1,8 @@
 import eventData from './eventData';
 import eventFoodData from './eventFoodData';
 import foodData from './foodData';
-// import eventSouvenirData from './eventSouvenirData';
-// import souvenirsData from './souvenirsData';
+import eventSouvenirData from './eventSouvenirData';
+import souvenirsData from './souvenirsData';
 
 
 const getEventFood = (eventId) => new Promise((resolve, reject) => {
@@ -24,28 +24,24 @@ const getEventFood = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// const promiseEventSouvenir = (eventId) => new Promise((resolve, reject) => {
-//   eventData.getSingleEvent(eventId)
-//     .then((response) => {
-//       const selectedEvent = response.data;
-//       selectedEvent.id = eventId;
-//       selectedEvent.souvenir = [];
-//       eventSouvenirData.getEventSouvenirByEventId(selectedEvent.id).then((eventSouvenir) => {
-//         console.log('selected Event for Souvenir', selectedEvent);
-//         console.log('event id', eventId);
-//         console.log('eventSouvenir', eventSouvenir);
-//         souvenirsData.getSouvenirs().then((allSouvenirs) => {
-//           console.log('all souvenir items', allSouvenirs);
-//           eventSouvenir.forEach((eventSouvenirItem) => {
-//             const foundEventSouvenirItem = allSouvenirs.find((x) => x.id === eventSouvenirItem.souvenirId);
-//             selectedEvent.souvenir.push(foundEventSouvenirItem);
-//           });
-//           resolve(selectedEvent.souvenir);
-//         });
-//       });
-//     })
-//     .catch((error) => reject(error));
-// });
+const getEventSouvenirs = (eventId) => new Promise((resolve, reject) => {
+  eventSouvenirData.getEventSouvenirByEventId(eventId)
+    .then((eventSouvenir) => {
+      // console.log('selected Event for Souvenir', selectedEvent);
+      console.log('event id', eventId);
+      console.log('eventSouvenir', eventSouvenir);
+      souvenirsData.getSouvenirs().then((allSouvenirs) => {
+        const selectedEventSouvenirItems = [];
+        console.log('all souvenir items', allSouvenirs);
+        eventSouvenir.forEach((eventSouvenirItem) => {
+          const foundEventSouvenirItem = allSouvenirs.find((x) => x.id === eventSouvenirItem.souvenirId);
+          selectedEventSouvenirItems.push(foundEventSouvenirItem);
+        });
+        resolve(selectedEventSouvenirItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
 
 // const getEventWithDetails = (eventId) => new Promise((resolve, reject) => {
 //   eventData.getSingleEvent(eventId)
@@ -88,9 +84,12 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
   eventData.getEventById(eventId)
     .then((event) => {
       getEventFood(eventId).then((eventFood) => {
-        const finalEvent = { ...event };
-        finalEvent.food = eventFood;
-        resolve(finalEvent);
+        getEventSouvenirs(eventId).then((eventSouvenirs) => {
+          const finalEvent = { ...event };
+          finalEvent.food = eventFood;
+          finalEvent.souvenirs = eventSouvenirs;
+          resolve(finalEvent);
+        });
       });
     })
     .catch((error) => reject(error));

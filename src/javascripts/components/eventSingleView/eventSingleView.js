@@ -65,30 +65,30 @@ const removeEventFood = () => {
     .catch((error) => console.error('could not delete food item from event', error));
 };
 
-// const eventSouvenirDetails = (singleEvent) => {
-//   let domString = '';
-//   domString += '<table class="table-responsive table-dark">';
-//   domString += '<thead>';
-//   domString += '<tr>';
-//   domString += '<th scope="col">Souvenir Type</th>';
-//   domString += '<th scope="col">Price</th>';
-//   domString += '<th scope="col">Qty</th>';
-//   domString += '</tr>';
-//   domString += '</thead>';
-//   domString += '<tbody>';
-//   singleEvent.souvenir.forEach((souvItem) => {
-//     domString += '<tr>';
-//     domString += `<th scope="row">${souvItem.type}</th>`;
-//     domString += `<td>$${souvItem.price}</td>`;
-//     domString += `<td>${souvItem.isAvailable}</td>`;
-//     domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
-//     domString += '</tr>';
-//   });
-//   domString += '</tbody>';
-//   domString += '</table>';
+const eventSouvenirDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Souvenir Type</th>';
+  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Qty</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.souvenirs.forEach((souvItem) => {
+    domString += '<tr>';
+    domString += `<th scope="row">${souvItem.type}</th>`;
+    domString += `<td>$${souvItem.price}</td>`;
+    domString += `<td>${souvItem.isAvailable}</td>`;
+    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
 
-//   return domString;
-// };
+  return domString;
+};
 
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
@@ -112,7 +112,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
-      // domString += eventSouvenirDetails(singleEvent);
+      domString += eventSouvenirDetails(singleEvent);
       // console.log('souvenir details', eventSouvenirDetails(singleEvent));
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
