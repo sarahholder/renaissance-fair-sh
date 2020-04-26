@@ -11,7 +11,7 @@ const closeSingleEvent = () => {
   $('#foodCards').removeClass('hide');
   $('#souvenirs').removeClass('hide');
   $('#staff-collection').removeClass('hide');
-  // $('#shows').removeClass('hide');
+  $('#shows').removeClass('hide');
   $('#events').removeClass('hide');
   $('#single-view-event').addClass('hide');
 };
