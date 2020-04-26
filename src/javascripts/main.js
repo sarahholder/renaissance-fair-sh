@@ -6,7 +6,7 @@ import authData from './helpers/data/authData';
 import auth from './components/auth/auth';
 
 import souvenirs from './components/souvenirs/souvenirs';
-
+import smash from './helpers/data/smashData';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
@@ -15,6 +15,7 @@ const init = () => {
   setInterval(authData.checkLoginStatus(), 8000);
   auth.loginPage();
   auth.logoutPage();
+  smash.completeSingleEvent();
 };
 
 init();
