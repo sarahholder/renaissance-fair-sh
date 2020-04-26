@@ -1,11 +1,10 @@
-import './eventSingleView.scss';
-import '../../../styles/main.scss';
-
-// import eventFoodSmash from '../../helpers/data/eventFoodSmash';
-import eventIdSmash from '../../helpers/data/eventIdSmash';
+import eventFoodData from '../../helpers/data/eventFoodData';
+import smashData from '../../helpers/data/smash';
 
 import utils from '../../helpers/utils';
-import eventFoodData from '../../helpers/data/eventFoodData';
+
+import './eventSingleView.scss';
+import '../../../styles/main.scss';
 
 const closeSingleEvent = () => {
   utils.printToDom('single-view-event', '');
@@ -56,7 +55,7 @@ const removeEventFood = () => {
 };
 
 const viewSingleEvent = (eventId) => {
-  eventIdSmash.getSingleEventWithDetails(eventId)
+  smashData.getSingleEventWithDetails(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -71,7 +70,6 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Food Details</h4>';
       domString += eventFoodDetails(singleEvent);
-      console.log('event food items', eventFoodDetails());
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
