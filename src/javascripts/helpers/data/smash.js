@@ -3,7 +3,8 @@ import eventFoodData from './eventFoodData';
 import foodData from './foodData';
 import eventSouvenirData from './eventSouvenirData';
 import souvenirsData from './souvenirsData';
-
+import animalData from './animalData';
+import eventAnimalData from './eventAnimalData';
 
 const getEventFood = (eventId) => new Promise((resolve, reject) => {
   console.log('event id', eventId);
@@ -43,6 +44,20 @@ const getEventSouvenirs = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
+  eventAnimalData.getEventAnimalByEventId(eventId)
+    .then((eventAnimal) => {
+      animalData.getAnimals().then((allAnimals) => {
+        const selectedEventAnimalItems = [];
+        eventAnimal.forEach((eventAnimalItem) => {
+          const foundEventAnimalItem = allAnimals.find((x) => x.id === eventAnimalItem.animalId);
+          selectedEventAnimalItems.push(foundEventAnimalItem);
+        });
+        resolve(selectedEventAnimalItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
 // const getEventWithDetails = (eventId) => new Promise((resolve, reject) => {
 //   eventData.getSingleEvent(eventId)
 //     .then((response) => {
@@ -85,14 +100,17 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
     .then((event) => {
       getEventFood(eventId).then((eventFood) => {
         getEventSouvenirs(eventId).then((eventSouvenirs) => {
-          const finalEvent = { ...event };
-          finalEvent.food = eventFood;
-          finalEvent.souvenirs = eventSouvenirs;
-          resolve(finalEvent);
+          getEventAnimals(eventId).then((eventAnimals) => {
+            const finalEvent = { ...event };
+            finalEvent.food = eventFood;
+            finalEvent.souvenirs = eventSouvenirs;
+            finalEvent.animals = eventAnimals;
+            resolve(finalEvent);
+          });
         });
       });
     })
     .catch((error) => reject(error));
 });
 
-export default { getEventFood, getCompleteEvent };
+export default { getEventFood, getCompleteEvent, getEventAnimals };

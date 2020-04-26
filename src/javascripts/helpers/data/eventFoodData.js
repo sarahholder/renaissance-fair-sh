@@ -30,9 +30,6 @@ const getEventFoods = () => new Promise((resolve, reject) => {
     })
     .catch((error) => reject(error));
 });
-<<<<<<< HEAD
-export default { getEventFoodByEventId, getEventFoods };
-=======
 
 const getSingleEventFood = (eventFoodId) => axios.get(`${baseUrl}/eventFood/${eventFoodId}.json`);
 
@@ -44,4 +41,3 @@ export default {
   getSingleEventFood,
   getEventFoods,
 };
->>>>>>> master
