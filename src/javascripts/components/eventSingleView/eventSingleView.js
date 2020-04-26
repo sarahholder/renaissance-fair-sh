@@ -1,6 +1,5 @@
 import eventFoodData from '../../helpers/data/eventFoodData';
 import smashData from '../../helpers/data/smash';
-// import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
 
 import utils from '../../helpers/utils';
 
@@ -53,7 +52,6 @@ const removeEventFood = () => {
   console.log('event food item id selected for deletion', foodItemId);
   const eventFoodId = eventFoodItem.id;
   eventFoodData.getSingleEventFood()
-  // smashData.getSingleEventWithDetails(eventId)
     .then(() => {
       eventFoodData.deleteEventFood(eventFoodId)
         .then((resolve) => {
@@ -92,9 +90,6 @@ const eventSouvenirDetails = (singleEvent) => {
 
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
-  // smashData.allPromises()
-  // eventFoodSmash.getSingleEventWithDetails(eventId);
-  // eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
     .then((singleEvent) => {
       console.error('SINGLE EVENT', singleEvent);
       let domString = '';
@@ -113,7 +108,6 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
       domString += eventSouvenirDetails(singleEvent);
-      // console.log('souvenir details', eventSouvenirDetails(singleEvent));
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
