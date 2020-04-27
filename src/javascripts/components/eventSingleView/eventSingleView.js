@@ -1,4 +1,5 @@
 import eventFoodData from '../../helpers/data/eventFoodData';
+import eventStaffData from '../../helpers/data/eventStaffData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 
@@ -97,6 +98,7 @@ const eventShowDetails = (singleEvent) => {
 
 const eventStaffDetails = (singleEvent) => {
   let domString = '';
+  console.error('single event data used for staff details', singleEvent);
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
@@ -107,10 +109,11 @@ const eventStaffDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.staff.forEach((staffMember) => {
+    domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     domString += `<th scope="row">${staffMember.name}</th>`;
     domString += `<td>$${staffMember.pay}/hr.</td>`;
     domString += `<td>${staffMember.characterType}</td>`;
-    domString += '<td><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '<td><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -161,6 +164,23 @@ const removeEventFood = () => {
     .catch((error) => console.error('could not delete food item from event', error));
 };
 
+const removeEventStaff = () => {
+  const eventStaffId = $('.staffRow').data('parent');
+  const eventId = $('.staffRow').data('container');
+  console.error('XXXXXXXXXevent staff id that we need to delete', eventStaffId);
+  console.error('YYYYYYYYevent id that needs to refresh', eventId);
+  eventStaffData.getSingleEventStaff()
+    .then(() => {
+      eventStaffData.deleteEventStaff(eventStaffId)
+        .then(() => {
+          console.error('deleted event staff', eventStaffId);
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete staff member from event', error));
+};
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -181,7 +201,7 @@ const viewSingleEvent = (eventId) => {
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
       domString += eventSouvenirDetails(singleEvent);
       domString += '</div>';
-      domString += '<div id="eventStaffSection" class="quad">';
+      domString += '<div id="eventStaffSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
       domString += eventStaffDetails(singleEvent);
       domString += '</div>';
@@ -197,6 +217,7 @@ const viewSingleEvent = (eventId) => {
       utils.printToDom('single-view-event', domString);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
+      $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
@@ -212,4 +233,4 @@ const viewSingleEventCall = (e) => {
   viewSingleEvent(eventId);
 };
 
-export default { viewSingleEventCall, eventAnimalDetails };
+export default { viewSingleEventCall };
