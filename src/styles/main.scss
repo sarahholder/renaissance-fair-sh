@@ -76,10 +76,16 @@ nav {
     color: white;
     margin: 5px;
     padding: 5px;
+    background-color: #343A40;
 		}
   }
 .table-width {
   width: 100%;
+}
+
+
+.table-width {
+  width: 100% !important;
 }
 
 .cell-width {

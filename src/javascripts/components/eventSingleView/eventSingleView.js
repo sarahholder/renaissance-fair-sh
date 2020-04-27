@@ -1,4 +1,5 @@
 import eventFoodData from '../../helpers/data/eventFoodData';
+import eventStaffData from '../../helpers/data/eventStaffData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 
@@ -19,7 +20,7 @@ const closeSingleEvent = () => {
 const eventFoodDetails = (singleEvent) => {
   let domString = '';
   console.log('single event data used for food details', singleEvent);
-  domString += '<table class="table-responsive table-dark">';
+  domString += '<table class="table-responsive table-dark table-width">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Food Type</th>';
@@ -30,10 +31,10 @@ const eventFoodDetails = (singleEvent) => {
   domString += '<tbody>';
   singleEvent.food.forEach((foodItem) => {
     domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
-    domString += `<th scope="row">${foodItem.type}</th>`;
-    domString += `<td>$${foodItem.price}</td>`;
-    domString += `<td>${foodItem.quantity}</td>`;
-    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
+    domString += `<td class="cell-width">$${foodItem.price}</td>`;
+    domString += `<td class="cell-width">${foodItem.quantity}</td>`;
+    domString += '<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -55,10 +56,10 @@ const eventSouvenirDetails = (singleEvent) => {
   domString += '<tbody>';
   singleEvent.souvenirs.forEach((souvItem) => {
     domString += '<tr>';
-    domString += `<th scope="row">${souvItem.type}</th>`;
-    domString += `<td>$${souvItem.price}</td>`;
-    domString += `<td>${souvItem.isAvailable}</td>`;
-    domString += '<td><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<th scope="row" class="cell-width">${souvItem.type}</th>`;
+    domString += `<td class="cell-width">$${souvItem.price}</td>`;
+    domString += `<td class="cell-width">${souvItem.isAvailable}</td>`;
+    domString += '<td class="cell-width"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -83,10 +84,10 @@ const eventShowDetails = (singleEvent) => {
     domString += `<tr class="eventShowItem" data-id="${showItem.id}">`;
     console.error('showItem', showItem);
     domString += '<tr>';
-    domString += `<th scope="row">${showItem.name}</th>`;
-    domString += `<td>$${showItem.cost}</td>`;
-    domString += `<td>${showItem.quantity}</td>`;
-    domString += '<td><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<th scope="row" class="cell-width">${showItem.name}</th>`;
+    domString += `<td class="cell-width">$${showItem.cost}</td>`;
+    domString += `<td class="cell-width">${showItem.quantity}</td>`;
+    domString += '<td class="cell-width"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -97,6 +98,7 @@ const eventShowDetails = (singleEvent) => {
 
 const eventStaffDetails = (singleEvent) => {
   let domString = '';
+  console.error('single event data used for staff details', singleEvent);
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
@@ -107,10 +109,11 @@ const eventStaffDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.staff.forEach((staffMember) => {
-    domString += `<th scope="row">${staffMember.name}</th>`;
-    domString += `<td>$${staffMember.pay}/hr.</td>`;
-    domString += `<td>${staffMember.characterType}</td>`;
-    domString += '<td><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+    domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
+    domString += `<td class="cell-width">$${staffMember.pay}/hr.</td>`;
+    domString += `<td class="cell-width">${staffMember.characterType}</td>`;
+    domString += '<td class="cell-width"><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -124,7 +127,7 @@ const eventAnimalDetails = (singleEvent) => {
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
-  domString += '<th scope="col">Ride Type</th>';
+  domString += '<th scope="col">Type</th>';
   domString += '<th scope="col">Price</th>';
   domString += '<th scope="col">Availability</th>';
   domString += '</tr>';
@@ -132,10 +135,10 @@ const eventAnimalDetails = (singleEvent) => {
   domString += '<tbody>';
   singleEvent.animals.forEach((animalItem) => {
     domString += '<tr>';
-    domString += `<th scope="row">${animalItem.type}</th>`;
-    domString += `<td>$${animalItem.cost}</td>`;
-    domString += `<td>${animalItem.isAvailable}</td>`;
-    domString += '<td><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
+    domString += `<td class="cell-width">$${animalItem.cost}</td>`;
+    domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
+    domString += '<td class="cell-width"><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -161,6 +164,23 @@ const removeEventFood = () => {
     .catch((error) => console.error('could not delete food item from event', error));
 };
 
+const removeEventStaff = () => {
+  const eventStaffId = $('.staffRow').data('parent');
+  const eventId = $('.staffRow').data('container');
+  console.error('XXXXXXXXXevent staff id that we need to delete', eventStaffId);
+  console.error('YYYYYYYYevent id that needs to refresh', eventId);
+  eventStaffData.getSingleEventStaff()
+    .then(() => {
+      eventStaffData.deleteEventStaff(eventStaffId)
+        .then(() => {
+          console.error('deleted event staff', eventStaffId);
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete staff member from event', error));
+};
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -177,26 +197,31 @@ const viewSingleEvent = (eventId) => {
       domString += '<h4 class="eventSectionTitle">Food Details</h4>';
       domString += eventFoodDetails(singleEvent);
       domString += '</div>';
-      domString += '<div id="eventSouvenirsSection" class="quad">';
+      domString += '<div id="eventSouvenirsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
       domString += eventSouvenirDetails(singleEvent);
       domString += '</div>';
-      domString += '<div id="eventStaffSection" class="quad">';
+      domString += '<div id="eventStaffSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
       domString += eventStaffDetails(singleEvent);
       domString += '</div>';
-      domString += '<div id="eventShowsSection" class="quad">';
+      domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
       domString += eventShowDetails(singleEvent);
       domString += '</div>';
-      domString += '<div id="eventAnimalsSection" class="quad">';
-      domString += '<h4 class="eventSectionTitle">Animal Ride Details</h4>';
+
+      domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
+      domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
+
+   
+
       domString += eventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
       utils.printToDom('single-view-event', domString);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
+      $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
@@ -212,4 +237,4 @@ const viewSingleEventCall = (e) => {
   viewSingleEvent(eventId);
 };
 
-export default { viewSingleEventCall, eventAnimalDetails };
+export default { viewSingleEventCall };
