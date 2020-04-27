@@ -3,8 +3,11 @@ import eventFoodData from './eventFoodData';
 import foodData from './foodData';
 import eventSouvenirData from './eventSouvenirData';
 import souvenirsData from './souvenirsData';
+import showData from './showData';
+import eventShowData from './eventShowData';
 import eventStaffData from './eventStaffData';
 import staffData from './staffData';
+
 
 const getEventFood = (eventId) => new Promise((resolve, reject) => {
   eventFoodData.getEventFoodByEventId(eventId)
@@ -42,6 +45,21 @@ const getEventSouvenirs = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getEventShow = (eventId) => new Promise((resolve, reject) => {
+  eventShowData.getEventShowByEventId(eventId)
+    .then((eventShows) => {
+      showData.getShows().then((allShows) => {
+        const selectedEventShowItems = [];
+        eventShows.forEach((eventShowItem) => {
+          const foundEventShowItem = allShows.find((x) => x.id === eventShowItem.showId);
+          selectedEventShowItems.push(foundEventShowItem);
+        });
+        resolve(selectedEventShowItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
 const getEventStaff = (eventId) => new Promise((resolve, reject) => {
   console.log('event id', eventId);
   eventStaffData.getEventStaffByEventId(eventId)
@@ -66,12 +84,16 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
     .then((event) => {
       getEventFood(eventId).then((eventFood) => {
         getEventSouvenirs(eventId).then((eventSouvenirs) => {
-          getEventStaff(eventId).then((eventStaff) => {
-            const finalEvent = { ...event };
-            finalEvent.food = eventFood;
-            finalEvent.souvenirs = eventSouvenirs;
-            finalEvent.staff = eventStaff;
-            resolve(finalEvent);
+          getEventShow(eventId).then((eventShows) => {
+            getEventStaff(eventId).then((eventStaff) => {
+              const finalEvent = { ...event };
+              finalEvent.food = eventFood;
+              finalEvent.souvenirs = eventSouvenirs;
+              finalEvent.shows = eventShows;
+              finalEvent.staff = eventStaff;
+
+              resolve(finalEvent);
+            });
           });
         });
       });
