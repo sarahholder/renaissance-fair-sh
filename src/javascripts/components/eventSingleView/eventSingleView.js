@@ -18,7 +18,8 @@ const closeSingleEvent = () => {
 
 const eventFoodDetails = (singleEvent) => {
   let domString = '';
-  domString += `<table class="table-responsive table-dark foodTable" data-id=${singleEvent.id}>`;
+  console.log('single event data used for food details', singleEvent);
+  domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Food Type</th>';
@@ -28,7 +29,7 @@ const eventFoodDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.food.forEach((foodItem) => {
-    domString += `<tr class="eventFoodItem" data-id="${foodItem.id}">`;
+    domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     domString += `<th scope="row">${foodItem.type}</th>`;
     domString += `<td>$${foodItem.price}</td>`;
     domString += `<td>${foodItem.quantity}</td>`;
@@ -144,17 +145,15 @@ const eventAnimalDetails = (singleEvent) => {
 };
 
 const removeEventFood = () => {
-  const eventId = $('.foodTable').data('id');
-  console.log('event from which to delete food', eventId);
-  const foodItemId = $('.eventFoodItem').data('id');
-  const eventFoodItem = eventFoodData.find((x, y) => x.id === eventId && y === foodItemId);
-  console.log('event food item id selected for deletion', foodItemId);
-  const eventFoodId = eventFoodItem.id;
+  const eventFoodId = $('.foodRow').data('parent');
+  const eventId = $('.foodRow').data('container');
+  console.log('XXXXXXXXXevent food id that we need to delete', eventFoodId);
+  console.log('YYYYYYYYevent id that needs to refresh', eventId);
   eventFoodData.getSingleEventFood()
     .then(() => {
       eventFoodData.deleteEventFood(eventFoodId)
-        .then((resolve) => {
-          resolve(eventFoodId);
+        .then(() => {
+          console.log('deleted event food', eventFoodId);
           // eslint-disable-next-line no-use-before-define
           viewSingleEvent(eventId);
         });

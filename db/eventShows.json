@@ -3,6 +3,14 @@
 		"eventId": "event1",
 		"showId": "show1"
 	},
+	"eventShow31": {
+		"eventId": "event1",
+		"showId": "show2"
+	},
+	"eventShow32": {
+		"eventId": "event1",
+		"showId": "show3"
+	},
 	"eventShow2": {
 		"eventId": "event2",
 		"showId": "show2"
