@@ -66,10 +66,10 @@ const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
     .then((eventAnimals) => {
       animalData.getAnimals().then((allAnimals) => {
         const selectedEventAnimalItems = [];
-        eventAnimals.forEach((eventFoodItem) => {
-          const foundEventFoodItem = allAnimals.find((x) => x.id === eventFoodItem.foodId);
-          console.log(foundEventFoodItem);
-          selectedEventAnimalItems.push(foundEventFoodItem);
+        eventAnimals.forEach((eventAnimalItem) => {
+          const foundEventAnimalItem = allAnimals.find((x) => x.id === eventAnimalItem.animalId);
+          console.log(foundEventAnimalItem);
+          selectedEventAnimalItems.push(foundEventAnimalItem);
         });
         resolve(selectedEventAnimalItems);
       });
@@ -83,18 +83,20 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
       getEventFood(eventId).then((eventFood) => {
         getEventSouvenirs(eventId).then((eventSouvenirs) => {
           getEventStaff(eventId).then((eventStaff) => {
-            const finalEvent = { ...event };
-            finalEvent.food = eventFood;
-            finalEvent.souvenirs = eventSouvenirs;
-            finalEvent.staff = eventStaff;
-            resolve(finalEvent);
+            getEventAnimals(eventId).then((eventAnimals) => {
+              const finalEvent = { ...event };
+              finalEvent.food = eventFood;
+              finalEvent.souvenirs = eventSouvenirs;
+              finalEvent.staff = eventStaff;
+              finalEvent.animals = eventAnimals;
+              resolve(finalEvent);
+            });
           });
         });
-      });
-    })
-    .catch((error) => reject(error));
+      })
+        .catch((error) => reject(error));
+    });
 });
-
 
 export default {
   getEventFood,

@@ -7,6 +7,7 @@ const getEventAnimalByEventId = (eventId) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/eventAnimal.json?orderBy="eventId"&equalTo="${eventId}"`)
     .then((response) => {
       const eventAnimals = response.data;
+      console.log('this is the getEventAnimal response', eventAnimals);
       const animals = [];
       Object.keys(eventAnimals).forEach((eventAnimalId) => {
         eventAnimals[eventAnimalId].id = eventAnimalId;

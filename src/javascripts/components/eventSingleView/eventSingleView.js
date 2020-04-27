@@ -97,7 +97,7 @@ const eventAnimalDetails = (singleEvent) => {
   domString += '<tr>';
   domString += '<th scope="col">Ride Type</th>';
   domString += '<th scope="col">Price</th>';
-  domString += '<th scope="col">???</th>';
+  domString += '<th scope="col"Availability</th>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
@@ -137,6 +137,7 @@ const removeEventFood = () => {
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
+      console.log('this is the single', singleEvent);
       let domString = '';
       domString += '<div class="singleEventTitle">';
       domString += `<h2>${singleEvent.name}</h2>`;
