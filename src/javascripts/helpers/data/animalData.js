@@ -7,7 +7,6 @@ const getAnimals = () => new Promise((resolve, reject) => {
   axios.get(`${baseURL}/animals.json`)
     .then((response) => {
       const allAnimals = response.data;
-      console.error('all animals', allAnimals);
       const animals = [];
       if (animals) {
         Object.keys(allAnimals).forEach((animalId) => {
