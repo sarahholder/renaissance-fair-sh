@@ -3,6 +3,8 @@ import eventFoodData from './eventFoodData';
 import foodData from './foodData';
 import eventSouvenirData from './eventSouvenirData';
 import souvenirsData from './souvenirsData';
+import animalData from './animalData';
+import eventAnimalData from './eventAnimalData';
 import showData from './showData';
 import eventShowData from './eventShowData';
 import eventStaffData from './eventStaffData';
@@ -77,26 +79,48 @@ const getEventStaff = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
-  eventData.getEventById(eventId)
-    .then((event) => {
-      getEventFood(eventId).then((eventFood) => {
-        getEventSouvenirs(eventId).then((eventSouvenirs) => {
-          getEventShow(eventId).then((eventShows) => {
-            getEventStaff(eventId).then((eventStaff) => {
-              const finalEvent = { ...event };
-              finalEvent.food = eventFood;
-              finalEvent.souvenirs = eventSouvenirs;
-              finalEvent.shows = eventShows;
-              finalEvent.staff = eventStaff;
-
-              resolve(finalEvent);
-            });
-          });
+const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
+  eventAnimalData.getEventAnimalByEventId(eventId)
+    .then((eventAnimals) => {
+      animalData.getAnimals().then((allAnimals) => {
+        const selectedEventAnimalItems = [];
+        eventAnimals.forEach((eventAnimalItem) => {
+          const foundEventAnimalItem = allAnimals.find((x) => x.id === eventAnimalItem.animalId);
+          selectedEventAnimalItems.push(foundEventAnimalItem);
         });
+        resolve(selectedEventAnimalItems);
       });
     })
     .catch((error) => reject(error));
 });
 
-export default { getEventFood, getCompleteEvent, getEventStaff };
+const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
+  eventData.getEventById(eventId)
+    .then((event) => {
+      getEventFood(eventId).then((eventFood) => {
+        getEventSouvenirs(eventId).then((eventSouvenirs) => {
+          getEventStaff(eventId).then((eventStaff) => {
+            getEventShow(eventId).then((eventShows) => {
+              getEventAnimals(eventId).then((eventAnimals) => {
+                const finalEvent = { ...event };
+                finalEvent.food = eventFood;
+                finalEvent.souvenirs = eventSouvenirs;
+                finalEvent.shows = eventShows;
+                finalEvent.staff = eventStaff;
+                finalEvent.animals = eventAnimals;
+                resolve(finalEvent);
+              });
+            });
+          });
+        });
+      })
+        .catch((error) => reject(error));
+    });
+});
+
+export default {
+  getEventFood,
+  getCompleteEvent,
+  getEventStaff,
+  getEventAnimals,
+};
