@@ -16,10 +16,13 @@ const getEventFood = (eventId) => new Promise((resolve, reject) => {
     .then((eventFoods) => {
       foodData.getFoods().then((allFoods) => {
         const selectedEventFoodItems = [];
+        console.log('444444444id we need -- all eventfoods for now', eventFoods);
         eventFoods.forEach((eventFoodItem) => {
           const foundEventFoodItem = allFoods.find((x) => x.id === eventFoodItem.foodId);
-          console.log(foundEventFoodItem);
+          foundEventFoodItem.parentEventFoodId = eventFoodItem.id;
+          foundEventFoodItem.parentEventId = eventFoodItem.eventId;
           selectedEventFoodItems.push(foundEventFoodItem);
+          console.log('found food item with details', foundEventFoodItem);
         });
         resolve(selectedEventFoodItems);
       });
