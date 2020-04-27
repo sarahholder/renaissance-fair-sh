@@ -1,6 +1,5 @@
 import eventFoodData from '../../helpers/data/eventFoodData';
 import smashData from '../../helpers/data/smash';
-
 import utils from '../../helpers/utils';
 
 import './eventSingleView.scss';
@@ -14,11 +13,13 @@ const closeSingleEvent = () => {
   $('#shows').removeClass('hide');
   $('#events').removeClass('hide');
   $('#single-view-event').addClass('hide');
+  $('#animals').removeClass('hide');
 };
 
 const eventFoodDetails = (singleEvent) => {
   let domString = '';
-  domString += `<table class="table-responsive table-dark foodTable" data-id=${singleEvent.id}>`;
+  console.log('single event data used for food details', singleEvent);
+  domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Food Type</th>';
@@ -28,7 +29,7 @@ const eventFoodDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.food.forEach((foodItem) => {
-    domString += `<tr class="eventFoodItem" data-id="${foodItem.id}">`;
+    domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     domString += `<th scope="row">${foodItem.type}</th>`;
     domString += `<td>$${foodItem.price}</td>`;
     domString += `<td>${foodItem.quantity}</td>`;
@@ -57,7 +58,7 @@ const eventSouvenirDetails = (singleEvent) => {
     domString += `<th scope="row">${souvItem.type}</th>`;
     domString += `<td>$${souvItem.price}</td>`;
     domString += `<td>${souvItem.isAvailable}</td>`;
-    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '<td><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -106,11 +107,35 @@ const eventStaffDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.staff.forEach((staffMember) => {
-    domString += '<tr>';
     domString += `<th scope="row">${staffMember.name}</th>`;
     domString += `<td>$${staffMember.pay}/hr.</td>`;
     domString += `<td>${staffMember.characterType}</td>`;
-    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '<td><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
+
+  return domString;
+};
+
+const eventAnimalDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Ride Type</th>';
+  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Availability</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.animals.forEach((animalItem) => {
+    domString += '<tr>';
+    domString += `<th scope="row">${animalItem.type}</th>`;
+    domString += `<td>$${animalItem.cost}</td>`;
+    domString += `<td>${animalItem.isAvailable}</td>`;
+    domString += '<td><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -120,17 +145,15 @@ const eventStaffDetails = (singleEvent) => {
 };
 
 const removeEventFood = () => {
-  const eventId = $('.foodTable').data('id');
-  console.log('event from which to delete food', eventId);
-  const foodItemId = $('.eventFoodItem').data('id');
-  const eventFoodItem = eventFoodData.find((x, y) => x.id === eventId && y === foodItemId);
-  console.log('event food item id selected for deletion', foodItemId);
-  const eventFoodId = eventFoodItem.id;
+  const eventFoodId = $('.foodRow').data('parent');
+  const eventId = $('.foodRow').data('container');
+  console.log('XXXXXXXXXevent food id that we need to delete', eventFoodId);
+  console.log('YYYYYYYYevent id that needs to refresh', eventId);
   eventFoodData.getSingleEventFood()
     .then(() => {
       eventFoodData.deleteEventFood(eventFoodId)
-        .then((resolve) => {
-          resolve(eventFoodId);
+        .then(() => {
+          console.log('deleted event food', eventFoodId);
           // eslint-disable-next-line no-use-before-define
           viewSingleEvent(eventId);
         });
@@ -166,6 +189,10 @@ const viewSingleEvent = (eventId) => {
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
       domString += eventShowDetails(singleEvent);
       domString += '</div>';
+      domString += '<div id="eventAnimalsSection" class="quad">';
+      domString += '<h4 class="eventSectionTitle">Animal Ride Details</h4>';
+      domString += eventAnimalDetails(singleEvent);
+      domString += '</div>';
       domString += '</div>';
       utils.printToDom('single-view-event', domString);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
@@ -185,4 +212,4 @@ const viewSingleEventCall = (e) => {
   viewSingleEvent(eventId);
 };
 
-export default { viewSingleEventCall };
+export default { viewSingleEventCall, eventAnimalDetails };
