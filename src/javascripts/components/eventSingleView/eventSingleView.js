@@ -94,9 +94,11 @@ const eventShowDetails = (singleEvent) => {
   return domString;
 };
 
-
 const eventStaffDetails = (singleEvent) => {
   let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
   domString += '<th scope="col">Staff Member</th>';
   domString += '<th scope="col">Wage</th>';
   domString += '<th scope="col">Character</th>';
