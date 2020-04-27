@@ -5,8 +5,11 @@ import eventSouvenirData from './eventSouvenirData';
 import souvenirsData from './souvenirsData';
 import animalData from './animalData';
 import eventAnimalData from './eventAnimalData';
+import showData from './showData';
+import eventShowData from './eventShowData';
 import eventStaffData from './eventStaffData';
 import staffData from './staffData';
+
 
 const getEventFood = (eventId) => new Promise((resolve, reject) => {
   eventFoodData.getEventFoodByEventId(eventId)
@@ -42,6 +45,21 @@ const getEventSouvenirs = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getEventShow = (eventId) => new Promise((resolve, reject) => {
+  eventShowData.getEventShowByEventId(eventId)
+    .then((eventShows) => {
+      showData.getShows().then((allShows) => {
+        const selectedEventShowItems = [];
+        eventShows.forEach((eventShowItem) => {
+          const foundEventShowItem = allShows.find((x) => x.id === eventShowItem.showId);
+          selectedEventShowItems.push(foundEventShowItem);
+        });
+        resolve(selectedEventShowItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
 const getEventStaff = (eventId) => new Promise((resolve, reject) => {
   console.log('event id', eventId);
   eventStaffData.getEventStaffByEventId(eventId)
@@ -68,7 +86,6 @@ const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
         const selectedEventAnimalItems = [];
         eventAnimals.forEach((eventAnimalItem) => {
           const foundEventAnimalItem = allAnimals.find((x) => x.id === eventAnimalItem.animalId);
-          console.log(foundEventAnimalItem);
           selectedEventAnimalItems.push(foundEventAnimalItem);
         });
         resolve(selectedEventAnimalItems);
@@ -83,13 +100,16 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
       getEventFood(eventId).then((eventFood) => {
         getEventSouvenirs(eventId).then((eventSouvenirs) => {
           getEventStaff(eventId).then((eventStaff) => {
-            getEventAnimals(eventId).then((eventAnimals) => {
-              const finalEvent = { ...event };
-              finalEvent.food = eventFood;
-              finalEvent.souvenirs = eventSouvenirs;
-              finalEvent.staff = eventStaff;
-              finalEvent.animals = eventAnimals;
-              resolve(finalEvent);
+            getEventShow(eventId).then((eventShows) => {
+              getEventAnimals(eventId).then((eventAnimals) => {
+                const finalEvent = { ...event };
+                finalEvent.food = eventFood;
+                finalEvent.souvenirs = eventSouvenirs;
+                finalEvent.shows = eventShows;
+                finalEvent.staff = eventStaff;
+                finalEvent.animals = eventAnimals;
+                resolve(finalEvent);
+              });
             });
           });
         });

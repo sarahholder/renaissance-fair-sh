@@ -13,12 +13,12 @@ const closeSingleEvent = () => {
   $('#shows').removeClass('hide');
   $('#events').removeClass('hide');
   $('#single-view-event').addClass('hide');
+  $('#animals').removeClass('hide');
 };
 
 const eventFoodDetails = (singleEvent) => {
   let domString = '';
   domString += `<table class="table-responsive table-dark foodTable" data-id=${singleEvent.id}>`;
-  console.log('event id for food details table', singleEvent.id);
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Food Type</th>';
@@ -57,7 +57,35 @@ const eventSouvenirDetails = (singleEvent) => {
     domString += `<th scope="row">${souvItem.type}</th>`;
     domString += `<td>$${souvItem.price}</td>`;
     domString += `<td>${souvItem.isAvailable}</td>`;
-    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '<td><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
+
+  return domString;
+};
+
+
+const eventShowDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Show Name</th>';
+  domString += '<th scope="col">Cost</th>';
+  domString += '<th scope="col">Qty</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.shows.forEach((showItem) => {
+    domString += `<tr class="eventShowItem" data-id="${showItem.id}">`;
+    console.error('showItem', showItem);
+    domString += '<tr>';
+    domString += `<th scope="row">${showItem.name}</th>`;
+    domString += `<td>$${showItem.cost}</td>`;
+    domString += `<td>${showItem.quantity}</td>`;
+    domString += '<td><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -97,7 +125,7 @@ const eventAnimalDetails = (singleEvent) => {
   domString += '<tr>';
   domString += '<th scope="col">Ride Type</th>';
   domString += '<th scope="col">Price</th>';
-  domString += '<th scope="col"Availability</th>';
+  domString += '<th scope="col">Availability</th>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
@@ -106,7 +134,7 @@ const eventAnimalDetails = (singleEvent) => {
     domString += `<th scope="row">${animalItem.type}</th>`;
     domString += `<td>$${animalItem.cost}</td>`;
     domString += `<td>${animalItem.isAvailable}</td>`;
-    domString += '<td><button id="deleteEventAnimalBtn" class="btn btn-default"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '<td><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -161,7 +189,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
-      domString += '<p>DETAILS HERE!!!!</p>';
+      domString += eventShowDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventAnimalsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Animal Ride Details</h4>';
