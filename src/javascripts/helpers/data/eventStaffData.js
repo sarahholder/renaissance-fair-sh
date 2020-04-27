@@ -20,6 +20,20 @@ const getEventStaffByEventId = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getEventStaffByStaffId = (staffId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/eventStaff.json?orderBy="cowId"&equalTo="${staffId}"`)
+    .then((response) => {
+      const demEventStaff = response.data;
+      const eventStaff = [];
+      Object.keys(demEventStaff).forEach((eventStaffId) => {
+        demEventStaff[eventStaffId].id = eventStaffId;
+        eventStaff.push(demEventStaff[eventStaffId]);
+      });
+      resolve(eventStaff);
+    })
+    .catch((err) => reject(err));
+});
+
 const getEventStaff = () => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/eventStaff.json`)
     .then((response) => {
@@ -34,4 +48,11 @@ const getEventStaff = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getEventStaffByEventId, getEventStaff };
+const deleteEventStaff = (eStaffId) => axios.delete(`${baseUrl}/eventStaff/${eStaffId}.json`);
+
+export default {
+  getEventStaffByEventId,
+  getEventStaff,
+  deleteEventStaff,
+  getEventStaffByStaffId,
+};
