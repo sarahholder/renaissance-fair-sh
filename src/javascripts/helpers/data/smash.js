@@ -12,14 +12,15 @@ import staffData from './staffData';
 const getEventFood = (eventId) => new Promise((resolve, reject) => {
   eventFoodData.getEventFoodByEventId(eventId)
     .then((eventFoods) => {
-      const selectedEventFood = eventFoods;
       foodData.getFoods().then((allFoods) => {
         const selectedEventFoodItems = [];
+        console.log('444444444id we need -- all eventfoods for now', eventFoods);
         eventFoods.forEach((eventFoodItem) => {
           const foundEventFoodItem = allFoods.find((x) => x.id === eventFoodItem.foodId);
-          foundEventFoodItem.eventFoodParent = selectedEventFood;
-          console.log(foundEventFoodItem);
+          foundEventFoodItem.parentEventFoodId = eventFoodItem.id;
+          foundEventFoodItem.parentEventId = eventFoodItem.eventId;
           selectedEventFoodItems.push(foundEventFoodItem);
+          console.log('found food item with details', foundEventFoodItem);
         });
         resolve(selectedEventFoodItems);
       });
