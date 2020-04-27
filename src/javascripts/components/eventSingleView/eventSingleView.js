@@ -109,7 +109,7 @@ const eventStaffDetails = (singleEvent) => {
     domString += `<th scope="row">${staffMember.name}</th>`;
     domString += `<td>$${staffMember.pay}/hr.</td>`;
     domString += `<td>${staffMember.characterType}</td>`;
-    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '<td><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -165,7 +165,6 @@ const removeEventFood = () => {
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
-      console.log('this is the single', singleEvent);
       let domString = '';
       domString += '<div class="singleEventTitle">';
       domString += `<h2>${singleEvent.name}</h2>`;
@@ -194,7 +193,6 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="eventAnimalsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Animal Ride Details</h4>';
       domString += eventAnimalDetails(singleEvent);
-      domString += '<p>DETAILS HERE!!!!</p>';
       domString += '</div>';
       domString += '</div>';
       utils.printToDom('single-view-event', domString);
