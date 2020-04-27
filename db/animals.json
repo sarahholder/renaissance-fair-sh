@@ -15,7 +15,7 @@
     "name": "Apollo",
     "cost": 800.00,
     "isAvailable": "Available",
-    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
+    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "animal3": {
     "type": "Elephant",
@@ -24,205 +24,88 @@
     "name": "Josie",
     "cost": 600.00,
     "isAvailable": "Available",
-    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
+    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "animal4": {
-    "type": "Falcon",
-    "description": "Hold Brown Male Falco",
-    "imageUrl": "https://images.unsplash.com/photo-1489701364164-4e4c2e9c00f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Falco",
-    "cost": 500.00,
-    "isAvailable": "Available",
-    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
-  },
-  "animal5": {
     "type": "LLama",
     "description": "Ride a Spotted Male",
     "imageUrl": "https://images.unsplash.com/photo-1552474705-dd8183e00901?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "name": "Spitter",
     "cost": 600.00,
-    "isAvailable": "not Available",
-    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
+    "isAvailable": "Available",
+    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
+  },
+  "animal5": {
+    "type": "Cow",
+    "description": "Learn to milk a cow",
+    "imageUrl": "https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/g_south,l_text:style_gothic2:%C2%A9%20Rajko%20Simunovic,o_20,y_10/g_center,l_watermark4,o_25,y_50/v1472591398/avlqliz82ntxrgn8k6yp.jpg",
+    "name": "Claire",
+    "cost": 300.00,
+    "isAvailable": "Not Available",
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   },
   "animal6": {
-    "type": "camel",
-    "description": "Brown Female Humpback",
-    "imageUrl": "https://images.unsplash.com/photo-1542916514-3e2119eefeb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Josie",
-    "cost": 400.00,
+    "type": "Liger",
+    "description": "View up close the largest of the \"Big Cats\".",
+    "imageUrl": "https://usercontent1.hubstatic.com/7902492.jpg",
+    "name": "Hercules",
+    "cost": 2000.00,
     "isAvailable": "Available",
-    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
+    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "animal7": {
-    "type": "Horse",
-    "description": "Ride White Male Stallion Horse",
-    "imageUrl": "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Apollo",
-    "cost": 800.00,
+    "type": "BYOD (Dog)",
+    "description": "An offical dog costume parade",
+    "imageUrl": "https://i.pinimg.com/originals/0b/60/5f/0b605f4c737d0e2cc6d29de6140a6ab2.jpg",
+    "name": "Sir Noble Steed",
+    "cost": 300.00,
     "isAvailable": "Available",
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "animal8": {
-    "type": "Elephant",
-    "description": "Ride a Grey Female African Bush Elephant",
-    "imageUrl": "https://images.unsplash.com/photo-1582831776799-4515c8004897?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Josie",
-    "cost": 600.00,
+    "type": "Unicorn",
+    "description": "Pictures with a unicorn",
+    "imageUrl": "https://golondrinas.org/wp-content/uploads/2016/01/Carousel_images_RenFair1-2.jpg",
+    "name": "Stardust",
+    "cost": 500.00,
     "isAvailable": "Available",
-    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
+    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "animal9": {
-    "type": "Falcon",
-    "description": "Hold Brown Male Falco",
-    "imageUrl": "https://images.unsplash.com/photo-1489701364164-4e4c2e9c00f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Falco",
-    "cost": 500.00,
+    "type": "Goat",
+    "description": "Petting Zoo",
+    "imageUrl": "https://www.findingzest.com/wp-content/uploads/2018/08/Minnesota-Renaissance-Festival-Feeding-Goats-in-Petting-Zoo.jpg",
+    "name": "Clay Henry",
+    "cost": 200.00,
     "isAvailable": "Available",
-    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
+    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "animal10": {
-    "type": "LLama",
-    "description": "Ride a Spotted Male",
-    "imageUrl": "https://images.unsplash.com/photo-1552474705-dd8183e00901?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Spitter",
-    "cost": 600.00,
+    "type": "Sheep",
+    "description": "Petting Zoo",
+    "imageUrl": "https://lauraalpizar.com/wp-content/uploads/2018/02/Minnesota-ren-Festival_2133.jpg",
+    "name": "Shawn",
+    "cost": 200.00,
     "isAvailable": "Available",
-    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   },
   "animal11": {
-    "type": "Camel",
-    "description": "Ride Brown Female Humpback Camel",
-    "imageUrl": "https://images.unsplash.com/photo-1542916514-3e2119eefeb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Josie",
-    "cost": 400.00,
+    "type": "Macaw",
+    "description": "Talk to a blue and gold macaw",
+    "imageUrl": "https://img.grouponcdn.com/deal/4tbQo6bZ6wcUhYRHE41bJU3JzcQ/4t-1000x601/v1/c700x420.jpg",
+    "name": "Captain Sparrow",
+    "cost": 300.00,
     "isAvailable": "Available",
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
+    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "animal12": {
-    "type": "Horse",
-    "description": "Ride White Male Stallion Horse",
-    "imageUrl": "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Apollo",
-    "cost": 800.00,
+    "type": "Snake",
+    "description": "Hold a snake",
+    "imageUrl": "https://stlmotherhood.com/wp-content/uploads/2017/10/renfest-snake.jpg",
+    "name": "Mr Huggy",
+    "cost": 300.00,
     "isAvailable": "Available",
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
-  },
-  "animal13": {
-    "type": "Elephant",
-    "description": "Ride a Grey Female African Bush Elephant",
-    "imageUrl": "https://images.unsplash.com/photo-1582831776799-4515c8004897?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Josie",
-    "cost": 600.00,
-    "isAvailable": "Available",
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
-  },
-  "animal14": {
-    "type": "Falcon",
-    "description": "Hold Brown Male Falco",
-    "imageUrl": "https://images.unsplash.com/photo-1489701364164-4e4c2e9c00f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Falco",
-    "cost": 500.00,
-    "isAvailable": "Available",
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
-  },
-  "animal15": {
-    "type": "LLama",
-    "description": "Ride a Spotted Male",
-    "imageUrl": "https://images.unsplash.com/photo-1552474705-dd8183e00901?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Spitter",
-    "cost": 600.00,
-    "isAvailable": "Available",
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
-  },
-  "animal16": {
-    "type": "Camel",
-    "description": "Ride Brown Female Humpback Camel",
-    "imageUrl": "https://images.unsplash.com/photo-1542916514-3e2119eefeb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Josie",
-    "cost": 400.00,
-    "isAvailable": "Available",
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  },
-  "animal17": {
-    "type": "Horse",
-    "description": "Ride White Male Stallion Horse",
-    "imageUrl": "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Apollo",
-    "cost": 800.00,
-    "isAvailable": "Available",
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  },
-  "animal18": {
-    "type": "Elephant",
-    "description": "Ride a Grey Female African Bush Elephant",
-    "imageUrl": "https://images.unsplash.com/photo-1582831776799-4515c8004897?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Josie",
-    "cost": 600.00,
-    "isAvailable": "Available",
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  },
-  "animal19": {
-    "type": "Falcon",
-    "description": "Hold Brown Male Falco",
-    "imageUrl": "https://images.unsplash.com/photo-1489701364164-4e4c2e9c00f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Falco",
-    "cost": 500.00,
-    "isAvailable": "Available",
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  },
-  "animal20": {
-    "type": "LLama",
-    "description": "Ride a Spotted Male",
-    "imageUrl": "https://images.unsplash.com/photo-1552474705-dd8183e00901?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Spitter",
-    "cost": 600.00,
-    "isAvailable": "Available",
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  },
-  "animal21": {
-    "type": "Camel",
-    "description": "Ride Brown Female Humpback Camel",
-    "imageUrl": "https://images.unsplash.com/photo-1542916514-3e2119eefeb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Josie",
-    "cost": 400.00,
-    "isAvailable": "Available",
-    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
-  },
-  "animal22": {
-    "type": "Horse",
-    "description": "Ride White Male Stallion Horse",
-    "imageUrl": "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Apollo",
-    "cost": 800.00,
-    "isAvailable": "Available",
-    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
-  },
-  "animal23": {
-    "type": "Elephant",
-    "description": "Ride a Grey Female African Bush Elephant",
-    "imageUrl": "https://images.unsplash.com/photo-1582831776799-4515c8004897?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Josie",
-    "cost": 600.00,
-    "isAvailable": "Available",
-    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
-  },
-  "animal24": {
-    "type": "Falcon",
-    "description": "Hold Brown Male Falco",
-    "imageUrl": "https://images.unsplash.com/photo-1489701364164-4e4c2e9c00f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Falco",
-    "cost": 500.00,
-    "isAvailable": "Available",
-    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
-  },
-  "animal25": {
-    "type": "LLama",
-    "description": "Ride a Spotted Male",
-    "imageUrl": "https://images.unsplash.com/photo-1552474705-dd8183e00901?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Spitter",
-    "cost": 600.00,
-    "isAvailable": "Available",
-    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
+    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   }
 }
 
