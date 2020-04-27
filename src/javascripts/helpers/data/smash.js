@@ -9,10 +9,12 @@ import staffData from './staffData';
 const getEventFood = (eventId) => new Promise((resolve, reject) => {
   eventFoodData.getEventFoodByEventId(eventId)
     .then((eventFoods) => {
+      const selectedEventFood = eventFoods;
       foodData.getFoods().then((allFoods) => {
         const selectedEventFoodItems = [];
         eventFoods.forEach((eventFoodItem) => {
           const foundEventFoodItem = allFoods.find((x) => x.id === eventFoodItem.foodId);
+          foundEventFoodItem.eventFoodParent = selectedEventFood;
           console.log(foundEventFoodItem);
           selectedEventFoodItems.push(foundEventFoodItem);
         });

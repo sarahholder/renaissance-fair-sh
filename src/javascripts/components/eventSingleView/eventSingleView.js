@@ -18,6 +18,7 @@ const closeSingleEvent = () => {
 
 const eventFoodDetails = (singleEvent) => {
   let domString = '';
+  console.log('single event data used for food details', singleEvent);
   domString += `<table class="table-responsive table-dark foodTable" data-id=${singleEvent.id}>`;
   console.log('event id for food details table', singleEvent.id);
   domString += '<thead>';
