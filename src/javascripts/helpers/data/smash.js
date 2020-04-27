@@ -5,6 +5,8 @@ import eventSouvenirData from './eventSouvenirData';
 import souvenirsData from './souvenirsData';
 import animalData from './animalData';
 import eventAnimalData from './eventAnimalData';
+import eventStaffData from './eventStaffData';
+import staffData from './staffData';
 
 const getEventFood = (eventId) => new Promise((resolve, reject) => {
   console.log('event id', eventId);
@@ -44,20 +46,41 @@ const getEventSouvenirs = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getEventStaff = (eventId) => new Promise((resolve, reject) => {
+  console.log('event id', eventId);
+  eventStaffData.getEventStaffByEventId(eventId)
+    .then((eventStaff) => {
+      console.log('selected event staff', eventStaff);
+      staffData.getStaff().then((allStaff) => {
+        const selectedEventStaffMembers = [];
+        console.log('all staff items', allStaff);
+        eventStaff.forEach((eventStaffPerson) => {
+          const foundEventStaffPerson = allStaff.find((x) => x.id === eventStaffPerson.staffId);
+          console.log(foundEventStaffPerson);
+          selectedEventStaffMembers.push(foundEventStaffPerson);
+        });
+        resolve(selectedEventStaffMembers);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
 const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
   eventAnimalData.getEventAnimalByEventId(eventId)
-    .then((eventAnimal) => {
+    .then((eventAnimals) => {
       animalData.getAnimals().then((allAnimals) => {
         const selectedEventAnimalItems = [];
-        eventAnimal.forEach((eventAnimalItem) => {
-          const foundEventAnimalItem = allAnimals.find((x) => x.id === eventAnimalItem.animalId);
-          selectedEventAnimalItems.push(foundEventAnimalItem);
+        eventAnimals.forEach((eventFoodItem) => {
+          const foundEventFoodItem = allAnimals.find((x) => x.id === eventFoodItem.foodId);
+          console.log(foundEventFoodItem);
+          selectedEventAnimalItems.push(foundEventFoodItem);
         });
         resolve(selectedEventAnimalItems);
       });
     })
     .catch((error) => reject(error));
 });
+
 // const getEventWithDetails = (eventId) => new Promise((resolve, reject) => {
 //   eventData.getSingleEvent(eventId)
 //     .then((response) => {
@@ -93,18 +116,17 @@ const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
 // });
 // .catch((error) => console.log('error in promise all', error));
 
-
 const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
   console.log('event id captured by big smash function', eventId);
   eventData.getEventById(eventId)
     .then((event) => {
       getEventFood(eventId).then((eventFood) => {
         getEventSouvenirs(eventId).then((eventSouvenirs) => {
-          getEventAnimals(eventId).then((eventAnimals) => {
+          getEventStaff(eventId).then((eventStaff) => {
             const finalEvent = { ...event };
             finalEvent.food = eventFood;
             finalEvent.souvenirs = eventSouvenirs;
-            finalEvent.animals = eventAnimals;
+            finalEvent.staff = eventStaff;
             resolve(finalEvent);
           });
         });
@@ -113,4 +135,10 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getEventFood, getCompleteEvent, getEventAnimals };
+
+export default {
+  getEventFood,
+  getCompleteEvent,
+  getEventStaff,
+  getEventAnimals,
+};

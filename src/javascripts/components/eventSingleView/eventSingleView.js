@@ -2,7 +2,6 @@ import eventFoodData from '../../helpers/data/eventFoodData';
 import smashData from '../../helpers/data/smash';
 // import eventAnimalData from '../../helpers/data/eventAnimalData';
 // import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
-
 import utils from '../../helpers/utils';
 
 import './eventSingleView.scss';
@@ -46,6 +45,28 @@ const eventFoodDetails = (singleEvent) => {
   return domString;
 };
 
+// const eventSouvenirDetails = (singleEvent) => {
+//   let domString = '';
+//   domString += '<table class="table-responsive table-dark">';
+//   domString += '<thead>';
+//   domString += '<tr>';
+//   domString += '<th scope="col">Souvenir Type</th>';
+//   domString += '<th scope="col">Price</th>';
+//   domString += '<th scope="col">Qty</th>';
+//   domString += '</tr>';
+//   domString += '</thead>';
+//   domString += '<tbody>';
+//   singleEvent.souvenir.forEach((souvItem) => {
+//     domString += '<tr>';
+//     domString += `<th scope="row">${souvItem.type}</th>`;
+//     domString += `<td>$${souvItem.price}</td>`;
+//     domString += `<td>${souvItem.isAvailable}</td>`;
+//     domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+//     domString += '</tr>';
+//   });
+//   domString += '</tbody>';
+//   domString += '</table>';
+
 const removeEventFood = () => {
   const eventId = $('.foodTable').data('id');
   console.log('event from which to delete food', eventId);
@@ -66,23 +87,22 @@ const removeEventFood = () => {
     .catch((error) => console.error('could not delete food item from event', error));
 };
 
-const eventSouvenirDetails = (singleEvent) => {
+const eventStaffDetails = (singleEvent) => {
   let domString = '';
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
-  domString += '<th scope="col">Souvenir Type</th>';
-  domString += '<th scope="col">Price</th>';
-  domString += '<th scope="col">Qty</th>';
+  domString += '<th scope="col">Staff Member</th>';
+  domString += '<th scope="col">Wage</th>';
+  domString += '<th scope="col">Character</th>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
-  singleEvent.souvenirs.forEach((souvItem) => {
-    domString += '<tr>';
-    domString += `<th scope="row">${souvItem.type}</th>`;
-    domString += `<td>$${souvItem.price}</td>`;
-    domString += `<td>${souvItem.isAvailable}</td>`;
-    domString += '<td><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+  singleEvent.staff.forEach((staffMember) => {
+    domString += `<th scope="row">${staffMember.name}</th>`;
+    domString += `<td>$${staffMember.pay}/hr.</td>`;
+    domString += `<td>${staffMember.characterType}</td>`;
+    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -102,10 +122,10 @@ const eventAnimalDetails = (singleEvent) => {
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
-  singleEvent.animal.forEach((animalItem) => {
+  singleEvent.animals.forEach((animalItem) => {
     domString += '<tr>';
     domString += `<th scope="row">${animalItem.type}</th>`;
-    domString += `<td>$${animalItem.price}</td>`;
+    domString += `<td>$${animalItem.cost}</td>`;
     domString += `<td>${animalItem.isAvailable}</td>`;
     domString += '<td><button id="deleteEventAnimalBtn" class="btn btn-default"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
@@ -138,12 +158,12 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
-      domString += eventSouvenirDetails(singleEvent);
+      // domString += eventSouvenirDetails(singleEvent);
       // console.log('souvenir details', eventSouvenirDetails(singleEvent));
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
-      domString += '<p>DETAILS HERE!!!!</p>';
+      domString += eventStaffDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
@@ -174,4 +194,4 @@ const viewSingleEventCall = (e) => {
   viewSingleEvent(eventId);
 };
 
-export default { viewSingleEventCall };
+export default { viewSingleEventCall, eventAnimalDetails };

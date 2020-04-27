@@ -17,4 +17,6 @@ const getEventAnimalByEventId = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getEventAnimalByEventId };
+const getSingleEventAnimal = (eventAnimalId) => axios.get(`${baseUrl}/eventAnimal/${eventAnimalId}.json`);
+
+export default { getEventAnimalByEventId, getSingleEventAnimal };
