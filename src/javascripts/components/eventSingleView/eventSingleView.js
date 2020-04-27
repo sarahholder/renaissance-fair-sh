@@ -110,7 +110,7 @@ const eventStaffDetails = (singleEvent) => {
   domString += '<tbody>';
   singleEvent.staff.forEach((staffMember) => {
     domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
-    domString += `<th scope="row">${staffMember.name}</th>`;
+    domString += `<th scope="row" style="width:25%">${staffMember.name}</th>`;
     domString += `<td style="width:25%">$${staffMember.pay}/hr.</td>`;
     domString += `<td style="width:25%">${staffMember.characterType}</td>`;
     domString += '<td style="width:25%"><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
