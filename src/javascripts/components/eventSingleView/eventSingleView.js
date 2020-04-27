@@ -127,7 +127,7 @@ const eventAnimalDetails = (singleEvent) => {
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
-  domString += '<th scope="col">Ride Type</th>';
+  domString += '<th scope="col">Type</th>';
   domString += '<th scope="col">Price</th>';
   domString += '<th scope="col">Availability</th>';
   domString += '</tr>';
@@ -209,8 +209,12 @@ const viewSingleEvent = (eventId) => {
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
       domString += eventShowDetails(singleEvent);
       domString += '</div>';
+
       domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
-      domString += '<h4 class="eventSectionTitle">Animal Ride Details</h4>';
+      domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
+
+   
+
       domString += eventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
