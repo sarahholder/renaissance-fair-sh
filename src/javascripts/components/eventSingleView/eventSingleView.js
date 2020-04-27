@@ -20,7 +20,7 @@ const closeSingleEvent = () => {
 const eventFoodDetails = (singleEvent) => {
   let domString = '';
   console.log('single event data used for food details', singleEvent);
-  domString += '<table class="table-responsive table-dark">';
+  domString += '<table style="width:100%" class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Food Type</th>';
@@ -32,9 +32,9 @@ const eventFoodDetails = (singleEvent) => {
   singleEvent.food.forEach((foodItem) => {
     domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     domString += `<th scope="row">${foodItem.type}</th>`;
-    domString += `<td>$${foodItem.price}</td>`;
-    domString += `<td>${foodItem.quantity}</td>`;
-    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<td style="width:30%">$${foodItem.price}</td>`;
+    domString += `<td style="width:30%">${foodItem.quantity}</td>`;
+    domString += '<td style="width:30%"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -45,7 +45,7 @@ const eventFoodDetails = (singleEvent) => {
 
 const eventSouvenirDetails = (singleEvent) => {
   let domString = '';
-  domString += '<table class="table-responsive table-dark">';
+  domString += '<table style="width:100%" class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Souvenir Type</th>';
@@ -57,9 +57,9 @@ const eventSouvenirDetails = (singleEvent) => {
   singleEvent.souvenirs.forEach((souvItem) => {
     domString += '<tr>';
     domString += `<th scope="row">${souvItem.type}</th>`;
-    domString += `<td>$${souvItem.price}</td>`;
-    domString += `<td>${souvItem.isAvailable}</td>`;
-    domString += '<td><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<td style="width:30%">$${souvItem.price}</td>`;
+    domString += `<td style="width:30%">${souvItem.isAvailable}</td>`;
+    domString += '<td style="width:30%"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -71,7 +71,7 @@ const eventSouvenirDetails = (singleEvent) => {
 
 const eventShowDetails = (singleEvent) => {
   let domString = '';
-  domString += '<table class="table-responsive table-dark">';
+  domString += '<table style="width:100%" class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Show Name</th>';
@@ -85,9 +85,9 @@ const eventShowDetails = (singleEvent) => {
     console.error('showItem', showItem);
     domString += '<tr>';
     domString += `<th scope="row">${showItem.name}</th>`;
-    domString += `<td>$${showItem.cost}</td>`;
-    domString += `<td>${showItem.quantity}</td>`;
-    domString += '<td><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<td style="width:25%">$${showItem.cost}</td>`;
+    domString += `<td style="width:25%">${showItem.quantity}</td>`;
+    domString += '<td style="width:25%"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -99,7 +99,7 @@ const eventShowDetails = (singleEvent) => {
 const eventStaffDetails = (singleEvent) => {
   let domString = '';
   console.error('single event data used for staff details', singleEvent);
-  domString += '<table class="table-responsive table-dark">';
+  domString += '<table style="width:100%" class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Staff Member</th>';
@@ -111,9 +111,9 @@ const eventStaffDetails = (singleEvent) => {
   singleEvent.staff.forEach((staffMember) => {
     domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     domString += `<th scope="row">${staffMember.name}</th>`;
-    domString += `<td>$${staffMember.pay}/hr.</td>`;
-    domString += `<td>${staffMember.characterType}</td>`;
-    domString += '<td><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<td style="width:25%">$${staffMember.pay}/hr.</td>`;
+    domString += `<td style="width:25%">${staffMember.characterType}</td>`;
+    domString += '<td style="width:25%"><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -124,7 +124,7 @@ const eventStaffDetails = (singleEvent) => {
 
 const eventAnimalDetails = (singleEvent) => {
   let domString = '';
-  domString += '<table class="table-responsive table-dark">';
+  domString += '<table style="width:100%" class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Ride Type</th>';
@@ -136,9 +136,9 @@ const eventAnimalDetails = (singleEvent) => {
   singleEvent.animals.forEach((animalItem) => {
     domString += '<tr>';
     domString += `<th scope="row">${animalItem.type}</th>`;
-    domString += `<td>$${animalItem.cost}</td>`;
-    domString += `<td>${animalItem.isAvailable}</td>`;
-    domString += '<td><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<td style="width:30%">$${animalItem.cost}</td>`;
+    domString += `<td style="width:30%">${animalItem.isAvailable}</td>`;
+    domString += '<td style="width:30%"><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';

@@ -14,9 +14,28 @@
 
 .closeEventBtn {
   @include yellow-buttons;
-} 
+}
 
 .deleteEventBtn {
   @include red-buttons;
+}
+
+
+table,th, td {
+  border: 1px solid white;
+
+}
+
+th, td {
+  padding: 10px;
+}
+
+th {
+  text-align: left;
+}
+
+.deleteEventBtn {
+  margin: auto;
+
 }
 
