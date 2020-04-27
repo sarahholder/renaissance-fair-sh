@@ -86,6 +86,7 @@ const eventShowDetails = (singleEvent) => {
     domString += `<th scope="row">${showItem.name}</th>`;
     domString += `<td>$${showItem.cost}</td>`;
     domString += `<td>${showItem.quantity}</td>`;
+    domString += '<td><button id = "addEventShowBtn" class="btn btn-default addEventBtn"><i class="fas fa-plus-circle"></i></button></td>';
     domString += '<td><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
