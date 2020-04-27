@@ -2,14 +2,17 @@
 @import '../../../styles/fonts';
 @import '../../../styles/events';
 
+
 .singleEventTitle {
   @include titles;
   text-align: center;
+
 }
 
 .eventSectionTitle {
   @include sectionTitle;
-  padding-bottom: 5px;
+  margin: 0;
+  padding: 10px;
 }
 
 .closeEventBtn {
@@ -22,11 +25,12 @@
 
 
 table,th, td {
-  border: 1px solid white;
+
 
 }
 
 th, td {
+  border: 1px solid white;
   padding: 10px;
 }
 
