@@ -96,6 +96,19 @@ const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
     })
     .catch((error) => reject(error));
 });
+const completelyRemoveShow = (showId) => new Promise((resolve, reject) => {
+  showData.deleteShow(showId)
+    .then(() => {
+      eventShowData.getEventShowByEventId(showId).then((eventShows) => {
+        eventShows.forEach((eShow) => {
+          eventShowData.deleteEventShow(eShow.id);
+        });
+        resolve();
+      });
+    })
+    .catch((err) => reject(err));
+});
+
 
 const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
   eventData.getEventById(eventId)
@@ -126,4 +139,5 @@ export default {
   getCompleteEvent,
   getEventStaff,
   getEventAnimals,
+  completelyRemoveShow,
 };

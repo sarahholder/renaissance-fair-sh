@@ -20,4 +20,6 @@ const getEventShowByEventId = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getEventShowByEventId };
+const deleteEventShow = (eShowId) => axios.delete(`${baseUrl}/eventShows/${eShowId}.json`);
+
+export default { getEventShowByEventId, deleteEventShow };

@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import eventFoodData from '../../helpers/data/eventFoodData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
@@ -80,14 +81,13 @@ const eventShowDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.shows.forEach((showItem) => {
-    domString += `<tr class="eventShowItem" data-id="${showItem.id}">`;
-    console.error('showItem', showItem);
+    domString += `<tr class="eventShowItem showRow" data-id="${showItem.id}">`;
     domString += '<tr>';
     domString += `<th scope="row">${showItem.name}</th>`;
     domString += `<td>$${showItem.cost}</td>`;
     domString += `<td>${showItem.quantity}</td>`;
     domString += '<td><button id = "addEventShowBtn" class="btn btn-default addEventBtn"><i class="fas fa-plus-circle"></i></button></td>';
-    domString += '<td><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '<td><button id="deleteEventShowBtn" class="btn btn-default deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -162,6 +162,18 @@ const removeEventFood = () => {
     .catch((error) => console.error('could not delete food item from event', error));
 };
 
+
+const removeShow = (e) => {
+  e.preventDefault();
+  const showId = e.target.closest('.eventShowItem');
+  smashData.completelyRemoveShow(showId)
+    .then(() => {
+      viewSingleEvent();
+      utils.printToDom('single-view-event', '');
+    })
+    .catch((err) => console.error('could not delete show', err));
+};
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -186,7 +198,7 @@ const viewSingleEvent = (eventId) => {
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
       domString += eventStaffDetails(singleEvent);
       domString += '</div>';
-      domString += '<div id="eventShowsSection" class="quad">';
+      domString += '<div id="eventShowsSection card" class="quad">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
       domString += eventShowDetails(singleEvent);
       domString += '</div>';
@@ -204,6 +216,7 @@ const viewSingleEvent = (eventId) => {
       $('#shows').addClass('hide');
       $('#events').addClass('hide');
       $('#single-view-event').removeClass('hide');
+      $('body').on('click', '.deleteEventShowBtn', removeShow);
     })
     .catch((error) => console.error('problem with single event', error));
 };
