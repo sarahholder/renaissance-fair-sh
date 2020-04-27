@@ -1,7 +1,5 @@
 import eventFoodData from '../../helpers/data/eventFoodData';
 import smashData from '../../helpers/data/smash';
-// import eventAnimalData from '../../helpers/data/eventAnimalData';
-// import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
 import utils from '../../helpers/utils';
 
 import './eventSingleView.scss';
@@ -29,10 +27,8 @@ const eventFoodDetails = (singleEvent) => {
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
-  console.log('foods on event', singleEvent.food);
   singleEvent.food.forEach((foodItem) => {
     domString += `<tr class="eventFoodItem" data-id="${foodItem.id}">`;
-    console.log('indiv food item for a row', foodItem);
     domString += `<th scope="row">${foodItem.type}</th>`;
     domString += `<td>$${foodItem.price}</td>`;
     domString += `<td>${foodItem.quantity}</td>`;
@@ -45,46 +41,29 @@ const eventFoodDetails = (singleEvent) => {
   return domString;
 };
 
-// const eventSouvenirDetails = (singleEvent) => {
-//   let domString = '';
-//   domString += '<table class="table-responsive table-dark">';
-//   domString += '<thead>';
-//   domString += '<tr>';
-//   domString += '<th scope="col">Souvenir Type</th>';
-//   domString += '<th scope="col">Price</th>';
-//   domString += '<th scope="col">Qty</th>';
-//   domString += '</tr>';
-//   domString += '</thead>';
-//   domString += '<tbody>';
-//   singleEvent.souvenir.forEach((souvItem) => {
-//     domString += '<tr>';
-//     domString += `<th scope="row">${souvItem.type}</th>`;
-//     domString += `<td>$${souvItem.price}</td>`;
-//     domString += `<td>${souvItem.isAvailable}</td>`;
-//     domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
-//     domString += '</tr>';
-//   });
-//   domString += '</tbody>';
-//   domString += '</table>';
+const eventSouvenirDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Souvenir Type</th>';
+  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Qty</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.souvenirs.forEach((souvItem) => {
+    domString += '<tr>';
+    domString += `<th scope="row">${souvItem.type}</th>`;
+    domString += `<td>$${souvItem.price}</td>`;
+    domString += `<td>${souvItem.isAvailable}</td>`;
+    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
 
-const removeEventFood = () => {
-  const eventId = $('.foodTable').data('id');
-  console.log('event from which to delete food', eventId);
-  const foodItemId = $('.eventFoodItem').data('id');
-  const eventFoodItem = eventFoodData.find((x, y) => x.id === eventId && y === foodItemId);
-  console.log('event food item id selected for deletion', foodItemId);
-  const eventFoodId = eventFoodItem.id;
-  eventFoodData.getSingleEventFood()
-  // smashData.getSingleEventWithDetails(eventId)
-    .then(() => {
-      eventFoodData.deleteEventFood(eventFoodId)
-        .then((resolve) => {
-          resolve(eventFoodId);
-          // eslint-disable-next-line no-use-before-define
-          viewSingleEvent(eventId);
-        });
-    })
-    .catch((error) => console.error('could not delete food item from event', error));
+  return domString;
 };
 
 const eventStaffDetails = (singleEvent) => {
@@ -136,13 +115,28 @@ const eventAnimalDetails = (singleEvent) => {
   return domString;
 };
 
+const removeEventFood = () => {
+  const eventId = $('.foodTable').data('id');
+  console.log('event from which to delete food', eventId);
+  const foodItemId = $('.eventFoodItem').data('id');
+  const eventFoodItem = eventFoodData.find((x, y) => x.id === eventId && y === foodItemId);
+  console.log('event food item id selected for deletion', foodItemId);
+  const eventFoodId = eventFoodItem.id;
+  eventFoodData.getSingleEventFood()
+    .then(() => {
+      eventFoodData.deleteEventFood(eventFoodId)
+        .then((resolve) => {
+          resolve(eventFoodId);
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete food item from event', error));
+};
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
-  // smashData.allPromises()
-  // eventFoodSmash.getSingleEventWithDetails(eventId);
-  // eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
     .then((singleEvent) => {
-      console.error('SINGLE EVENT', singleEvent);
       let domString = '';
       domString += '<div class="singleEventTitle">';
       domString += `<h2>${singleEvent.name}</h2>`;
@@ -158,8 +152,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
-      // domString += eventSouvenirDetails(singleEvent);
-      // console.log('souvenir details', eventSouvenirDetails(singleEvent));
+      domString += eventSouvenirDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
@@ -190,7 +183,6 @@ const viewSingleEvent = (eventId) => {
 
 const viewSingleEventCall = (e) => {
   const eventId = e.target.dataset.id;
-  console.log('eventid on view button', eventId);
   viewSingleEvent(eventId);
 };
 
