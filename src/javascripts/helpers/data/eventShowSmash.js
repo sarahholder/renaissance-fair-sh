@@ -13,7 +13,7 @@ const getSingleEventWithShowDetails = (eventId) => new Promise((resolve, reject)
         console.log('event id', eventId);
         console.log('eventShow', eventShow);
         showData.getShows().then((allShows) => {
-          console.log('all food items', allShows);
+          console.log('all show items', allShows);
           eventShow.forEach((eventShowItem) => {
             const foundEventShowItem = allShows.find((x) => x.id === eventShowItem.showId);
             selectedEvent.food.push(foundEventShowItem);

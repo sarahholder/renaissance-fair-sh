@@ -4,8 +4,9 @@ import apiKeys from '../apiKeys.json';
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const getEventShowByEventId = (eventId) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/eventShow.json?orderBy="eventId"&equalTo="${eventId}"`)
+  axios.get(`${baseUrl}/eventShows.json?orderBy="eventId"&equalTo="${eventId}"`)
     .then((response) => {
+      console.log('eventId to get show', eventId);
       const allEventShowItems = response.data;
       console.log('response data for eventshow by eventid', allEventShowItems);
       const eventShowList = [];
