@@ -4,7 +4,6 @@ import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
-// import chart from '../Charts/charts';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
@@ -229,9 +228,7 @@ const viewSingleEvent = (eventId) => {
       domString += eventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
-      domString += '<div id="chartdiv">';
-      // domString += chart();
-      domString += '</div>';
+      domString += '<div id="chartdiv"></div>';
       utils.printToDom('single-view-event', domString);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
