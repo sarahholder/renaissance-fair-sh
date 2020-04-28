@@ -4,79 +4,63 @@
 		"souvenirId": "souvenir1"
 	},
 	"eventSouvenir2": {
-		"eventId": "event2",
+		"eventId": "event1",
 		"souvenirId": "souvenir2"
 	},
 	"eventSouvenir3": {
-		"eventId": "event3",
+		"eventId": "event1",
 		"souvenirId": "souvenir3"
 	},
 	"eventSouvenir4": {
-		"eventId": "event4",
+		"eventId": "event2",
 		"souvenirId": "souvenir4"
 	},
 	"eventSouvenir5": {
-		"eventId": "event5",
+		"eventId": "event2",
 		"souvenirId": "souvenir5"
 	},
 	"eventSouvenir6": {
-		"eventId": "event6",
+		"eventId": "event2",
 		"souvenirId": "souvenir6"
 	},
 	"eventSouvenir7": {
-		"eventId": "event7",
+		"eventId": "event3",
 		"souvenirId": "souvenir7"
 	},
 	"eventSouvenir8": {
-		"eventId": "event8",
+		"eventId": "event3",
 		"souvenirId": "souvenir8"
 	},
 	"eventSouvenir9": {
-		"eventId": "event9",
+		"eventId": "event3",
 		"souvenirId": "souvenir9"
 	},
 	"eventSouvenir10": {
-		"eventId": "event10",
+		"eventId": "event4",
 		"souvenirId": "souvenir10"
 	},
 	"eventSouvenir11": {
-		"eventId": "event11",
+		"eventId": "event4",
 		"souvenirId": "souvenir11"
 	},
 	"eventSouvenir12": {
-		"eventId": "event12",
+		"eventId": "event4",
 		"souvenirId": "souvenir12"
 	},
 	"eventSouvenir13": {
-		"eventId": "event13",
+		"eventId": "event5",
 		"souvenirId": "souvenir13"
 	},
 	"eventSouvenir14": {
-		"eventId": "event14",
+		"eventId": "event5",
 		"souvenirId": "souvenir14"
 	},
 	"eventSouvenir15": {
-		"eventId": "event15",
+		"eventId": "event5",
 		"souvenirId": "souvenir15"
 	},
 	"eventSouvenir16": {
-		"eventId": "event16",
+		"eventId": "event5",
 		"souvenirId": "souvenir16"
-	},
-	"eventSouvenir17": {
-		"eventId": "event17",
-		"souvenirId": "souvenir17"
-	},
-	"eventSouvenir18": {
-		"eventId": "event18",
-		"souvenirId": "souvenir18"
-	},
-	"eventSouvenir19": {
-		"eventId": "event19",
-		"souvenirId": "souvenir19"
-	},
-	"eventSouvenir20": {
-		"eventId": "event20",
-		"souvenirId": "souvenir20"
 	}
 }

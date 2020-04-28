@@ -33,7 +33,7 @@
     "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
     "price": 60,
     "isAvailable": true,
-    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
+    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "souvenir5": {
     "type": "Gunblade",
@@ -54,172 +54,82 @@
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "souvenir7": {
-    "type": "Fairy Figure",
-    "description": "A small figure depicting a colorful fairy",
+    "type": "Master Sword",
+    "description": "Master Sword replica from the Legend of Zelda series",
     "location": "Hopscote-by-Sea Faire",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51-xZosrLEL._AC_SL1000_.jpg",
     "price": 35,
     "isAvailable": true,
-    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
+    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "souvenir8": {
-    "type": "Dragon Birdbath",
-    "description": "A birdbath with attached dragon figure",
+    "type": "Lute",
+    "description": "A lute that you can play your favorite songs with.",
     "location": "Hopscote-by-Sea Faire",
-    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
+    "imageUrl": "https://www.orlando-lutes.com/vanilla/orlando-lutes/uploads/images/renaissance-lute-7c-figured-sycamore-2017/100_7590.JPG",
     "price": 40,
     "isAvailable": true,
-    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
+    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "souvenir9": {
-    "type": "Curved blade",
-    "description": "A small curved blade",
+    "type": "Family Crest Ring",
+    "description": "A custom ring that will display your family crest.",
     "location": "Hopscote-by-Sea Faire",
-    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
+    "imageUrl": "https://romanovrussia.com/wp-content/uploads/signet_rings.jpg",
     "price": 60,
     "isAvailable": true,
-    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
+    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "souvenir10": {
-    "type": "Incense burner",
-    "description": "A beautiful incense burner for the home",
+    "type": "Flute",
+    "description": "A flute to play your favorite renaissance music.",
     "location": "Edinson Tudor Festival",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
+    "imageUrl": "http://www.allantica.ch/site/assets/files/1021/2g1.440x0.jpg",
     "price": 50,
     "isAvailable": true,
-    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
+    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },  
   "souvenir11": {
-    "type": "Ocarina",
-    "description": "A small wind instrument",
+    "type": "Vial Necklace",
+    "description": "A small nacklace with a vial attached to it",
     "location": "North Illinois Pleasure Faire",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
+    "imageUrl": "http://theappraisaliq.com/wp-content/gallery/sherwood-forest-renaissance-faire-mcdade-texas-2011/sherwood-forest-renaissance-faire-texas-2011-42_0.jpg",
     "price": 20,
     "isAvailable": true,
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
+    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "souvenir12": {
-    "type": "Fairy Figure",
-    "description": "A small figure depicting a colorful fairy",
+    "type": "The Ring Replica",
+    "description": "One Ring to rule them all",
     "location": "North Illinois Pleasure Faire",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
+    "imageUrl": "https://res.cloudinary.com/fashionalure/image/upload/$wpsize_!_cld_full!,w_800,h_800,c_scale/v1569967528/charming-lord-of-the-rings-jewelry-5_prhml4.jpg",
     "price": 35,
     "isAvailable": true,
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
+    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "souvenir13": {
-    "type": "Dragon Birdbath",
-    "description": "A birdbath with attached dragon figure",
+    "type": "LotR Sting Replica",
+    "description": "The Sword that Frodo weilded on his way to Mordor",
     "location": "North Illinois Pleasure Faire",
-    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
+    "imageUrl": "https://www.discountcutlery.net/assets/images/NewProductImages/uc1264.jpg",
     "price": 40,
     "isAvailable": true,
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   },
   "souvenir14": {
-    "type": "Curved blade",
-    "description": "A small curved blade",
+    "type": "Buster Blade",
+    "description": "The Legendary sword of Cloud Strife from the hit classic FFVII",
     "location": "North Illinois Pleasure Faire",
-    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
+    "imageUrl": "https://www.picclickimg.com/d/l400/pict/152805225742_/Buster-Sword-Final-Fantasy-VII-Remake.jpg",
     "price": 60,
     "isAvailable": true,
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   },
   "souvenir15": {
-    "type": "Incense burner",
-    "description": "A beautiful incense burner for the home",
+    "type": "Catalbog",
+    "description": "A replica sword from FFX weilded by Tidus",
     "location": "North Illinois Pleasure Faire",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
-    "price": 50,
-    "isAvailable": true,
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
-  },  
-  "souvenir16": {
-    "type": "Ocarina",
-    "description": "A small wind instrument",
-    "location": "Tennesee Arrington",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
-    "price": 20,
-    "isAvailable": true,
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  },
-  "souvenir17": {
-    "type": "Fairy Figure",
-    "description": "A small figure depicting a colorful fairy",
-    "location": "Tennesee Arrington",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
-    "price": 35,
-    "isAvailable": true,
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  },
-  "souvenir18": {
-    "type": "Dragon Birdbath",
-    "description": "A birdbath with attached dragon figure",
-    "location": "Tennesee Arrington",
-    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
-    "price": 40,
-    "isAvailable": true,
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  },
-  "souvenir19": {
-    "type": "Curved blade",
-    "description": "A small curved blade",
-    "location": "Tennesee Arrington",
-    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
-    "price": 60,
-    "isAvailable": true,
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  },
-  "souvenir20": {
-    "type": "Incense burner",
-    "description": "A beautiful incense burner for the home",
-    "location": "Tennesee Arrington",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
-    "price": 50,
-    "isAvailable": true,
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
-  },
-  "souvenir21": {
-    "type": "Ocarina",
-    "description": "A small wind instrument",
-    "location": "Tennesee Arrington",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/08/17/21/29/ocarina-2652942_1280.jpg",
-    "price": 20,
-    "isAvailable": true,
-    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
-  },
-  "souvenir22": {
-    "type": "Fairy Figure",
-    "description": "A small figure depicting a colorful fairy",
-    "location": "Tennesee Arrington",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/09/03/06/27/fairy-2709407_1280.jpg",
-    "price": 35,
-    "isAvailable": true,
-    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
-  },
-  "souvenir23": {
-    "type": "Dragon Birdbath",
-    "description": "A birdbath with attached dragon figure",
-    "location": "Tennesee Arrington",
-    "imageUrl": "https://cdn.pixabay.com/photo/2019/05/18/19/14/dragons-with-water-bowl-4212336_960_720.jpg",
-    "price": 40,
-    "isAvailable": true,
-    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
-  },
-  "souvenir24": {
-    "type": "Curved blade",
-    "description": "A small curved blade",
-    "location": "Tennesee Arrington",
-    "imageUrl": "https://cdn.pixabay.com/photo/2016/02/03/00/25/arma-1176364_1280.jpg",
-    "price": 60,
-    "isAvailable": true,
-    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
-  },
-  "souvenir25": {
-    "type": "Incense burner",
-    "description": "A beautiful incense burner for the home",
-    "location": "Tennesee Arrington",
-    "imageUrl": "https://cdn.pixabay.com/photo/2017/01/07/19/42/incense-1961430_1280.jpg",
+    "imageUrl": "https://i.pinimg.com/474x/45/2b/7a/452b7a6874fa2a40d28665bae55e757b--fantasy-weapons-the-sword.jpg",
     "price": 50,
     "isAvailable": true,
     "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
