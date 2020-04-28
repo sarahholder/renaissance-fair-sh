@@ -1,3 +1,4 @@
+import firebase from 'firebase/app';
 /* eslint-disable no-use-before-define */
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventStaffData from '../../helpers/data/eventStaffData';
@@ -36,7 +37,10 @@ const eventFoodDetails = (singleEvent) => {
     domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
     domString += `<td class="cell-width">$${foodItem.price}</td>`;
     domString += `<td class="cell-width">${foodItem.parentQuantity}</td>`;
-    domString += '<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
+    const user = firebase.auth().currentUser;
+    if (user.uid === singleEvent.uid) {
+      domString += '<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
+    }
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -61,7 +65,10 @@ const eventSouvenirDetails = (singleEvent) => {
     domString += `<th scope="row" class="cell-width">${souvItem.type}</th>`;
     domString += `<td class="cell-width">$${souvItem.price}</td>`;
     domString += `<td class="cell-width">${souvItem.isAvailable}</td>`;
-    domString += '<td class="cell-width"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    const user = firebase.auth().currentUser;
+    if (user.uid === singleEvent.uid) {
+      domString += '<td class="cell-width"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    }
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -88,7 +95,10 @@ const eventShowDetails = (singleEvent) => {
     domString += `<th scope="row" class="cell-width">${showItem.name}</th>`;
     domString += `<td class="cell-width">$${showItem.cost}</td>`;
     domString += `<td class="cell-width">${showItem.quantity}</td>`;
-    domString += '<td class="cell-width"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>';
+    const user = firebase.auth().currentUser;
+    if (user.uid === singleEvent.uid) {
+      domString += '<td class="cell-width"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>';
+    }
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -113,7 +123,10 @@ const eventStaffDetails = (singleEvent) => {
     domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
     domString += `<td class="cell-width">$${staffMember.pay}/hr.</td>`;
     domString += `<td class="cell-width">${staffMember.characterType}</td>`;
-    domString += '<td class="cell-width"><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
+    const user = firebase.auth().currentUser;
+    if (user.uid === singleEvent.uid) {
+      domString += '<td class="cell-width"><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
+    }
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -138,7 +151,10 @@ const eventAnimalDetails = (singleEvent) => {
     domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
     domString += `<td class="cell-width">$${animalItem.cost}</td>`;
     domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
-    domString += '<td class="cell-width"><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    const user = firebase.auth().currentUser;
+    if (user.uid === singleEvent.uid) {
+      domString += '<td class="cell-width"><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    }
     domString += '</tr>';
   });
   domString += '</tbody>';
