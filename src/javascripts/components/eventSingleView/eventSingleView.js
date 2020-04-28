@@ -1,5 +1,7 @@
+/* eslint-disable no-use-before-define */
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventStaffData from '../../helpers/data/eventStaffData';
+import eventShowData from '../../helpers/data/eventShowData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 // import chart from '../Charts/charts';
@@ -34,7 +36,7 @@ const eventFoodDetails = (singleEvent) => {
     domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
     domString += `<td class="cell-width">$${foodItem.price}</td>`;
-    domString += `<td class="cell-width">${foodItem.quantity}</td>`;
+    domString += `<td class="cell-width">${foodItem.parentQuantity}</td>`;
     domString += '<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
@@ -82,13 +84,12 @@ const eventShowDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.shows.forEach((showItem) => {
-    domString += `<tr class="eventShowItem" data-id="${showItem.id}">`;
-    console.error('showItem', showItem);
+    domString += `<tr class="eventShowItem showRow" data-id="${showItem.id}" data-parent="${showItem.parentEventShowId}" data-container="${showItem.parentEventId}">`;
     domString += '<tr>';
     domString += `<th scope="row" class="cell-width">${showItem.name}</th>`;
     domString += `<td class="cell-width">$${showItem.cost}</td>`;
     domString += `<td class="cell-width">${showItem.quantity}</td>`;
-    domString += '<td class="cell-width"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '<td class="cell-width"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -111,7 +112,7 @@ const eventStaffDetails = (singleEvent) => {
   singleEvent.staff.forEach((staffMember) => {
     domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
-    domString += `<td class="cell-width">$${staffMember.pay}/hr.</td>`;
+    domString += `<td class="cell-width">$${staffMember.pay}</td>`;
     domString += `<td class="cell-width">${staffMember.characterType}</td>`;
     domString += '<td class="cell-width"><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
@@ -163,6 +164,23 @@ const removeEventFood = () => {
     })
     .catch((error) => console.error('could not delete food item from event', error));
 };
+
+const removeEventShow = () => {
+  const eventShowId = $('.showRow').data('parent');
+  const eventId = $('.showRow').data('container');
+  eventShowData.getSingleEventShow()
+    .then(() => {
+      eventShowData.deleteEventShow(eventShowId)
+        .then(() => {
+          console.error('triggered delete show', eventId);
+          console.error('triggered twice delete show', eventShowId);
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete show from event', error));
+};
+
 
 const removeEventStaff = () => {
   const eventStaffId = $('.staffRow').data('parent');
@@ -218,6 +236,7 @@ const viewSingleEvent = (eventId) => {
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
+      $('body').on('click', '.deleteEventShowBtn', removeEventShow);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');

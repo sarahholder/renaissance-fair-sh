@@ -43,6 +43,7 @@ nav {
 .jumbotron {
   background-image: url("https://cdn.pixabay.com/photo/2016/07/09/21/27/knight-1506882_1280.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   height: 800px;
   color:white;
   font-family: $bigFonts;
@@ -82,7 +83,6 @@ nav {
 .table-width {
   width: 100%;
 }
-
 
 .table-width {
   width: 100% !important;
