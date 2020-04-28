@@ -12,18 +12,18 @@ body {
 nav {
   background-color: $black;
   color: $white;
-  font-family: $bigFonts; 
-  
+  font-family: $bigFonts;
+
   div a {
     color: $white;
     font-family: $allFonts;
     font-size: 20px;
     margin: 0px 10px;
     &:hover {
-      color: $gold;   
+      color: $gold;
     }
   }
-  
+
   button {
     background-color: $primaryBlue;
     padding: 10px;
@@ -31,7 +31,7 @@ nav {
     border: $primaryBlue ;
     color: $black;
     &:hover {
-      background-color: #a7e1f1;   
+      background-color: #a7e1f1;
     }
   }
 }
@@ -76,6 +76,17 @@ nav {
     color: white;
     margin: 5px;
     padding: 5px;
+    background-color: #343A40;
 		}
   }
+.table-width {
+  width: 100%;
+}
 
+.table-width {
+  width: 100% !important;
+}
+
+.cell-width {
+  width: 30%;
+}

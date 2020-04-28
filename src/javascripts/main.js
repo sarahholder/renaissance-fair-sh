@@ -11,7 +11,6 @@ import souvenirs from './components/souvenirs/souvenirs';
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
   souvenirs.buildAllSouvenirs();
-  // staff.buildAllStaff();
   setInterval(authData.checkLoginStatus(), 8000);
   auth.loginPage();
   auth.logoutPage();
