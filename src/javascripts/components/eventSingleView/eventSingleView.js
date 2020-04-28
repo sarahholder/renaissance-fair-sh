@@ -1,10 +1,10 @@
+import eventFoodData from '../../helpers/data/eventFoodData';
+import eventStaffData from '../../helpers/data/eventStaffData';
+import smashData from '../../helpers/data/smash';
+import utils from '../../helpers/utils';
+
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
-
-// import eventFoodSmash from '../../helpers/data/eventFoodSmash';
-import eventSouvenirSmash from '../../helpers/data/eventSouvenirSmash';
-
-import utils from '../../helpers/utils';
 
 const closeSingleEvent = () => {
   utils.printToDom('single-view-event', '');
@@ -14,32 +14,34 @@ const closeSingleEvent = () => {
   $('#shows').removeClass('hide');
   $('#events').removeClass('hide');
   $('#single-view-event').addClass('hide');
+  $('#animals').removeClass('hide');
 };
 
-// const eventFoodDetails = (singleEvent) => {
-//   let domString = '';
-//   domString += '<table class="table-responsive table-dark">';
-//   domString += '<thead>';
-//   domString += '<tr>';
-//   domString += '<th scope="col">Food Type</th>';
-//   domString += '<th scope="col">Price</th>';
-//   domString += '<th scope="col">Qty</th>';
-//   domString += '</tr>';
-//   domString += '</thead>';
-//   domString += '<tbody>';
-//   singleEvent.food.forEach((foodItem) => {
-//     domString += '<tr>';
-//     domString += `<th scope="row">${foodItem.type}</th>`;
-//     domString += `<td>$${foodItem.price}</td>`;
-//     domString += `<td>${foodItem.quantity}</td>`;
-//     domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
-//     domString += '</tr>';
-//   });
-//   domString += '</tbody>';
-//   domString += '</table>';
+const eventFoodDetails = (singleEvent) => {
+  let domString = '';
+  console.log('single event data used for food details', singleEvent);
+  domString += '<table class="table-responsive table-dark table-width">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Food Type</th>';
+  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Qty</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.food.forEach((foodItem) => {
+    domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
+    domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
+    domString += `<td class="cell-width">$${foodItem.price}</td>`;
+    domString += `<td class="cell-width">${foodItem.quantity}</td>`;
+    domString += '<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
 
-//   return domString;
-// };
+  return domString;
+};
 
 const eventSouvenirDetails = (singleEvent) => {
   let domString = '';
@@ -52,12 +54,12 @@ const eventSouvenirDetails = (singleEvent) => {
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
-  singleEvent.souvenir.forEach((souvItem) => {
+  singleEvent.souvenirs.forEach((souvItem) => {
     domString += '<tr>';
-    domString += `<th scope="row">${souvItem.type}</th>`;
-    domString += `<td>$${souvItem.price}</td>`;
-    domString += `<td>${souvItem.isAvailable}</td>`;
-    domString += '<td><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += `<th scope="row" class="cell-width">${souvItem.type}</th>`;
+    domString += `<td class="cell-width">$${souvItem.price}</td>`;
+    domString += `<td class="cell-width">${souvItem.isAvailable}</td>`;
+    domString += '<td class="cell-width"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -66,11 +68,118 @@ const eventSouvenirDetails = (singleEvent) => {
   return domString;
 };
 
+
+const eventShowDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Show Name</th>';
+  domString += '<th scope="col">Cost</th>';
+  domString += '<th scope="col">Qty</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.shows.forEach((showItem) => {
+    domString += `<tr class="eventShowItem" data-id="${showItem.id}">`;
+    console.error('showItem', showItem);
+    domString += '<tr>';
+    domString += `<th scope="row" class="cell-width">${showItem.name}</th>`;
+    domString += `<td class="cell-width">$${showItem.cost}</td>`;
+    domString += `<td class="cell-width">${showItem.quantity}</td>`;
+    domString += '<td class="cell-width"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
+
+  return domString;
+};
+
+const eventStaffDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Staff Member</th>';
+  domString += '<th scope="col">Wage</th>';
+  domString += '<th scope="col">Character</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.staff.forEach((staffMember) => {
+    domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+    domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
+    domString += `<td class="cell-width">$${staffMember.pay}/hr.</td>`;
+    domString += `<td class="cell-width">${staffMember.characterType}</td>`;
+    domString += '<td class="cell-width"><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
+
+  return domString;
+};
+
+const eventAnimalDetails = (singleEvent) => {
+  let domString = '';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thead>';
+  domString += '<tr>';
+  domString += '<th scope="col">Type</th>';
+  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Availability</th>';
+  domString += '</tr>';
+  domString += '</thead>';
+  domString += '<tbody>';
+  singleEvent.animals.forEach((animalItem) => {
+    domString += '<tr>';
+    domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
+    domString += `<td class="cell-width">$${animalItem.cost}</td>`;
+    domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
+    domString += '<td class="cell-width"><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+    domString += '</tr>';
+  });
+  domString += '</tbody>';
+  domString += '</table>';
+
+  return domString;
+};
+
+const removeEventFood = () => {
+  const eventFoodId = $('.foodRow').data('parent');
+  const eventId = $('.foodRow').data('container');
+  console.log('XXXXXXXXXevent food id that we need to delete', eventFoodId);
+  console.log('YYYYYYYYevent id that needs to refresh', eventId);
+  eventFoodData.getSingleEventFood()
+    .then(() => {
+      eventFoodData.deleteEventFood(eventFoodId)
+        .then(() => {
+          console.log('deleted event food', eventFoodId);
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete food item from event', error));
+};
+
+const removeEventStaff = () => {
+  const eventStaffId = $('.staffRow').data('parent');
+  const eventId = $('.staffRow').data('container');
+  eventStaffData.getSingleEventStaff()
+    .then(() => {
+      eventStaffData.deleteEventStaff(eventStaffId)
+        .then(() => {
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete staff member from event', error));
+};
+
 const viewSingleEvent = (eventId) => {
-  // eventFoodSmash.getSingleEventWithDetails(eventId);
-  eventSouvenirSmash.getSingleEventWithSouvenirDetails(eventId)
+  smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
-      console.error('SINGLE EVENT', singleEvent);
       let domString = '';
       domString += '<div class="singleEventTitle">';
       domString += `<h2>${singleEvent.name}</h2>`;
@@ -82,24 +191,29 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
       domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Food Details</h4>';
-      // domString += eventFoodDetails(singleEvent);
+      domString += eventFoodDetails(singleEvent);
       domString += '</div>';
-      domString += '<div id="eventSouvenirsSection" class="quad">';
+      domString += '<div id="eventSouvenirsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
       domString += eventSouvenirDetails(singleEvent);
-      console.log('souvenir details', eventSouvenirDetails(singleEvent));
       domString += '</div>';
-      domString += '<div id="eventStaffSection" class="quad">';
+      domString += '<div id="eventStaffSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
-      domString += '<p>DETAILS HERE!!!!</p>';
+      domString += eventStaffDetails(singleEvent);
       domString += '</div>';
-      domString += '<div id="eventShowsSection" class="quad">';
+      domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
-      domString += '<p>DETAILS HERE!!!!</p>';
+      domString += eventShowDetails(singleEvent);
+      domString += '</div>';
+      domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
+      domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
+      domString += eventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
       utils.printToDom('single-view-event', domString);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
+      $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
+      $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
@@ -111,7 +225,7 @@ const viewSingleEvent = (eventId) => {
 };
 
 const viewSingleEventCall = (e) => {
-  const eventId = e.target.closest('.card').id;
+  const eventId = e.target.dataset.id;
   viewSingleEvent(eventId);
 };
 

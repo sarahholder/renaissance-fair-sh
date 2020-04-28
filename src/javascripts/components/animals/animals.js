@@ -7,23 +7,23 @@ import animalEdit from './animalEditForm.js/animalEditForm';
 
 import utils from '../../helpers/utils';
 
-const editNewAnimal = (e) => {
-  e.preventDefault();
-  const animalId = e.target.closest('.card').id;
-  $('#animalmodal').modal('show');
-  animalEdit.editAnimalForm(animalId);
-};
+// const editNewAnimal = (e) => {
+//   e.preventDefault();
+//   const animalId = e.target.closest('.card').id;
+//   $('#animalModal').modal('show');
+//   animalEdit.editAnimalForm(animalId);
+// };
 
 const updateAnimalCard = (e) => {
   e.preventDefault();
-  const animalId = $('.edit-animal-form').data('id');
+  const animalId = $('.editAnimalForm').data('id');
   const editAnimal = {
+    name: $('#edit-animalName').val(),
     type: $('#edit-animalType').val(),
     description: $('#edit-animalDescription').val(),
     imageUrl: $('#edit-animalImage').val(),
-    name: $('#aniamlLocation').val(),
-    cost: $('#edit-animalPrice').val() * 1,
-    isAvaliable: $('#edit-animalAvailability').val(),
+    cost: $('#edit-animalCost').val() * 1,
+    isAvailable: $('#edit-animalAvailability').val(),
     uid: utils.getMyUid(),
   };
   animalData.updateAnimals(animalId, editAnimal)
@@ -72,8 +72,8 @@ const buildAllAnimals = () => {
   animalData.getAnimals()
     .then((animals) => {
       domString += '<div class="text-center" id="animalTitle">';
-      domString += '<h2 class="mt-3">Animal Rides</h2>';
-      domString += '<h3>Come on the ride of your dreams!</h3>';
+      domString += '<h2 class="mt-3">Animal Encounters</h2>';
+      domString += '<h3>Unleash the ANIMAL inside you!</h3>';
       const user = firebase.auth().currentUser;
       if (user !== null) {
         domString += '<button class="btn btn-lg addAnimalBtn" id="addAnimalBtn"><i class="fas fa-plus"></i> Add a new animal ride</button>';
@@ -91,10 +91,10 @@ const buildAllAnimals = () => {
 
 const animalEvents = () => {
   $('body').on('click', '#deleteAnimalBtn', removeAnimalCard);
-  $('body').on('click', '#editAnimalBtn', editNewAnimal);
+  $('body').on('click', '#editAnimalBtn', animalEdit.editAnimalForm);
   $('body').on('click', '#addAnimalBtn', animalNewForm.showAddAnimalModalForm);
   $('body').on('click', '#newAnimalSubmit', makeNewAnimal);
-  $('body').on('click', '#update-animal-btn', updateAnimalCard);
+  $('body').on('click', '#editAnimalSubmit', updateAnimalCard);
 };
 
 export default { buildAllAnimals, animalEvents };

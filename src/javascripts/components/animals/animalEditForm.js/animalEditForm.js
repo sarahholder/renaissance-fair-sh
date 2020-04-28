@@ -3,12 +3,12 @@ import utils from '../../../helpers/utils';
 
 const editAnimalForm = (e) => {
   const animalId = e.target.closest('.card').id;
-  $('#animalsModal').modal('show');
+  $('#animalModal').modal('show');
   animalData.getSingleAnimal(animalId)
     .then((response) => {
       const animal = response.data;
       let domString = '';
-      domString += `<form class="edit-animal-form" data-id="${animalId}">`;
+      domString += `<form class="editAnimalForm" data-id="${animalId}">`;
       domString += '<div class="form-group">';
       domString += '<label for="edit-animalType">Animal Type:</label>';
       domString += `<input type="text" class="form-control" id="edit-animalType" placeholder="Ocarina" value="${animal.type}"`;
@@ -31,18 +31,20 @@ const editAnimalForm = (e) => {
       domString += '</div>';
       domString += '<div class="form-group">';
       domString += '<label for="edit-animalAvailability">Avaliability Of animal:</label>';
-      domString += '<select id="edit-animalAvailability" class="form-control" placeholder="">';
-      domString += '<option value="">Select your option</option>';
-      domString += '<option value="true">Avaliable</option>';
-      domString += '<option value="false">Not Avaliable</option>';
+      domString += `<select id="edit-animalAvailability" class="form-control" placeholder="" value="${animal.isAvailable}">`;
+      domString += `<option value="${animal.isAvailable}">${animal.isAvailable}</option>`;
+      console.error('avail status in edit form', `${animal.isAvailable}`);
+      domString += '<option value="Available">Avaliable</option>';
+      domString += '<option value="Not Available">Not Avaliable</option>';
       domString += '</select>';
       domString += '</div>';
       domString += '</div>';
       domString += '</form>';
-      utils.printToDom('animalModalBody', domString);
+      utils.printToDom('modalAnimalForm', domString);
       $('#editAnimalSubmit').removeClass('hide');
       $('#newAnimalSubmit').addClass('hide');
-    }).catch((err) => console.error('could not get single animal', err));
+    })
+    .catch((err) => console.error('could not get single animal', err));
 };
 
 export default { editAnimalForm };
