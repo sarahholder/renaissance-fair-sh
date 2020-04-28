@@ -5,6 +5,7 @@ import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
+// import chart from '../Charts/charts';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
@@ -121,7 +122,7 @@ const eventStaffDetails = (singleEvent) => {
   singleEvent.staff.forEach((staffMember) => {
     domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
-    domString += `<td class="cell-width">$${staffMember.pay}/hr.</td>`;
+    domString += `<td class="cell-width">$${staffMember.pay}</td>`;
     domString += `<td class="cell-width">${staffMember.characterType}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
@@ -243,6 +244,9 @@ const viewSingleEvent = (eventId) => {
       domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
       domString += eventAnimalDetails(singleEvent);
       domString += '</div>';
+      domString += '</div>';
+      domString += '<div id="chartdiv">';
+      // domString += chart();
       domString += '</div>';
       utils.printToDom('single-view-event', domString);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
