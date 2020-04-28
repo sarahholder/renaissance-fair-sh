@@ -28,7 +28,7 @@
     "description": "Soft, perfectly fried and filled with delicious chocolate, topped with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1552417656-f5c5bbb00244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
     "price": 8,
-    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
+    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "food5": {
     "type": "Turkey Leg",
@@ -52,7 +52,7 @@
     "imageUrl": "http://stmedia.stimg.co/ctyp+mn+state+fair+bbq+split.png?w=800",
     "price": 10,
     "isAvailable": "Available",
-    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
+    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "food8": {
     "type": "Bananas Foster French Toast",
@@ -60,7 +60,7 @@
     "imageUrl": "http://stmedia.startribune.com/images/02+Bananas+Foster+French+Toast.jpg",
     "price": 6,
     "isAvailable": "Available",
-    "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
+    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
   },
   "food9": {
     "type": "Blueberry Rhubarb Cobbler",
@@ -76,7 +76,7 @@
     "imageUrl": "http://stmedia.startribune.com/images/ctyp+mn+state+fair+earth+wings.png",
     "price": 9,
     "isAvailable": "Available",
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
+    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "food11": {
     "type": "Firecracker Shrimp Stuffed Avocado",
@@ -84,7 +84,7 @@
     "imageUrl": "http://stmedia.startribune.com/images/06+Firecracker+Shrimp+Stuffed+Avocado.jpg",
     "price": 12,
     "isAvailable": "Available",
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
+    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "food12": {
     "type": "Nordic Waffles",
@@ -92,7 +92,7 @@
     "imageUrl": "http://stmedia.startribune.com/images/ctyp+Nordic+Waffles.jpg",
     "price": 8,
     "isAvailable": "Available",
-    "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"
+    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
   },
   "food13": {
     "type": "Honey Cream Soda Float",
@@ -100,7 +100,7 @@
     "imageUrl": "http://stmedia.startribune.com/images/08+Honey+Cream+Soda+Float.jpg",
     "price": 3,
     "isAvailable": "Available",
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   },
   "food14": {
     "type": "Slider Flights",
@@ -108,7 +108,7 @@
     "imageUrl": "http://stmedia.startribune.com/images/ctyp+mn+state+fair+Slider+Flights.jpg",
     "price": 8,
     "isAvailable": "Available",
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   },
   "food15": {
     "type": "Swedish Meatball Smörgås (SMORE-gus)",
@@ -116,7 +116,7 @@
     "imageUrl": "http://stmedia.startribune.com/images/ctyp+mn+state+fair+Swedish+Meatball+Smorgas.jpg",
     "price": 11,
     "isAvailable": "Available",
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   },
   "food16": {
     "type": "Zesty PB&J Sausage",
@@ -124,7 +124,7 @@
     "imageUrl": "http://stmedia.startribune.com/images/ctyp+Zesty+PBNJ+Sausage.jpg",
     "price": 9,
     "isAvailable": "Available",
-    "uid": "xddqf8S7oLhuj21dqBadWtaYyBE2"
+    "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   }
 }
 
