@@ -2,17 +2,15 @@
   "show1": {
     "name": "By Lance or By Sea",
     "stage": "Jousting Field",
-    "location": "Edinson Tudor Festival",
     "time": "3:45",
-    "cost": 300,
-    "quantity": 3,
+    "cost": "300",
+    "quantity": "3",
     "imageUrl": "https://cdn.pixabay.com/photo/2016/07/09/21/27/knight-1506878_1280.jpg",
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "show2": {
     "name": "Mad Maddox Magic Show",
     "stage": "Stage 4",
-    "location": "Edinson Tudor Festival",
     "time": "12:00",
     "cost": "250",
     "quantity": "3",
@@ -22,7 +20,6 @@
   "show3": {
     "name": "Triple Treat Trick Show",
     "stage": "Stage 1",
-    "location": "Edinson Tudor Festival",
     "time": "1:30",
     "cost": "350",
     "quantity": "3",
@@ -32,7 +29,6 @@
   "show4": {
     "name": "Joust for Crown",
     "stage": "Jousting Field",
-    "location": "Edinson Tudor Festival",
     "time": "11:00",
     "cost": "500",
     "quantity": "3",
@@ -42,7 +38,6 @@
   "show5": {
     "name": "The Lucid Dream Interactive Opera",
     "stage": "Stage 2",
-    "location": "Edinson Tudor Festival",
     "time": "4:00",
     "cost": "450",
     "quantity": "3",
@@ -52,7 +47,6 @@
   "show6": {
     "name": "By Lance or By Sea",
     "stage": "Jousting Field",
-    "location": "Hopscote-by-Sea Faire",
     "time": "3:45",
     "cost": "300",
     "quantity": "3",
@@ -62,7 +56,6 @@
   "show7": {
     "name": "Mad Maddox Magic Show",
     "stage": "Stage 4",
-    "location": "Hopscote-by-Sea Faire",
     "time": "12:00",
     "cost": "250",
     "quantity": "3",
@@ -72,7 +65,6 @@
   "show8": {
     "name": "Triple Treat Trick Show",
     "stage": "Stage 1",
-    "location": "Hopscote-by-Sea Faire",
     "time": "1:30",
     "cost": "350",
     "quantity": "3",
@@ -82,7 +74,6 @@
   "show9": {
     "name": "Joust for Crown",
     "stage": "Jousting Field",
-    "location": "Hopscote-by-Sea Faire",
     "time": "11:00",
     "cost": "500",
     "quantity": "3",
@@ -92,7 +83,6 @@
   "show10": {
     "name": "The Lucid Dream Interactive Opera",
     "stage": "Stage 2",
-    "location": "Hopscote-by-Sea Faire",
     "time": "4:00",
     "cost": "450",
     "quantity": "3",
@@ -102,7 +92,6 @@
   "show11": {
     "name": "By Lance or By Sea",
     "stage": "Jousting Field",
-    "location": "North Illinois Pleasure Faire",
     "time": "3:45",
     "cost": "300",
     "quantity": "3",
@@ -112,7 +101,6 @@
   "show12": {
     "name": "Mad Maddox Magic Show",
     "stage": "Stage 4",
-    "location": "North Illinois Pleasure Faire",
     "time": "12:00",
     "cost": "250",
     "quantity": "3",
@@ -122,7 +110,6 @@
   "show13": {
     "name": "Triple Treat Trick Show",
     "stage": "Stage 1",
-    "location": "North Illinois Pleasure Faire",
     "time": "1:30",
     "cost": "350",
     "quantity": "3",
@@ -132,7 +119,6 @@
   "show14": {
     "name": "Joust for Crown",
     "stage": "Jousting Field",
-    "location": "North Illinois Pleasure Faire",
     "time": "11:00",
     "cost": "500",
     "quantity": "3",
@@ -142,7 +128,6 @@
   "show15": {
     "name": "The Lucid Dream Interactive Opera",
     "stage": "Stage 2",
-    "location": "North Illinois Pleasure Faire",
     "time": "4:00",
     "cost": "450",
     "quantity": "3",
@@ -152,7 +137,6 @@
   "show16": {
     "name": "By Lance or By Sea",
     "stage": "Jousting Field",
-    "location": "Tennesee Arrington",
     "time": "3:45",
     "cost": "300",
     "quantity": "3",
@@ -162,7 +146,6 @@
   "show17": {
     "name": "Mad Maddox Magic Show",
     "stage": "Stage 4",
-    "location": "Tennesee Arrington",
     "time": "12:00",
     "cost": "250",
     "quantity": "3",
@@ -172,7 +155,6 @@
   "show18": {
     "name": "Triple Treat Trick Show",
     "stage": "Stage 1",
-    "location": "Tennesee Arrington",
     "time": "1:30",
     "cost": "350",
     "quantity": "3",
@@ -182,7 +164,6 @@
   "show19": {
     "name": "Joust for Crown",
     "stage": "Jousting Field",
-    "location": "Tennesee Arrington",
     "time": "11:00",
     "cost": "500",
     "quantity": "3",
@@ -192,7 +173,6 @@
   "show20": {
     "name": "The Lucid Dream Interactive Opera",
     "stage": "Stage 2",
-    "location": "Tennesee Arrington",
     "time": "4:00",
     "cost": 450,
     "quantity": 3,
@@ -202,7 +182,6 @@
   "show21": {
     "name": "By Lance or By Sea",
     "stage": "Jousting Field",
-    "location": "Tennesee Arrington",
     "time": "3:45",
     "cost": 300,
     "quantity": 3,
@@ -212,7 +191,6 @@
   "show22": {
     "name": "Mad Maddox Magic Show",
     "stage": "Stage 4",
-    "location": "Tennesee Arrington",
     "time": "12:00",
     "cost": 250,
     "quantity": 3,
@@ -222,7 +200,6 @@
   "show23": {
     "name": "Triple Treat Trick Show",
     "stage": "Stage 1",
-    "location": "Tennesee Arrington",
     "time": "1:30",
     "cost": 350,
     "quantity": 3,
@@ -232,7 +209,6 @@
   "show24": {
     "name": "Joust for Crown",
     "stage": "Jousting Field",
-    "location": "Tennesee Arrington",
     "time": "11:00",
     "cost": 500,
     "quantity": 3,
@@ -242,7 +218,6 @@
   "show25": {
     "name": "The Lucid Dream Interactive Opera",
     "stage": "Stage 2",
-    "location": "Tennesee Arrington",
     "time": "4:00",
     "cost": 450,
     "quantity": 3,
