@@ -64,17 +64,15 @@ const getEventShow = (eventId) => new Promise((resolve, reject) => {
 });
 
 const getEventStaff = (eventId) => new Promise((resolve, reject) => {
-  console.log('event id', eventId);
   eventStaffData.getEventStaffByEventId(eventId)
     .then((eventStaff) => {
-      console.log('selected event staff', eventStaff);
       staffData.getStaff().then((allStaff) => {
         const selectedEventStaffMembers = [];
-        console.log('all staff items', allStaff);
-        eventStaff.forEach((eventStaffPerson) => {
-          const foundEventStaffPerson = allStaff.find((x) => x.id === eventStaffPerson.staffId);
-          console.log(foundEventStaffPerson);
-          selectedEventStaffMembers.push(foundEventStaffPerson);
+        eventStaff.forEach((eventStaffMember) => {
+          const foundEventStaffMember = allStaff.find((x) => x.id === eventStaffMember.staffId);
+          foundEventStaffMember.parentEventStaffId = eventStaffMember.id;
+          foundEventStaffMember.parentEventId = eventStaffMember.eventId;
+          selectedEventStaffMembers.push(foundEventStaffMember);
         });
         resolve(selectedEventStaffMembers);
       });
