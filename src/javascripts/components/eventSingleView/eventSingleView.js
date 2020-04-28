@@ -77,6 +77,11 @@ const eventSouvenirDetails = (singleEvent) => {
   return domString;
 };
 
+const addModuleTotal = (xValue, yValue) => {
+  const xValue = parseFloat(document.getElementById('showItemCost').value);
+  const yValue = parseFloat(document.getElementById('showItemQuantity').value);
+  const moduleTotal = xValue * yValue;
+};
 
 const eventShowDetails = (singleEvent) => {
   let domString = '';
@@ -93,8 +98,8 @@ const eventShowDetails = (singleEvent) => {
     domString += `<tr class="eventShowItem showRow" data-id="${showItem.id}" data-parent="${showItem.parentEventShowId}" data-container="${showItem.parentEventId}">`;
     domString += '<tr>';
     domString += `<th scope="row" class="cell-width">${showItem.name}</th>`;
-    domString += `<td class="cell-width">$${showItem.cost}</td>`;
-    domString += `<td class="cell-width">${showItem.quantity}</td>`;
+    domString += `<td class="cell-width" id="showItemCost">$${showItem.cost}</td>`;
+    domString += `<td class="cell-width" id="showItemQuantity">${showItem.quantity}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
       domString += '<td class="cell-width"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>';
@@ -103,6 +108,17 @@ const eventShowDetails = (singleEvent) => {
   });
   domString += '</tbody>';
   domString += '</table>';
+  domString += '<footer>';
+  domString += '<div class="input-group mb-3">';
+  domString += '<div class="input-group-prepend">';
+  domString += '<span class="input-group-text">Total: $</span>';
+  domString += '</div>';
+  domString +='<input type="text" class="form-control" aria-label="addModuleTotal()">';
+  domString += '<div class="input-group-append">';
+  domString += '<span class="input-group-text">.00</span>';
+  domString += '</div>';
+  domString += '</div>';
+  domString += '</footer>';
 
   return domString;
 };
