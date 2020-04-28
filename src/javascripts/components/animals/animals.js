@@ -43,8 +43,8 @@ const buildAllAnimals = () => {
   animalData.getAnimals()
     .then((animals) => {
       domString += '<div class="text-center" id="animalTitle">';
-      domString += '<h2 class="mt-3">Animal Rides</h2>';
-      domString += '<h3>Come on the ride of your dreams!</h3>';
+      domString += '<h2 class="mt-3">Animal Encounters</h2>';
+      domString += '<h3>Unleash the ANIMAL inside you!</h3>';
       const user = firebase.auth().currentUser;
       if (user !== null) {
         domString += '<button class="btn btn-lg addAnimalBtn" id="addAnimalBtn"><i class="fas fa-plus"></i> Add a new animal ride</button>';
