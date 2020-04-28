@@ -9,6 +9,13 @@ body {
   background-size: 100%;
 }
 
+.navbar-brand {
+  color: $white;
+  :hover {
+    color: $gold;
+  }
+}
+
 nav {
   background-color: $black;
   color: $white;
