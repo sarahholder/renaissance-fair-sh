@@ -33,7 +33,7 @@ const eventFoodDetails = (singleEvent) => {
     domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
     domString += `<td class="cell-width">$${foodItem.price}</td>`;
-    domString += `<td class="cell-width">${foodItem.quantity}</td>`;
+    domString += `<td class="cell-width">${foodItem.parentQuantity}</td>`;
     domString += '<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
     domString += '</tr>';
   });
