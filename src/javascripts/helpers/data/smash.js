@@ -55,6 +55,8 @@ const getEventShow = (eventId) => new Promise((resolve, reject) => {
         const selectedEventShowItems = [];
         eventShows.forEach((eventShowItem) => {
           const foundEventShowItem = allShows.find((x) => x.id === eventShowItem.showId);
+          foundEventShowItem.parentEventShowId = eventShowItem.id;
+          foundEventShowItem.parentEventId = eventShowItem.eventId;
           selectedEventShowItems.push(foundEventShowItem);
         });
         resolve(selectedEventShowItems);
