@@ -126,5 +126,4 @@ export default {
   getCompleteEvent,
   getEventStaff,
   getEventAnimals,
-  completelyRemoveShow,
 };
