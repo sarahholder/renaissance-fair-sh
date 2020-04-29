@@ -225,7 +225,7 @@ const removeEventAnimal = (e) => {
       eventAnimalData.deleteEventAnimal(eventAnimalId)
         .then(() => {
           // eslint-disable-next-line no-use-before-define
-          viewSingleEvent(eventId);
+          eventAnimalDetails(eventId);
         });
     })
     .catch((error) => console.error('could not delete animal item from event', error));
