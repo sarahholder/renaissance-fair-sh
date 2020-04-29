@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
-/* eslint-disable no-use-before-define */
 import eventFoodData from '../../helpers/data/eventFoodData';
+import eventFoodDetails from './eventFoodDetails';
 import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
 import smashData from '../../helpers/data/smash';
@@ -18,35 +18,6 @@ const closeSingleEvent = () => {
   $('#events').removeClass('hide');
   $('#single-view-event').addClass('hide');
   $('#animals').removeClass('hide');
-};
-
-const eventFoodDetails = (singleEvent) => {
-  let domString = '';
-  console.log('single event data used for food details', singleEvent);
-  domString += '<table class="table-responsive table-dark table-width">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Food Type</th>';
-  domString += '<th scope="col">Price</th>';
-  domString += '<th scope="col">Qty</th>';
-  domString += '</tr>';
-  domString += '</thead>';
-  domString += '<tbody>';
-  singleEvent.food.forEach((foodItem) => {
-    domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
-    domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
-    domString += `<td class="cell-width">$${foodItem.price}</td>`;
-    domString += `<td class="cell-width">${foodItem.parentQuantity}</td>`;
-    const user = firebase.auth().currentUser;
-    if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
-    }
-    domString += '</tr>';
-  });
-  domString += '</tbody>';
-  domString += '</table>';
-
-  return domString;
 };
 
 const eventSouvenirDetails = (singleEvent) => {
@@ -223,9 +194,7 @@ const viewSingleEvent = (eventId) => {
       domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close event details</button>';
       domString += '</div>';
       domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
-      domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
-      domString += '<h4 class="eventSectionTitle">Food Details</h4>';
-      domString += eventFoodDetails(singleEvent);
+      domString += eventFoodDetails.getEventFoodDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventSouvenirsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
