@@ -8,6 +8,7 @@
   "eventStaff": "val",
   "eventSouvenir": "val",
   "animals": "val",
-  "eventShows": "val"
+  "eventShows": "val", 
+  "eventAnimals": "val"
 }
 
