@@ -5,6 +5,7 @@ import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
+import charts from '../Charts/charts';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
@@ -256,6 +257,7 @@ const viewSingleEvent = (eventId) => {
       $('#shows').addClass('hide');
       $('#events').addClass('hide');
       $('#single-view-event').removeClass('hide');
+      charts.buildChart();
     })
     .catch((error) => console.error('problem with single event', error));
 };
