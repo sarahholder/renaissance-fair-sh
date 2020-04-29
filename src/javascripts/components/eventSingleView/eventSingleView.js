@@ -5,7 +5,7 @@ import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
-import charts from '../Charts/charts';
+import charts from '../charts/charts';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
