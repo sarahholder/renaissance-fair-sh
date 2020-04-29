@@ -267,7 +267,7 @@ const viewSingleEvent = (eventId) => {
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-      $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
+      $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
