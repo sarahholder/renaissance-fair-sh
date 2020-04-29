@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
+import eventAnimalData from '../../helpers/data/eventAnimalData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 // import chart from '../Charts/charts';
@@ -138,16 +139,17 @@ const eventStaffDetails = (singleEvent) => {
 
 const eventAnimalDetails = (singleEvent) => {
   let domString = '';
-  domString += '<table class="table-responsive table-dark">';
+  domString += '<table class="table-responsive table-dark table-width">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Type</th>';
-  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Cost</th>';
   domString += '<th scope="col">Availability</th>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.animals.forEach((animalItem) => {
+    domString += `<tr class="eventAnimalItem animalRow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
     domString += `<td class="cell-width">$${animalItem.cost}</td>`;
     domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
@@ -211,6 +213,20 @@ const removeEventStaff = () => {
     .catch((error) => console.error('could not delete staff member from event', error));
 };
 
+const removeEventAnimal = () => {
+  const eventAnimalId = $('.animalRow').data('parent');
+  const eventId = $('.animalRow').data('container');
+  eventAnimalData.getSingleEventAnimal()
+    .then(() => {
+      eventAnimalData.deleteEventAnimal(eventAnimalId)
+        .then(() => {
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete animal item from event', error));
+};
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -252,6 +268,7 @@ const viewSingleEvent = (eventId) => {
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('body').on('click', '.deleteEventShowBtn', removeEventShow);
+      $('body').on('click', '#deleteEventAnimalBtn', removeEventAnimal);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
