@@ -152,7 +152,7 @@ const eventAnimalDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.animals.forEach((animalItem) => {
-    domString += `<tr class="eventAnimalItem animalRow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventFoodId}" data-container="${animalItem.parentEventId}">`;
+    domString += `<tr class="eventAnimalItem animalRow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
     domString += `<td class="cell-width">$${animalItem.cost}</td>`;
     domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
