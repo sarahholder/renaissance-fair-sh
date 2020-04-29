@@ -10,6 +10,7 @@ import utils from '../../helpers/utils';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
+import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 
 
 const closeSingleEvent = () => {
@@ -228,6 +229,21 @@ const removeEventAnimal = () => {
     })
     .catch((error) => console.error('could not delete food item from event', error));
 };
+
+const removeEventSouvenir = () => {
+  const eventSouvenirId = $('.souvenirRow').data('parent');
+  const eventId = $('.souvenirRow').data('container');
+  eventSouvenirData.getSingleEventSouvenir()
+    .then(() => {
+      eventSouvenirData.deleteEventSouvenir(eventSouvenirId)
+        .then(() => {
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete souvenir item from event', error));
+};
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -270,7 +286,7 @@ const viewSingleEvent = (eventId) => {
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('body').on('click', '.deleteEventShowBtn', removeEventShow);
       $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
-      $('#foodCards').addClass('hide');
+      $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
       $('#shows').addClass('hide');
