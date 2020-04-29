@@ -13,9 +13,7 @@ const eventShowDetails = (singleEvent) => {
   domString += '<tbody>';
   singleEvent.shows.forEach((showItem) => {
     const xValue = showItem.cost;
-    console.error('xValue', xValue);
     const yValue = showItem.parentQuantity;
-    console.error('yValue', yValue);
     const rowTotal = xValue * yValue;
     console.error('tow total', rowTotal);
     domString += `<tr class="eventShowItem showRow" data-id="${showItem.id}" data-parent="${showItem.parentEventShowId}" data-container="${showItem.parentEventId}">`;

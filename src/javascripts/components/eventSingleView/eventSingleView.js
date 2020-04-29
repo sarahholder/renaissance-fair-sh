@@ -5,6 +5,7 @@ import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
 import eventAnimalData from '../../helpers/data/eventAnimalData';
 import smashData from '../../helpers/data/smash';
+import showDetails from './eventShowDetails';
 import utils from '../../helpers/utils';
 // import chart from '../Charts/charts';
 
@@ -79,52 +80,6 @@ const eventSouvenirDetails = (singleEvent) => {
   return domString;
 };
 
-const eventShowDetails = (singleEvent) => {
-  let domString = '';
-  domString += '<table class="table-responsive table-dark">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Show Name</th>';
-  domString += '<th scope="col">Cost</th>';
-  domString += '<th scope="col">Qty</th>';
-  domString += '</tr>';
-  domString += '</thead>';
-  domString += '<tbody>';
-  singleEvent.shows.forEach((showItem) => {
-    const xValue = showItem.cost;
-    console.error('xValue', xValue);
-    const yValue = showItem.parentQuantity;
-    console.error('yValue', yValue);
-    const rowTotal = xValue * yValue;
-    console.error('tow total', rowTotal);
-    domString += `<tr class="eventShowItem showRow" data-id="${showItem.id}" data-parent="${showItem.parentEventShowId}" data-container="${showItem.parentEventId}">`;
-    domString += '<tr>';
-    domString += `<th scope="row" class="cell-width">${showItem.name}</th>`;
-    domString += `<td class="cell-width" id="showItemCost">$${showItem.cost}</td>`;
-    domString += `<td class="cell-width" id="showItemQuantity">${showItem.parentQuantity}</td>`;
-    const user = firebase.auth().currentUser;
-    if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>';
-    }
-    domString += '</tr>';
-  });
-  domString += '</tbody>';
-  domString += '</table>';
-  domString += '<footer>';
-  domString += '<div class="input-group mb-3">';
-  domString += '<div class="input-group-prepend">';
-  domString += '<span class="input-group-text">Total: $</span>';
-  domString += '</div>';
-  domString += '<input type="text" class="form-control" aria-label="addModuleTotal">';
-  domString += '<div class="input-group-append">';
-  domString += '<span class="input-group-text">.00</span>';
-  domString += '</div>';
-  domString += '</div>';
-  domString += '</footer>';
-
-  return domString;
-};
-
 const eventStaffDetails = (singleEvent) => {
   let domString = '';
   domString += '<table class="table-responsive table-dark">';
@@ -165,7 +120,9 @@ const eventAnimalDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.animals.forEach((animalItem) => {
-    domString += `<tr class="eventAnimalItem animalRow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventFoodId}" data-container="${animalItem.parentEventId}">`;
+    console.error('animals', animalItem.id);
+    domString += `<tr class="eventAnimalItem animalRow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+    domString += '<tr>';
     domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
     domString += `<td class="cell-width">$${animalItem.cost}</td>`;
     domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
@@ -173,6 +130,7 @@ const eventAnimalDetails = (singleEvent) => {
     if (user.uid === singleEvent.uid) {
       domString += '<td class="cell-width"><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     }
+    domString += '</tr>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -268,7 +226,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
-      domString += eventShowDetails(singleEvent);
+      domString += showDetails.eventShowDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
@@ -283,7 +241,7 @@ const viewSingleEvent = (eventId) => {
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-      $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
+      $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
