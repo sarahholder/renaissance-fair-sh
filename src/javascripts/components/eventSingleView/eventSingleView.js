@@ -3,12 +3,14 @@ import firebase from 'firebase/app';
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
+import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 // import chart from '../Charts/charts';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
+
 
 const closeSingleEvent = () => {
   utils.printToDom('single-view-event', '');
@@ -62,13 +64,14 @@ const eventSouvenirDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.souvenirs.forEach((souvItem) => {
+    domString += `<tr class="eventSouvenirItem souvenirRow" data-id="${souvItem.id}" data-parent="${souvItem.parentEventSouvenirId}" data-container="${souvItem.parentEventId}">`;
     domString += '<tr>';
     domString += `<th scope="row" class="cell-width">${souvItem.type}</th>`;
     domString += `<td class="cell-width">$${souvItem.price}</td>`;
-    domString += `<td class="cell-width">${souvItem.isAvailable}</td>`;
+    domString += `<td class="cell-width">${souvItem.parentQuantity}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+      domString += '<td class="cell-width"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventSouvenirBtn deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
     }
     domString += '</tr>';
   });
@@ -212,6 +215,20 @@ const removeEventStaff = () => {
     .catch((error) => console.error('could not delete staff member from event', error));
 };
 
+const removeEventSouvenir = () => {
+  const eventSouvenirId = $('.souvenirRow').data('parent');
+  const eventId = $('.souvenirRow').data('container');
+  eventSouvenirData.getSingleEventSouvenir()
+    .then(() => {
+      eventSouvenirData.deleteEventSouvenir(eventSouvenirId)
+        .then(() => {
+        // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete souvenir from event', error));
+};
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -253,6 +270,7 @@ const viewSingleEvent = (eventId) => {
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('body').on('click', '.deleteEventShowBtn', removeEventShow);
+      $('body').on('click', '#deleteEventSouvenirBtn', removeEventSouvenir);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
