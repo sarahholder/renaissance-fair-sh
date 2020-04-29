@@ -3,8 +3,10 @@ import firebase from 'firebase/app';
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
+import eventAnimalData from '../../helpers/data/eventAnimalData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
+// import chart from '../Charts/charts';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
@@ -137,7 +139,7 @@ const eventStaffDetails = (singleEvent) => {
   singleEvent.staff.forEach((staffMember) => {
     domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
-    domString += `<td class="cell-width">$${staffMember.pay}/hr.</td>`;
+    domString += `<td class="cell-width">$${staffMember.pay}</td>`;
     domString += `<td class="cell-width">${staffMember.characterType}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
@@ -163,7 +165,7 @@ const eventAnimalDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.animals.forEach((animalItem) => {
-    domString += '<tr>';
+    domString += `<tr class="eventAnimalItem animalRow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventFoodId}" data-container="${animalItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
     domString += `<td class="cell-width">$${animalItem.cost}</td>`;
     domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
@@ -227,6 +229,19 @@ const removeEventStaff = () => {
     .catch((error) => console.error('could not delete staff member from event', error));
 };
 
+const removeEventAnimal = () => {
+  const eventAnimalId = $('.animalRow').data('parent');
+  const eventId = $('.animalRow').data('container');
+  eventAnimalData.getSingleEventAnimal()
+    .then(() => {
+      eventAnimalData.deleteEventAnimal(eventAnimalId)
+        .then(() => {
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete food item from event', error));
+};
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -260,11 +275,15 @@ const viewSingleEvent = (eventId) => {
       domString += eventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
+      domString += '<div id="chartdiv">';
+      // domString += chart();
+      domString += '</div>';
       utils.printToDom('single-view-event', domString);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('body').on('click', '.deleteEventShowBtn', removeEventShow);
+      $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
