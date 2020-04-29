@@ -4,7 +4,7 @@ import apiKeys from '../apiKeys.json';
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const getEventAnimalByEventId = (eventId) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/eventAnimals.json?orderBy="eventId"&equalTo="${eventId}"`)
+  axios.get(`${baseUrl}/eventAnimal.json?orderBy="eventId"&equalTo="${eventId}"`)
     .then((response) => {
       const eventAnimals = response.data;
       const animals = [];
@@ -17,6 +17,6 @@ const getEventAnimalByEventId = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const getSingleEventAnimal = (eventAnimalsId) => axios.get(`${baseUrl}/eventAnimals/${eventAnimalsId}.json`);
+const getSingleEventAnimal = (eventAnimalsId) => axios.get(`${baseUrl}/eventAnimal/${eventAnimalsId}.json`);
 
 export default { getEventAnimalByEventId, getSingleEventAnimal };

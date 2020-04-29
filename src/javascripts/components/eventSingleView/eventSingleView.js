@@ -142,13 +142,10 @@ const eventAnimalDetails = (singleEvent) => {
 const removeEventFood = () => {
   const eventFoodId = $('.foodRow').data('parent');
   const eventId = $('.foodRow').data('container');
-  console.log('XXXXXXXXXevent food id that we need to delete', eventFoodId);
-  console.log('YYYYYYYYevent id that needs to refresh', eventId);
   eventFoodData.getSingleEventFood()
     .then(() => {
       eventFoodData.deleteEventFood(eventFoodId)
         .then(() => {
-          console.log('deleted event food', eventFoodId);
           // eslint-disable-next-line no-use-before-define
           viewSingleEvent(eventId);
         });
@@ -163,8 +160,6 @@ const removeEventShow = () => {
     .then(() => {
       eventShowData.deleteEventShow(eventShowId)
         .then(() => {
-          console.error('triggered delete show', eventId);
-          console.error('triggered twice delete show', eventShowId);
           // eslint-disable-next-line no-use-before-define
           viewSingleEvent(eventId);
         });
@@ -240,7 +235,7 @@ const viewSingleEvent = (eventId) => {
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
-      $('body').on('click', '.deleteEventShowBtn', removeEventShow);
+      $('tbody').on('click', '.deleteEventShowBtn', removeEventShow);
       $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
