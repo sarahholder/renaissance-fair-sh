@@ -63,12 +63,12 @@ const eventSouvenirDetails = (singleEvent) => {
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
-  singleEvent.souvenirs.forEach((souvItem) => {
-    domString += `<tr class="eventSouvenirItem souvenirRow" data-id="${souvItem.id}" data-parent="${souvItem.parentEventSouvenirId}" data-container="${souvItem.parentEventId}">`;
+  singleEvent.souvenirs.forEach((souvenirItem) => {
+    domString += `<tr class="eventSouvenirItem souvenirRow" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
     domString += '<tr>';
-    domString += `<th scope="row" class="cell-width">${souvItem.type}</th>`;
-    domString += `<td class="cell-width">$${souvItem.price}</td>`;
-    domString += `<td class="cell-width">${souvItem.parentQuantity}</td>`;
+    domString += `<th scope="row" class="cell-width">${souvenirItem.type}</th>`;
+    domString += `<td class="cell-width">$${souvenirItem.price}</td>`;
+    domString += `<td class="cell-width">${souvenirItem.parentQuantity}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
       domString += '<td class="cell-width"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventSouvenirBtn deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
