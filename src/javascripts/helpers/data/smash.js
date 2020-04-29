@@ -88,6 +88,9 @@ const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
         const selectedEventAnimalItems = [];
         eventAnimals.forEach((eventAnimalItem) => {
           const foundEventAnimalItem = allAnimals.find((x) => x.id === eventAnimalItem.animalId);
+          foundEventAnimalItem.parentEventAnimalId = eventAnimalItem.id;
+          foundEventAnimalItem.parentQuantity = eventAnimalItem.quantity;
+          foundEventAnimalItem.parentEventId = eventAnimalItem.eventId;
           selectedEventAnimalItems.push(foundEventAnimalItem);
         });
         resolve(selectedEventAnimalItems);
