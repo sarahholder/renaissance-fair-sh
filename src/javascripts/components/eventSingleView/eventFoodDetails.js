@@ -31,12 +31,9 @@ const getFoodTotals = (singleEvent) => {
       foodTotal += rowTotalsArray[i];
     }
     console.error('food details total', foodTotal);
-    return rowTotal;
+    singleEvent.foodItem.foodTotalProperty = foodTotal;
   });
 };
-
-const rowTotalFunction = getFoodTotals();
-
 
 const getEventFoodDetails = (singleEvent) => {
   let domString = '';
@@ -66,6 +63,7 @@ const getEventFoodDetails = (singleEvent) => {
     //   foodTotal += rowTotalsArray[i];
     // }
     // console.error('food details total', foodTotal);
+    rowTotalFunction(val)
     domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
     domString += `<td class="cell-width">$${foodItem.price}</td>`;
