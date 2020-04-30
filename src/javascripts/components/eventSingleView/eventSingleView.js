@@ -115,10 +115,10 @@ const eventAnimalDetails = (singleEvent) => {
   return domString;
 };
 
-const removeEventFood = () => {
-  const eventFoodId = $('.foodRow').data('parent');
+const removeEventFood = (e) => {
+  const eventFoodId = e.target.closest('button').dataset.id;
   const eventId = $('.foodRow').data('container');
-  eventFoodData.getSingleEventFood()
+  eventFoodData.getSingleEventFood(eventFoodId)
     .then(() => {
       eventFoodData.deleteEventFood(eventFoodId)
         .then(() => {
