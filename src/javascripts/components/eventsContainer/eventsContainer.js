@@ -7,9 +7,11 @@ import eventCard from '../eventCard/eventCard';
 import eventSingleView from '../eventSingleView/eventSingleView';
 import editEventForm from '../editEventForm/editEventForm';
 import addEventModal from './eventModalForm/eventModalForm.js';
+import charts from '../charts/charts';
 
 
 import utils from '../../helpers/utils';
+import './eventsContainer.scss';
 
 const removeEvent = (e) => {
   e.preventDefault();
@@ -85,8 +87,10 @@ const buildAllEvents = () => {
         domString += eventCard.buildEventCard(event);
       });
       domString += '</div>';
+      domString += '<div id="chartdiv"></div>';
       utils.printToDom('events', domString);
       $('body').on('click', '#viewEventBtn', eventSingleView.viewSingleEventCall);
+      charts.buildChart();
     })
     .catch((error) => console.error('build all events has failed', error));
 };
