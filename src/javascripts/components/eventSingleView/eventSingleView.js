@@ -141,11 +141,9 @@ const eventAnimalDetails = (singleEvent) => {
   return domString;
 };
 
-const removeEventFood = () => {
-  const eventFoodId = $('.foodRow').data('parent');
+const removeEventFood = (e) => {
+  const eventFoodId = e.target.closest('button').dataset.id;
   const eventId = $('.foodRow').data('container');
-  console.log('XXXXXXXXXevent food id that we need to delete', eventFoodId);
-  console.log('YYYYYYYYevent id that needs to refresh', eventId);
   eventFoodData.getSingleEventFood(eventFoodId)
     .then(() => {
       eventFoodData.deleteEventFood(eventFoodId)

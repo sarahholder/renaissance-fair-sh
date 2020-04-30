@@ -28,7 +28,6 @@ const getFoodTotals = (singleEvent) => {
 
 const getEventFoodDetails = (singleEvent) => {
   let domString = '';
-  console.log('single event data used for food details', singleEvent);
   domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Food Details</h4>';
   domString += '<table class="table-responsive table-dark table-width">';
@@ -42,7 +41,7 @@ const getEventFoodDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.food.forEach((foodItem) => {
-    domString += `<tr id="foodItemRow" class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
+    domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
     domString += `<td class="cell-width">$${foodItem.price}</td>`;
     domString += `<td class="cell-width">${foodItem.parentQuantity}</td>`;
@@ -50,7 +49,7 @@ const getEventFoodDetails = (singleEvent) => {
     domString += `<td class="cell-width">$${foodItem.rowTotal}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
+      domString += `<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn" data-id="${foodItem.parentEventFoodId}"><i class="far fa-trash-alt"></i></button></td>`;
     }
     domString += '</tr>';
   });
