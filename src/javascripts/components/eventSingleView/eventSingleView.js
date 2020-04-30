@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventFoodDetails from './eventFoodDetails';
 import eventStaffData from '../../helpers/data/eventStaffData';
+import eventStaffDetails from './eventStaffDetails';
 import eventShowData from '../../helpers/data/eventShowData';
 import eventAnimalData from '../../helpers/data/eventAnimalData';
 import smashData from '../../helpers/data/smash';
@@ -54,35 +55,6 @@ const eventSouvenirDetails = (singleEvent) => {
   return domString;
 };
 
-
-const eventStaffDetails = (singleEvent) => {
-  let domString = '';
-  domString += '<table class="table-responsive table-dark">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Staff Member</th>';
-  domString += '<th scope="col">Wage</th>';
-  domString += '<th scope="col">Character</th>';
-  domString += '</tr>';
-  domString += '</thead>';
-  domString += '<tbody>';
-  singleEvent.staff.forEach((staffMember) => {
-    domString += `<tr class="staffRow" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
-    domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
-    domString += `<td class="cell-width">$${staffMember.pay}</td>`;
-    domString += `<td class="cell-width">${staffMember.characterType}</td>`;
-    const user = firebase.auth().currentUser;
-    if (user.uid === singleEvent.uid) {
-      domString += `<td class="cell-width"><button id="${staffMember.parentEventStaffId}"
-      value="${staffMember.parentEventStaffId}" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>`;
-    }
-    domString += '</tr>';
-  });
-  domString += '</tbody>';
-  domString += '</table>';
-
-  return domString;
-};
 
 const eventAnimalDetails = (singleEvent) => {
   let domString = '';
@@ -210,7 +182,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
-      domString += eventStaffDetails(singleEvent);
+      domString += eventStaffDetails.getEventStaffDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';

@@ -7,7 +7,7 @@ import eventCard from '../eventCard/eventCard';
 import eventSingleView from '../eventSingleView/eventSingleView';
 import editEventForm from '../editEventForm/editEventForm';
 import addEventModal from './eventModalForm/eventModalForm.js';
-import charts from '../Charts/charts';
+import charts from '../charts/charts';
 
 
 import utils from '../../helpers/utils';
