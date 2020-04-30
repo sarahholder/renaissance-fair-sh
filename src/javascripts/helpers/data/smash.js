@@ -74,6 +74,7 @@ const getEventStaff = (eventId) => new Promise((resolve, reject) => {
           const foundEventStaffMember = allStaff.find((x) => x.id === eventStaffMember.staffId);
           foundEventStaffMember.parentEventStaffId = eventStaffMember.id;
           foundEventStaffMember.parentEventId = eventStaffMember.eventId;
+          foundEventStaffMember.parentQuantity = eventStaffMember.quantity;
           selectedEventStaffMembers.push(foundEventStaffMember);
         });
         resolve(selectedEventStaffMembers);
