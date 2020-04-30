@@ -8,6 +8,8 @@ import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import utils from '../../helpers/utils';
 
+import showDetails from './eventShowDetails';
+
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 import eventSouvenirData from '../../helpers/data/eventSouvenirData';
@@ -51,33 +53,7 @@ const eventSouvenirDetails = (singleEvent) => {
 
   return domString;
 };
-const eventShowDetails = (singleEvent) => {
-  let domString = '';
-  domString += '<table class="table-responsive table-dark">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Show Name</th>';
-  domString += '<th scope="col">Cost</th>';
-  domString += '<th scope="col">Qty</th>';
-  domString += '</tr>';
-  domString += '</thead>';
-  domString += '<tbody>';
-  singleEvent.shows.forEach((showItem) => {
-    domString += `<tr class="showRow" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventShowId}" data-container="${showItem.parentEventId}">`;
-    domString += `<th scope="row" class="cell-width">${showItem.name}</th>`;
-    domString += `<td class="cell-width">$${showItem.cost}</td>`;
-    domString += `<td class="cell-width">${showItem.quantity}</td>`;
-    const user = firebase.auth().currentUser;
-    if (user.uid === singleEvent.uid) {
-      domString += `<td class="cell-width"><button id="${showItem.parentEventShowId}" value="${showItem.parentEventShowId}" class="btn btn-default deleteEventBtn deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>`;
-    }
-    domString += '</tr>';
-  });
-  domString += '</tbody>';
-  domString += '</table>';
 
-  return domString;
-};
 
 const eventStaffDetails = (singleEvent) => {
   let domString = '';
@@ -238,7 +214,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
-      domString += eventShowDetails(singleEvent);
+      domString += showDetails.eventShowDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
