@@ -32,13 +32,13 @@ const getEventFood = (eventId) => new Promise((resolve, reject) => {
 const getEventSouvenirs = (eventId) => new Promise((resolve, reject) => {
   eventSouvenirData.getEventSouvenirByEventId(eventId)
     .then((eventSouvenir) => {
-      console.log('event id', eventId);
-      console.log('eventSouvenir', eventSouvenir);
       souvenirsData.getSouvenirs().then((allSouvenirs) => {
         const selectedEventSouvenirItems = [];
-        console.log('all souvenir items', allSouvenirs);
         eventSouvenir.forEach((eventSouvenirItem) => {
           const foundEventSouvenirItem = allSouvenirs.find((x) => x.id === eventSouvenirItem.souvenirId);
+          foundEventSouvenirItem.parentEventSouvenirId = eventSouvenirItem.id;
+          foundEventSouvenirItem.parentQuantity = eventSouvenirItem.quantity;
+          foundEventSouvenirItem.parentEventId = eventSouvenirItem.eventId;
           selectedEventSouvenirItems.push(foundEventSouvenirItem);
         });
         resolve(selectedEventSouvenirItems);

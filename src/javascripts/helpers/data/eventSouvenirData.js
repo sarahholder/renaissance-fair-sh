@@ -20,4 +20,8 @@ const getEventSouvenirByEventId = (eventId) => new Promise((resolve, reject) => 
     .catch((error) => reject(error));
 });
 
-export default { getEventSouvenirByEventId };
+const getSingleEventSouvenir = (eventSouvenirId) => axios.get(`${baseUrl}/eventSouvenir/${eventSouvenirId}.json`);
+
+const deleteEventSouvenir = (eventSouvenirId) => axios.delete(`${baseUrl}/eventSouvenir/${eventSouvenirId}.json`);
+
+export default { getEventSouvenirByEventId, deleteEventSouvenir, getSingleEventSouvenir };
