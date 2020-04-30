@@ -90,7 +90,6 @@ const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
         eventAnimals.forEach((eventAnimalItem) => {
           const foundEventAnimalItem = allAnimals.find((x) => x.id === eventAnimalItem.animalId);
           foundEventAnimalItem.parentEventAnimalId = eventAnimalItem.id;
-          foundEventAnimalItem.parentQuantity = eventAnimalItem.quantity;
           foundEventAnimalItem.parentEventId = eventAnimalItem.eventId;
           selectedEventAnimalItems.push(foundEventAnimalItem);
         });
@@ -128,5 +127,4 @@ export default {
   getEventFood,
   getCompleteEvent,
   getEventStaff,
-  getEventAnimals,
 };
