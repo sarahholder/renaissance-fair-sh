@@ -10,6 +10,8 @@ import utils from '../../helpers/utils';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
+import eventSouvenirData from '../../helpers/data/eventSouvenirData';
+
 
 const closeSingleEvent = () => {
   utils.printToDom('single-view-event', '');
@@ -34,13 +36,13 @@ const eventSouvenirDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.souvenirs.forEach((souvItem) => {
-    domString += '<tr>';
+    domString += `<tr class="souvenirRow" id="${souvItem.parentEventId}" data-id="${souvItem.id}" data-parent="${souvItem.parentEventSouvenirId}" data-container="${souvItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${souvItem.type}</th>`;
     domString += `<td class="cell-width">$${souvItem.price}</td>`;
-    domString += `<td class="cell-width">${souvItem.isAvailable}</td>`;
+    domString += `<td class="cell-width">${souvItem.parentQuantity}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+      domString += `<td class="cell-width"><button id="${souvItem.parentEventSouvenirId}" value="${souvItem.parentEventSouvenirId}" class="btn btn-default deleteEventSouvenirBtn deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
     domString += '</tr>';
   });
@@ -92,13 +94,14 @@ const eventStaffDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.staff.forEach((staffMember) => {
-    domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+    domString += `<tr class="staffRow" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
     domString += `<td class="cell-width">$${staffMember.pay}</td>`;
     domString += `<td class="cell-width">${staffMember.characterType}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
+      domString += `<td class="cell-width"><button id="${staffMember.parentEventStaffId}"
+      value="${staffMember.parentEventStaffId}" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
     domString += '</tr>';
   });
@@ -172,10 +175,11 @@ const removeEventShow = () => {
 };
 
 
-const removeEventStaff = () => {
-  const eventStaffId = $('.staffRow').data('parent');
-  const eventId = $('.staffRow').data('container');
-  eventStaffData.getSingleEventStaff()
+const removeEventStaff = (e) => {
+  e.preventDefault();
+  const eventStaffId = e.target.closest('button').id;
+  const eventId = e.target.closest('.staffRow').id;
+  eventStaffData.getSingleEventStaff(eventStaffId)
     .then(() => {
       eventStaffData.deleteEventStaff(eventStaffId)
         .then(() => {
@@ -201,6 +205,21 @@ const removeEventAnimal = (e) => {
         });
     })
     .catch((error) => console.error('could not delete animal item from event', error));
+};
+
+const removeEventSouvenir = (e) => {
+  e.preventDefault();
+  const eventSouvenirId = e.target.closest('button').id;
+  const eventId = e.target.closest('.souvenirRow').id;
+  eventSouvenirData.getSingleEventSouvenir(eventSouvenirId)
+    .then(() => {
+      eventSouvenirData.deleteEventSouvenir(eventSouvenirId)
+        .then(() => {
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete souvenir item from event', error));
 };
 
 const viewSingleEvent = (eventId) => {
@@ -244,7 +263,8 @@ const viewSingleEvent = (eventId) => {
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-      $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
+      $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
+      $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
