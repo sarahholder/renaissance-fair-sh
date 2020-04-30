@@ -26,7 +26,8 @@
   },
   "eventFood6": {
     "eventId": "event2",
-    "foodId": "food6"
+    "foodId": "food6",
+    "quantity": "100"
   },
   "eventFood7": {
     "eventId": "event2",
