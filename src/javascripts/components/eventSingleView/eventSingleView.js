@@ -1,5 +1,4 @@
 import firebase from 'firebase/app';
-/* eslint-disable no-use-before-define */
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
@@ -139,23 +138,25 @@ const eventStaffDetails = (singleEvent) => {
 
 const eventAnimalDetails = (singleEvent) => {
   let domString = '';
-  domString += '<table class="table-responsive table-dark">';
+  domString += '<table class="table-responsive table-dark table-width">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Type</th>';
-  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Cost</th>';
   domString += '<th scope="col">Availability</th>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.animals.forEach((animalItem) => {
-    domString += `<tr class="eventAnimalItem animalRow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventFoodId}" data-container="${animalItem.parentEventId}">`;
+    // console.log('THIS IS THE ANIMAL PARENT', animalItem.parentEventAnimalId);
+    domString += `<tr class="animalRow" id="${animalItem.parentEventId}" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
     domString += `<td class="cell-width">$${animalItem.cost}</td>`;
     domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+      // eslint-disable-next-line max-len
+      domString += `<td class="cell-width"><button id="${animalItem.parentEventAnimalId}" value="${animalItem.parentEventAnimalId}" class="btn btn-default deleteEventBtn deleteEventAnimalBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
     domString += '</tr>';
   });
@@ -213,10 +214,13 @@ const removeEventStaff = () => {
     .catch((error) => console.error('could not delete staff member from event', error));
 };
 
-const removeEventAnimal = () => {
-  const eventAnimalId = $('.animalRow').data('parent');
-  const eventId = $('.animalRow').data('container');
-  eventAnimalData.getSingleEventAnimal()
+const removeEventAnimal = (e) => {
+  e.preventDefault();
+  const eventAnimalId = e.target.closest('button').id;
+  // console.log('INSIDE FUNCTION RESULT EVENT ANIMAL', eventAnimalId);
+  const eventId = e.target.closest('.animalRow').id;
+  // console.log('INSIDE FUNCTION EVENT ID', eventId);
+  eventAnimalData.getSingleEventAnimal(eventAnimalId)
     .then(() => {
       eventAnimalData.deleteEventAnimal(eventAnimalId)
         .then(() => {
@@ -224,8 +228,9 @@ const removeEventAnimal = () => {
           viewSingleEvent(eventId);
         });
     })
-    .catch((error) => console.error('could not delete food item from event', error));
+    .catch((error) => console.error('could not delete animal item from event', error));
 };
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -266,12 +271,13 @@ const viewSingleEvent = (eventId) => {
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-      $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
+      $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
       $('#shows').addClass('hide');
       $('#events').addClass('hide');
+      $('#animals').addClass('hide');
       $('#single-view-event').removeClass('hide');
     })
     .catch((error) => console.error('problem with single event', error));
@@ -282,4 +288,4 @@ const viewSingleEventCall = (e) => {
   viewSingleEvent(eventId);
 };
 
-export default { viewSingleEventCall };
+export default { viewSingleEventCall, removeEventAnimal };
