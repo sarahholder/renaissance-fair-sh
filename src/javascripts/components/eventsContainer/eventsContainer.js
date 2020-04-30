@@ -7,9 +7,11 @@ import eventCard from '../eventCard/eventCard';
 import eventSingleView from '../eventSingleView/eventSingleView';
 import editEventForm from '../editEventForm/editEventForm';
 import addEventModal from './eventModalForm/eventModalForm.js';
+import charts from '../Charts/charts';
 
 
 import utils from '../../helpers/utils';
+import './eventsContainer.scss';
 
 const removeEvent = (e) => {
   e.preventDefault();
@@ -32,7 +34,6 @@ const editNewEvent = (e) => {
 const updateEvent = (e) => {
   e.preventDefault();
   const eventId = $('.edit-event-form-tag').data('id');
-  console.error('event id from update function', eventId);
   const editedEvent = {
     name: $('#edit-event-name').val(),
     location: $('#edit-event-location').val(),
@@ -85,8 +86,10 @@ const buildAllEvents = () => {
         domString += eventCard.buildEventCard(event);
       });
       domString += '</div>';
+      domString += '<div id="chartdiv"></div>';
       utils.printToDom('events', domString);
       $('body').on('click', '#viewEventBtn', eventSingleView.viewSingleEventCall);
+      charts.buildChart();
     })
     .catch((error) => console.error('build all events has failed', error));
 };

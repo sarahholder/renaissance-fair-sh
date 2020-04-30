@@ -145,5 +145,65 @@
   "eventStaff37": {
     "eventId": "event11",
     "staffId": "staff25"
+  },
+  "eventStaff38": {
+    "eventId": "event12",
+    "staffId": "staff2"
+  },
+  "eventStaff39": {
+    "eventId": "event12",
+    "staffId": "staff4"
+  },
+  "eventStaff40": {
+    "eventId": "event12",
+    "staffId": "staff6"
+  },
+  "eventStaff41": {
+    "eventId": "event13",
+    "staffId": "staff8"
+  },
+  "eventStaff42": {
+    "eventId": "event13",
+    "staffId": "staff10"
+  },
+  "eventStaff43": {
+    "eventId": "event13",
+    "staffId": "staff12"
+  },
+  "eventStaff44": {
+    "eventId": "event14",
+    "staffId": "staff14"
+  },
+  "eventStaff45": {
+    "eventId": "event14",
+    "staffId": "staff16"
+  },
+  "eventStaff46": {
+    "eventId": "event14",
+    "staffId": "staff18"
+  },
+  "eventStaff47": {
+    "eventId": "event15",
+    "staffId": "staff20"
+  },
+  "eventStaff48": {
+    "eventId": "event15",
+    "staffId": "staff22"
+  },
+  "eventStaff49": {
+    "eventId": "event15",
+    "staffId": "staff24"
+  },
+  "eventStaff50": {
+    "eventId": "event16",
+    "staffId": "staff3"
+  },
+  "eventStaff51": {
+    "eventId": "event16",
+    "staffId": "staff6"
+  },
+  "eventStaff52": {
+    "eventId": "event16",
+    "staffId": "staff9"
   }
 }
