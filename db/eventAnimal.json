@@ -1,3 +1,4 @@
+  
 {
   "eventAnimal1": {
     "eventId": "event1",
@@ -15,10 +16,6 @@
     "eventId": "event1",
     "animalId": "animal4"
   },
-  "eventAnimal5": {
-    "eventId": "event1",
-    "animalId": "animal5"
-  },
   "eventAnimal6": {
     "eventId": "event1",
     "animalId": "animal6"
@@ -26,10 +23,6 @@
   "eventAnimal7": {
     "eventId": "event1",
     "animalId": "animal7"
-  },
-  "eventAnimal8": {
-    "eventId": "event2",
-    "animalId": "animal5"
   },
   "eventAnimal9": {
     "eventId": "event2",
@@ -86,10 +79,6 @@
   "eventAnimal22": {
     "eventId": "event4",
     "animalId": "animal3"
-  },
-  "eventAnimal23": {
-    "eventId": "event4",
-    "animalId": "animal5"
   }, 
   "eventAnimal24": {
     "eventId": "event4",
@@ -106,10 +95,6 @@
   "eventAnimal27": {
     "eventId": "event5",
     "animalId": "animal3"
-  },
-  "eventAnimal28": {
-    "eventId": "event5",
-    "animalId": "animal5"
   },
   "eventAnimal29": {
     "eventId": "event5",
@@ -130,6 +115,238 @@
   "eventAnimal33": {
     "eventId": "event5",
     "animalId": "animal12"
+  },
+  "eventAnimal34": {
+    "eventId": "event6",
+    "animalId": "animal1"
+  },
+  "eventAnimal35": {
+    "eventId": "event6",
+    "animalId": "animal2"
+  },
+  "eventAnimal36": {
+    "eventId": "event6",
+    "animalId": "animal3"
+  }, 
+  "eventAnimal37": {
+    "eventId": "event6",
+    "animalId": "animal4"
+  },
+  "eventAnimal39": {
+    "eventId": "event6",
+    "animalId": "animal6"
+  },
+  "eventAnimal40": {
+    "eventId": "event6",
+    "animalId": "animal7"
+  },
+  "eventAnimal42": {
+    "eventId": "event6",
+    "animalId": "animal7"
+  },
+  "eventAnimal43": {
+    "eventId": "event6",
+    "animalId": "animal8"
+  },
+  "eventAnimal44": {
+    "eventId": "event6",
+    "animalId": "animal9"
+  },
+  "eventAnimal45": {
+    "eventId": "event7",
+    "animalId": "animal10"
+  },
+  "eventAnimal46": {
+    "eventId": "event7",
+    "animalId": "animal11"
+  },
+  "eventAnimal47": {
+    "eventId": "event7",
+    "animalId": "animal12"
+  },
+  "eventAnimal48": {
+    "eventId": "event7",
+    "animalId": "animal2"
+  },
+  "eventAnimal49": {
+    "eventId": "event7",
+    "animalId": "animal4"
+  },
+  "eventAnimal50": {
+    "eventId": "event7",
+    "animalId": "animal6"
+  },
+  "eventAnimal51": {
+    "eventId": "event7",
+    "animalId": "animal8"
+  },
+  "eventAnimal52": {
+    "eventId": "event8",
+    "animalId": "animal10"
+  },
+  "eventAnimal53": {
+    "eventId": "event8",
+    "animalId": "animal12"
+  },
+  "eventAnimal54": {
+    "eventId": "event8",
+    "animalId": "animal1"
+  },
+  "eventAnimal56": {
+    "eventId": "event9",
+    "animalId": "animal7"
+  },
+  "eventAnimal57": {
+    "eventId": "event9",
+    "animalId": "animal9"
+  },
+  "eventAnimal58": {
+    "eventId": "event9",
+    "animalId": "animal10"
+  },
+  "eventAnimal59": {
+    "eventId": "event9",
+    "animalId": "animal11"
+  },
+  "eventAnimal60": {
+    "eventId": "event9",
+    "animalId": "animal12"
+  },
+  "eventAnimal61": {
+    "eventId": "event9",
+    "animalId": "animal1"
+  },
+  "eventAnimal62": {
+    "eventId": "event10",
+    "animalId": "animal2"
+  },
+  "eventAnimal63": {
+    "eventId": "event10",
+    "animalId": "animal3"
+  }, 
+  "eventAnimal64": {
+    "eventId": "event10",
+    "animalId": "animal4"
+  },
+  "eventAnimal66": {
+    "eventId": "event10",
+    "animalId": "animal6"
+  },
+  "eventAnimal68": {
+    "eventId": "event10",
+    "animalId": "animal7"
+  },
+  "eventAnimal70": {
+    "eventId": "event10",
+    "animalId": "animal7"
+  },
+  "eventAnimal71": {
+    "eventId": "event11",
+    "animalId": "animal8"
+  },
+  "eventAnimal72": {
+    "eventId": "event11",
+    "animalId": "animal9"
+  },
+  "eventAnimal73": {
+    "eventId": "event11",
+    "animalId": "animal10"
+  },
+  "eventAnimal74": {
+    "eventId": "event11",
+    "animalId": "animal11"
+  },
+  "eventAnimal75": {
+    "eventId": "event11",
+    "animalId": "animal12"
+  },
+  "eventAnimal76": {
+    "eventId": "event12",
+    "animalId": "animal2"
+  },
+  "eventAnimal77": {
+    "eventId": "event12",
+    "animalId": "animal4"
+  },
+  "eventAnimal78": {
+    "eventId": "event12",
+    "animalId": "animal6"
+  },
+  "eventAnimal79": {
+    "eventId": "event12",
+    "animalId": "animal8"
+  },
+  "eventAnimal80": {
+    "eventId": "event12",
+    "animalId": "animal10"
+  },
+  "eventAnimal81": {
+    "eventId": "event13",
+    "animalId": "animal12"
+  },
+  "eventAnimal82": {
+    "eventId": "event13",
+    "animalId": "animal1"
+  },
+  "eventAnimal100": {
+    "eventId": "event13",
+    "animalId": "animal2"
+  },
+  "eventAnimal101": {
+    "eventId": "event13",
+    "animalId": "animal4"
+  },
+  "eventAnimal102": {
+    "eventId": "event13",
+    "animalId": "animal6"
+  },
+  "eventAnimal103": {
+    "eventId": "event13",
+    "animalId": "animal7"
+  },
+  "eventAnimal104": {
+    "eventId": "event13",
+    "animalId": "animal8"
+  },
+  "eventAnimal105": {
+    "eventId": "event13",
+    "animalId": "animal9"
+  },
+  "eventAnimal106": {
+    "eventId": "event14",
+    "animalId": "animal10"
+  },
+  "eventAnimal107": {
+    "eventId": "event15",
+    "animalId": "animal"
+  },
+  "eventAnimal83": {
+    "eventId": "event14",
+    "animalId": "animal2"
+  },
+  "eventAnimal84": {
+    "eventId": "event14",
+    "animalId": "animal4"
+  },
+  "eventAnimal85": {
+    "eventId": "event15",
+    "animalId": "animal6"
+  },
+  "eventAnimal86": {
+    "eventId": "event15",
+    "animalId": "animal8"
+  },
+  "eventAnimal87": {
+    "eventId": "event15",
+    "animalId": "animal10"
+  },
+  "eventAnimal88": {
+    "eventId": "event16",
+    "animalId": "animal12"
+  },
+  "eventAnimal89": {
+    "eventId": "event16",
+    "animalId": "animal1"
   }
 }  
 

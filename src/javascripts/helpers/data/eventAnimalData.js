@@ -19,4 +19,6 @@ const getEventAnimalByEventId = (eventId) => new Promise((resolve, reject) => {
 
 const getSingleEventAnimal = (eventAnimalId) => axios.get(`${baseUrl}/eventAnimal/${eventAnimalId}.json`);
 
-export default { getEventAnimalByEventId, getSingleEventAnimal };
+const deleteEventAnimal = (eventAnimalId) => axios.delete(`${baseUrl}/eventAnimal/${eventAnimalId}.json`);
+
+export default { getEventAnimalByEventId, getSingleEventAnimal, deleteEventAnimal };

@@ -3,8 +3,10 @@ import eventFoodData from '../../helpers/data/eventFoodData';
 import eventFoodDetails from './eventFoodDetails';
 import eventStaffData from '../../helpers/data/eventStaffData';
 import eventShowData from '../../helpers/data/eventShowData';
+import eventAnimalData from '../../helpers/data/eventAnimalData';
 import smashData from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
+// import chart from '../Charts/charts';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
@@ -92,7 +94,7 @@ const eventStaffDetails = (singleEvent) => {
   singleEvent.staff.forEach((staffMember) => {
     domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
-    domString += `<td class="cell-width">$${staffMember.pay}/hr.</td>`;
+    domString += `<td class="cell-width">$${staffMember.pay}</td>`;
     domString += `<td class="cell-width">${staffMember.characterType}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
@@ -108,23 +110,25 @@ const eventStaffDetails = (singleEvent) => {
 
 const eventAnimalDetails = (singleEvent) => {
   let domString = '';
-  domString += '<table class="table-responsive table-dark">';
+  domString += '<table class="table-responsive table-dark table-width">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Type</th>';
-  domString += '<th scope="col">Price</th>';
+  domString += '<th scope="col">Cost</th>';
   domString += '<th scope="col">Availability</th>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.animals.forEach((animalItem) => {
-    domString += '<tr>';
+    // console.log('THIS IS THE ANIMAL PARENT', animalItem.parentEventAnimalId);
+    domString += `<tr class="animalRow" id="${animalItem.parentEventId}" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
     domString += `<td class="cell-width">$${animalItem.cost}</td>`;
     domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventAnimalBtn" class="btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>';
+      // eslint-disable-next-line max-len
+      domString += `<td class="cell-width"><button id="${animalItem.parentEventAnimalId}" value="${animalItem.parentEventAnimalId}" class="btn btn-default deleteEventBtn deleteEventAnimalBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
     domString += '</tr>';
   });
@@ -182,6 +186,23 @@ const removeEventStaff = () => {
     .catch((error) => console.error('could not delete staff member from event', error));
 };
 
+const removeEventAnimal = (e) => {
+  e.preventDefault();
+  const eventAnimalId = e.target.closest('button').id;
+  // console.log('INSIDE FUNCTION RESULT EVENT ANIMAL', eventAnimalId);
+  const eventId = e.target.closest('.animalRow').id;
+  // console.log('INSIDE FUNCTION EVENT ID', eventId);
+  eventAnimalData.getSingleEventAnimal(eventAnimalId)
+    .then(() => {
+      eventAnimalData.deleteEventAnimal(eventAnimalId)
+        .then(() => {
+          // eslint-disable-next-line no-use-before-define
+          viewSingleEvent(eventId);
+        });
+    })
+    .catch((error) => console.error('could not delete animal item from event', error));
+};
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -213,16 +234,21 @@ const viewSingleEvent = (eventId) => {
       domString += eventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
+      domString += '<div id="chartdiv">';
+      // domString += chart();
+      domString += '</div>';
       utils.printToDom('single-view-event', domString);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
       $('body').on('click', '.deleteEventShowBtn', removeEventShow);
+      $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
       $('#shows').addClass('hide');
       $('#events').addClass('hide');
+      $('#animals').addClass('hide');
       $('#single-view-event').removeClass('hide');
     })
     .catch((error) => console.error('problem with single event', error));
@@ -233,4 +259,4 @@ const viewSingleEventCall = (e) => {
   viewSingleEvent(eventId);
 };
 
-export default { viewSingleEventCall };
+export default { viewSingleEventCall, removeEventAnimal };
