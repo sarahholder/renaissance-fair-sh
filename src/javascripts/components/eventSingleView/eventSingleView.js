@@ -120,13 +120,14 @@ const eventStaffDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.staff.forEach((staffMember) => {
-    domString += `<tr class="eventStaffMember staffRow" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+    domString += `<tr class="staffRow" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
     domString += `<td class="cell-width">$${staffMember.pay}</td>`;
     domString += `<td class="cell-width">${staffMember.characterType}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventStaffBtn" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>';
+      domString += `<td class="cell-width"><button id="${staffMember.parentEventStaffId}"
+      value="${staffMember.parentEventStaffId}" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
     domString += '</tr>';
   });
@@ -200,10 +201,11 @@ const removeEventShow = () => {
 };
 
 
-const removeEventStaff = () => {
-  const eventStaffId = $('.staffRow').data('parent');
-  const eventId = $('.staffRow').data('container');
-  eventStaffData.getSingleEventStaff()
+const removeEventStaff = (e) => {
+  e.preventDefault();
+  const eventStaffId = e.target.closest('button').id;
+  const eventId = e.target.closest('.staffRow').id;
+  eventStaffData.getSingleEventStaff(eventStaffId)
     .then(() => {
       eventStaffData.deleteEventStaff(eventStaffId)
         .then(() => {
