@@ -16,26 +16,29 @@ import '../../../styles/main.scss';
 //   });
 // };
 
-const getFoodTotals = (singleEvent) => {
-  singleEvent.food.forEach((foodItem) => {
-    const x = foodItem.price;
-    const y = foodItem.parentQuantity;
-    const rowTotal = x * y;
-    const rowTotalsArray = [];
-    rowTotalsArray.push(rowTotal);
-    console.error('food total per row', rowTotal);
-    console.error('food row totals array', rowTotalsArray);
-    let foodTotal = 0;
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < rowTotalsArray.length; i++) {
-      foodTotal += rowTotalsArray[i];
-    }
-    console.error('food details total', foodTotal);
-    singleEvent.foodItem.foodTotalProperty = foodTotal;
-  });
-};
+// const getFoodTotals = (singleEvent) => {
+//   singleEvent.food.forEach((foodItem) => {
+//     const x = foodItem.price;
+//     const y = foodItem.parentQuantity;
+//     const rowTotal = x * y;
+//     const rowTotalsArray = [];
+//     rowTotalsArray.push(rowTotal);
+//     console.error('food total per row', rowTotal);
+//     console.error('food row totals array', rowTotalsArray);
+//     let foodTotal = 0;
+//     // eslint-disable-next-line no-plusplus
+//     for (let i = 0; i < rowTotalsArray.length; i++) {
+//       foodTotal += rowTotalsArray[i];
+//     }
+//     console.error('food details total', foodTotal);
+//     // eslint-disable-next-line no-param-reassign
+//     return foodTotal;
+//   });
+// };
 
 const getEventFoodDetails = (singleEvent) => {
+  // const foodTotal = getFoodTotals(singleEvent).foodTotal;
+  // console.error('foodTotal on details grid', foodTotal);
   let domString = '';
   console.log('single event data used for food details', singleEvent);
   domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
@@ -63,13 +66,13 @@ const getEventFoodDetails = (singleEvent) => {
     //   foodTotal += rowTotalsArray[i];
     // }
     // console.error('food details total', foodTotal);
-    rowTotalFunction(val)
+    // rowTotalFunction(val)
     domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
     domString += `<td class="cell-width">$${foodItem.price}</td>`;
     domString += `<td class="cell-width">${foodItem.parentQuantity}</td>`;
     // getFoodTotals();
-    domString += `<td class="cell-width">${rowTotalFunction()}</td>`;
+    // domString += `<td class="cell-width">${rowTotalFunction()}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
       domString += '<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn"><i class="far fa-trash-alt"></i></button></td>';
