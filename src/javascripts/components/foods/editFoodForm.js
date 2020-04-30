@@ -29,7 +29,6 @@ const editFoodForm = (e) => {
       domString += '<label for="edit-availabilityOfFood">Availability Of Food:</label>';
       domString += `<select id="edit-availabilityOfFood" class="form-control" placeholder="" value="${foodPlaceholder.isAvailable}">`;
       domString += `<option value="${foodPlaceholder.isAvailable}">${foodPlaceholder.isAvailable}</option>`;
-      console.error('avail status in edit form', `${foodPlaceholder.isAvailable}`);
       domString += '<option value="Available">Available</option>';
       domString += '<option value="Not Available">Not Available</option>';
       domString += '</select>';

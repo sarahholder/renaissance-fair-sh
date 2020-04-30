@@ -34,7 +34,6 @@ const editNewEvent = (e) => {
 const updateEvent = (e) => {
   e.preventDefault();
   const eventId = $('.edit-event-form-tag').data('id');
-  console.error('event id from update function', eventId);
   const editedEvent = {
     name: $('#edit-event-name').val(),
     location: $('#edit-event-location').val(),
