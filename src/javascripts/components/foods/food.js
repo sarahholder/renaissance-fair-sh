@@ -10,7 +10,6 @@ import './food.scss';
 const editFoodItem = (e) => {
   e.preventDefault();
   const foodId = $('.editFoodForm').data('id');
-  console.error('loc of edited item', $('#edit-foodLocation').val());
   const editFood = {
     type: $('#edit-foodType').val(),
     description: $('#edit-foodDescription').val(),
@@ -19,7 +18,6 @@ const editFoodItem = (e) => {
     isAvailable: $('#edit-availabilityOfFood').val(),
     uid: utils.getMyUid(),
   };
-  console.error('edited food item', editFood);
   foodData.updateFoods(foodId, editFood)
     .then(() => {
       document.getElementById('editFoodForm').reset();
@@ -32,7 +30,6 @@ const editFoodItem = (e) => {
 
 const saveNewFoodItem = (e) => {
   e.stopImmediatePropagation();
-  console.error('availability status of new item', $('#availabilityOfFood').val());
   const newFood = {
     type: $('#foodType').val(),
     description: $('#foodDescription').val(),
@@ -41,7 +38,6 @@ const saveNewFoodItem = (e) => {
     isAvailable: $('#availabilityOfFood').val(),
     uid: utils.getMyUid(),
   };
-  console.error('new food item created', newFood);
   foodData.addFoods(newFood)
     .then(() => {
       document.getElementById('foodForm').reset();

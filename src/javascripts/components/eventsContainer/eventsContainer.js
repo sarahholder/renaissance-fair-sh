@@ -7,7 +7,7 @@ import eventCard from '../eventCard/eventCard';
 import eventSingleView from '../eventSingleView/eventSingleView';
 import editEventForm from '../editEventForm/editEventForm';
 import addEventModal from './eventModalForm/eventModalForm.js';
-import charts from '../charts/charts';
+import charts from '../Charts/charts';
 
 
 import utils from '../../helpers/utils';
@@ -34,7 +34,6 @@ const editNewEvent = (e) => {
 const updateEvent = (e) => {
   e.preventDefault();
   const eventId = $('.edit-event-form-tag').data('id');
-  console.error('event id from update function', eventId);
   const editedEvent = {
     name: $('#edit-event-name').val(),
     location: $('#edit-event-location').val(),
