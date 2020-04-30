@@ -42,7 +42,7 @@ const getEventFoodDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.food.forEach((foodItem) => {
-    domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
+    domString += `<tr id="foodItemRow" class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
     domString += `<td class="cell-width">$${foodItem.price}</td>`;
     domString += `<td class="cell-width">${foodItem.parentQuantity}</td>`;

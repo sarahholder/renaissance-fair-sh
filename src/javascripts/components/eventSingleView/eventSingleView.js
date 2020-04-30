@@ -146,7 +146,7 @@ const removeEventFood = () => {
   const eventId = $('.foodRow').data('container');
   console.log('XXXXXXXXXevent food id that we need to delete', eventFoodId);
   console.log('YYYYYYYYevent id that needs to refresh', eventId);
-  eventFoodData.getSingleEventFood()
+  eventFoodData.getSingleEventFood(eventFoodId)
     .then(() => {
       eventFoodData.deleteEventFood(eventFoodId)
         .then(() => {
