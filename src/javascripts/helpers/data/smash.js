@@ -56,6 +56,7 @@ const getEventShow = (eventId) => new Promise((resolve, reject) => {
           const foundEventShowItem = allShows.find((x) => x.id === eventShowItem.showId);
           foundEventShowItem.parentEventShowId = eventShowItem.id;
           foundEventShowItem.parentEventId = eventShowItem.eventId;
+          foundEventShowItem.parentQuantity = eventShowItem.quantity;
           selectedEventShowItems.push(foundEventShowItem);
         });
         resolve(selectedEventShowItems);

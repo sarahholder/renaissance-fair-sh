@@ -51,8 +51,6 @@ const eventSouvenirDetails = (singleEvent) => {
 
   return domString;
 };
-
-
 const eventShowDetails = (singleEvent) => {
   let domString = '';
   domString += '<table class="table-responsive table-dark">';
@@ -65,14 +63,13 @@ const eventShowDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.shows.forEach((showItem) => {
-    domString += `<tr class="eventShowItem showRow" data-id="${showItem.id}" data-parent="${showItem.parentEventShowId}" data-container="${showItem.parentEventId}">`;
-    domString += '<tr>';
+    domString += `<tr class="showRow" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventShowId}" data-container="${showItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${showItem.name}</th>`;
     domString += `<td class="cell-width">$${showItem.cost}</td>`;
     domString += `<td class="cell-width">${showItem.quantity}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>';
+      domString += `<td class="cell-width"><button id="${showItem.parentEventShowId}" value="${showItem.parentEventShowId}" class="btn btn-default deleteEventBtn deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
     domString += '</tr>';
   });
@@ -134,6 +131,7 @@ const eventAnimalDetails = (singleEvent) => {
       domString += `<td class="cell-width"><button id="${animalItem.parentEventAnimalId}" value="${animalItem.parentEventAnimalId}" class="btn btn-default deleteEventBtn deleteEventAnimalBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
     domString += '</tr>';
+    domString += '</tr>';
   });
   domString += '</tbody>';
   domString += '</table>';
@@ -144,13 +142,10 @@ const eventAnimalDetails = (singleEvent) => {
 const removeEventFood = () => {
   const eventFoodId = $('.foodRow').data('parent');
   const eventId = $('.foodRow').data('container');
-  console.log('XXXXXXXXXevent food id that we need to delete', eventFoodId);
-  console.log('YYYYYYYYevent id that needs to refresh', eventId);
   eventFoodData.getSingleEventFood()
     .then(() => {
       eventFoodData.deleteEventFood(eventFoodId)
         .then(() => {
-          console.log('deleted event food', eventFoodId);
           // eslint-disable-next-line no-use-before-define
           viewSingleEvent(eventId);
         });
@@ -158,22 +153,20 @@ const removeEventFood = () => {
     .catch((error) => console.error('could not delete food item from event', error));
 };
 
-const removeEventShow = () => {
-  const eventShowId = $('.showRow').data('parent');
-  const eventId = $('.showRow').data('container');
-  eventShowData.getSingleEventShow()
+const removeEventShow = (e) => {
+  e.preventDefault();
+  const eventShowId = e.target.closest('button').id;
+  const eventId = e.target.closest('.showRow').id;
+  eventShowData.getSingleEventShow(eventShowId)
     .then(() => {
       eventShowData.deleteEventShow(eventShowId)
         .then(() => {
-          console.error('triggered delete show', eventId);
-          console.error('triggered twice delete show', eventShowId);
           // eslint-disable-next-line no-use-before-define
           viewSingleEvent(eventId);
         });
     })
     .catch((error) => console.error('could not delete show from event', error));
 };
-
 
 const removeEventStaff = (e) => {
   e.preventDefault();
