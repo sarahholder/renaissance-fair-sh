@@ -5,6 +5,7 @@ import eventStaffData from '../../helpers/data/eventStaffData';
 import eventStaffDetails from './eventStaffDetails';
 import eventShowData from '../../helpers/data/eventShowData';
 import eventAnimalData from '../../helpers/data/eventAnimalData';
+import eventAnimalDetails from './eventAnimalDetails';
 import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import utils from '../../helpers/utils';
@@ -47,38 +48,6 @@ const eventSouvenirDetails = (singleEvent) => {
     if (user.uid === singleEvent.uid) {
       domString += `<td class="cell-width"><button id="${souvItem.parentEventSouvenirId}" value="${souvItem.parentEventSouvenirId}" class="btn btn-default deleteEventSouvenirBtn deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
-    domString += '</tr>';
-  });
-  domString += '</tbody>';
-  domString += '</table>';
-
-  return domString;
-};
-
-
-const eventAnimalDetails = (singleEvent) => {
-  let domString = '';
-  domString += '<table class="table-responsive table-dark table-width">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Type</th>';
-  domString += '<th scope="col">Cost</th>';
-  domString += '<th scope="col">Availability</th>';
-  domString += '</tr>';
-  domString += '</thead>';
-  domString += '<tbody>';
-  singleEvent.animals.forEach((animalItem) => {
-    // console.log('THIS IS THE ANIMAL PARENT', animalItem.parentEventAnimalId);
-    domString += `<tr class="animalRow" id="${animalItem.parentEventId}" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
-    domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
-    domString += `<td class="cell-width">$${animalItem.cost}</td>`;
-    domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
-    const user = firebase.auth().currentUser;
-    if (user.uid === singleEvent.uid) {
-      // eslint-disable-next-line max-len
-      domString += `<td class="cell-width"><button id="${animalItem.parentEventAnimalId}" value="${animalItem.parentEventAnimalId}" class="btn btn-default deleteEventBtn deleteEventAnimalBtn"><i class="far fa-trash-alt"></i></button></td>`;
-    }
-    domString += '</tr>';
     domString += '</tr>';
   });
   domString += '</tbody>';
@@ -190,7 +159,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
-      domString += eventAnimalDetails(singleEvent);
+      domString += eventAnimalDetails.getEventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
       domString += '</div>';
