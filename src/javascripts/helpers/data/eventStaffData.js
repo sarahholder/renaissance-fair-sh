@@ -33,7 +33,6 @@ const getEventStaff = () => new Promise((resolve, reject) => {
 
 const addEventStaff = (newEventStaff) => axios.post(`${baseUrl}/eventStaff.json`, newEventStaff);
 
-
 const getSingleEventStaff = (eventStaffId) => axios.get(`${baseUrl}/eventStaff/${eventStaffId}.json`);
 
 const deleteEventStaff = (eventStaffId) => axios.delete(`${baseUrl}/eventStaff/${eventStaffId}.json`);
