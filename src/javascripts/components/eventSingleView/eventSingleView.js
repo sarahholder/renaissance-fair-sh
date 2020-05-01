@@ -2,11 +2,15 @@ import firebase from 'firebase/app';
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventFoodDetails from './eventFoodDetails';
 import eventStaffData from '../../helpers/data/eventStaffData';
+import eventStaffDetails from './eventStaffDetails';
 import eventShowData from '../../helpers/data/eventShowData';
 import eventAnimalData from '../../helpers/data/eventAnimalData';
+import eventAnimalDetails from './eventAnimalDetails';
 import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import utils from '../../helpers/utils';
+
+import showDetails from './eventShowDetails';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
@@ -52,105 +56,13 @@ const eventSouvenirDetails = (singleEvent) => {
   return domString;
 };
 
-
-const eventShowDetails = (singleEvent) => {
-  let domString = '';
-  domString += '<table class="table-responsive table-dark">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Show Name</th>';
-  domString += '<th scope="col">Cost</th>';
-  domString += '<th scope="col">Qty</th>';
-  domString += '</tr>';
-  domString += '</thead>';
-  domString += '<tbody>';
-  singleEvent.shows.forEach((showItem) => {
-    domString += `<tr class="eventShowItem showRow" data-id="${showItem.id}" data-parent="${showItem.parentEventShowId}" data-container="${showItem.parentEventId}">`;
-    domString += '<tr>';
-    domString += `<th scope="row" class="cell-width">${showItem.name}</th>`;
-    domString += `<td class="cell-width">$${showItem.cost}</td>`;
-    domString += `<td class="cell-width">${showItem.quantity}</td>`;
-    const user = firebase.auth().currentUser;
-    if (user.uid === singleEvent.uid) {
-      domString += '<td class="cell-width"><button id="deleteEventShowBtn" class="btn btn-default deleteEventBtn deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>';
-    }
-    domString += '</tr>';
-  });
-  domString += '</tbody>';
-  domString += '</table>';
-
-  return domString;
-};
-
-const eventStaffDetails = (singleEvent) => {
-  let domString = '';
-  domString += '<table class="table-responsive table-dark">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Staff Member</th>';
-  domString += '<th scope="col">Wage</th>';
-  domString += '<th scope="col">Character</th>';
-  domString += '</tr>';
-  domString += '</thead>';
-  domString += '<tbody>';
-  singleEvent.staff.forEach((staffMember) => {
-    domString += `<tr class="staffRow" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
-    domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
-    domString += `<td class="cell-width">$${staffMember.pay}</td>`;
-    domString += `<td class="cell-width">${staffMember.characterType}</td>`;
-    const user = firebase.auth().currentUser;
-    if (user.uid === singleEvent.uid) {
-      domString += `<td class="cell-width"><button id="${staffMember.parentEventStaffId}"
-      value="${staffMember.parentEventStaffId}" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>`;
-    }
-    domString += '</tr>';
-  });
-  domString += '</tbody>';
-  domString += '</table>';
-
-  return domString;
-};
-
-const eventAnimalDetails = (singleEvent) => {
-  let domString = '';
-  domString += '<table class="table-responsive table-dark table-width">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Type</th>';
-  domString += '<th scope="col">Cost</th>';
-  domString += '<th scope="col">Availability</th>';
-  domString += '</tr>';
-  domString += '</thead>';
-  domString += '<tbody>';
-  singleEvent.animals.forEach((animalItem) => {
-    // console.log('THIS IS THE ANIMAL PARENT', animalItem.parentEventAnimalId);
-    domString += `<tr class="animalRow" id="${animalItem.parentEventId}" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
-    domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
-    domString += `<td class="cell-width">$${animalItem.cost}</td>`;
-    domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
-    const user = firebase.auth().currentUser;
-    if (user.uid === singleEvent.uid) {
-      // eslint-disable-next-line max-len
-      domString += `<td class="cell-width"><button id="${animalItem.parentEventAnimalId}" value="${animalItem.parentEventAnimalId}" class="btn btn-default deleteEventBtn deleteEventAnimalBtn"><i class="far fa-trash-alt"></i></button></td>`;
-    }
-    domString += '</tr>';
-  });
-  domString += '</tbody>';
-  domString += '</table>';
-
-  return domString;
-};
-
-const removeEventFood = () => {
-  const eventFoodId = $('.foodRow').data('parent');
+const removeEventFood = (e) => {
+  const eventFoodId = e.target.closest('button').dataset.id;
   const eventId = $('.foodRow').data('container');
-  console.log('XXXXXXXXXevent food id that we need to delete', eventFoodId);
-  console.log('YYYYYYYYevent id that needs to refresh', eventId);
-  eventFoodData.getSingleEventFood()
+  eventFoodData.getSingleEventFood(eventFoodId)
     .then(() => {
       eventFoodData.deleteEventFood(eventFoodId)
         .then(() => {
-          console.log('deleted event food', eventFoodId);
           // eslint-disable-next-line no-use-before-define
           viewSingleEvent(eventId);
         });
@@ -158,22 +70,20 @@ const removeEventFood = () => {
     .catch((error) => console.error('could not delete food item from event', error));
 };
 
-const removeEventShow = () => {
-  const eventShowId = $('.showRow').data('parent');
-  const eventId = $('.showRow').data('container');
-  eventShowData.getSingleEventShow()
+const removeEventShow = (e) => {
+  e.preventDefault();
+  const eventShowId = e.target.closest('button').id;
+  const eventId = e.target.closest('.showRow').id;
+  eventShowData.getSingleEventShow(eventShowId)
     .then(() => {
       eventShowData.deleteEventShow(eventShowId)
         .then(() => {
-          console.error('triggered delete show', eventId);
-          console.error('triggered twice delete show', eventShowId);
           // eslint-disable-next-line no-use-before-define
           viewSingleEvent(eventId);
         });
     })
     .catch((error) => console.error('could not delete show from event', error));
 };
-
 
 const removeEventStaff = (e) => {
   e.preventDefault();
@@ -241,20 +151,17 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventStaffSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
-      domString += eventStaffDetails(singleEvent);
+      domString += eventStaffDetails.getEventStaffDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
-      domString += eventShowDetails(singleEvent);
+      domString += showDetails.eventShowDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
-      domString += eventAnimalDetails(singleEvent);
+      domString += eventAnimalDetails.getEventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
-      domString += '</div>';
-      domString += '<div id="chartdiv">';
-      // domString += chart();
       domString += '</div>';
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);

@@ -39,7 +39,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "@amcharts/amcharts4": "^4.9.18",
+    "@amcharts/amcharts4": "^4.9.19",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@types/core-js": "^2.5.3",
     "axios": "^0.19.2",

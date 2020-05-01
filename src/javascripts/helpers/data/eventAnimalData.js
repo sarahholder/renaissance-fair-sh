@@ -8,17 +8,24 @@ const getEventAnimalByEventId = (eventId) => new Promise((resolve, reject) => {
     .then((response) => {
       const eventAnimals = response.data;
       const animals = [];
-      Object.keys(eventAnimals).forEach((eventAnimalId) => {
-        eventAnimals[eventAnimalId].id = eventAnimalId;
-        animals.push(eventAnimals[eventAnimalId]);
+      Object.keys(eventAnimals).forEach((eventAnimalsId) => {
+        eventAnimals[eventAnimalsId].id = eventAnimalsId;
+        animals.push(eventAnimals[eventAnimalsId]);
       });
       resolve(animals);
     })
     .catch((error) => reject(error));
 });
 
-const getSingleEventAnimal = (eventAnimalId) => axios.get(`${baseUrl}/eventAnimal/${eventAnimalId}.json`);
+const getSingleEventAnimal = (eventAnimalsId) => axios.get(`${baseUrl}/eventAnimal/${eventAnimalsId}.json`);
 
 const deleteEventAnimal = (eventAnimalId) => axios.delete(`${baseUrl}/eventAnimal/${eventAnimalId}.json`);
 
-export default { getEventAnimalByEventId, getSingleEventAnimal, deleteEventAnimal };
+const addEventAnimal = (newEventAnimal) => axios.post(`${baseUrl}/eventAnimals.json`, newEventAnimal);
+
+export default {
+  getEventAnimalByEventId,
+  getSingleEventAnimal,
+  deleteEventAnimal,
+  addEventAnimal,
+};
