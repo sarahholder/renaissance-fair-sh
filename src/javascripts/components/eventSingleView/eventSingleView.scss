@@ -38,11 +38,14 @@ th {
 
 }
 
-.add-eventStaff {
+#add-eventStaff {
   position: absolute;
   top: 10px;
   right: 4px;
   color: #dde9ee;
+  :hover {
+    color: #211f23;
+  }
 }
 
 #chartDiv {
