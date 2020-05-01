@@ -1,3 +1,4 @@
+import firebase from 'firebase/app';
 import './eventCard.scss';
 
 const buildEventCard = (event) => {
@@ -12,8 +13,11 @@ const buildEventCard = (event) => {
   domString += `<p class="card-text">Time: ${event.timeStart} - ${event.timeEnd}</p>`;
   domString += '<div class="d-flex justify-content-around">';
   domString += `<button id="viewEventBtn" class="col-4 btn btn-default viewEventBtn" data-id="${event.id}"><i class="fas fa-eye"></i> View</<button>`;
-  domString += '<button id="editEventBtn" class="col-4 btn btn-default editEventBtn"><i class="fas fa-feather-alt"></i> Edit</<button>';
-  domString += '<button id="deleteEventBtn" class="col-4 btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i> Delete</button>';
+  const user = firebase.auth().currentUser;
+  if (user.uid === event.uid) {
+    domString += '<button id="editEventBtn" class="col-4 btn btn-default editEventBtn"><i class="fas fa-feather-alt"></i> Edit</<button>';
+    domString += '<button id="deleteEventBtn" class="col-4 btn btn-default deleteEventBtn"><i class="far fa-trash-alt"></i> Delete</button>';
+  }
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';
