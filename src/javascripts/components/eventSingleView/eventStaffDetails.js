@@ -32,7 +32,7 @@ const getEventStaffDetails = (singleEvent) => {
   domString += '<div id="eventStaffSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
   if (user.uid === singleEvent.uid) {
-    domString += '<button class="btn btn-default btn-lg d-flex ml-auto add-eventStaff"><i class="fas fa-plus"></i></button>';
+    domString += '<button class="btn btn-default btn-lg d-flex ml-auto" id="add-eventStaff"><i class="fas fa-plus"></i></button>';
   }
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
