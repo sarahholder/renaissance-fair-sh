@@ -158,7 +158,8 @@ const viewSingleEvent = (eventId) => {
       domString += showDetails.eventShowDetails(singleEvent);
       domString += '</div>';
       domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
-      domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
+      domString += '<h4 class="eventSectionTitle">Animal Encounter Details';
+      domString += '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Add</button></h4>';
       domString += eventAnimalDetails.getEventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += '</div>';
