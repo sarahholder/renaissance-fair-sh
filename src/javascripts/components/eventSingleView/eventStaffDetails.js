@@ -28,6 +28,8 @@ const getStaffTotals = (singleEvent) => {
 
 const getEventStaffDetails = (singleEvent) => {
   let domString = '';
+  domString += '<div id="eventStaffSection" class="quad col-md-4 col-sm-12">';
+  domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
