@@ -166,7 +166,6 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="chartdiv">';
       // domString += chart();
       domString += '</div>';
-      domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
       singleEventCharts.buildSingleEventChart();
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
