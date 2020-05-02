@@ -18,9 +18,13 @@ const getFoodTotals = (singleEvent) => {
   });
   let foodTotal = 0;
   // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < rowTotalsArray.length; i++) {
-    foodTotal += rowTotalsArray[i];
-  }
+  // for (let i = 0; i < rowTotalsArray.length; i++) {
+  //   foodTotal += rowTotalsArray[i];
+  // }
+  rowTotalsArray.forEach((rowAmount) => {
+    foodTotal += rowAmount;
+  });
+  console.error('food total afetr forEach loop', foodTotal);
   // eslint-disable-next-line no-param-reassign
   singleEvent.foodCosts = foodTotal;
   // // eslint-disable-next-line no-use-before-define
