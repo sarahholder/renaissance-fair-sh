@@ -38,7 +38,7 @@ const getEventFoodDetails = (singleEvent) => {
   domString += '<div class="input-group-prepend">';
   domString += '<span class="input-group-text">$</span>';
   domString += '</div>';
-  domString += `<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value="${singleEvent.foodTotalAmount}">`;
+  domString += `<input id="foodTotalCost" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value="${singleEvent.foodTotalAmount}">`;
   domString += '<div class="input-group-append">';
   domString += '<span class="input-group-text">.00</span>';
   domString += '</div>';
