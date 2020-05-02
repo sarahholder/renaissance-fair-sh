@@ -6,7 +6,7 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 const buildChart = () => {
   const chart = am4core.create('chartdiv', am4charts.XYChart);
 
-  chart.marginRight = 100;
+  chart.marginRight = 400;
 
   // Add data
   chart.data = [{
