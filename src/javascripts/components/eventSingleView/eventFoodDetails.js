@@ -9,7 +9,6 @@ const getFoodTotals = (singleEvent) => {
     const y = foodItem.parentQuantity;
     // eslint-disable-next-line no-param-reassign
     foodItem.rowTotal = x * y;
-    // eslint-disable-next-line no-param-reassign
     return foodItem.rowTotal;
   });
   const rowTotalsArray = [];
@@ -17,20 +16,45 @@ const getFoodTotals = (singleEvent) => {
     rowTotalsArray.push(foodItem.rowTotal);
   });
   let foodTotal = 0;
-  // eslint-disable-next-line no-plusplus
-  // for (let i = 0; i < rowTotalsArray.length; i++) {
-  //   foodTotal += rowTotalsArray[i];
-  // }
   rowTotalsArray.forEach((rowAmount) => {
     foodTotal += rowAmount;
   });
-  console.error('food total afetr forEach loop', foodTotal);
   // eslint-disable-next-line no-param-reassign
   singleEvent.foodCosts = foodTotal;
-  // // eslint-disable-next-line no-use-before-define
 };
 
+const createNewParamRowTotal = (foodItem, x, y) => {
+  const rowTotal = Object.prototype.hasOwnProperty.call(foodItem, 'rowTotal') ? foodItem.rowTotal : x * y;
+  console.error('row total in new function', rowTotal);
+  return rowTotal;
+};
+
+// const createRowTotalsArray = (event) => {
+//   const rowTotalsArray = [];
+//   const rowTotal = createNewParamRowTotal();
+//   event.food.forEach(() => {
+//     rowTotalsArray.push(rowTotal);
+//   });
+//   console.error('list of row totals', rowTotalsArray);
+//   return rowTotalsArray;
+// };
+
+// const createNewParamFoodTotal = (event) => {
+//   const rowTotalsArray = createRowTotalsArray();
+//   console.error('list of row totals in the food total function', createRowTotalsArray());
+//   let foodTotalAmount = 0;
+//   rowTotalsArray.forEach((rowAmount) => {
+//     foodTotalAmount += rowAmount;
+//   });
+//   console.error('food total AMOUNT in new function', foodTotalAmount);
+//   const foodTotal = Object.prototype.hasOwnProperty.call(event, 'foodTotal') ? event.foodTotal : foodTotalAmount;
+//   console.error('food total in new function', foodTotal);
+//   return foodTotal;
+// };
+
 const getEventFoodDetails = (singleEvent) => {
+  // const newTotal = createNewParamFoodTotal(singleEvent);
+  // console.error('new total', newTotal);
   let domString = '';
   domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Food Details</h4>';
@@ -49,8 +73,14 @@ const getEventFoodDetails = (singleEvent) => {
     domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
     domString += `<td class="cell-width">$${foodItem.price}</td>`;
     domString += `<td class="cell-width">${foodItem.parentQuantity}</td>`;
-    getFoodTotals(singleEvent);
-    domString += `<td class="cell-width">$${foodItem.rowTotal}</td>`;
+    // getFoodTotals(singleEvent);
+    const x = `${foodItem.price}`;
+    const y = `${foodItem.parentQuantity}`;
+    console.error('total from new function!!!!', createNewParamRowTotal(foodItem, x, y));
+    domString += '<td class="cell-width">';
+    domString += createNewParamRowTotal(foodItem, x, y);
+    domString += '</td>';
+    // domString += `<td class="cell-width">$${foodItem.rowTotal}</td>`;
     const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
       domString += `<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn" data-id="${foodItem.parentEventFoodId}"><i class="far fa-trash-alt"></i></button></td>`;
@@ -67,7 +97,9 @@ const getEventFoodDetails = (singleEvent) => {
   domString += '<div class="input-group-prepend">';
   domString += '<span class="input-group-text">$</span>';
   domString += '</div>';
-  domString += `<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value="${singleEvent.foodCosts}">`;
+  // domString += `<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value=${newTotal}>`;
+  // domString += '<div class="input-group-append">';
+  domString += `<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value=${singleEvent.foodTotal}>`;
   domString += '<div class="input-group-append">';
   domString += '<span class="input-group-text">.00</span>';
   domString += '</div>';
