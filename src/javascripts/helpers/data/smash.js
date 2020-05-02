@@ -21,9 +21,28 @@ const getEventFood = (eventId) => new Promise((resolve, reject) => {
           foundEventFoodItem.parentEventFoodId = eventFoodItem.id;
           foundEventFoodItem.parentQuantity = eventFoodItem.quantity;
           foundEventFoodItem.parentEventId = eventFoodItem.eventId;
+          foundEventFoodItem.rowTotal = foundEventFoodItem.parentQuantity * foundEventFoodItem.price;
           selectedEventFoodItems.push(foundEventFoodItem);
         });
         resolve(selectedEventFoodItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
+const getEventFoodTotal = (eventId) => new Promise((resolve, reject) => {
+  eventFoodData.getEventFoodByEventId(eventId)
+    .then((eventFoods) => {
+      foodData.getFoods().then((allFoods) => {
+        const rowTotalsArray = [];
+        eventFoods.forEach((eventFoodItem) => {
+          const foundEventFoodItem = allFoods.find((x) => x.id === eventFoodItem.foodId);
+          foundEventFoodItem.parentQuantity = eventFoodItem.quantity;
+          foundEventFoodItem.rowTotal = foundEventFoodItem.parentQuantity * foundEventFoodItem.price;
+          rowTotalsArray.push(foundEventFoodItem.rowTotal);
+        });
+        const foodTotal = rowTotalsArray.reduce((total, num) => total + num, 0);
+        resolve(foodTotal);
       });
     })
     .catch((error) => reject(error));
@@ -103,18 +122,21 @@ const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
 const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
   eventData.getEventById(eventId)
     .then((event) => {
-      getEventFood(eventId).then((eventFood) => {
-        getEventSouvenirs(eventId).then((eventSouvenirs) => {
-          getEventStaff(eventId).then((eventStaff) => {
-            getEventShow(eventId).then((eventShows) => {
-              getEventAnimals(eventId).then((eventAnimals) => {
-                const finalEvent = { ...event };
-                finalEvent.food = eventFood;
-                finalEvent.souvenirs = eventSouvenirs;
-                finalEvent.shows = eventShows;
-                finalEvent.staff = eventStaff;
-                finalEvent.animals = eventAnimals;
-                resolve(finalEvent);
+      getEventSouvenirs(eventId).then((eventSouvenirs) => {
+        getEventStaff(eventId).then((eventStaff) => {
+          getEventShow(eventId).then((eventShows) => {
+            getEventAnimals(eventId).then((eventAnimals) => {
+              getEventFood(eventId).then((eventFood) => {
+                getEventFoodTotal(eventId).then((foodTotal) => {
+                  const finalEvent = { ...event };
+                  finalEvent.food = eventFood;
+                  finalEvent.foodTotalAmount = foodTotal;
+                  finalEvent.souvenirs = eventSouvenirs;
+                  finalEvent.shows = eventShows;
+                  finalEvent.staff = eventStaff;
+                  finalEvent.animals = eventAnimals;
+                  resolve(finalEvent);
+                });
               });
             });
           });
@@ -125,7 +147,6 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
 });
 
 export default {
-  getEventFood,
   getCompleteEvent,
   getEventStaff,
 };

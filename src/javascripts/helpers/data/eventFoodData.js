@@ -12,7 +12,6 @@ const getEventFoodByEventId = (eventId) => new Promise((resolve, reject) => {
         allEventFoodItems[eventFoodId].id = eventFoodId;
         eventFoodList.push(allEventFoodItems[eventFoodId]);
       });
-      console.error('event food list from eventfood data file', eventFoodList);
       resolve(eventFoodList);
     })
     .catch((error) => reject(error));
