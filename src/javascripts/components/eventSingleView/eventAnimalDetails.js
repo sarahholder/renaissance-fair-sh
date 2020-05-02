@@ -9,7 +9,6 @@ const printAnimalChoices = () => {
   animalData.getAnimals()
     .then((animals) => {
       let domString = '';
-      domString += '<div class="input-group">';
       domString += '<select class="custom-select col-11" id="inputGroupSelect04">';
       domString += '  <option selected>Choose animal to add to event...</option>';
       animals.forEach((animal) => {
@@ -26,7 +25,13 @@ const printAnimalChoices = () => {
 const getEventAnimalDetails = (singleEvent) => {
   printAnimalChoices();
   let domString = '';
-  domString += '<table class="table-responsive table-dark table-width">';
+  domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
+  domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
+  const user = firebase.auth().currentUser;
+  if (user.uid === singleEvent.uid) {
+    domString += '<button class="btn btn-default btn-lg d-flex ml-auto" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus"></i></button>';
+  }
+  domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Type</th>';
@@ -36,12 +41,12 @@ const getEventAnimalDetails = (singleEvent) => {
   domString += '<tr>';
   domString += '<th colspan="4">';
   domString += '<div class="collapse d-flex flex-wrap" id="collapseExample">';
-  domString += '<div id="animalChoices"></div>';
-  domString += '<div class="input-group-append">';
-  domString += '  <button class="btn btn-outline-secondary" type="button">Add</button>';
-  domString += '</div>';
-  domString += '</div>';
-  domString += '</div></th></tr>';
+  domString += '  <div id="animalChoices"></div>';
+  domString += '    <div class="input-group-append">';
+  domString += '      <button class="btn btn-outline-secondary" type="button">Add</button>';
+  domString += '    </div>';
+  domString += '  </div>';
+  domString += '</div></th>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
@@ -51,16 +56,16 @@ const getEventAnimalDetails = (singleEvent) => {
     domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
     domString += `<td class="cell-width">$${animalItem.cost}</td>`;
     domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
-    const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
       // eslint-disable-next-line max-len
       domString += `<td class="cell-width"><button id="${animalItem.parentEventAnimalId}" value="${animalItem.parentEventAnimalId}" class="btn btn-default deleteEventBtn deleteEventAnimalBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
     domString += '</tr>';
-    domString += '</>';
   });
   domString += '</tbody>';
   domString += '</table>';
+  domString += '</div>';
+  domString += '</div>';
 
   return domString;
 };
