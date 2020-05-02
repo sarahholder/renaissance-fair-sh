@@ -149,10 +149,7 @@ const viewSingleEvent = (eventId) => {
       domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
       domString += eventSouvenirDetails(singleEvent);
       domString += '</div>';
-      domString += '<div id="eventStaffSection" class="quad col-md-4 col-sm-12">';
-      domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
       domString += eventStaffDetails.getEventStaffDetails(singleEvent);
-      domString += '</div>';
       domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
       domString += showDetails.eventShowDetails(singleEvent);
@@ -160,7 +157,6 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
       domString += eventAnimalDetails.getEventAnimalDetails(singleEvent);
-      domString += '</div>';
       domString += '</div>';
       domString += '</div>';
       domString += '<div id="chartDiv"></div>';

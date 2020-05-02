@@ -28,6 +28,12 @@ const getStaffTotals = (singleEvent) => {
 
 const getEventStaffDetails = (singleEvent) => {
   let domString = '';
+  const user = firebase.auth().currentUser;
+  domString += '<div id="eventStaffSection" class="quad col-md-4 col-sm-12">';
+  domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
+  if (user.uid === singleEvent.uid) {
+    domString += '<button class="btn btn-default btn-lg d-flex ml-auto" id="add-eventStaff"><i class="fas fa-plus"></i></button>';
+  }
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
@@ -45,7 +51,6 @@ const getEventStaffDetails = (singleEvent) => {
     domString += `<td class="cell-width">${staffMember.parentQuantity}</td>`;
     getStaffTotals(singleEvent);
     domString += `<td class="cell-width">$${staffMember.rowTotal}</td>`;
-    const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
       domString += `<td class="cell-width"><button id="${staffMember.parentEventStaffId}" value="${staffMember.parentEventStaffId}" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
