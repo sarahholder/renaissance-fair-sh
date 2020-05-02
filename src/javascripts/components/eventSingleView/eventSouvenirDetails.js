@@ -58,16 +58,16 @@ const getEventSouvenirDetails = (singleEvent) => {
   domString += '<div class="input-group mb-4>';
   domString += '<div class="input-group-prepend">';
   domString += '<span class="input-group-text">Total Event Souvenir Costs:</span>';
-  // domString += '</div>';
   domString += '<div class="input-group-prepend">';
   domString += '<span class="input-group-text">$</span>';
   domString += '</div>';
-  domString += `<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value="${singleEvent.souvenirsCosts}">`;
+  domString += `<input id="souvTotalCost" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value="${singleEvent.souvenirsCosts}">`;
   domString += '<div class="input-group-append">';
   domString += '<span class="input-group-text">.00</span>';
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';
+  domString += '</tfoot>';
 
   return domString;
 };

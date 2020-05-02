@@ -9,12 +9,14 @@ import eventSouvenirDetails from './eventSouvenirDetails';
 import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
+
 import utils from '../../helpers/utils';
 
 import showDetails from './eventShowDetails';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
+// import eventData from '../../helpers/data/eventData';
 
 
 const closeSingleEvent = () => {
@@ -104,6 +106,38 @@ const removeEventSouvenir = (e) => {
     .catch((error) => console.error('could not delete souvenir item from event', error));
 };
 
+const getGrandTotal = () => {
+  // eventSouvenirDetails.getSouvenirTotals(completeEvent);
+  const souvenirTotal = $('#souvTotalCost').val() * 1;
+  const showTotal = $('#showTotalCost').val() * 1;
+  const foodTotal = $('#foodTotalCost').val() * 1;
+  const staffTotal = $('#staffTotalCost').val() * 1;
+  // const animalTotal = $('animalToalCost').val() * 1;
+  const fullTotal = souvenirTotal + showTotal + foodTotal + staffTotal;
+  utils.printToDom('theGrandDaddyTotal', fullTotal);
+};
+
+const grandTotalBuilder = () => {
+  let domString = '';
+  domString += '<div id="grandTotalSection" class="quad col-md-4 col-sm-12">';
+  domString += '<h4 class="eventSectionTitle"> Grand Total</h4>';
+  domString += '<table class="table-responsive table-dark">';
+  domString += '<thread>';
+  domString += '<tr>';
+  domString += '<th scope="col">$</th>';
+  domString += '<th scope="col"';
+  domString += '$<div id="theGrandDaddyTotal">';
+  domString += '</div>';
+  domString += '</th>';
+  domString += '</th>';
+  domString += '</tr>';
+  domString += '</thread>';
+  domString += '</table>';
+  domString += '</div>';
+
+  return domString;
+};
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -119,18 +153,20 @@ const viewSingleEvent = (eventId) => {
       domString += eventFoodDetails.getEventFoodDetails(singleEvent);
       domString += eventSouvenirDetails.getEventSouvenirDetails(singleEvent);
       domString += eventStaffDetails.getEventStaffDetails(singleEvent);
-      domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
-      domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
+      // domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
+      // domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
       domString += showDetails.eventShowDetails(singleEvent);
-      domString += '</div>';
+      // domString += '</div>';
       domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
       domString += eventAnimalDetails.getEventAnimalDetails(singleEvent);
       domString += '</div>';
+      domString += grandTotalBuilder(singleEvent);
       domString += '</div>';
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
       singleEventCharts.buildSingleEventChart();
+      getGrandTotal(singleEvent);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
       $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);

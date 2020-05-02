@@ -28,8 +28,8 @@ const getShowTotals = (singleEvent) => {
 
 const eventShowDetails = (singleEvent) => {
   let domString = '';
-  // domString += '<div id="eventShowSection" class="quad col-md-4 col-sm-12">';
-  // domString += '<h4 class="eventSectionTitle">Show Details</h4>';
+  domString += '<div id="eventShowSection" class="quad col-md-4 col-sm-12">';
+  domString += '<h4 class="eventSectionTitle">Show Details</h4>';
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
@@ -63,7 +63,7 @@ const eventShowDetails = (singleEvent) => {
   domString += '<div class="input-group-prepend">';
   domString += '<span class="input-group-text">$</span>';
   domString += '</div>';
-  domString += `<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value="${singleEvent.showCosts}">`;
+  domString += `<input id="showTotalCost" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value="${singleEvent.showCosts}">`;
   domString += '<div class="input-group-append">';
   domString += '<span class="input-group-text">.00</span>';
   domString += '</div>';
