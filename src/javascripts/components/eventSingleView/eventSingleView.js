@@ -1,4 +1,3 @@
-import firebase from 'firebase/app';
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventFoodDetails from './eventFoodDetails';
 import eventStaffData from '../../helpers/data/eventStaffData';
@@ -6,6 +5,8 @@ import eventStaffDetails from './eventStaffDetails';
 import eventShowData from '../../helpers/data/eventShowData';
 import eventAnimalData from '../../helpers/data/eventAnimalData';
 import eventAnimalDetails from './eventAnimalDetails';
+import eventSouvenirDetails from './eventSouvenirDetails';
+import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import utils from '../../helpers/utils';
@@ -14,7 +15,6 @@ import showDetails from './eventShowDetails';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
-import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 
 
 const closeSingleEvent = () => {
@@ -26,34 +26,6 @@ const closeSingleEvent = () => {
   $('#events').removeClass('hide');
   $('#single-view-event').addClass('hide');
   $('#animals').removeClass('hide');
-};
-
-const eventSouvenirDetails = (singleEvent) => {
-  let domString = '';
-  domString += '<table class="table-responsive table-dark">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Souvenir Type</th>';
-  domString += '<th scope="col">Price</th>';
-  domString += '<th scope="col">Qty</th>';
-  domString += '</tr>';
-  domString += '</thead>';
-  domString += '<tbody>';
-  singleEvent.souvenirs.forEach((souvItem) => {
-    domString += `<tr class="souvenirRow" id="${souvItem.parentEventId}" data-id="${souvItem.id}" data-parent="${souvItem.parentEventSouvenirId}" data-container="${souvItem.parentEventId}">`;
-    domString += `<th scope="row" class="cell-width">${souvItem.type}</th>`;
-    domString += `<td class="cell-width">$${souvItem.price}</td>`;
-    domString += `<td class="cell-width">${souvItem.parentQuantity}</td>`;
-    const user = firebase.auth().currentUser;
-    if (user.uid === singleEvent.uid) {
-      domString += `<td class="cell-width"><button id="${souvItem.parentEventSouvenirId}" value="${souvItem.parentEventSouvenirId}" class="btn btn-default deleteEventSouvenirBtn deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>`;
-    }
-    domString += '</tr>';
-  });
-  domString += '</tbody>';
-  domString += '</table>';
-
-  return domString;
 };
 
 const removeEventFood = (e) => {
@@ -145,10 +117,7 @@ const viewSingleEvent = (eventId) => {
       domString += '</div>';
       domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
       domString += eventFoodDetails.getEventFoodDetails(singleEvent);
-      domString += '<div id="eventSouvenirsSection" class="quad col-md-4 col-sm-12">';
-      domString += '<h4 class="eventSectionTitle">Souvenirs Details</h4>';
-      domString += eventSouvenirDetails(singleEvent);
-      domString += '</div>';
+      domString += eventSouvenirDetails.getEventSouvenirDetails(singleEvent);
       domString += eventStaffDetails.getEventStaffDetails(singleEvent);
       domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
