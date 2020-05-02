@@ -4,7 +4,6 @@ import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
 const getEventFoodDetails = (singleEvent) => {
-  console.error('single event coming in to get food details', singleEvent);
   let domString = '';
   domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Food Details</h4>';
