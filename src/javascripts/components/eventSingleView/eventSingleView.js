@@ -103,9 +103,7 @@ const removeEventStaff = (e) => {
 const removeEventAnimal = (e) => {
   e.preventDefault();
   const eventAnimalId = e.target.closest('button').id;
-  // console.log('INSIDE FUNCTION RESULT EVENT ANIMAL', eventAnimalId);
   const eventId = e.target.closest('.animalRow').id;
-  // console.log('INSIDE FUNCTION EVENT ID', eventId);
   eventAnimalData.getSingleEventAnimal(eventAnimalId)
     .then(() => {
       eventAnimalData.deleteEventAnimal(eventAnimalId)
@@ -115,6 +113,20 @@ const removeEventAnimal = (e) => {
         });
     })
     .catch((error) => console.error('could not delete animal item from event', error));
+};
+
+const makeNewEventAnimal = (e) => {
+  console.log('FREAKING BUTTON CLICKED');
+  e.preventDefault();
+  const thisEventId = $('#inputGroupSelect04 option:selected').attr('value');
+  console.log('THIS IS THE FREAKING EVENT ID AGAIN', thisEventId);
+  const newEventAnimal = {
+    eventId: thisEventId,
+    animalId: $('#inputGroupSelect04 option:selected').attr('id'),
+  };
+  eventAnimalData.addEventAnimal(newEventAnimal);
+  // eslint-disable-next-line no-use-before-define
+  viewSingleEvent(thisEventId);
 };
 
 const removeEventSouvenir = (e) => {
@@ -157,12 +169,7 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
       singleEventCharts.buildSingleEventChart();
-      $('body').on('click', '#closeSingleEvent', closeSingleEvent);
-      $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
-      $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
-      $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-      $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
-      $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
+
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
@@ -179,4 +186,19 @@ const viewSingleEventCall = (e) => {
   viewSingleEvent(eventId);
 };
 
-export default { viewSingleEventCall, removeEventAnimal };
+const eventSingleViewClickEvents = () => {
+  $('body').on('click', '#closeSingleEvent', closeSingleEvent);
+  $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
+  $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
+  $('body').on('click', '.deleteEventShowBtn', removeEventShow);
+  $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
+  $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
+  $('body').on('click', '#make-new-event-animal', makeNewEventAnimal);
+};
+
+export default {
+  viewSingleEventCall,
+  removeEventAnimal,
+  eventSingleViewClickEvents,
+  makeNewEventAnimal,
+};

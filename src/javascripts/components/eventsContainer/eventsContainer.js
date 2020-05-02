@@ -9,7 +9,6 @@ import editEventForm from '../editEventForm/editEventForm';
 import addEventModal from './eventModalForm/eventModalForm.js';
 import charts from '../Charts/charts';
 
-
 import utils from '../../helpers/utils';
 import './eventsContainer.scss';
 
