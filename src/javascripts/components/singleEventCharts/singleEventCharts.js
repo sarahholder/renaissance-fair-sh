@@ -4,7 +4,7 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 const buildSingleEventChart = () => {
   const chart = am4core.create('chartDiv', am4charts.XYChart);
 
-  chart.marginRight = 100;
+  chart.marginRight = 400;
 
   // Add data
   chart.data = [{
@@ -41,7 +41,7 @@ const buildSingleEventChart = () => {
   const series = chart.series.push(new am4charts.ColumnSeries());
   series.dataFields.valueY = 'cost';
   series.dataFields.categoryX = 'collection';
-  series.name = 'Sales';
+  series.name = 'Cost';
   series.tooltipText = '{name}: [bold]{valueY}[/]';
   series.columns.template.fill = am4core.color('#670b1a');
 
