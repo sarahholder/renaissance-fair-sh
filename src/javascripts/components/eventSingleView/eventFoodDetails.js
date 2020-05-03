@@ -18,13 +18,6 @@ const getEventFoodDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.food.forEach((foodItem) => {
-    // if (`${foodItem.price}` < 101 && `${foodItem.price}` > 0) {
-    //   domString += '<div class="from0To100">';
-    // } else if (`${foodItem.price}` > 100 && `${foodItem.price}` < 201) {
-    //   domString += '<div class="from101To200">';
-    // } else if (`${foodItem.price}` > 200 && `${foodItem.price}` < 301) {
-    //   domString += '<div class="from201To300">';
-    // }
     if (`${foodItem.price}` < 101 && `${foodItem.price}` > 0) {
       domString += `<tr class="eventFoodItem foodRow from0To100" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     } else if (`${foodItem.price}` > 100 && `${foodItem.price}` < 201) {
@@ -38,8 +31,6 @@ const getEventFoodDetails = (singleEvent) => {
     } else if (`${foodItem.price}` > 500) {
       domString += `<tr class="eventFoodItem foodRow from501On" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     }
-    // Anca: INITIAL Table Row TAG WITHOUT ANY PRICE RANGE CLASSES BELOW
-    // domString += `<tr class="eventFoodItem foodRow" data-id="${foodItem.id}" data-parent="${foodItem.parentEventFoodId}" data-container="${foodItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${foodItem.type}</th>`;
     domString += `<td class="cell-width">$${foodItem.price}</td>`;
     domString += `<td class="cell-width">${foodItem.parentQuantity}</td>`;

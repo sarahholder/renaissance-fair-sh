@@ -142,7 +142,6 @@ const grandTotalBuilder = () => {
 // FUNCTIONS FOR THE BUTTONS IN THE ACCORDION SECTION WITH FILTERS ARE BELOW
 const applyFilterByPriceRange = () => {
   const selectedPriceRange = $('#priceRangeSelected').val();
-  console.error('selected option in the filter select menu', selectedPriceRange);
   if (selectedPriceRange === 'Under $100') {
     $('.from0To100').removeClass('hide');
     $('.from101To200').addClass('hide');
@@ -198,6 +197,7 @@ const filterEvents = () => {
   $('body').on('click', '#btnFilterPriceRangeSave', applyFilterByPriceRange);
   $('body').on('click', '#btnFilterPriceRangeClear', clearFilterByPriceRange);
 };
+// Anca: Functions for filter buttons end here.
 
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
