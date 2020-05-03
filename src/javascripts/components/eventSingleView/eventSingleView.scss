@@ -6,7 +6,6 @@
 .singleEventTitle {
   @include titles;
   text-align: center;
-
 }
 
 .eventSectionTitle {
@@ -23,6 +22,15 @@
   @include red-buttons;
 }
 
+.blueButton {
+  @include blue-buttons;
+}
+
+.filterTitle {
+  font-family: $allFonts;
+  font-weight: bold;
+  color: black;
+}
 
 th, td {
   border: 1px solid white;
@@ -35,7 +43,6 @@ th {
 
 .deleteEventBtn {
   margin: auto;
-
 }
 
 #add-eventStaff {

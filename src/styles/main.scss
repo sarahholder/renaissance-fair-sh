@@ -90,6 +90,7 @@ nav {
     background-color: #343A40;
 		}
   }
+
 .table-width {
   width: 100%;
 }
@@ -102,3 +103,15 @@ nav {
   width: 30%;
 }
 
+#eventFiltersDiv {
+  display: flex;
+  justify-content: space-around;
+  }
+
+.filterBlock {
+  box-shadow: inset 0 0 5px #000000;
+  color: white;
+  margin: 2px;
+  padding: 2px;
+  background-color: #343A40;
+	}
