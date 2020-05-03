@@ -31,7 +31,7 @@ const getEventStaffDetails = (singleEvent) => {
     } else if (`${staffMember.pay}` > 300 && `${staffMember.pay}` < 401) {
       domString += `<tr class="eventStaffMember staffRow from301To400" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     } else if (`${staffMember.pay}` > 400 && `${staffMember.pay}` < 501) {
-      domString += `<tr class="eventStaffMember staffRow from501To500" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+      domString += `<tr class="eventStaffMember staffRow from401To500" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     } else if (`${staffMember.pay}` > 500) {
       domString += `<tr class="eventStaffMember staffRow from501On" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     }
