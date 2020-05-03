@@ -92,11 +92,30 @@ const getEventStaff = (eventId) => new Promise((resolve, reject) => {
         eventStaff.forEach((eventStaffMember) => {
           const foundEventStaffMember = allStaff.find((x) => x.id === eventStaffMember.staffId);
           foundEventStaffMember.parentEventStaffId = eventStaffMember.id;
-          foundEventStaffMember.parentEventId = eventStaffMember.eventId;
           foundEventStaffMember.parentQuantity = eventStaffMember.quantity;
+          foundEventStaffMember.parentEventId = eventStaffMember.eventId;
+          foundEventStaffMember.rowTotal = foundEventStaffMember.parentQuantity * foundEventStaffMember.pay;
           selectedEventStaffMembers.push(foundEventStaffMember);
         });
         resolve(selectedEventStaffMembers);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
+const getEventStaffTotal = (eventId) => new Promise((resolve, reject) => {
+  eventStaffData.getEventStaffByEventId(eventId)
+    .then((eventStaff) => {
+      staffData.getStaff().then((allStaff) => {
+        const rowTotalsArray = [];
+        eventStaff.forEach((eventStaffMember) => {
+          const foundEventStaffMember = allStaff.find((x) => x.id === eventStaffMember.staffId);
+          foundEventStaffMember.parentQuantity = eventStaffMember.quantity;
+          foundEventStaffMember.rowTotal = foundEventStaffMember.parentQuantity * foundEventStaffMember.pay;
+          rowTotalsArray.push(foundEventStaffMember.rowTotal);
+        });
+        const staffTotal = rowTotalsArray.reduce((total, num) => total + num, 0);
+        resolve(staffTotal);
       });
     })
     .catch((error) => reject(error));
@@ -128,14 +147,17 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
             getEventAnimals(eventId).then((eventAnimals) => {
               getEventFood(eventId).then((eventFood) => {
                 getEventFoodTotal(eventId).then((foodTotal) => {
-                  const finalEvent = { ...event };
-                  finalEvent.food = eventFood;
-                  finalEvent.foodTotalAmount = foodTotal;
-                  finalEvent.souvenirs = eventSouvenirs;
-                  finalEvent.shows = eventShows;
-                  finalEvent.staff = eventStaff;
-                  finalEvent.animals = eventAnimals;
-                  resolve(finalEvent);
+                  getEventStaffTotal(eventId).then((staffTotal) => {
+                    const finalEvent = { ...event };
+                    finalEvent.food = eventFood;
+                    finalEvent.foodTotalAmount = foodTotal;
+                    finalEvent.souvenirs = eventSouvenirs;
+                    finalEvent.shows = eventShows;
+                    finalEvent.staff = eventStaff;
+                    finalEvent.staffTotalAmount = staffTotal;
+                    finalEvent.animals = eventAnimals;
+                    resolve(finalEvent);
+                  });
                 });
               });
             });
