@@ -7,13 +7,12 @@ import eventAnimalData from '../../helpers/data/eventAnimalData';
 import eventAnimalDetails from './eventAnimalDetails';
 import eventSouvenirDetails from './eventSouvenirDetails';
 import eventSouvenirData from '../../helpers/data/eventSouvenirData';
+import showDetails from './eventShowDetails';
 import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import eventFilterFields from './eventFilters';
 
 import utils from '../../helpers/utils';
-
-import showDetails from './eventShowDetails';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
@@ -215,10 +214,7 @@ const viewSingleEvent = (eventId) => {
       domString += eventFoodDetails.getEventFoodDetails(singleEvent);
       domString += eventSouvenirDetails.getEventSouvenirDetails(singleEvent);
       domString += eventStaffDetails.getEventStaffDetails(singleEvent);
-      // domString += '<div id="eventShowsSection" class="quad col-md-4 col-sm-12">';
-      // domString += '<h4 class="eventSectionTitle">Shows Details</h4>';
       domString += showDetails.eventShowDetails(singleEvent);
-      // domString += '</div>';
       domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
       domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
       domString += eventAnimalDetails.getEventAnimalDetails(singleEvent);

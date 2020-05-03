@@ -76,9 +76,28 @@ const getEventShow = (eventId) => new Promise((resolve, reject) => {
           foundEventShowItem.parentEventShowId = eventShowItem.id;
           foundEventShowItem.parentEventId = eventShowItem.eventId;
           foundEventShowItem.parentQuantity = eventShowItem.quantity;
+          foundEventShowItem.rowTotal = foundEventShowItem.parentQuantity * foundEventShowItem.cost;
           selectedEventShowItems.push(foundEventShowItem);
         });
         resolve(selectedEventShowItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
+const getEventShowTotal = (eventId) => new Promise((resolve, reject) => {
+  eventShowData.getEventShowByEventId(eventId)
+    .then((eventShows) => {
+      showData.getShows().then((allShows) => {
+        const rowTotalsArray = [];
+        eventShows.forEach((eventShowItem) => {
+          const foundEventShowItem = allShows.find((x) => x.id === eventShowItem.showId);
+          foundEventShowItem.parentQuantity = eventShowItem.quantity;
+          foundEventShowItem.rowTotal = foundEventShowItem.parentQuantity * foundEventShowItem.cost;
+          rowTotalsArray.push(foundEventShowItem.rowTotal);
+        });
+        const showTotal = rowTotalsArray.reduce((total, num) => total + num, 0);
+        resolve(showTotal);
       });
     })
     .catch((error) => reject(error));
@@ -144,19 +163,22 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
       getEventSouvenirs(eventId).then((eventSouvenirs) => {
         getEventStaff(eventId).then((eventStaff) => {
           getEventShow(eventId).then((eventShows) => {
-            getEventAnimals(eventId).then((eventAnimals) => {
-              getEventFood(eventId).then((eventFood) => {
-                getEventFoodTotal(eventId).then((foodTotal) => {
-                  getEventStaffTotal(eventId).then((staffTotal) => {
-                    const finalEvent = { ...event };
-                    finalEvent.food = eventFood;
-                    finalEvent.foodTotalAmount = foodTotal;
-                    finalEvent.souvenirs = eventSouvenirs;
-                    finalEvent.shows = eventShows;
-                    finalEvent.staff = eventStaff;
-                    finalEvent.staffTotalAmount = staffTotal;
-                    finalEvent.animals = eventAnimals;
-                    resolve(finalEvent);
+            getEventShowTotal(eventId).then((showTotal) => {
+              getEventAnimals(eventId).then((eventAnimals) => {
+                getEventFood(eventId).then((eventFood) => {
+                  getEventFoodTotal(eventId).then((foodTotal) => {
+                    getEventStaffTotal(eventId).then((staffTotal) => {
+                      const finalEvent = { ...event };
+                      finalEvent.food = eventFood;
+                      finalEvent.foodTotalAmount = foodTotal;
+                      finalEvent.souvenirs = eventSouvenirs;
+                      finalEvent.shows = eventShows;
+                      finalEvent.showTotalAmount = showTotal;
+                      finalEvent.staff = eventStaff;
+                      finalEvent.staffTotalAmount = staffTotal;
+                      finalEvent.animals = eventAnimals;
+                      resolve(finalEvent);
+                    });
                   });
                 });
               });
