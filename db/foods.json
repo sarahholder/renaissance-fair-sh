@@ -3,7 +3,7 @@
     "type": "Beer",
     "description": "Cold and perfectly frothy",
     "imageUrl": "https://images.unsplash.com/photo-1471421298428-1513ab720a8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80",
-    "price": 3,
+    "price": 300,
     "isAvailable": "Available",
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
@@ -11,7 +11,7 @@
     "type": "Lemonade",
     "description": "Every cup fresh made to order",
     "imageUrl": "https://images.unsplash.com/photo-1568919722116-90b266c5ccd2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-    "price": 2,
+    "price": 200,
     "isAvailable": "Available",
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
@@ -19,7 +19,7 @@
     "type": "Funnel Cake",
     "description": "Fresh hot and served with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1581618478941-515a55d3fce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-    "price": 6,
+    "price": 505,
     "isAvailable": "Available",
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },

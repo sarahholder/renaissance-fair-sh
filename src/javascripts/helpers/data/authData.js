@@ -7,6 +7,7 @@ import shows from '../../components/shows/shows';
 import staff from '../../components/staff/staff';
 import animals from '../../components/animals/animals';
 import eventsContainer from '../../components/eventsContainer/eventsContainer';
+import eventSingleView from '../../components/eventSingleView/eventSingleView';
 
 const loginButton = $('#loginButton');
 const logoutButton = $('#logoutButton');
@@ -57,6 +58,7 @@ const checkLoginStatus = () => {
     shows.showEvents();
     souvenirs.souvenirsEvents();
     souvenirs.buildAllSouvenirs();
+    eventSingleView.filterEvents();
   });
 };
 

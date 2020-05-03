@@ -9,6 +9,7 @@ import eventSouvenirDetails from './eventSouvenirDetails';
 import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
+import eventFilterFields from './eventFilters';
 
 import utils from '../../helpers/utils';
 
@@ -138,6 +139,66 @@ const grandTotalBuilder = () => {
   return domString;
 };
 
+// FUNCTIONS FOR THE BUTTONS IN THE ACCORDION SECTION WITH FILTERS ARE BELOW
+const applyFilterByPriceRange = () => {
+  const selectedPriceRange = $('#priceRangeSelected').val();
+  if (selectedPriceRange === 'Under $100') {
+    $('.from0To100').removeClass('hide');
+    $('.from101To200').addClass('hide');
+    $('.from201To300').addClass('hide');
+    $('.from301To400').addClass('hide');
+    $('.from401To500').addClass('hide');
+    $('.from501On').addClass('hide');
+  } else if (selectedPriceRange === '$101-$200') {
+    $('.from0To100').addClass('hide');
+    $('.from101To200').removeClass('hide');
+    $('.from201To300').addClass('hide');
+    $('.from301To400').addClass('hide');
+    $('.from401To500').addClass('hide');
+    $('.from501On').addClass('hide');
+  } else if (selectedPriceRange === '$201-$300') {
+    $('.from0To100').addClass('hide');
+    $('.from101To200').addClass('hide');
+    $('.from201To300').removeClass('hide');
+    $('.from301To400').addClass('hide');
+    $('.from401To500').addClass('hide');
+    $('.from501On').addClass('hide');
+  } else if (selectedPriceRange === '$301-$400') {
+    $('.from0To100').addClass('hide');
+    $('.from101To200').addClass('hide');
+    $('.from201To300').addClass('hide');
+    $('.from301To400').removeClass('hide');
+    $('.from401To500').addClass('hide');
+    $('.from501On').addClass('hide');
+  } else if (selectedPriceRange === '$401-$500') {
+    $('.from0To100').addClass('hide');
+    $('.from101To200').addClass('hide');
+    $('.from201To300').addClass('hide');
+    $('.from301To400').addClass('hide');
+    $('.from401To500').removeClass('hide');
+    $('.from501On').addClass('hide');
+  } else if (selectedPriceRange === 'Over $500') {
+    $('.from0To100').addClass('hide');
+    $('.from101To200').addClass('hide');
+    $('.from201To300').addClass('hide');
+    $('.from301To400').addClass('hide');
+    $('.from401To500').addClass('hide');
+    $('.from501On').removeClass('hide');
+  }
+};
+
+const clearFilterByPriceRange = (e) => {
+  const eventId = e.target.dataset.id;
+  // eslint-disable-next-line no-use-before-define
+  viewSingleEvent(eventId);
+};
+
+const filterEvents = () => {
+  $('body').on('click', '#btnFilterPriceRangeSave', applyFilterByPriceRange);
+  $('body').on('click', '#btnFilterPriceRangeClear', clearFilterByPriceRange);
+};
+// Anca: Functions for filter buttons end here.
+
 const viewSingleEvent = (eventId) => {
   smashData.getCompleteEvent(eventId)
     .then((singleEvent) => {
@@ -149,6 +210,7 @@ const viewSingleEvent = (eventId) => {
       domString += `<h5>${singleEvent.timeStart} - ${singleEvent.timeEnd}</h5>`;
       domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close event details</button>';
       domString += '</div>';
+      domString += eventFilterFields.eventFilters(eventId);
       domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
       domString += eventFoodDetails.getEventFoodDetails(singleEvent);
       domString += eventSouvenirDetails.getEventSouvenirDetails(singleEvent);
@@ -189,4 +251,4 @@ const viewSingleEventCall = (e) => {
   viewSingleEvent(eventId);
 };
 
-export default { viewSingleEventCall, removeEventAnimal };
+export default { viewSingleEventCall, removeEventAnimal, filterEvents };
