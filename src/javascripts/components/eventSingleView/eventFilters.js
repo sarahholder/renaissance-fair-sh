@@ -1,5 +1,5 @@
 
-const eventFilterPriceRange = (eventId) => {
+const eventFilters = (eventId) => {
   let domString = '';
   domString += '<div id="eventFiltersDiv">';
   domString += '<div class="row">';
@@ -15,7 +15,7 @@ const eventFilterPriceRange = (eventId) => {
   domString += '<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">';
   domString += '<div class="card-body">';
   // Anca: DEFAULT BOOTSTRAP SELECT TAG BELOW - LIST OF OPTIONS NEED TO BE UPDATED
-  domString += '<select class="custom-select">';
+  domString += '<select class="filterField">';
   domString += '<option selected>Open this select menu</option>';
   domString += '<option value="1">One</option>';
   domString += '<option value="2">Two</option>';
@@ -42,7 +42,7 @@ const eventFilterPriceRange = (eventId) => {
   domString += '</div>';
   domString += '<div id="collapseFilterPrice" class="collapse" aria-labelledby="headingFilterPrice" data-parent="#accordionFilterPrice">';
   domString += '<div class="card-body">';
-  domString += '<select id="priceRangeSelected" class="custom-select" name="priceRange">';
+  domString += '<select id="priceRangeSelected" class="filterField" name="priceRange">';
   domString += '<option selected name="priceRange">Open this select menu</option>';
   domString += '<option value="Under $100" name="priceRange">Under $100</option>';
   domString += '<option value="$101-$200" name="priceRange">$101-$200</option>';
@@ -67,4 +67,4 @@ const eventFilterPriceRange = (eventId) => {
   return domString;
 };
 
-export default { eventFilterPriceRange };
+export default { eventFilters };

@@ -9,7 +9,7 @@ import eventSouvenirDetails from './eventSouvenirDetails';
 import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
-import eventFilterPrice from './eventFilterPriceRange';
+import eventFilterFields from './eventFilters';
 
 import utils from '../../helpers/utils';
 
@@ -210,7 +210,7 @@ const viewSingleEvent = (eventId) => {
       domString += `<h5>${singleEvent.timeStart} - ${singleEvent.timeEnd}</h5>`;
       domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close event details</button>';
       domString += '</div>';
-      domString += eventFilterPrice.eventFilterPriceRange(eventId);
+      domString += eventFilterFields.eventFilters(eventId);
       domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
       domString += eventFoodDetails.getEventFoodDetails(singleEvent);
       domString += eventSouvenirDetails.getEventSouvenirDetails(singleEvent);

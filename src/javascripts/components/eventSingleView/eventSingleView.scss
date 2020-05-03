@@ -28,8 +28,13 @@
 
 .filterTitle {
   font-family: $allFonts;
+  font-size: .6em;
   font-weight: bold;
   color: black;
+}
+
+.filterField {
+  width: 100%;
 }
 
 th, td {
