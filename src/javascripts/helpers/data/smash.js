@@ -168,7 +168,4 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
     });
 });
 
-export default {
-  getCompleteEvent,
-  getEventStaff,
-};
+export default { getCompleteEvent };

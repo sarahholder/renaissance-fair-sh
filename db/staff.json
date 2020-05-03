@@ -1,7 +1,7 @@
 {
   "staff1": {
     "name": "May Jones",
-    "pay": 150,
+    "pay": 90,
     "characterType": "Noble",
     "characterName": "Lady Isabetta Ricci",
     "imageUrl": "https://66.media.tumblr.com/9a62a68aeddc2ad51ff01e392d92dfa7/tumblr_inline_mubfvd88eW1r1cctj.jpg",
@@ -25,7 +25,7 @@
   },
   "staff4": {
     "name": "Martin Blackwood",
-    "pay": 150,
+    "pay": 450,
     "characterType": "Peasant",
     "characterName": "Aldo Bianchi",
     "imageUrl": "https://cdn.pixabay.com/photo/2015/09/14/21/06/portrait-940115_1280.jpg",
@@ -33,7 +33,7 @@
   },
   "staff5": {
     "name": "Jonathon Sims",
-    "pay": 200,
+    "pay": 550,
     "characterType": "Knight",
     "characterName": "Alessio Rossi",
     "imageUrl": "https://cdn.pixabay.com/photo/2016/07/09/21/28/knight-1506896_1280.jpg",
