@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventFoodDetails from './eventFoodDetails';
 import eventStaffData from '../../helpers/data/eventStaffData';
@@ -18,6 +19,15 @@ import utils from '../../helpers/utils';
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 // import eventData from '../../helpers/data/eventData';
+
+const singleEventClickEvents = () => {
+  $('body').on('click', '#closeSingleEvent', closeSingleEvent);
+  $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
+  $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
+  $('body').on('click', '.deleteEventShowBtn', removeEventShow);
+  $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
+  $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
+};
 
 
 const closeSingleEvent = () => {
@@ -225,13 +235,8 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
       singleEventCharts.buildSingleEventChart();
+      singleEventClickEvents();
       getGrandTotal(singleEvent);
-      $('body').on('click', '#closeSingleEvent', closeSingleEvent);
-      $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
-      $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
-      $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-      $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
-      $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
