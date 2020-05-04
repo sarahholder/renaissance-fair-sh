@@ -37,7 +37,9 @@ const editFoodForm = (e) => {
       domString += '</form>';
       utils.printToDom('modalFoodForm', domString);
       $('#editFoodSubmit').removeClass('hide');
+      $('.edit').removeClass('hide');
       $('#newFoodSubmit').addClass('hide');
+      $('.add').addClass('hide');
     })
     .catch((err) => console.error('editFoodForm', err));
 };
