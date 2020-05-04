@@ -75,7 +75,7 @@ const buildAllShows = () => {
       domString += '<h3>Fun Shows for All Ages</h3>';
       const user = firebase.auth().currentUser;
       if (user !== null) {
-        domString += '<button class="btn btn-lg mb-2 new-show-btn" id="add-new-show-btn"><i class="fas fa-plus"></i> <span class="pl-1">Add New Show</span></button>';
+        domString += '<button class="btn btn-lg mb-2 new-show-btn" id="add-new-show-btn"><i class="fas fa-plus"></i> <span class="pl-1">Add a New Show</span></button>';
       }
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-md-9 col-sm-10">';
