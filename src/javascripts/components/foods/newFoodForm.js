@@ -33,7 +33,10 @@ const newFoodForm = () => {
   domString += '</form>';
 
   $('#newFoodSubmit').removeClass('hide');
+  $('.add').removeClass('hide');
   $('#editFoodSubmit').addClass('hide');
+  $('.edit').addClass('hide');
+
   utils.printToDom('modalFoodForm', domString);
 };
 
