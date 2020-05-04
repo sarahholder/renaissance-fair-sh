@@ -1,5 +1,24 @@
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
+import eventFoodDetails from '../eventSingleView/eventFoodDetails';
+import eventSouvenirDetails from '../eventSingleView/eventSouvenirDetails';
+import eventStaffDetails from '../eventSingleView/eventStaffDetails';
+import eventShowDetails from '../eventSingleView/eventShowDetails';
+import eventAnimalDetails from '../eventSingleView/eventAnimalDetails';
+
+const singleEventTotalsArray = [];
+
+const getSingleCollectionTotals = () => {
+  const collectionName = $('');
+  const collectionTotal = $('');
+
+  const totals = {
+    collection: collectionName.value,
+    cost: collectionTotal.value,
+  };
+  singleEventTotalsArray.push(totals);
+  console.error(totals);
+};
 
 const buildSingleEventChart = () => {
   const chart = am4core.create('chartDiv', am4charts.XYChart);
@@ -49,4 +68,4 @@ const buildSingleEventChart = () => {
 };
 
 
-export default { buildSingleEventChart };
+export default { buildSingleEventChart, getSingleCollectionTotals };

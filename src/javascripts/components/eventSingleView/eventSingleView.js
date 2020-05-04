@@ -12,6 +12,7 @@ import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import eventFilterFields from './eventFilters';
 
+
 import utils from '../../helpers/utils';
 
 import './eventSingleView.scss';
@@ -224,6 +225,7 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
       singleEventCharts.buildSingleEventChart();
+      singleEventCharts.getSingleCollectionTotals();
       getGrandTotal(singleEvent);
       $('body').on('click', '#closeSingleEvent', closeSingleEvent);
       $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
