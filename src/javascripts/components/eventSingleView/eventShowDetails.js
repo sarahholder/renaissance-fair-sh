@@ -5,9 +5,13 @@ import '../../../styles/main.scss';
 
 const eventShowDetails = (singleEvent) => {
   let domString = '';
+  const user = firebase.auth().currentUser;
   domString += '<div id="eventShowSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Show Details</h4>';
-  domString += '<table class="table-responsive table-dark">';
+  if (user.uid === singleEvent.uid) {
+    domString += '<button class="btn btn-default btn-lg d-flex ml-auto" id="add-eventShow"><i class="fas fa-plus"></i></button>';
+  }
+  domString += '<table class="table-responsive table-dark table-width">';
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th scope="col">Show Name</th>';
@@ -23,7 +27,7 @@ const eventShowDetails = (singleEvent) => {
     domString += `<td class="cell-width">$${showItem.cost}</td>`;
     domString += `<td class="cell-width">${showItem.parentQuantity}</td>`;
     domString += `<td class="cell-width">$${showItem.rowTotal}</td>`;
-    const user = firebase.auth().currentUser;
+    domString += '</div>';
     if (user.uid === singleEvent.uid) {
       domString += `<td class="cell-width"><button id="${showItem.parentEventShowId}" value="${showItem.parentEventShowId}" class="btn btn-default deleteEventBtn deleteEventShowBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
