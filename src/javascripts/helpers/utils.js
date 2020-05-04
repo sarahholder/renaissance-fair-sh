@@ -10,4 +10,5 @@ const getMyUid = () => {
   return myUid;
 };
 
+
 export default { printToDom, getMyUid };

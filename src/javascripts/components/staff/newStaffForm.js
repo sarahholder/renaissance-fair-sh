@@ -22,6 +22,8 @@ const newStaffForm = () => {
   utils.printToDom('modalStaffForm', domString);
   $('#newStaffSubmit').removeClass('hide');
   $('#editStaffSubmit').addClass('hide');
+  $('.edit').addClass('hide');
+  $('.add').removeClass('hide');
 };
 
 export default { newStaffForm };
