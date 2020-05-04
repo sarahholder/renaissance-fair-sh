@@ -30,7 +30,6 @@ const editStaffMemberForm = (e) => {
       $('#newStaffSubmit').addClass('hide');
       $('.add').addClass('hide');
       $('#editStaffSubmit').removeClass('hide');
-      $('#editStaffSubmit').removeClass('hide');
       $('.edit').removeClass('hide');
     })
     .catch((err) => console.error('editStaffMemberForm', err));
