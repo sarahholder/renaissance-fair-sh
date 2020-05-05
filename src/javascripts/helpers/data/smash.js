@@ -102,6 +102,22 @@ const getEventShowTotal = (eventId) => new Promise((resolve, reject) => {
     })
     .catch((error) => reject(error));
 });
+const getShowsNotInEvent = (eventId) => new Promise((resolve, reject) => {
+  eventShowData.getEventShowByEventId(eventId)
+    .then((eventShows) => {
+      showData.getShows().then((allShows) => {
+        const unselectedEventShowItems = [];
+        allShows.forEach((show) => {
+          const exists = eventShows.find((x) => show.id === x.showId);
+          if (exists === undefined) {
+            unselectedEventShowItems.push(show);
+          }
+        });
+        resolve(unselectedEventShowItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
 
 const getEventStaff = (eventId) => new Promise((resolve, reject) => {
   eventStaffData.getEventStaffByEventId(eventId)
@@ -157,6 +173,7 @@ const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+
 const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
   eventData.getEventById(eventId)
     .then((event) => {
@@ -190,4 +207,4 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
     });
 });
 
-export default { getCompleteEvent };
+export default { getCompleteEvent, getShowsNotInEvent };

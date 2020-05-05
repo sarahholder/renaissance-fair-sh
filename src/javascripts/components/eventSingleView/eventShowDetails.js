@@ -18,6 +18,7 @@ const eventShowDetails = (singleEvent) => {
   domString += '<th scope="col">Cost</th>';
   domString += '<th scope="col">Qty</th>';
   domString += '<th scope="col"> Extended Cost</th>';
+  domString += '</th>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
