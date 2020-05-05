@@ -1,12 +1,18 @@
 import firebase from 'firebase/app';
 
+import smash from '../../helpers/data/smash';
+
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
 const getEventFoodDetails = (singleEvent) => {
+  // const user = firebase.auth().currentUser;
   let domString = '';
   domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Food Details</h4>';
+  // if (user.uid === singleEvent.uid) {
+  //   domString += '<button class="btn btn-default btn-lg d-flex ml-auto addEventItemBtn" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus"></i></button>';
+  // }
   domString += '<table class="table-responsive table-dark table-width">';
   domString += '<thead>';
   domString += '<tr>';
@@ -58,7 +64,7 @@ const getEventFoodDetails = (singleEvent) => {
   domString += '</div>';
 
   domString += '</div>';
-
+  smash.getFoodNotInEvent();
   return domString;
 };
 
