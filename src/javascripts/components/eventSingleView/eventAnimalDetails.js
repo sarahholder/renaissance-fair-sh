@@ -17,8 +17,20 @@ const getEventAnimalDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.animals.forEach((animalItem) => {
+    if (`${animalItem.cost}` < 101 && `${animalItem.cost}` > 0) {
+      domString += `<tr class="eventAnimalItem animalRow from0To100" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+    } else if (`${animalItem.cost}` > 100 && `${animalItem.cost}` < 201) {
+      domString += `<tr class="eventAnimalItem animalRow from101To200" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+    } else if (`${animalItem.cost}` > 200 && `${animalItem.cost}` < 301) {
+      domString += `<tr class="eventAnimalItem animalRow from201To300" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+    } else if (`${animalItem.cost}` > 300 && `${animalItem.cost}` < 401) {
+      domString += `<tr class="eventAnimalItem animalRow from301To400" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+    } else if (`${animalItem.cost}` > 400 && `${animalItem.cost}` < 501) {
+      domString += `<tr class="eventAnimalItem animalRow from501To500" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+    } else if (`${animalItem.cost}` > 500) {
+      domString += `<tr class="eventAnimalItem animalRow from501On" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+    }
     // console.log('THIS IS THE ANIMAL PARENT', animalItem.parentEventAnimalId);
-    domString += `<tr class="animalRow" id="${animalItem.parentEventId}" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
     domString += `<td class="cell-width">$${animalItem.cost}</td>`;
     domString += `<td class="cell-width">${animalItem.isAvailable}</td>`;
