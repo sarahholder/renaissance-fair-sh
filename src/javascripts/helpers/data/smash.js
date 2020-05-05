@@ -47,6 +47,23 @@ const getEventFoodTotal = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getFoodNotInEvent = (eventId) => new Promise((resolve, reject) => {
+  eventFoodData.getEventFoodByEventId(eventId)
+    .then((eventFood) => {
+      foodData.getFoods().then((allFoods) => {
+        const unselectedEventFoodItems = [];
+        allFoods.forEach((food) => {
+          const exists = eventFood.find((x) => food.id === x.foodId);
+          if (exists === undefined) {
+            unselectedEventFoodItems.push(food);
+          }
+        });
+        resolve(unselectedEventFoodItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
 const getEventSouvenirs = (eventId) => new Promise((resolve, reject) => {
   eventSouvenirData.getEventSouvenirByEventId(eventId)
     .then((eventSouvenir) => {
@@ -244,6 +261,7 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
 
 export default {
   getEventFood,
+  getFoodNotInEvent,
   getCompleteEvent,
   getEventStaff,
   getAnimalsNotInEvent,
