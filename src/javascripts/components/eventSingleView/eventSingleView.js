@@ -130,20 +130,21 @@ const getGrandTotal = () => {
 
 const grandTotalBuilder = () => {
   let domString = '';
-  domString += '<div id="grandTotalSection" class="quad col-md-4 col-sm-12">';
+  domString += '<div class="grandTotalSection">';
+  domString += '<div id="grandTotalSection">';
   domString += '<h4 class="eventSectionTitle"> Grand Total</h4>';
   domString += '<table class="table-responsive table-dark">';
   domString += '<thread>';
   domString += '<tr>';
   domString += '<th scope="col">$</th>';
-  domString += '<th scope="col"';
-  domString += '$<div id="theGrandDaddyTotal">';
+  domString += '<th scope="col">';
+  domString += '<div id="theGrandDaddyTotal">';
   domString += '</div>';
-  domString += '</th>';
   domString += '</th>';
   domString += '</tr>';
   domString += '</thread>';
   domString += '</table>';
+  domString += '</div>';
   domString += '</div>';
 
   return domString;
@@ -221,14 +222,13 @@ const viewSingleEvent = (eventId) => {
       domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close Event Details</button>';
       domString += '</div>';
       domString += eventFilterFields.eventFilters(eventId);
+      domString += grandTotalBuilder(singleEvent);
       domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
       domString += eventFoodDetails.getEventFoodDetails(singleEvent);
       domString += eventSouvenirDetails.getEventSouvenirDetails(singleEvent);
       domString += eventStaffDetails.getEventStaffDetails(singleEvent);
       domString += showDetails.eventShowDetails(singleEvent);
       domString += eventAnimalDetails.getEventAnimalDetails(singleEvent);
-      domString += '</div>';
-      domString += grandTotalBuilder(singleEvent);
       domString += '</div>';
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
