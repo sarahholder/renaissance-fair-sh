@@ -5,6 +5,8 @@ import '../../../styles/main.scss';
 
 const getEventAnimalDetails = (singleEvent) => {
   let domString = '';
+  domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
+  domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
   domString += '<table class="table-responsive table-dark table-width">';
   domString += '<thead>';
   domString += '<tr>';
