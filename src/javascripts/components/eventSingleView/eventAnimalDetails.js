@@ -1,19 +1,21 @@
 import firebase from 'firebase/app';
-import animalData from '../../helpers/data/animalData';
+// import animalData from '../../helpers/data/animalData';
 import utils from '../../helpers/utils';
+import smash from '../../helpers/data/smash';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
 const printAnimalChoices = (event) => {
   const eventId = event.parentEventId;
-  animalData.getAnimals()
+  smash.getAnimalsNotInEvent(eventId)
     .then((animals) => {
       let domString = '';
       domString += '<select class="custom-select col-11 p-2" id="inputGroupSelect04">';
+      console.log('THis is the animal', animals);
       domString += '  <option>Choose animal to add to event...</option>';
       animals.forEach((animal) => {
-        if (animal.isAvailable !== 'Not Available') {
+        if (animal.isAvailable === 'Available') {
           domString += `<option class="animalChoice" value="${eventId}" id="${animal.id}">${animal.name} the ${animal.type} / $${animal.cost}</option>`;
           utils.printToDom('animalChoices', domString);
         }
@@ -22,7 +24,6 @@ const printAnimalChoices = (event) => {
     })
     .catch((err) => console.error('cannot get animal event form', err));
 };
-
 
 const getEventAnimalDetails = (singleEvent) => {
   let domString = '';
@@ -35,15 +36,16 @@ const getEventAnimalDetails = (singleEvent) => {
   domString += '<table class="table-responsive table-dark full-width">';
   domString += '<thead>';
   domString += '<tr>';
-  domString += '<th scope="col">Type</th>';
-  domString += '<th scope="col">Cost</th>';
-  domString += '<th scope="col">Availability</th>';
+  domString += '<th class="fix" scope="col">Type</th>';
+  domString += '<th class="fix" scope="col">Cost</th>';
+  domString += '<th class="fix" scope="col">Availability</th>';
+  domString += '<th class="fix" scope="col"></th>';
   domString += '</tr>';
   domString += '<tr>';
   domString += '<th colspan="4" class="p-0">';
   domString += '<div class="collapse" id="collapseExample">';
-  domString += '<div class="d-flex flex-wrap">';
-  domString += '  <div id="animalChoices" class="p-2"></div>';
+  domString += '<div class="d-flex flex-wrap row">';
+  domString += '  <div id="animalChoices" class="col-9 m-2 p-2"></div>';
   domString += '    <div class="input-group-append">';
   domString += '      <button class="btn btn-outline-secondary m-2" type="button" id="make-new-event-animal">Add</button>';
   domString += '    </div>';
@@ -55,7 +57,6 @@ const getEventAnimalDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.animals.forEach((animalItem) => {
-    // console.log('THIS IS THE ANIMAL PARENT', animalItem.parentEventAnimalId);
     domString += `<tr class="animalRow" id="${animalItem.parentEventId}" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     domString += `<th scope="row" class="cell-width">${animalItem.type}</th>`;
     domString += `<td class="cell-width">$${animalItem.cost}</td>`;

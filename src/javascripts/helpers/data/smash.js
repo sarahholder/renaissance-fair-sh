@@ -10,7 +10,6 @@ import eventShowData from './eventShowData';
 import eventStaffData from './eventStaffData';
 import staffData from './staffData';
 
-
 const getEventFood = (eventId) => new Promise((resolve, reject) => {
   eventFoodData.getEventFoodByEventId(eventId)
     .then((eventFoods) => {
@@ -100,6 +99,23 @@ const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getAnimalsNotInEvent = (eventId) => new Promise((resolve, reject) => {
+  eventAnimalData.getEventAnimalByEventId(eventId)
+    .then((eventAnimals) => {
+      animalData.getAnimals().then((allAnimals) => {
+        const unselectedEventAnimalItems = [];
+        allAnimals.forEach((animal) => {
+          const exists = eventAnimals.find((x) => animal.id === x.animalId);
+          if (exists === undefined) {
+            unselectedEventAnimalItems.push(animal);
+          }
+        });
+        resolve(unselectedEventAnimalItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
 const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
   eventData.getEventById(eventId)
     .then((event) => {
@@ -128,4 +144,5 @@ export default {
   getEventFood,
   getCompleteEvent,
   getEventStaff,
+  getAnimalsNotInEvent,
 };
