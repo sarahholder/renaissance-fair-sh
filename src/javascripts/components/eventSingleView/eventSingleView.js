@@ -25,7 +25,7 @@ const singleEventClickEvents = () => {
   $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
   $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
   $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-  $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
+  $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
   $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
 };
 
@@ -226,8 +226,6 @@ const viewSingleEvent = (eventId) => {
       domString += eventSouvenirDetails.getEventSouvenirDetails(singleEvent);
       domString += eventStaffDetails.getEventStaffDetails(singleEvent);
       domString += showDetails.eventShowDetails(singleEvent);
-      domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
-      domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
       domString += eventAnimalDetails.getEventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += grandTotalBuilder(singleEvent);
