@@ -5,14 +5,35 @@ import smash from '../../helpers/data/smash';
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
+import utils from '../../helpers/utils';
+
+const printFoodChoices = (event) => {
+  const eventId = event.parentEventId;
+  smash.getFoodNotInEvent(eventId)
+    .then((foods) => {
+      let domString = '';
+      domString += '<select class="custom-select col-11 p-2" id="inputGroupFoodChoices">';
+      console.log('list of foods', foods);
+      domString += '  <option>Choose food to add to event...</option>';
+      foods.forEach((food) => {
+        if (food.isAvailable === 'Available') {
+          domString += `<option class="foodChoice" value="${eventId}" id="${food.id}">${food.name} the ${food.type} / $${food.price}</option>`;
+          utils.printToDom('foodChoices', domString);
+        }
+      });
+      domString += '</select>';
+    })
+    .catch((err) => console.error('cannot add new food item to event', err));
+};
+
 const getEventFoodDetails = (singleEvent) => {
-  // const user = firebase.auth().currentUser;
+  const user = firebase.auth().currentUser;
   let domString = '';
   domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Food Details</h4>';
-  // if (user.uid === singleEvent.uid) {
-  //   domString += '<button class="btn btn-default btn-lg d-flex ml-auto addEventItemBtn" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus"></i></button>';
-  // }
+  if (user.uid === singleEvent.uid) {
+    domString += '<button class="btn btn-default btn-lg d-flex ml-auto addEventItemBtn" data-toggle="collapse" data-target="#collapseFoodList" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus"></i></button>';
+  }
   domString += '<table class="table-responsive table-dark table-width">';
   domString += '<thead>';
   domString += '<tr>';
@@ -21,6 +42,20 @@ const getEventFoodDetails = (singleEvent) => {
   domString += '<th scope="col">Qty</th>';
   domString += '<th scope="col">Cost</th>';
   domString += '</tr>';
+
+  domString += '<tr>';
+  domString += '<th colspan="4" class="p-0">';
+  domString += '<div class="collapse" id="collapseFoodList">';
+  domString += '<div class="d-flex flex-wrap row">';
+  domString += '  <div id="foodChoices" class="col-9 m-2 p-2"></div>';
+  domString += '    <div class="input-group-append">';
+  domString += '      <button class="btn btn-outline-secondary m-2" type="button" id="make-new-event-food">Add</button>';
+  domString += '    </div>';
+  domString += '</div>';
+  domString += '</div>';
+  domString += '</th>';
+  domString += '</tr>';
+
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.food.forEach((foodItem) => {
@@ -41,8 +76,8 @@ const getEventFoodDetails = (singleEvent) => {
     domString += `<td class="cell-width">$${foodItem.price}</td>`;
     domString += `<td class="cell-width">${foodItem.parentQuantity}</td>`;
     domString += `<td class="cell-width">$${foodItem.rowTotal}</td>`;
+    printFoodChoices(foodItem);
     domString += '</div>';
-    const user = firebase.auth().currentUser;
     if (user.uid === singleEvent.uid) {
       domString += `<td class="cell-width"><button id="deleteEventFoodBtn" class="btn btn-default deleteEventBtn deleteEventFoodBtn" data-id="${foodItem.parentEventFoodId}"><i class="far fa-trash-alt"></i></button></td>`;
     }
@@ -68,4 +103,4 @@ const getEventFoodDetails = (singleEvent) => {
   return domString;
 };
 
-export default { getEventFoodDetails };
+export default { getEventFoodDetails, printFoodChoices };

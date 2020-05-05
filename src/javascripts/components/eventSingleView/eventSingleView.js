@@ -27,6 +27,7 @@ const singleEventClickEvents = () => {
   $('body').on('click', '.deleteEventShowBtn', removeEventShow);
   $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
   $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
+  $('body').on('click', '#make-new-event-food', makeNewEventFood);
 };
 
 
@@ -53,6 +54,19 @@ const removeEventFood = (e) => {
         });
     })
     .catch((error) => console.error('could not delete food item from event', error));
+};
+
+const makeNewEventFood = (e) => {
+  e.preventDefault();
+  const thisEventId = $('#inputFoodChoices option:selected').attr('value');
+  console.error('eventId on new food item', thisEventId);
+  const newEventFood = {
+    eventId: thisEventId,
+    foodId: $('#inputFoodChoices option:selected').attr('id'),
+    quantity: $('#eventFoodQuantity').val() * 1,
+  };
+  eventFoodData.addEventFood(newEventFood);
+  viewSingleEvent(thisEventId);
 };
 
 const removeEventShow = (e) => {
