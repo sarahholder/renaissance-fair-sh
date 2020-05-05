@@ -117,18 +117,30 @@ const removeEventAnimal = (e) => {
 
 const makeNewEventAnimal = (e) => {
   console.log('FREAKING BUTTON CLICKED');
+  $('.alert').alert('close');
   e.preventDefault();
+  const animal = $('#inputGroupSelect04 option:selected').attr('id');
   const thisEventId = $('#inputGroupSelect04 option:selected').attr('value');
-  console.log('THIS IS THE FREAKING EVENT ID AGAIN', thisEventId);
-  const newEventAnimal = {
-    eventId: thisEventId,
-    animalId: $('#inputGroupSelect04 option:selected').attr('id'),
-  };
-  eventAnimalData.addEventAnimal(newEventAnimal);
-  // eslint-disable-next-line no-use-before-define
-  viewSingleEvent(thisEventId);
+  console.log('CHECKING EMPTY ANIMAL', animal);
+  if (animal !== undefined) {
+    const newEventAnimal = {
+      eventId: thisEventId,
+      animalId: animal,
+    };
+    eventAnimalData.addEventAnimal(newEventAnimal);
+    // eslint-disable-next-line no-use-before-define
+    viewSingleEvent(thisEventId);
+  } else {
+    let domString = '';
+    domString += `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>I Cry Your Mercy!</strong> Prithee choose an item from the dropdown ere clicking the +Add button. 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>`;
+    utils.printToDom('alert', domString);
+  }
 };
-
 const removeEventSouvenir = (e) => {
   e.preventDefault();
   const eventSouvenirId = e.target.closest('button').id;
@@ -186,6 +198,10 @@ const viewSingleEventCall = (e) => {
   viewSingleEvent(eventId);
 };
 
+const closeAlert = () => {
+  $('.alert').addClass('close');
+};
+
 const eventSingleViewClickEvents = () => {
   $('body').on('click', '#closeSingleEvent', closeSingleEvent);
   $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
@@ -194,6 +210,7 @@ const eventSingleViewClickEvents = () => {
   $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
   $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
   $('body').on('click', '#make-new-event-animal', makeNewEventAnimal);
+  $().on('click', '.alert', closeAlert);
 };
 
 export default {

@@ -130,6 +130,7 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
                 finalEvent.shows = eventShows;
                 finalEvent.staff = eventStaff;
                 finalEvent.animals = eventAnimals;
+                finalEvent.id = eventId;
                 resolve(finalEvent);
               });
             });
