@@ -15,7 +15,7 @@ const buildAnimalCard = (animal) => {
   if (`${animal.isAvailable}` === 'Available') {
     domString += '<p class="card-text">Now Available!</p>';
   } else {
-    domString += '<p class="card-text">Animal is on vacation, please check back after a well-deserved vacation.</p>';
+    domString += '<p class="card-text">Animal is UNAVAILABLE, please check back after a well-deserved vacation.</p>';
   }
   domString += '<div class="d-flex justify-content-around">';
   const user = firebase.auth().currentUser;

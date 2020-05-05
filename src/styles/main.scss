@@ -10,6 +10,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  font-family: 'EB Garamond', serif;
 }
 
 .navbar-brand {
@@ -115,6 +116,18 @@ nav {
   width: 30%;
 }
 
+.custom-select{
+  background: white !important;
+}
+
+.fix{
+  width:100px;
+}
+
+.add-button {  
+ @include yellow-buttons;
+ color: black;
+} 
 #eventFiltersDiv {
   display: flex;
   justify-content: space-around;
