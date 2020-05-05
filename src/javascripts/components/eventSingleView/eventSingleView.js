@@ -59,13 +59,11 @@ const removeEventFood = (e) => {
 const makeNewEventFood = (e) => {
   e.preventDefault();
   const thisEventId = $('#inputFoodChoices option:selected').attr('value');
-  console.error('eventId on new food item', thisEventId);
   const newEventFood = {
     eventId: thisEventId,
     foodId: $('#inputFoodChoices option:selected').attr('id'),
     quantity: $('#inputFoodQuantity').val() * 1,
   };
-  console.error('new event food object', newEventFood);
   eventFoodData.addEventFood(newEventFood);
   viewSingleEvent(thisEventId);
 };

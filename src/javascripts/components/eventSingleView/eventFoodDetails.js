@@ -13,7 +13,7 @@ const printFoodChoices = (event) => {
     .then((foods) => {
       let domString = '';
       domString += '<select id="inputFoodChoices">';
-      domString += '  <option>Choose a food item to add to event:</option>';
+      domString += '  <option>Choose a food:</option>';
       foods.forEach((food) => {
         if (food.isAvailable === 'Available') {
           domString += `<option class="foodChoice" value="${eventId}" id="${food.id}">${food.type} / $${food.price}</option>`;
