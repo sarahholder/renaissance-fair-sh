@@ -35,9 +35,12 @@ const getSingleEventFood = (eventFoodId) => axios.get(`${baseUrl}/eventFood/${ev
 
 const deleteEventFood = (eventFoodId) => axios.delete(`${baseUrl}/eventFood/${eventFoodId}.json`);
 
+const addEventFood = (newEventFood) => axios.post(`${baseUrl}/eventFood.json`, newEventFood);
+
 export default {
   getEventFoodByEventId,
   deleteEventFood,
   getSingleEventFood,
   getEventFoods,
+  addEventFood,
 };

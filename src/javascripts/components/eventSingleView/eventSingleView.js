@@ -43,6 +43,19 @@ const removeEventFood = (e) => {
     .catch((error) => console.error('could not delete food item from event', error));
 };
 
+const makeNewEventFood = (e) => {
+  e.preventDefault();
+  const thisEventId = $('#inputFoodChoices option:selected').attr('value');
+  const newEventFood = {
+    eventId: thisEventId,
+    foodId: $('#inputFoodChoices option:selected').attr('id'),
+    quantity: $('#inputFoodQuantity').val() * 1,
+  };
+  eventFoodData.addEventFood(newEventFood);
+  // eslint-disable-next-line no-use-before-define
+  viewSingleEvent(thisEventId);
+};
+
 const removeEventShow = (e) => {
   e.preventDefault();
   const eventShowId = e.target.closest('button').id;
@@ -307,6 +320,7 @@ const eventSingleViewClickEvents = () => {
   $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
   $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
   $('body').on('click', '#make-new-event-animal', makeNewEventAnimal);
+  $('body').on('click', '#make-new-event-food', makeNewEventFood);
   $().on('click', '.alert', closeAlert);
 };
 

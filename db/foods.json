@@ -28,6 +28,7 @@
     "description": "Soft, perfectly fried and filled with delicious chocolate, topped with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1552417656-f5c5bbb00244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
     "price": 8,
+    "isAvailable": "Available",
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "food5": {
@@ -115,7 +116,7 @@
     "description": "Meatball sandwich with three traditional Swedish pork and beef meatballs topped with white gravy, lingonberry sauce and dill pickles",
     "imageUrl": "http://stmedia.startribune.com/images/ctyp+mn+state+fair+Swedish+Meatball+Smorgas.jpg",
     "price": 11,
-    "isAvailable": "Available",
+    "isAvailable": "Not Available",
     "uid": "ubyBKtnGqze0FfuFwprJgadImHo1"
   },
   "food16": {
