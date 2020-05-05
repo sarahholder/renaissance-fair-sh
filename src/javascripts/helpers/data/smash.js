@@ -217,18 +217,18 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
                   getEventFoodTotal(eventId).then((foodTotal) => {
                     getEventStaffTotal(eventId).then((staffTotal) => {
                       getEventAnimalsTotal(eventId).then((animalsTotal) => {
-                        const finalEvent = { ...event };
-                        finalEvent.food = eventFood;
-                        finalEvent.foodTotalAmount = foodTotal;
-                        finalEvent.souvenirs = eventSouvenirs;
-                        finalEvent.shows = eventShows;
-                        finalEvent.showTotalAmount = showTotal;
-                        finalEvent.staff = eventStaff;
-                        finalEvent.staffTotalAmount = staffTotal;
-                        finalEvent.animals = eventAnimals;
-                        finalEvent.animalsTotalAmount = animalsTotal;
-                        finalEvent.id = eventId;
-                        resolve(finalEvent);
+                        const totalEvent = { ...event };
+                        totalEvent.food = eventFood;
+                        totalEvent.foodTotalAmount = foodTotal;
+                        totalEvent.souvenirs = eventSouvenirs;
+                        totalEvent.shows = eventShows;
+                        totalEvent.showTotalAmount = showTotal;
+                        totalEvent.staff = eventStaff;
+                        totalEvent.staffTotalAmount = staffTotal;
+                        totalEvent.animals = eventAnimals;
+                        totalEvent.animalsTotalAmount = animalsTotal;
+                        totalEvent.id = eventId;
+                        resolve(totalEvent);
                       });
                     });
                   });
@@ -242,10 +242,46 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
     });
 });
 
+const completelyRemoveEvent = (eventId) => new Promise((resolve, reject) => {
+  eventData.getEventById(eventId)
+    .then(() => {
+      console.log('THIS IS THE SMASH EVENT', eventId);
+      eventData.deleteEvent(eventId);
+      getEventSouvenirs(eventId).then((eventSouvenirs) => {
+        eventSouvenirs.forEach((sEvent) => {
+          eventSouvenirData.deleteEventSouvenir(sEvent.parentEventSouvenirId);
+        });
+        console.log(eventSouvenirs);
+        getEventStaff(eventId).then((eventStaff) => {
+          eventStaff.forEach((staff) => {
+            eventStaffData.deleteEventStaff(staff.parentEventStaffId);
+          });
+          getEventShow(eventId).then((eventShows) => {
+            eventShows.forEach((show) => {
+              eventShowData.deleteEventShow(show.parentEventShowId);
+            });
+            getEventAnimals(eventId).then((eventAnimals) => {
+              eventAnimals.forEach((animal) => {
+                eventAnimalData.deleteEventAnimal(animal.parentEventId);
+              });
+              getEventFood(eventId).then((eventFood) => {
+                eventFood.forEach((food) => {
+                  eventFoodData.deleteEventFood(food.parentEventFoodId);
+                });
+              });
+            });
+          })
+            .catch((error) => reject(error));
+        });
+      });
+    });
+});
+
 export default {
   getEventFood,
   getCompleteEvent,
   getEventStaff,
   getAnimalsNotInEvent,
   getShowsNotInEvent,
+  completelyRemoveEvent,
 };
