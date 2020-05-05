@@ -157,6 +157,23 @@ const getEventAnimals = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getEventAnimalsTotal = (eventId) => new Promise((resolve, reject) => {
+  eventAnimalData.getEventAnimalByEventId(eventId)
+    .then((eventAnimals) => {
+      animalData.getAnimals().then((allAnimals) => {
+        const rowTotalsArray = [];
+        eventAnimals.forEach((eventAnimalItem) => {
+          const foundEventAnimalItem = allAnimals.find((x) => x.id === eventAnimalItem.animalId);
+          rowTotalsArray.push(foundEventAnimalItem.cost);
+        });
+        const animalsTotal = rowTotalsArray.reduce((total, num) => total + num, 0);
+        resolve(animalsTotal);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
+
 const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
   eventData.getEventById(eventId)
     .then((event) => {
@@ -168,16 +185,19 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
                 getEventFood(eventId).then((eventFood) => {
                   getEventFoodTotal(eventId).then((foodTotal) => {
                     getEventStaffTotal(eventId).then((staffTotal) => {
-                      const finalEvent = { ...event };
-                      finalEvent.food = eventFood;
-                      finalEvent.foodTotalAmount = foodTotal;
-                      finalEvent.souvenirs = eventSouvenirs;
-                      finalEvent.shows = eventShows;
-                      finalEvent.showTotalAmount = showTotal;
-                      finalEvent.staff = eventStaff;
-                      finalEvent.staffTotalAmount = staffTotal;
-                      finalEvent.animals = eventAnimals;
-                      resolve(finalEvent);
+                      getEventAnimalsTotal(eventId).then((animalsTotal) => {
+                        const finalEvent = { ...event };
+                        finalEvent.food = eventFood;
+                        finalEvent.foodTotalAmount = foodTotal;
+                        finalEvent.souvenirs = eventSouvenirs;
+                        finalEvent.shows = eventShows;
+                        finalEvent.showTotalAmount = showTotal;
+                        finalEvent.staff = eventStaff;
+                        finalEvent.staffTotalAmount = staffTotal;
+                        finalEvent.animals = eventAnimals;
+                        finalEvent.animalsTotalAmount = animalsTotal;
+                        resolve(finalEvent);
+                      });
                     });
                   });
                 });

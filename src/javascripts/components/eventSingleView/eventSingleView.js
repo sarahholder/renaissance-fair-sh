@@ -123,8 +123,8 @@ const getGrandTotal = () => {
   const showTotal = $('#showTotalCost').val() * 1;
   const foodTotal = $('#foodTotalCost').val() * 1;
   const staffTotal = $('#staffTotalCost').val() * 1;
-  // const animalTotal = $('animalToalCost').val() * 1;
-  const fullTotal = souvenirTotal + showTotal + foodTotal + staffTotal;
+  const animalTotal = $('#animalTotalCost').val() * 1;
+  const fullTotal = souvenirTotal + showTotal + foodTotal + staffTotal + animalTotal;
   utils.printToDom('theGrandDaddyTotal', fullTotal);
 };
 
