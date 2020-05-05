@@ -154,6 +154,23 @@ const getEventStaff = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getStaffNotInEvent = (eventId) => new Promise((resolve, reject) => {
+  eventStaffData.getEventStaffByEventId(eventId)
+    .then((eventStaff) => {
+      staffData.getStaff().then((allStaff) => {
+        const unselectedEventStaffMembers = [];
+        allStaff.forEach((staff) => {
+          const exists = eventStaff.find((x) => staff.id === x.staffId);
+          if (exists === undefined) {
+            unselectedEventStaffMembers.push(staff);
+          }
+        });
+        resolve(unselectedEventStaffMembers);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
 const getEventStaffTotal = (eventId) => new Promise((resolve, reject) => {
   eventStaffData.getEventStaffByEventId(eventId)
     .then((eventStaff) => {
@@ -266,4 +283,5 @@ export default {
   getEventStaff,
   getAnimalsNotInEvent,
   getShowsNotInEvent,
+  getStaffNotInEvent,
 };
