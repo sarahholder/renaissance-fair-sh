@@ -52,7 +52,6 @@ const noSelectedFoods = (event) => {
 const getEventFoodDetails = (singleEvent) => {
   const user = firebase.auth().currentUser;
   const foodsFound = singleEvent.food;
-  // const eventId = singleEvent.id;
   let domString = '';
   domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
   domString += '  <h4 class="eventSectionTitle">Food Details</h4>';
@@ -143,8 +142,7 @@ const getEventFoodDetails = (singleEvent) => {
   domString += '</div>';
 
   domString += '</div>';
-  smash.getFoodNotInEvent();
   return domString;
 };
 
-export default { getEventFoodDetails, printFoodChoices };
+export default { getEventFoodDetails };
