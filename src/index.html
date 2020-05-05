@@ -17,6 +17,9 @@
     <div id="navbarNav" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="nav-item">
+          <a class="nav-link hide" id="eventsLink" href="#events">EVENTS</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#foodCards">FOOD<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
@@ -31,9 +34,6 @@
         <li class="nav-item">
           <a class="nav-link" href="#animals">ANIMALS</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link hide" id="eventsLink" href="#events">EVENTS</a>
-        </li>
       </ul>
     </div>
     <button id="loginButton" class="hide">LOGIN WITH GOOGLE</button>
@@ -45,12 +45,12 @@
   </div>
 
 <!--MAIN CONTENT-->
+  <div class="align-items-center offset hide" id="events"></div>
   <div id="foodCards" class="offset"></div>
   <div class="align-items-center offset" id="souvenirs"></div>
   <div id="staff-collection" class="align-items-center offset"></div>
   <div class="align-items-center offset" id="shows"></div>
   <div class="align-items-center offset" id="animals"></div>
-  <div class="align-items-center offset hide" id="events"></div>
 
 <!-- SINGLE VIEW OF EVENT -->
   <div class="align-items-center offset hide" id="single-view-event"></div>
@@ -87,7 +87,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Add a staff member</h5>
+        <h5 class="modal-title add">Add a New Staff Member</h5>
+        <h5 class="modal-title edit">Edit Staff Member</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -111,7 +112,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="add-new-souvenir-modal-title">Add New Souvenir</h5>
+        <h5 class="modal-title add" id="add-new-souvenir-modal-title">Add a New Souvenir</h5>
+        <h5 class="modal-title edit">Edit Souvenir</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -131,7 +133,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="add-new-show-modal-title">Add New Show</h5>
+        <h5 class="modal-title add" id="add-new-show-modal-title">Add a New Show</h5>
+        <h5 class="modal-title edit">Edit Show</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -139,7 +142,7 @@
       <div class="modal-body" id="shows-modal-body"></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="update-show-btn btn btn-default" id="update-show-btn">Save changes</button>
+        <button type="button" class="update-show-btn btn btn-default" id="update-show-btn">Save Changes</button>
         <button type="button" class="save-new-show-btn btn btn-default" id="save-new-show-btn">Add New</button>
       </div>
     </div>
@@ -151,7 +154,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Add a food item</h5>
+        <h5 class="modal-title add">Add a New Food Item</h5>
+        <h5 class="modal-title edit">Edit Food Item</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -221,7 +225,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="animalAddModalTitle">Add an animal ride</h5>
+        <h5 class="modal-title add" id="animalAddModalTitle">Add a New Animal Encounter</h5>
+        <h5 class="modal-title edit">Edit Animal Encounter</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>

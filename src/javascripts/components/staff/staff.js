@@ -65,7 +65,7 @@ const buildAllStaff = () => {
       domString += '<h2 class="text-center mt-3">Staff</h2>';
       const user = firebase.auth().currentUser;
       if (user !== null) {
-        domString += '<button class="btn btn-lg add-Staff-Btn" id="addStaffBtn"><i class="fas fa-plus"></i> Add a new staff member</button>';
+        domString += '<button class="btn btn-lg add-Staff-Btn" id="addStaffBtn"><i class="fas fa-plus"></i> Add a New Staff Member</button>';
       }
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-md-9 col-sm-10">';

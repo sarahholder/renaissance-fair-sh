@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventFoodDetails from './eventFoodDetails';
 import eventStaffData from '../../helpers/data/eventStaffData';
@@ -12,11 +13,21 @@ import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import eventFilterFields from './eventFilters';
 
+
 import utils from '../../helpers/utils';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 // import eventData from '../../helpers/data/eventData';
+
+const singleEventClickEvents = () => {
+  $('body').on('click', '#closeSingleEvent', closeSingleEvent);
+  $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
+  $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
+  $('body').on('click', '.deleteEventShowBtn', removeEventShow);
+  $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
+  $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
+};
 
 
 const closeSingleEvent = () => {
@@ -207,7 +218,7 @@ const viewSingleEvent = (eventId) => {
       domString += `<h5>${singleEvent.location}</h5>`;
       domString += `<h5>${singleEvent.date}</h5>`;
       domString += `<h5>${singleEvent.timeStart} - ${singleEvent.timeEnd}</h5>`;
-      domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close event details</button>';
+      domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close Event Details</button>';
       domString += '</div>';
       domString += eventFilterFields.eventFilters(eventId);
       domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
@@ -215,8 +226,6 @@ const viewSingleEvent = (eventId) => {
       domString += eventSouvenirDetails.getEventSouvenirDetails(singleEvent);
       domString += eventStaffDetails.getEventStaffDetails(singleEvent);
       domString += showDetails.eventShowDetails(singleEvent);
-      domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
-      domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
       domString += eventAnimalDetails.getEventAnimalDetails(singleEvent);
       domString += '</div>';
       domString += grandTotalBuilder(singleEvent);
@@ -224,13 +233,8 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
       singleEventCharts.buildSingleEventChart();
+      singleEventClickEvents();
       getGrandTotal(singleEvent);
-      $('body').on('click', '#closeSingleEvent', closeSingleEvent);
-      $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
-      $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
-      $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-      $('body').on('click', '.deleteEventanimalBtn', removeEventAnimal);
-      $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
       $('#staff-collection').addClass('hide');
