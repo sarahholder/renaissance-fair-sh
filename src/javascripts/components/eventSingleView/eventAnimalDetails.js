@@ -46,22 +46,15 @@ const noSelectedAnimals = (eventId) => {
 
 const getEventAnimalDetails = (singleEvent) => {
   let domString = '';
-<<<<<<< HEAD
   const animalsFound = singleEvent.animals;
   const eventId = singleEvent.id;
-=======
->>>>>>> master
   const user = firebase.auth().currentUser;
   domString += '<div id="eventAnimalsSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Animal Encounter Details</h4>';
   if (user.uid === singleEvent.uid) {
     domString += '<button class="btn btn-default btn-lg d-flex ml-auto addEventItemBtn" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus"></i></button>';
   }
-<<<<<<< HEAD
-  domString += '<table class="table-responsive table-dark full-width">';
-=======
   domString += '<table class="table-responsive table-dark table-width">';
->>>>>>> master
   domString += '<thead>';
   domString += '<tr>';
   domString += '<th class="fix" scope="col">Name</th>';
@@ -101,14 +94,12 @@ const getEventAnimalDetails = (singleEvent) => {
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
-<<<<<<< HEAD
   domString += '</tr>';
   domString += '</tbody>';
   domString += '</table>';
   domString += '</div>';
   domString += '</div>';
   // eslint-disable-next-line no-use-before-define
-=======
   singleEvent.animals.forEach((animalItem) => {
     if (`${animalItem.cost}` < 101 && `${animalItem.cost}` > 0) {
       domString += `<tr class="eventAnimalItem animalRow from0To100" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
@@ -151,7 +142,6 @@ const getEventAnimalDetails = (singleEvent) => {
 
   domString += '</div>';
 
->>>>>>> master
   return domString;
 };
 

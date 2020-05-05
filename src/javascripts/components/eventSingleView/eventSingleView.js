@@ -5,14 +5,13 @@ import eventStaffData from '../../helpers/data/eventStaffData';
 import eventStaffDetails from './eventStaffDetails';
 import eventShowData from '../../helpers/data/eventShowData';
 import eventAnimalData from '../../helpers/data/eventAnimalData';
-import eventAnimal from './eventAnimalDetails';
 import eventSouvenirDetails from './eventSouvenirDetails';
 import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 import showDetails from './eventShowDetails';
 import smashData from '../../helpers/data/smash';
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import eventFilterFields from './eventFilters';
-
+import animalEvent from './eventAnimalDetails';
 
 import utils from '../../helpers/utils';
 
@@ -242,15 +241,15 @@ const viewSingleEvent = (eventId) => {
       domString += `<h5>${singleEvent.timeStart} - ${singleEvent.timeEnd}</h5>`;
       domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close Event Details</button>';
       domString += '</div>';
+      domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
+      domString += '</div>';
       domString += eventFilterFields.eventFilters(eventId);
       domString += grandTotalBuilder(singleEvent);
-      domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
       domString += eventFoodDetails.getEventFoodDetails(singleEvent);
       domString += eventSouvenirDetails.getEventSouvenirDetails(singleEvent);
       domString += eventStaffDetails.getEventStaffDetails(singleEvent);
       domString += showDetails.eventShowDetails(singleEvent);
-      domString += eventAnimal.getEventAnimalDetails(singleEvent);
-      domString += '</div>';
+      domString += animalEvent.getEventAnimalDetails(singleEvent);
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
       singleEventCharts.buildSingleEventChart();

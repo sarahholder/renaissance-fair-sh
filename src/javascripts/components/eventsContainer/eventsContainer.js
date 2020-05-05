@@ -4,7 +4,7 @@ import 'firebase/auth';
 
 import eventData from '../../helpers/data/eventData';
 import eventCard from '../eventCard/eventCard';
-import eventSingleView from '../eventSingleView/eventSingleView';
+import singleView from '../eventSingleView/eventSingleView';
 import editEventForm from '../editEventForm/editEventForm';
 import addEventModal from './eventModalForm/eventModalForm.js';
 import charts from '../Charts/charts';
@@ -87,7 +87,7 @@ const buildAllEvents = () => {
       domString += '</div>';
       domString += '<div id="chartdiv"></div>';
       utils.printToDom('events', domString);
-      $('body').on('click', '#viewEventBtn', eventSingleView.viewSingleEventCall);
+      $('body').on('click', '#viewEventBtn', singleView.viewSingleEventCall);
       charts.buildChart();
     })
     .catch((error) => console.error('build all events has failed', error));
