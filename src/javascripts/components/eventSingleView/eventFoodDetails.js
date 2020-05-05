@@ -45,7 +45,8 @@ const getEventFoodDetails = (singleEvent) => {
   domString += '      <tr class="collapse" id="collapseFoodList">';
 
   domString += '        <th colspan="3" class="p-0">';
-  domString += '          <div id="foodChoices"></div>';
+  domString += '          <div id="foodChoices">';
+  domString += '          </div>';
   domString += '        </th>';
 
   domString += '        <th colspan="1" class="p-0">';
