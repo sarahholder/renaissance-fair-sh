@@ -43,10 +43,24 @@ const getEventAnimalDetails = (singleEvent) => {
       domString += `<td class="cell-width"><button id="${animalItem.parentEventAnimalId}" value="${animalItem.parentEventAnimalId}" class="btn btn-default deleteEventBtn deleteEventAnimalBtn"><i class="far fa-trash-alt"></i></button></td>`;
     }
     domString += '</tr>';
-    domString += '</tr>';
   });
   domString += '</tbody>';
   domString += '</table>';
+
+  domString += '<div class="input-group mb-3">';
+  domString += '<div class="input-group-prepend">';
+  domString += '<span class="input-group-text">Total Event Animal Costs:</span>';
+  domString += '</div>';
+  domString += '<div class="input-group-prepend">';
+  domString += '<span class="input-group-text">$</span>';
+  domString += '</div>';
+  domString += `<input id="animalTotalCost" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value="${singleEvent.animalsTotalAmount}">`;
+  domString += '<div class="input-group-append">';
+  domString += '<span class="input-group-text">.00</span>';
+  domString += '</div>';
+  domString += '</div>';
+
+  domString += '</div>';
 
   return domString;
 };
