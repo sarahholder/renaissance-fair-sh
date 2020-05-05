@@ -241,10 +241,9 @@ const viewSingleEvent = (eventId) => {
       domString += `<h5>${singleEvent.timeStart} - ${singleEvent.timeEnd}</h5>`;
       domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close Event Details</button>';
       domString += '</div>';
-      domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
-      domString += '</div>';
       domString += eventFilterFields.eventFilters(eventId);
       domString += grandTotalBuilder(singleEvent);
+      domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
       domString += eventFoodDetails.getEventFoodDetails(singleEvent);
       domString += eventSouvenirDetails.getEventSouvenirDetails(singleEvent);
       domString += eventStaffDetails.getEventStaffDetails(singleEvent);
