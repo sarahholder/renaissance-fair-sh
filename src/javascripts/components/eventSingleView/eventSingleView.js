@@ -63,8 +63,9 @@ const makeNewEventFood = (e) => {
   const newEventFood = {
     eventId: thisEventId,
     foodId: $('#inputFoodChoices option:selected').attr('id'),
-    quantity: $('#eventFoodQuantity').val() * 1,
+    quantity: $('#inputFoodQuantity').val() * 1,
   };
+  console.error('new event food object', newEventFood);
   eventFoodData.addEventFood(newEventFood);
   viewSingleEvent(thisEventId);
 };

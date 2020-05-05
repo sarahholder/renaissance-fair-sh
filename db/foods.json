@@ -28,6 +28,7 @@
     "description": "Soft, perfectly fried and filled with delicious chocolate, topped with powdered sugar",
     "imageUrl": "https://images.unsplash.com/photo-1552417656-f5c5bbb00244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
     "price": 8,
+    "isAvailable": "Available",
     "uid": "uOi5vU8B2EdfMDEnS9OAibAcjvE2"
   },
   "food5": {

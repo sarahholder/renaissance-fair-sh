@@ -12,16 +12,15 @@ const printFoodChoices = (event) => {
   smash.getFoodNotInEvent(eventId)
     .then((foods) => {
       let domString = '';
-      domString += '<select class="custom-select col-11 p-2" id="inputGroupFoodChoices">';
-      console.log('list of foods', foods);
-      domString += '  <option>Choose food to add to event...</option>';
+      domString += '<select id="inputFoodChoices">';
+      domString += '  <option>Choose a food item to add to event:</option>';
       foods.forEach((food) => {
         if (food.isAvailable === 'Available') {
-          domString += `<option class="foodChoice" value="${eventId}" id="${food.id}">${food.name} the ${food.type} / $${food.price}</option>`;
-          utils.printToDom('foodChoices', domString);
+          domString += `<option class="foodChoice" value="${eventId}" id="${food.id}">${food.type} / $${food.price}</option>`;
         }
       });
       domString += '</select>';
+      utils.printToDom('foodChoices', domString);
     })
     .catch((err) => console.error('cannot add new food item to event', err));
 };
@@ -30,31 +29,44 @@ const getEventFoodDetails = (singleEvent) => {
   const user = firebase.auth().currentUser;
   let domString = '';
   domString += '<div id="eventFoodSection" class="quad col-md-4 col-sm-12">';
-  domString += '<h4 class="eventSectionTitle">Food Details</h4>';
+  domString += '  <h4 class="eventSectionTitle">Food Details</h4>';
   if (user.uid === singleEvent.uid) {
-    domString += '<button class="btn btn-default btn-lg d-flex ml-auto addEventItemBtn" data-toggle="collapse" data-target="#collapseFoodList" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus"></i></button>';
+    domString += ' <button class="btn btn-default btn-lg d-flex ml-auto addEventItemBtn" data-toggle="collapse" data-target="#collapseFoodList" aria-expanded="false" aria-controls="collapseFoodList"><i class="fas fa-plus"></i></button>';
   }
-  domString += '<table class="table-responsive table-dark table-width">';
-  domString += '<thead>';
-  domString += '<tr>';
-  domString += '<th scope="col">Food Type</th>';
-  domString += '<th scope="col">Price</th>';
-  domString += '<th scope="col">Qty</th>';
-  domString += '<th scope="col">Cost</th>';
-  domString += '</tr>';
+  domString += '  <table class="table-responsive table-dark table-width">';
+  domString += '    <thead>';
+  domString += '      <tr>';
+  domString += '        <th scope="col">Food Type</th>';
+  domString += '        <th scope="col">Price</th>';
+  domString += '        <th scope="col">Qty</th>';
+  domString += '        <th scope="col">Cost</th>';
+  domString += '      </tr>';
 
-  domString += '<tr>';
-  domString += '<th colspan="4" class="p-0">';
-  domString += '<div class="collapse" id="collapseFoodList">';
-  domString += '<div class="d-flex flex-wrap row">';
-  domString += '  <div id="foodChoices" class="col-9 m-2 p-2"></div>';
-  domString += '    <div class="input-group-append">';
-  domString += '      <button class="btn btn-outline-secondary m-2" type="button" id="make-new-event-food">Add</button>';
-  domString += '    </div>';
-  domString += '</div>';
-  domString += '</div>';
-  domString += '</th>';
-  domString += '</tr>';
+  domString += '      <tr class="collapse" id="collapseFoodList">';
+
+  domString += '        <th colspan="3" class="p-0">';
+  domString += '          <div id="foodChoices"></div>';
+  domString += '        </th>';
+
+  domString += '        <th colspan="1" class="p-0">';
+  domString += '          <select id="inputFoodQuantity">';
+  domString += '<option>Quantity:</option>';
+  domString += '<option class="foodQuantity" value="50">50</option>';
+  domString += '<option class="foodQuantity" value="100">100</option>';
+  domString += '<option class="foodQuantity" value="150">150</option>';
+  domString += '<option class="foodQuantity" value="200">200</option>';
+  domString += '<option class="foodQuantity" value="250">250</option>';
+  domString += '<option class="foodQuantity" value="500">500</option>';
+  domString += '          </select>';
+  domString += '        </th>';
+
+  domString += '        <th colspan="1" class="p-0">';
+  domString += '          <div class="input-group-append" colspan="1">';
+  domString += '            <button class="btn btn-outline-secondary m-2" type="button" id="make-new-event-food">Add</button>';
+  domString += '          </div>';
+  domString += '        </th>';
+
+  domString += '        </tr>';
 
   domString += '</thead>';
   domString += '<tbody>';

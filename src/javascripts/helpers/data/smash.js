@@ -59,7 +59,6 @@ const getFoodNotInEvent = (eventId) => new Promise((resolve, reject) => {
             unselectedEventFoodItems.push(food);
           }
         });
-        console.error('unselected event foods', unselectedEventFoodItems);
         resolve(unselectedEventFoodItems);
       });
     })
