@@ -17,16 +17,6 @@ import utils from '../../helpers/utils';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
-// import eventData from '../../helpers/data/eventData';
-
-const singleEventClickEvents = () => {
-  $('body').on('click', '#closeSingleEvent', closeSingleEvent);
-  $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
-  $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
-  $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-  $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
-  $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
-};
 
 const closeSingleEvent = () => {
   utils.printToDom('single-view-event', '');
@@ -288,7 +278,6 @@ const viewSingleEvent = (eventId) => {
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
       singleEventCharts.buildSingleEventChart();
-      singleEventClickEvents();
       getGrandTotal(singleEvent);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');

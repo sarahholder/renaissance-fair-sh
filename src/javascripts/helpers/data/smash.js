@@ -247,4 +247,5 @@ export default {
   getCompleteEvent,
   getEventStaff,
   getAnimalsNotInEvent,
+  getShowsNotInEvent,
 };
