@@ -30,20 +30,6 @@ const closeSingleEvent = () => {
   $('#animals').removeClass('hide');
 };
 
-const addEventShow = (e) => {
-  e.preventDefault();
-  const newEventShow = {
-    showId: e.target.closest('.card').id,
-    eventUid: e.target.dataset.eventUid,
-  };
-  eventShowData.addEventShow(newEventShow)
-    .then(() => {
-      showDetails.eventShowDetails();
-      utils.printToDom('single-view-event', '');
-    })
-    .catch((err) => console.error('could not make new Show Event', err));
-};
-
 const removeEventFood = (e) => {
   const eventFoodId = e.target.closest('button').dataset.id;
   const eventId = $('.foodRow').data('container');
@@ -252,7 +238,6 @@ const viewSingleEvent = (eventId) => {
       $('#events').addClass('hide');
       $('#animals').addClass('hide');
       $('#single-view-event').removeClass('hide');
-      $('body').on('click', '#add-eventShow', addEventShow);
     })
     .catch((error) => console.error('problem with single event', error));
 };
