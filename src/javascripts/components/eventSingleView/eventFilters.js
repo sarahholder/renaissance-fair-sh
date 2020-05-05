@@ -3,7 +3,6 @@ const eventFilters = (eventId) => {
   let domString = '';
   domString += '<div id="eventFiltersDiv">';
   domString += '<div class="row">';
-
   domString += '<div class="filterBlock mr-5">';
   domString += '<div class="accordion" id="accordionExample">';
   domString += '<div class="card">';
@@ -15,11 +14,13 @@ const eventFilters = (eventId) => {
   domString += '<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">';
   domString += '<div class="card-body">';
   // Anca: DEFAULT BOOTSTRAP SELECT TAG BELOW - LIST OF OPTIONS NEED TO BE UPDATED
-  domString += '<select class="filterField">';
-  domString += '<option selected>Open this select menu</option>';
-  domString += '<option value="1">One</option>';
-  domString += '<option value="2">Two</option>';
-  domString += '<option value="3">Three</option>';
+  domString += '<select id="moduleSelected" class="filterField" name="moduleRange">';
+  domString += '<option selected name="moduleRange">Open this select menu</option>';
+  domString += '<option value="animalModule" name="moduleRange">Animals</option>';
+  domString += '<option value="foodModule" name="moduleRange">Food</option>';
+  domString += '<option value="showModule" name="moduleRange">Shows</option>';
+  domString += '<option value="souvenirModule" name="moduleRange">Souvenirs</option>';
+  domString += '<option value="staffModule" name="moduleRange">Staff</option>';
   domString += '</select>';
   domString += '<div class="m-3">';
   // Anca: Added the buttons I used and gave them unique ids and the dataset id attribute needed for refreshing the event view. Have not done the click event, etc. for these buttons.
