@@ -76,7 +76,6 @@ const getEventAnimalDetails = (singleEvent) => {
   domString += '          </div>';
   if (animalsFound.length !== 0) {
     singleEvent.animals.forEach((animalItem) => {
-      console.log('this is the animalEventId', eventId);
       domString += `<tr class="animalrow" id="${eventId}" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
       domString += `<th scope="row" class="cell-width">${animalItem.name}</th>`;
       domString += `<td class="cell-width">${animalItem.type}</td>`;

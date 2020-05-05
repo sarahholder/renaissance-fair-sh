@@ -86,8 +86,6 @@ const removeEventStaff = (e) => {
 const removeEventAnimal = (e) => {
   const eventNumber = e.target.closest('.animalrow').id;
   const eventAnimalId = e.target.closest('button').id;
-  console.log('THIS IS THE CLOSEST ANIMAL EVENT ID', eventNumber);
-  console.log('This is the EVENTANIMALID', eventAnimalId);
   eventAnimalData.getSingleEventAnimal(eventAnimalId)
     .then(() => {
       eventAnimalData.deleteEventAnimal(eventAnimalId)
