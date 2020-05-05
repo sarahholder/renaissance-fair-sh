@@ -34,7 +34,7 @@ const noSelectedAnimals = (eventId) => {
       domString += ' <option disabled>Choose animal to add to event...</option>';
       animals.forEach((animal) => {
         if (animal.isAvailable === 'Available') {
-          domString += `<option class="animalChoice optclick" value="${eventNumber}" id="${animal.id}">${animal.name} the ${animal.type} / $${animal.cost}</option>`;
+          domString += `<option class="animalChoice" value="${eventNumber}" id="${animal.id}">${animal.name} the ${animal.type} / $${animal.cost}</option>`;
           utils.printToDom('animalChoices', domString);
         } else {
           domString += `<option class="animalChoice"  value="${eventId}" id="${animal.id}" disabled>${animal.name} the ${animal.type} / $${animal.cost}</option>`;
@@ -76,7 +76,8 @@ const getEventAnimalDetails = (singleEvent) => {
   domString += '          </div>';
   if (animalsFound.length !== 0) {
     singleEvent.animals.forEach((animalItem) => {
-      domString += `<tr class="animalRow" id="${animalItem.parentEventId}" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}"></tr>`;
+      console.log('this is the animalEventId', eventId);
+      domString += `<tr class="animalrow" id="${eventId}" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
       domString += `<th scope="row" class="cell-width">${animalItem.name}</th>`;
       domString += `<td class="cell-width">${animalItem.type}</td>`;
       domString += `<td class="cell-width">$${animalItem.cost}</td>`;
@@ -91,17 +92,17 @@ const getEventAnimalDetails = (singleEvent) => {
   // eslint-disable-next-line no-use-before-define
   singleEvent.animals.forEach((animalItem) => {
     if (`${animalItem.cost}` < 101 && `${animalItem.cost}` > 0) {
-      domString += `<tr class="eventAnimalItem animalRow from0To100" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      domString += `<tr class="eventAnimalItem from0To100" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     } else if (`${animalItem.cost}` > 100 && `${animalItem.cost}` < 201) {
-      domString += `<tr class="eventAnimalItem animalRow from101To200" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      domString += `<tr class="eventAnimalItem from101To200" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     } else if (`${animalItem.cost}` > 200 && `${animalItem.cost}` < 301) {
-      domString += `<tr class="eventAnimalItem animalRow from201To300" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      domString += `<tr class="eventAnimalItem from201To300" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     } else if (`${animalItem.cost}` > 300 && `${animalItem.cost}` < 401) {
-      domString += `<tr class="eventAnimalItem animalRow from301To400" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      domString += `<tr class="eventAnimalItem from301To400" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     } else if (`${animalItem.cost}` > 400 && `${animalItem.cost}` < 501) {
-      domString += `<tr class="eventAnimalItem animalRow from501To500" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      domString += `<tr class="eventAnimalItem from501To500" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     } else if (`${animalItem.cost}` > 500) {
-      domString += `<tr class="eventAnimalItem animalRow from501On" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      domString += `<tr class="eventAnimalItem from501On" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
     }
     domString += '</tr>';
   });

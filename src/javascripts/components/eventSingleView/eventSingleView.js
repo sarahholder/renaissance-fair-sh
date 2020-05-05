@@ -84,15 +84,16 @@ const removeEventStaff = (e) => {
 };
 
 const removeEventAnimal = (e) => {
-  e.preventDefault();
+  const eventNumber = e.target.closest('.animalrow').id;
   const eventAnimalId = e.target.closest('button').id;
-  const eventId = e.target.closest('.animalRow').id;
+  console.log('THIS IS THE CLOSEST ANIMAL EVENT ID', eventNumber);
+  console.log('This is the EVENTANIMALID', eventAnimalId);
   eventAnimalData.getSingleEventAnimal(eventAnimalId)
     .then(() => {
       eventAnimalData.deleteEventAnimal(eventAnimalId)
         .then(() => {
           // eslint-disable-next-line no-use-before-define
-          viewSingleEvent(eventId);
+          viewSingleEvent(eventNumber);
         });
     })
     .catch((error) => console.error('could not delete animal item from event', error));
