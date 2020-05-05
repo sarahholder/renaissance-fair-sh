@@ -14,7 +14,7 @@ const editAnimalForm = (e) => {
       domString += `<input type="text" class="form-control" id="edit-animalType" placeholder="Ocarina" value="${animal.type}"`;
       domString += '</div>';
       domString += '<div class="form-group">';
-      domString += '<label for="edit-animalDescription">animal Description:</label>';
+      domString += '<label for="edit-animalDescription">Animal Description:</label>';
       domString += `<input type="text" class="form-control" id="edit-animalDescription" placeholder="A small wind instrument" value="${animal.description}">`;
       domString += '</div>';
       domString += '<div class="form-group">';
@@ -30,7 +30,7 @@ const editAnimalForm = (e) => {
       domString += `<input type="text" class="form-control" id="edit-animalCost" placeholder="$20" value="${animal.cost}">`;
       domString += '</div>';
       domString += '<div class="form-group">';
-      domString += '<label for="edit-animalAvailability">Avaliability Of animal:</label>';
+      domString += '<label for="edit-animalAvailability">Availability of Animal:</label>';
       domString += `<select id="edit-animalAvailability" class="form-control" placeholder="" value="${animal.isAvailable}">`;
       domString += `<option value="${animal.isAvailable}">${animal.isAvailable}</option>`;
       console.error('avail status in edit form', `${animal.isAvailable}`);
@@ -43,6 +43,8 @@ const editAnimalForm = (e) => {
       utils.printToDom('modalAnimalForm', domString);
       $('#editAnimalSubmit').removeClass('hide');
       $('#newAnimalSubmit').addClass('hide');
+      $('.edit').removeClass('hide');
+      $('.add').addClass('hide');
     })
     .catch((err) => console.error('could not get single animal', err));
 };

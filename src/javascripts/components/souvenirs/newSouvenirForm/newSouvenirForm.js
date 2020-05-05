@@ -29,7 +29,7 @@ const newSouvenirForm = () => {
   domString += '</select>';
   domString += '</div>';
   domString += '<div class="form-group">';
-  domString += '<label for="souvenirAvailability">Avaliability Of Souvenir:</label>';
+  domString += '<label for="souvenirAvailability">Availability of Souvenir:</label>';
   domString += '<select id="souvenirAvailability" class="form-control" placeholder="">';
   domString += '<option value="">Select your option</option>';
   domString += '<option value="true">Avaliable</option>';
@@ -41,6 +41,9 @@ const newSouvenirForm = () => {
 
   $('#save-new-souvenir-btn').removeClass('hide');
   $('#update-souvenir-btn').addClass('hide');
+  $('.edit').addClass('hide');
+  $('.add').removeClass('hide');
+
   utils.printToDom('souvenirsModalBody', domString);
 };
 

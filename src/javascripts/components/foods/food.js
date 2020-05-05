@@ -68,7 +68,7 @@ const buildAllFoods = () => {
       domString += '<h3>Delicious foods and beverages</h3>';
       const user = firebase.auth().currentUser;
       if (user !== null) {
-        domString += '<button class="btn btn-lg addFoodBtn" id="addFoodBtn"><i class="fas fa-plus"></i> Add new food item</button>';
+        domString += '<button class="btn btn-lg addFoodBtn" id="addFoodBtn"><i class="fas fa-plus"></i> Add a New Food Item</button>';
       }
       domString += '</div>';
       domString += '<div class="container-fluid d-flex flex-wrap col-md-9 col-sm-10">';

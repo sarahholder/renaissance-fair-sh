@@ -30,6 +30,8 @@ const addShowForm = () => {
 
   $('#save-new-show-btn').removeClass('hide');
   $('#update-show-btn').addClass('hide');
+  $('.edit').addClass('hide');
+  $('.add').removeClass('hide');
 
   $('#shows-modal').modal('show');
   utils.printToDom('shows-modal-body', domString);

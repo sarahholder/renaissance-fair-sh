@@ -34,7 +34,7 @@ const editSouvenirsForm = (e) => {
       domString += '</select>';
       domString += '</div>';
       domString += '<div class="form-group">';
-      domString += '<label for="edit-souvenirAvailability">Avaliability Of Souvenir:</label>';
+      domString += '<label for="edit-souvenirAvailability">Availability of Souvenir:</label>';
       domString += '<select id="edit-souvenirAvailability" class="form-control" placeholder="">';
       domString += '<option value="">Select your option</option>';
       domString += '<option value="true">Avaliable</option>';
@@ -46,6 +46,8 @@ const editSouvenirsForm = (e) => {
       utils.printToDom('souvenirsModalBody', domString);
       $('#update-souvenir-btn').removeClass('hide');
       $('#save-new-souvenir-btn').addClass('hide');
+      $('.edit').removeClass('hide');
+      $('.add').addClass('hide');
     }).catch((err) => console.error('could not get single souvenir', err));
 };
 

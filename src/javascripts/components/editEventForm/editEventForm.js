@@ -31,10 +31,6 @@ const showEditEventForm = (eventId) => {
       domString += '<label for="edit-event-photo">Photo</label>';
       domString += `<input type="text" class="form-control" id="edit-event-photo" aria-describedby="photo" placeholder="Enter an Image URL" value="${selectedEvent.imageUrl}">`;
       domString += '</div>';
-      domString += '<div class="form-group">';
-      domString += '<label for="edit-event-cost">Cost</label>';
-      domString += `<input type="text" class="form-control" id="edit-event-cost" aria-describedby="cost" placeholder="Enter a Cost" value="${selectedEvent.cost}">`;
-      domString += '</div>';
       domString += '</form>';
       utils.printToDom('modalBodyEditEvent', domString);
     })

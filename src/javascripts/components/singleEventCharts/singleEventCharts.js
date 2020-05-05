@@ -1,6 +1,7 @@
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 
+
 const buildSingleEventChart = () => {
   const chart = am4core.create('chartDiv', am4charts.XYChart);
 

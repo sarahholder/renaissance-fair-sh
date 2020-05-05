@@ -36,6 +36,8 @@ const showAddAnimalModalForm = () => {
 
   $('#newAnimalSubmit').addClass('hide');
   $('#editAnimalSubmit').removeClass('hide');
+  $('.edit').addClass('hide');
+  $('.add').removeClass('hide');
   utils.printToDom('modalAnimalForm', domString);
 };
 
