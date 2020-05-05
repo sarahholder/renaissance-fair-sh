@@ -218,7 +218,7 @@ const viewSingleEvent = (eventId) => {
       domString += `<h5>${singleEvent.location}</h5>`;
       domString += `<h5>${singleEvent.date}</h5>`;
       domString += `<h5>${singleEvent.timeStart} - ${singleEvent.timeEnd}</h5>`;
-      domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close event details</button>';
+      domString += '<button id="closeSingleEvent" class="btn btn-lg closeEventBtn"><i class="fas fa-times"></i> Close Event Details</button>';
       domString += '</div>';
       domString += eventFilterFields.eventFilters(eventId);
       domString += '<div id="eventDetails" class="container-fluid d-flex flex-wrap">';
