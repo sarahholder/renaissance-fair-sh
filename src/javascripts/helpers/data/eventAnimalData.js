@@ -21,7 +21,7 @@ const getSingleEventAnimal = (eventAnimalsId) => axios.get(`${baseUrl}/eventAnim
 
 const deleteEventAnimal = (eventAnimalId) => axios.delete(`${baseUrl}/eventAnimal/${eventAnimalId}.json`);
 
-const addEventAnimal = (newEventAnimal) => axios.post(`${baseUrl}/eventAnimals.json`, newEventAnimal);
+const addEventAnimal = (newEventAnimal) => axios.post(`${baseUrl}/eventAnimal.json`, newEventAnimal);
 
 export default {
   getEventAnimalByEventId,
