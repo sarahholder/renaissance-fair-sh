@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventFoodDetails from './eventFoodDetails';
 import eventStaffData from '../../helpers/data/eventStaffData';
@@ -9,6 +8,7 @@ import eventSouvenirDetails from './eventSouvenirDetails';
 import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 import showDetails from './eventShowDetails';
 import smashData from '../../helpers/data/smash';
+
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import eventFilterFields from './eventFilters';
 import animalEvent from './eventAnimalDetails';
@@ -169,6 +169,41 @@ const grandTotalBuilder = () => {
   return domString;
 };
 
+const applyFilterByModuleSelection = () => {
+  const selectedModule = $('#moduleSelected').val();
+  if (selectedModule === 'showModule') {
+    $('#eventAnimalsSection').addClass('hide');
+    $('#eventFoodSection').addClass('hide');
+    $('#eventShowSection').removeClass('hide');
+    $('#eventSouvenirSection').addClass('hide');
+    $('#eventStaffSection').addClass('hide');
+  } else if (selectedModule === 'animalModule') {
+    $('#eventAnimalsSection').removeClass('hide');
+    $('#eventFoodSection').addClass('hide');
+    $('#eventShowSection').addClass('hide');
+    $('#eventSouvenirSection').addClass('hide');
+    $('#eventStaffSection').addClass('hide');
+  } else if (selectedModule === 'foodModule') {
+    $('#eventAnimalsSection').addClass('hide');
+    $('#eventFoodSection').removeClass('hide');
+    $('#eventShowSection').addClass('hide');
+    $('#eventSouvenirSection').addClass('hide');
+    $('#eventStaffSection').addClass('hide');
+  } else if (selectedModule === 'souvenirModule') {
+    $('#eventAnimalsSection').addClass('hide');
+    $('#eventFoodSection').addClass('hide');
+    $('#eventShowSection').addClass('hide');
+    $('#eventSouvenirSection').removeClass('hide');
+    $('#eventStaffSection').addClass('hide');
+  } else if (selectedModule === 'staffModule') {
+    $('#eventAnimalsSection').addClass('hide');
+    $('#eventFoodSection').addClass('hide');
+    $('#eventShowSection').addClass('hide');
+    $('#eventSouvenirSection').addClass('hide');
+    $('#eventStaffSection').removeClass('hide');
+  }
+};
+
 // FUNCTIONS FOR THE BUTTONS IN THE ACCORDION SECTION WITH FILTERS ARE BELOW
 const applyFilterByPriceRange = () => {
   const selectedPriceRange = $('#priceRangeSelected').val();
@@ -217,7 +252,7 @@ const applyFilterByPriceRange = () => {
   }
 };
 
-const clearFilterByPriceRange = (e) => {
+const clearFilters = (e) => {
   const eventId = e.target.dataset.id;
   // eslint-disable-next-line no-use-before-define
   viewSingleEvent(eventId);
@@ -225,7 +260,9 @@ const clearFilterByPriceRange = (e) => {
 
 const filterEvents = () => {
   $('body').on('click', '#btnFilterPriceRangeSave', applyFilterByPriceRange);
-  $('body').on('click', '#btnFilterPriceRangeClear', clearFilterByPriceRange);
+  $('body').on('click', '#btnFilterPriceRangeClear', clearFilters);
+  $('body').on('click', '#btnFilterModuleSave', applyFilterByModuleSelection);
+  $('body').on('click', '#btnFilterModuleClear', clearFilters);
 };
 // Anca: Functions for filter buttons end here.
 
