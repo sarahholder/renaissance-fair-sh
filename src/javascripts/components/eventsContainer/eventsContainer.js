@@ -7,21 +7,11 @@ import eventCard from '../eventCard/eventCard';
 import singleView from '../eventSingleView/eventSingleView';
 import editEventForm from '../editEventForm/editEventForm';
 import addEventModal from './eventModalForm/eventModalForm.js';
+import smash from '../../helpers/data/smash';
 // import charts from '../Charts/charts';
 
 import utils from '../../helpers/utils';
 import './eventsContainer.scss';
-
-const removeEvent = (e) => {
-  e.preventDefault();
-  const eventId = e.target.closest('.card').id;
-  eventData.deleteEvent(eventId)
-    .then(() => {
-      // eslint-disable-next-line no-use-before-define
-      buildAllEvents();
-    })
-    .catch((err) => console.error('delete event failed', err));
-};
 
 const editNewEvent = (e) => {
   e.preventDefault();
@@ -92,6 +82,16 @@ const buildAllEvents = () => {
       // charts.buildChart();
     })
     .catch((error) => console.error('build all events has failed', error));
+};
+
+const removeEvent = (e) => {
+  e.preventDefault();
+  const eventId = e.target.closest('.card').id;
+  smash.completelyRemoveEvent(eventId)
+    .then(() => {
+      buildAllEvents();
+    })
+    .catch((err) => console.error('could not delete complete event', err));
 };
 
 const eventActions = () => {

@@ -1,7 +1,6 @@
 import firebase from 'firebase/app';
 
 import smash from '../../helpers/data/smash';
-
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 

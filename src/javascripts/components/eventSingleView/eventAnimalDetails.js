@@ -16,10 +16,10 @@ const printAnimalChoices = (event) => {
       animals.forEach((animal) => {
         if (animal.isAvailable === 'Available') {
           domString += `<option class="animalChoice"  value="${eventId}" id="${animal.id}">${animal.name} the ${animal.type} / $${animal.cost}</option>`;
-          utils.printToDom('animalChoices', domString);
         } else {
           domString += `<option class="animalChoice"  value="${eventId}" id="${animal.id}" disabled>${animal.name} the ${animal.type} / $${animal.cost}</option>`;
         }
+        utils.printToDom('animalChoices', domString);
       });
     })
     .catch((err) => console.error('cannot get animal event form', err));
@@ -35,10 +35,10 @@ const noSelectedAnimals = (eventId) => {
       animals.forEach((animal) => {
         if (animal.isAvailable === 'Available') {
           domString += `<option class="animalChoice" value="${eventNumber}" id="${animal.id}">${animal.name} the ${animal.type} / $${animal.cost}</option>`;
-          utils.printToDom('animalChoices', domString);
         } else {
           domString += `<option class="animalChoice"  value="${eventId}" id="${animal.id}" disabled>${animal.name} the ${animal.type} / $${animal.cost}</option>`;
         }
+        utils.printToDom('animalChoices', domString);
       });
     })
     .catch((err) => console.error('cannot get animal event form', err));
@@ -67,16 +67,26 @@ const getEventAnimalDetails = (singleEvent) => {
   domString += '    <tr>';
   domString += '      <th colspan="4" class="p-0">';
   domString += '        <div class="collapse" id="collapseExample">';
-  domString += '          <div class="d-flex flex-wrap row">';
-  domString += '            <div id="animalChoices" class="col-9 m-2 text-center"></div>';
+  domString += '          <div class="d-flex flex-wrap justify-content-center">';
+  domString += '            <div id="animalChoices" class="col-9 m-2"></div>';
   domString += '              </select>';
   domString += '                  <button class="btn btn-outline-secondary add-button" type="button" id="make-new-event-animal"><i class="fas fa-plus"></i>Add</button>';
-  domString += '               <div id="alert"></div>';
-  domString += '            </div>';
-  domString += '          </div>';
+  domString += '               <div class="justify-content-center align-self-center" id="alertAnimal"></div>';
   if (animalsFound.length !== 0) {
     singleEvent.animals.forEach((animalItem) => {
-      domString += `<tr class="animalrow" id="${eventId}" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      if (`${animalItem.cost}` < 101 && `${animalItem.cost}` > 0) {
+        domString += `<tr class="eventAnimalItem from0To100 animalrow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      } else if (`${animalItem.cost}` > 100 && `${animalItem.cost}` < 201) {
+        domString += `<tr class="eventAnimalItem from101To200 animalrow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      } else if (`${animalItem.cost}` > 200 && `${animalItem.cost}` < 301) {
+        domString += `<tr class="eventAnimalItem from201To300 animalrow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      } else if (`${animalItem.cost}` > 300 && `${animalItem.cost}` < 401) {
+        domString += `<tr class="eventAnimalItem from301To400 animalrow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      } else if (`${animalItem.cost}` > 400 && `${animalItem.cost}` < 501) {
+        domString += `<tr class="eventAnimalItem from501To500 animalrow" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      } else if (`${animalItem.cost}` > 500) {
+        domString += `<tr class="eventAnimalItem from501On" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
+      }
       domString += `<th scope="row" class="cell-width">${animalItem.name}</th>`;
       domString += `<td class="cell-width">${animalItem.type}</td>`;
       domString += `<td class="cell-width">$${animalItem.cost}</td>`;
@@ -88,23 +98,7 @@ const getEventAnimalDetails = (singleEvent) => {
   } else {
     noSelectedAnimals(eventId);
   }
-  // eslint-disable-next-line no-use-before-define
-  singleEvent.animals.forEach((animalItem) => {
-    if (`${animalItem.cost}` < 101 && `${animalItem.cost}` > 0) {
-      domString += `<tr class="eventAnimalItem from0To100" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
-    } else if (`${animalItem.cost}` > 100 && `${animalItem.cost}` < 201) {
-      domString += `<tr class="eventAnimalItem from101To200" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
-    } else if (`${animalItem.cost}` > 200 && `${animalItem.cost}` < 301) {
-      domString += `<tr class="eventAnimalItem from201To300" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
-    } else if (`${animalItem.cost}` > 300 && `${animalItem.cost}` < 401) {
-      domString += `<tr class="eventAnimalItem from301To400" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
-    } else if (`${animalItem.cost}` > 400 && `${animalItem.cost}` < 501) {
-      domString += `<tr class="eventAnimalItem from401To500" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
-    } else if (`${animalItem.cost}` > 500) {
-      domString += `<tr class="eventAnimalItem from501On" data-id="${animalItem.id}" data-parent="${animalItem.parentEventAnimalId}" data-container="${animalItem.parentEventId}">`;
-    }
-    domString += '</tr>';
-  });
+  domString += '</tr>';
   domString += '</tbody>';
   domString += '</table>';
   domString += '<div class="input-group mb-3">';
@@ -119,9 +113,7 @@ const getEventAnimalDetails = (singleEvent) => {
   domString += '   <span class="input-group-text">.00</span>';
   domString += '  </div>';
   domString += '</div>';
-
   domString += '</div>';
-
   return domString;
 };
 
