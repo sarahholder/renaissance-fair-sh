@@ -24,15 +24,15 @@ const eventShowDetails = (singleEvent) => {
   domString += '<tbody>';
   singleEvent.shows.forEach((showItem) => {
     if (`${showItem.cost}` < 101 && `${showItem.cost}` > 0) {
-      domString += `<tr class="eventStaffMember staffRow from0To100" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventStaffId}" data-container="${showItem.parentEventId}">`;
+      domString += `<tr class="eventShowItem showRow from0To100" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventStaffId}" data-container="${showItem.parentEventId}">`;
     } else if (`${showItem.cost}` > 100 && `${showItem.cost}` < 201) {
-      domString += `<tr class="eventStaffMember staffRow from101To200" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventStaffId}" data-container="${showItem.parentEventId}">`;
+      domString += `<tr class="eventShowItem showRow from101To200" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventStaffId}" data-container="${showItem.parentEventId}">`;
     } else if (`${showItem.cost}` > 200 && `${showItem.cost}` < 301) {
-      domString += `<tr class="eventStaffMember staffRow from201To300" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventStaffId}" data-container="${showItem.parentEventId}">`;
+      domString += `<tr class="eventShowItem showRow from201To300" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventStaffId}" data-container="${showItem.parentEventId}">`;
     } else if (`${showItem.cost}` > 300 && `${showItem.cost}` < 401) {
-      domString += `<tr class="eventStaffMember staffRow from301To400" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventStaffId}" data-container="${showItem.parentEventId}">`;
+      domString += `<tr class="eventShowItem showRow from301To400" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventStaffId}" data-container="${showItem.parentEventId}">`;
     } else if (`${showItem.cost}` > 400 && `${showItem.cost}` < 501) {
-      domString += `<tr class="eventStaffMember staffRow from401To500" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventStaffId}" data-container="${showItem.parentEventId}">`;
+      domString += `<tr class="eventShowItem showRow from401To500" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventStaffId}" data-container="${showItem.parentEventId}">`;
     } else if (`${showItem.cost}` > 500) {
       domString += `<tr class="eventShowItem showRow from501On" id="${showItem.parentEventId}" data-id="${showItem.id}" data-parent="${showItem.parentEventShowId}" data-container="${showItem.parentEventId}">`;
     }

@@ -124,7 +124,7 @@ const makeNewEventStaff = (e) => {
 };
 
 const removeEventAnimal = (e) => {
-  const eventNumber = e.target.closest('.animalrow').id;
+  const eventNumber = $('.animalrow').data('container');
   const eventAnimalId = e.target.closest('button').id;
   eventAnimalData.getSingleEventAnimal(eventAnimalId)
     .then(() => {
@@ -178,8 +178,7 @@ const removeEventSouvenir = (e) => {
 };
 
 const getGrandTotal = () => {
-  // eventSouvenirDetails.getSouvenirTotals(completeEvent);
-  const souvenirTotal = $('#souvTotalCost').val() * 1;
+  const souvenirTotal = $('#souvenirTotalCost').val() * 1;
   const showTotal = $('#showTotalCost').val() * 1;
   const foodTotal = $('#foodTotalCost').val() * 1;
   const staffTotal = $('#staffTotalCost').val() * 1;
