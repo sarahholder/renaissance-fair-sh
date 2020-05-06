@@ -82,6 +82,23 @@ const getEventSouvenirs = (eventId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSouvenirsNotInEvent = (eventId) => new Promise((resolve, reject) => {
+  eventSouvenirData.getEventSouvenirByEventId(eventId)
+    .then((eventSouvenirs) => {
+      souvenirsData.getSouvenirs().then((allSouvenirs) => {
+        const unselectedEventSouvenirItems = [];
+        allSouvenirs.forEach((souvenir) => {
+          const exists = eventSouvenirs.find((x) => souvenir.id === x.souvenirId);
+          if (exists === undefined) {
+            unselectedEventSouvenirItems.push(souvenir);
+          }
+        });
+        resolve(unselectedEventSouvenirItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
 const getEventShow = (eventId) => new Promise((resolve, reject) => {
   eventShowData.getEventShowByEventId(eventId)
     .then((eventShows) => {
@@ -266,4 +283,5 @@ export default {
   getEventStaff,
   getAnimalsNotInEvent,
   getShowsNotInEvent,
+  getSouvenirsNotInEvent,
 };

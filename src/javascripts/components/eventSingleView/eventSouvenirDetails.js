@@ -1,7 +1,14 @@
 import firebase from 'firebase/app';
 
+import smash from '../../helpers/data/smash';
+
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
+
+import utils from '../../helpers/utils';
+import souvenirData from '../../helpers/data/souvenirsData';
+import souvenirsData from '../../helpers/data/souvenirsData';
+import foodData from '../../helpers/data/foodData';
 
 const getSouvenirTotals = (singleEvent) => {
   singleEvent.souvenirs.forEach((souvItem) => {
@@ -18,7 +25,7 @@ const getSouvenirTotals = (singleEvent) => {
   });
   let souvenirTotal = 0;
   // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < rowTotalsArray.length; i++) {
+  for (let i = 0; i <select rowTotalsArray.length; i++) {
     souvenirTotal += rowTotalsArray[i];
   }
   // eslint-disable-next-line no-param-reassign
@@ -26,10 +33,55 @@ const getSouvenirTotals = (singleEvent) => {
   // eslint-disable-next-line no-use-before-define
 };
 
+const printSouvenirChoices = (souvenirObject) => {
+  const eventId = souvenirObject.parentEventId;
+  smash.getSouvenirsNotInEvent(eventId)
+    .then((souvenirs) => {
+      let domString = '';
+      domString += '<select class="custom-select col-11 p-2" id="inputSouvChoices">';
+      domString += '<option diabled selected>Choose a souvenir to add to this event:</option>';
+      souvenirsData.forEach((souvenir) => {
+        if (souvenir.isAvailable === 'Available') {
+          domString += `<option class="souvenirChoice" value="${eventId}" id="${souvenir.id}">${souvenir.type} / $${souvenir.price}</option>`;
+        } else {
+          domString += `<option class="souvenirChoice" value="${eventId}" id="${souvenir.id}" disabled>${souvenir.tyoe} / $${souvenir.price}</option>`;
+        }
+      });
+      domString += '</select>';
+      utils.printToDom('souvenirChoices', domString);
+    })
+    .catch((err) => console.error('cannot add new souvenir item to event', err));
+};
+
+const noSelectedSouvenirs = (event) => {
+  const eventId = event.id;
+  souvenirData.getSouvenirs()
+    .then((souvenirs) => {
+      let domString = '';
+      domString += '<select class="custom-select col-11 p-2" id="inputSouvenirChoices">';
+      domString += '<option disabled selected>Choose souvenir to add to this event:</option>';
+      souvenirs.forEach((souvenir) => {
+        if (foodData.isAvailable === 'Available') {
+          domString += `option class="souvenirChoice" value="${eventId}" id="${souvenir.id}">${souvenir.type} / $${souvenir.price}</option>`;
+        } else {
+          domString += `<option class="souvenirChoice" value="${eventId}" id="${souvenir.id}" disabled>${souvenir.type} / $${souvenir.price}</option>`;
+        }
+      });
+      domString += '</select>'
+      utils.printToDom('souvenirChoices', domString);
+    })
+    .catch((err) => console.error('cannnot add new souvenir to an empty souvenir sectio', error));
+}
+
 const getEventSouvenirDetails = (singleEvent) => {
+  const user = firebase.auth().currentUser;
+  const souvenirsFound = singleEvent.souvenir;
   let domString = '';
   domString += '<div id="eventSouvenirSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Souvenir Details</h4>';
+  if (user.uid === singleEvent.uid) {
+    domString += ' <button class="btn btn-default btn-lg d-flex ml-auto addEventItemBtn" data-toggle="collapse" data-target="#collapseSouvenirList" aria-expanded="false" aria-controls="collapseSouvenirList"><i class="fas fa-plus"></i></button>';
+  }
   domString += '<table class="table-responsive table-dark">';
   domString += '<thead>';
   domString += '<tr>';
@@ -37,6 +89,22 @@ const getEventSouvenirDetails = (singleEvent) => {
   domString += '<th scope="col">Price</th>';
   domString += '<th scope="col">Qty</th>';
   domString += '</tr>';
+  domString += '<tr class="collapse" id="collapseSouvenirList">';
+  domString += '<th colspan="3" class="p-0">';
+  domString += '<div id="souvenirChoices">';
+  domString += '</div>';
+  domString += '</th>';
+
+  domString += '<th colspan="1" class="p-0">';
+  domString += '<select id="inputSouvenirQuantity" class="custom-select">';
+  domString += '<option selected disabled>Quantity:</option>';
+  domString += '<option class="souvenirQuantity" value="50">50</option>';
+  domString += '<option class="souvenirQuantity" value="100">100</option>';
+  domString += '<option class="souvenirQuantity" value="150">150</option>';
+  domString += '<option class="souvenirQuantity" value="200">200</option>';
+  domstring += '<option class="souvenirQuantity" value="250">250</option>';
+  domString += '<option class="souvenirQuantity" value="500">500</option>';
+
   domString += '</thead>';
   domString += '<tbody>';
   singleEvent.souvenirs.forEach((souvItem) => {
