@@ -147,7 +147,7 @@ const removeEventStaff = (e) => {
 
 const makeNewEventStaff = (e) => {
   $('.myAlert').alert('close');
-  e.preventDefault();
+  e.stopPropagation();
   const staff = $('#inputStaffChoices option:selected').attr('id');
   const thisEventId = $('#inputStaffChoices option:selected').attr('value');
   if (staff !== undefined) {
