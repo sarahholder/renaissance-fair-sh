@@ -59,11 +59,11 @@ const getEventStaffDetails = (singleEvent) => {
   domString += '<tr>';
   domString += '<th colspan="4" class="p-0">';
   domString += '<div class="collapse" id="collapseStaff">';
-  domString += '<div class="d-flex flex-wrap row">';
+  domString += '<div class="d-flex flex-wrap justify-content-center">';
   domString += '<div id="staffChoices" class="col-9 m-2 text-center"></div>';
   domString += '</select>';
   domString += '<button class="btn btn-outline-secondary add-button" type="button" id="make-new-event-staff"><i class="fas fa-plus"></i>Add</button>';
-  domString += '<div id="myAlert"></div>';
+  domString += '<div class="text-center" id="myAlert"></div>';
   domString += '</div>';
   domString += '</div>';
   if (staffFound.length !== 0) {

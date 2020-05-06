@@ -31,7 +31,7 @@ const eventSingleViewClickEvents = () => {
   $('body').on('click', '#make-new-event-food', makeNewEventFood);
   $('body').on('click', '#make-new-event-staff', makeNewEventStaff);
   $().on('click', '.alert', closeAlert);
-  $().on('click', '.myAlert', closeMyAlert);
+  $().on('click', '.myAlert', closeAlert);
 };
 
 const closeSingleEvent = () => {
@@ -102,9 +102,7 @@ const removeEventShow = (e) => {
 const removeEventStaff = (e) => {
   e.preventDefault();
   const eventStaffId = e.target.closest('button').id;
-  console.log('yeeeee', eventStaffId);
   const eventId = e.target.closest('.staffRow').id;
-  console.log('meeeeeeee', eventId);
   eventStaffData.getSingleEventStaff(eventStaffId)
     .then(() => {
       eventStaffData.deleteEventStaff(eventStaffId)
@@ -131,9 +129,9 @@ const makeNewEventStaff = (e) => {
     viewSingleEvent(thisEventId);
   } else {
     let domString = '';
-    domString += `<div class="myAlert alert-warning alert-dismissible fade show" role="alert">
+    domString += `<div class="myAlert alert alert-warning alert-dismissible fade show" role="alert">
     <strong>Please</strong> choose a staff member!
-    <button type="button" class="close" data-dismiss="myAlert" aria-label="Close">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
     </div>`;
