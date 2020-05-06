@@ -8,10 +8,11 @@ import eventSouvenirDetails from './eventSouvenirDetails';
 import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 import showDetails from './eventShowDetails';
 import smashData from '../../helpers/data/smash';
+import animalEvent from './eventAnimalDetails';
 
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import eventFilterFields from './eventFilters';
-import animalEvent from './eventAnimalDetails';
+
 
 import utils from '../../helpers/utils';
 
@@ -104,6 +105,18 @@ const removeEventShow = (e) => {
         });
     })
     .catch((error) => console.error('could not delete show from event', error));
+};
+const makeNewEventShow = (e) => {
+  e.preventDefault();
+  const thisEventId = $('#inputShowChoices option:selected').attr('value');
+  const newEventShow = {
+    eventId: thisEventId,
+    showId: $('#inputShowChoices option:selected').attr('id'),
+    quantity: $('#inputShowQuantity').val() * 1,
+  };
+  eventShowData.addEventShow(newEventShow);
+  // eslint-disable-next-line no-use-before-define
+  viewSingleEvent(thisEventId);
 };
 
 const removeEventStaff = (e) => {
@@ -381,6 +394,7 @@ const eventSingleViewClickEvents = () => {
   $('body').on('click', '#make-new-event-food', makeNewEventFood);
   $('body').on('click', '#make-new-event-staff', makeNewEventStaff);
   $('body').on('click', '#make-new-event-souvenir', makeNewEventSouvenir);
+  $('body').on('click', '#make-new-event-show', makeNewEventShow);
   $().on('click', '.alert', closeAlert);
   $().on('click', '.myAlert', closeAlert);
 };
