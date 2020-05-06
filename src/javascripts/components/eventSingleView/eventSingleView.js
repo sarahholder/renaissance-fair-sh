@@ -124,9 +124,8 @@ const makeNewEventStaff = (e) => {
 };
 
 const removeEventAnimal = (e) => {
-  const eventNumber = e.target.closest('.animalr3ow').id;
+  const eventNumber = e.target.closest('.animalrow').id;
   const eventAnimalId = e.target.closest('button').id;
-  console.log('THIS IS THE EVENT ANIMAL ROW', eventNumber);
   eventAnimalData.getSingleEventAnimal(eventAnimalId)
     .then(() => {
       eventAnimalData.deleteEventAnimal(eventAnimalId)
@@ -342,11 +341,6 @@ const viewSingleEvent = (eventId) => {
     .catch((error) => console.error('problem with single event', error));
 };
 
-const viewSingleEventCall = (e) => {
-  const eventId = e.target.dataset.id;
-  viewSingleEvent(eventId);
-};
-
 const closeAlert = () => {
   $('.alertAnimal').addClass('close');
   $('.alertFood').addClass('close');
@@ -365,6 +359,11 @@ const eventSingleViewClickEvents = () => {
   $('body').on('click', '#make-new-event-staff', makeNewEventStaff);
   $().on('click', '.alert', closeAlert);
   $().on('click', '.myAlert', closeAlert);
+};
+
+const viewSingleEventCall = (e) => {
+  const eventId = e.target.dataset.id;
+  viewSingleEvent(eventId);
 };
 
 export default {

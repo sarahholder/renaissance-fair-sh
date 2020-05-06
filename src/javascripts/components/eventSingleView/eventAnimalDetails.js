@@ -98,7 +98,6 @@ const getEventAnimalDetails = (singleEvent) => {
   } else {
     noSelectedAnimals(eventId);
   }
-  // eslint-disable-next-line no-use-before-define
   domString += '</tr>';
   domString += '</tbody>';
   domString += '</table>';
