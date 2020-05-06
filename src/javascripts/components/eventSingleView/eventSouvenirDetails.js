@@ -14,9 +14,9 @@ const printSouvenirChoices = (souvenirObject) => {
     .then((souvenirs) => {
       let domString = '';
       domString += '<select class="custom-select col-11 p-2" id="inputSouvChoices">';
-      domString += '<option diabled selected>Choose a souvenir to add to this event:</option>';
+      domString += '<option disabled selected>Choose a souvenir to add to this event:</option>';
       souvenirs.forEach((souvenir) => {
-        if (souvenir.isAvailable === 'Available') {
+        if (souvenir.isAvailable === true) {
           domString += `<option class="souvenirChoice" value="${eventId}" id="${souvenir.id}">${souvenir.type} / $${souvenir.price}</option>`;
         } else {
           domString += `<option class="souvenirChoice" value="${eventId}" id="${souvenir.id}" disabled>${souvenir.tyoe} / $${souvenir.price}</option>`;
@@ -37,7 +37,7 @@ const noSelectedSouvenirs = (event) => {
       domString += '<option disabled selected>Choose souvenir to add to this event:</option>';
       souvenirs.forEach((souvenir) => {
         if (souvenirsData.isAvailable === 'Available') {
-          domString += `option class="souvenirChoice" value="${eventId}" id="${souvenir.id}">${souvenir.type} / $${souvenir.price}</option>`;
+          domString += `<option class="souvenirChoice" value="${eventId}" id="${souvenir.id}">${souvenir.type} / $${souvenir.price}</option>`;
         } else {
           domString += `<option class="souvenirChoice" value="${eventId}" id="${souvenir.id}" disabled>${souvenir.type} / $${souvenir.price}</option>`;
         }
@@ -95,18 +95,18 @@ const getEventSouvenirDetails = (singleEvent) => {
 
   if (souvenirsFound.length !== 0) {
     singleEvent.souvenirs.forEach((souvenirItem) => {
-      if (`${souvenirItem.price}` > 101 && `${souvenirItem.price}` > 0) {
-        domString += `<tr class="eventSouvenirItem souvenirRow from0to100" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+      if (`${souvenirItem.price}` < 101 && `${souvenirItem.price}` > 0) {
+        domString += `<tr class="eventSouvItem souvenirRow from0To100" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
       } else if (`${souvenirItem.price}` > 100 && `${souvenirItem.price}` < 201) {
-        domString += `<tr class="eventSouvenirItem souvenirRow from101to200" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+        domString += `<tr class="eventSouvItem souvenirRow from101To200" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
       } else if (`${souvenirItem.price}` > 200 && `${souvenirItem.price}` < 301) {
-        domString += `<tr class="eventSouvenirItem souvenirRow from201to300" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+        domString += `<tr class="eventSouvItem souvenirRow from201To300" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
       } else if (`${souvenirItem.price}` > 300 && `${souvenirItem.price}` < 401) {
-        domString += `<tr class="eventSouvenirItem souvenirRow from301to400" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+        domString += `<tr class="eventSouvItem souvenirRow from301To400" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
       } else if (`${souvenirItem.price}` > 400 && `${souvenirItem.price}` < 501) {
-        domString += `<tr class="eventSouvenirItem souvenirRow from401to500" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+        domString += `<tr class="eventSouvItem souvenirRow from401To500" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
       } else if (`${souvenirItem.price}` > 500) {
-        domString += `<tr class="eventSouvenirItem souvenirRow from501On" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+        domString += `<tr class="eventSouvItem souvenirRow from501On" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
       }
       domString += `<th scope="row" class="cell-width">${souvenirItem.type}</th>`;
       domString += `<td class="cell-width">$${souvenirItem.price}</td>`;
@@ -115,7 +115,7 @@ const getEventSouvenirDetails = (singleEvent) => {
       printSouvenirChoices(souvenirItem);
       domString += '</div>';
       if (user.uid === singleEvent.uid) {
-        domString += `<td class="cell-width"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn deleteEventSouvenirBtn" data-id="${souvenirItem.parentEventSouvenirId}"><i class="far fa-trash-alt"></i></button></td>`;
+        domString += `<td class="cell-width"><button id="${souvenirItem.parentEventSouvenirId}" class="btn btn-default deleteEventBtn deleteEventSouvenirBtn" data-id="${souvenirItem.parentEventId}"><i class="far fa-trash-alt"></i></button></td>`;
       }
       domString += '</tr>';
     });
