@@ -44,16 +44,28 @@ const removeEventFood = (e) => {
 };
 
 const makeNewEventFood = (e) => {
+  $('.alertFood').alert('close');
   e.preventDefault();
   const thisEventId = $('#inputFoodChoices option:selected').attr('value');
-  const newEventFood = {
-    eventId: thisEventId,
-    foodId: $('#inputFoodChoices option:selected').attr('id'),
-    quantity: $('#inputFoodQuantity').val() * 1,
-  };
-  eventFoodData.addEventFood(newEventFood);
-  // eslint-disable-next-line no-use-before-define
-  viewSingleEvent(thisEventId);
+  const foodId = $('#inputFoodChoices option:selected').attr('id');
+  const quantityVal = $('#inputFoodQuantity').val() * 1;
+  console.error('quantity value', quantityVal);
+  if (foodId !== undefined && quantityVal !== 0) {
+    const newEventFood = {
+      eventId: thisEventId,
+      foodId: $('#inputFoodChoices option:selected').attr('id'),
+      quantity: $('#inputFoodQuantity').val() * 1,
+    };
+    eventFoodData.addEventFood(newEventFood);
+    // eslint-disable-next-line no-use-before-define
+    viewSingleEvent(thisEventId);
+  } else {
+    let domString = '';
+    domString += `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Please choose a food item and quantity!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>`;
+
+    utils.printToDom('alertFood', domString);
+  }
 };
 
 const removeEventShow = (e) => {
@@ -310,6 +322,7 @@ const viewSingleEventCall = (e) => {
 
 const closeAlert = () => {
   $('.alert').addClass('close');
+  $('.alertFood').addClass('close');
 };
 
 const eventSingleViewClickEvents = () => {
