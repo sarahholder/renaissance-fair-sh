@@ -128,7 +128,7 @@ const makeNewEventAnimal = (e) => {
   } else {
     let domString = '';
     domString += `<div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>I Cry Your Mercy!</strong> Prithee choose an item from the dropdown ere clicking the +Add button. 
+    <strong>I Cry Your Mercy!</strong> Prithee choose an item from the dropdown ere clicking the +Add button.
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -302,7 +302,7 @@ const viewSingleEvent = (eventId) => {
       domString += animalEvent.getEventAnimalDetails(singleEvent);
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
-      singleEventCharts.buildSingleEventChart();
+      singleEventCharts.buildSingleEventChart(eventId);
       getGrandTotal(singleEvent);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
