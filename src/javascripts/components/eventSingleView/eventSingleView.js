@@ -126,7 +126,7 @@ const removeEventShow = (e) => {
 const removeEventStaff = (e) => {
   e.preventDefault();
   const eventStaffId = e.target.closest('button').id;
-  const eventId = e.target.closest('.staffRow').id;
+  const eventId = $('.staffRow').data('container');
   eventStaffData.getSingleEventStaff(eventStaffId)
     .then(() => {
       eventStaffData.deleteEventStaff(eventStaffId)
@@ -367,7 +367,7 @@ const viewSingleEvent = (eventId) => {
       domString += animalEvent.getEventAnimalDetails(singleEvent);
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
-      singleEventCharts.buildSingleEventChart();
+      singleEventCharts.buildSingleEventChart(eventId);
       getGrandTotal(singleEvent);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
