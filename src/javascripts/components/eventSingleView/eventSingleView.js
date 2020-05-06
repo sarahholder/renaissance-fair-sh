@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventFoodDetails from './eventFoodDetails';
 import eventStaffData from '../../helpers/data/eventStaffData';
@@ -8,15 +10,32 @@ import eventSouvenirDetails from './eventSouvenirDetails';
 import eventSouvenirData from '../../helpers/data/eventSouvenirData';
 import showDetails from './eventShowDetails';
 import smashData from '../../helpers/data/smash';
+import animalEvent from './eventAnimalDetails';
 
 import singleEventCharts from '../singleEventCharts/singleEventCharts';
 import eventFilterFields from './eventFilters';
-import animalEvent from './eventAnimalDetails';
+
 
 import utils from '../../helpers/utils';
 
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
+
+const eventSingleViewClickEvents = () => {
+  $('body').on('click', '#closeSingleEvent', closeSingleEvent);
+  $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
+  $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
+  $('body').on('click', '.deleteEventShowBtn', removeEventShow);
+  $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
+  $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
+  $('body').on('click', '#make-new-event-animal', makeNewEventAnimal);
+  $('body').on('click', '#make-new-event-food', makeNewEventFood);
+  $('body').on('click', '#make-new-event-staff', makeNewEventStaff);
+  $('body').on('click', '#make-new-event-souvenir', makeNewEventSouvenir);
+  $('body').on('click', '#make-new-event-show', makeNewEventShow);
+  $().on('click', '.alert', closeAlert);
+  $().on('click', '.myAlert', closeAlert);
+};
 
 const closeSingleEvent = () => {
   utils.printToDom('single-view-event', '');
@@ -44,16 +63,51 @@ const removeEventFood = (e) => {
 };
 
 const makeNewEventFood = (e) => {
+  $('.alertFood').alert('close');
   e.preventDefault();
   const thisEventId = $('#inputFoodChoices option:selected').attr('value');
-  const newEventFood = {
-    eventId: thisEventId,
-    foodId: $('#inputFoodChoices option:selected').attr('id'),
-    quantity: $('#inputFoodQuantity').val() * 1,
-  };
-  eventFoodData.addEventFood(newEventFood);
-  // eslint-disable-next-line no-use-before-define
-  viewSingleEvent(thisEventId);
+  const foodId = $('#inputFoodChoices option:selected').attr('id');
+  const quantityVal = $('#inputFoodQuantity').val() * 1;
+  console.error('quantity value', quantityVal);
+  if (foodId !== undefined && quantityVal !== 0) {
+    const newEventFood = {
+      eventId: thisEventId,
+      foodId: $('#inputFoodChoices option:selected').attr('id'),
+      quantity: $('#inputFoodQuantity').val() * 1,
+    };
+    eventFoodData.addEventFood(newEventFood);
+    // eslint-disable-next-line no-use-before-define
+    viewSingleEvent(thisEventId);
+  } else {
+    let domString = '';
+    domString += `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Please choose a food item and quantity!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>`;
+
+    utils.printToDom('alertFood', domString);
+  }
+};
+
+const makeNewEventSouvenir = (e) => {
+  $('.alertSouvenir').alert('close');
+  e.preventDefault();
+  const thisEventId = $('#inputSouvChoices option:selected').attr('value');
+  const souvId = $('#inputSouvChoices option:selected').attr('id');
+  const quantityVal = $('#inputSouvenirQuantity').val() * 1;
+  if (souvId !== undefined && quantityVal !== 0) {
+    const makeEventSouvenir = {
+      eventId: thisEventId,
+      souvenirId: souvId,
+      quantity: quantityVal,
+    };
+    eventSouvenirData.addEventSouvenir(makeEventSouvenir);
+    // eslint-disable-next-line no-use-before-define
+    viewSingleEvent(thisEventId);
+  } else {
+    let domString = '';
+    // eslint-disable-next-line max-len
+    domString += '<div class="alertSouvenir alert alert-warning alert-warning alert-dismissible fade show" role="alert"><strong>Please choose a souvenir item and quantity!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+    utils.printToDom('alertSouvenir', domString);
+  }
 };
 
 const removeEventShow = (e) => {
@@ -87,7 +141,7 @@ const makeNewEventShow = (e) => {
 const removeEventStaff = (e) => {
   e.preventDefault();
   const eventStaffId = e.target.closest('button').id;
-  const eventId = e.target.closest('.staffRow').id;
+  const eventId = $('.staffRow').data('container');
   eventStaffData.getSingleEventStaff(eventStaffId)
     .then(() => {
       eventStaffData.deleteEventStaff(eventStaffId)
@@ -97,6 +151,31 @@ const removeEventStaff = (e) => {
         });
     })
     .catch((error) => console.error('could not delete staff member from event', error));
+};
+
+const makeNewEventStaff = (e) => {
+  $('.myAlert').alert('close');
+  e.preventDefault();
+  const staff = $('#inputStaffChoices option:selected').attr('id');
+  const thisEventId = $('#inputStaffChoices option:selected').attr('value');
+  if (staff !== undefined) {
+    const newEventStaff = {
+      eventId: thisEventId,
+      staffId: staff,
+    };
+    eventStaffData.addEventStaff(newEventStaff);
+    // eslint-disable-next-line no-use-before-define
+    viewSingleEvent(thisEventId);
+  } else {
+    let domString = '';
+    domString += `<div class="myAlert alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Please</strong> choose a staff member!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>`;
+    utils.printToDom('myAlert', domString);
+  }
 };
 
 const removeEventAnimal = (e) => {
@@ -129,7 +208,7 @@ const makeNewEventAnimal = (e) => {
   } else {
     let domString = '';
     domString += `<div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>I Cry Your Mercy!</strong> Prithee choose an item from the dropdown ere clicking the +Add button. 
+    <strong>I Cry Your Mercy!</strong> Prithee choose an item from the dropdown ere clicking the +Add button.
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -140,7 +219,7 @@ const makeNewEventAnimal = (e) => {
 const removeEventSouvenir = (e) => {
   e.preventDefault();
   const eventSouvenirId = e.target.closest('button').id;
-  const eventId = e.target.closest('.souvenirRow').id;
+  const eventId = $('.deleteEventSouvenirBtn').data('id');
   eventSouvenirData.getSingleEventSouvenir(eventSouvenirId)
     .then(() => {
       eventSouvenirData.deleteEventSouvenir(eventSouvenirId)
@@ -154,7 +233,7 @@ const removeEventSouvenir = (e) => {
 
 const getGrandTotal = () => {
   // eventSouvenirDetails.getSouvenirTotals(completeEvent);
-  const souvenirTotal = $('#souvTotalCost').val() * 1;
+  const souvenirTotal = $('#souvenirTotalCost').val() * 1;
   const showTotal = $('#showTotalCost').val() * 1;
   const foodTotal = $('#foodTotalCost').val() * 1;
   const staffTotal = $('#staffTotalCost').val() * 1;
@@ -167,7 +246,7 @@ const grandTotalBuilder = () => {
   let domString = '';
   domString += '<div class="grandTotalSection">';
   domString += '<div id="grandTotalSection">';
-  domString += '<h4 class="eventSectionTitle"> Grand Total</h4>';
+  domString += '<h4 class="eventSectionTitle">Grand Total</h4>';
   domString += '<table class="table-responsive table-dark">';
   domString += '<thread>';
   domString += '<tr>';
@@ -303,7 +382,7 @@ const viewSingleEvent = (eventId) => {
       domString += animalEvent.getEventAnimalDetails(singleEvent);
       domString += '<div id="chartDiv"></div>';
       utils.printToDom('single-view-event', domString);
-      singleEventCharts.buildSingleEventChart();
+      singleEventCharts.buildSingleEventChart(eventId);
       getGrandTotal(singleEvent);
       $('#foodCards').addClass('hide');
       $('#souvenirs').addClass('hide');
@@ -322,26 +401,14 @@ const viewSingleEventCall = (e) => {
 };
 
 const closeAlert = () => {
+  $('.alertSouvenir').addClass('close');
   $('.alert').addClass('close');
-};
-
-const eventSingleViewClickEvents = () => {
-  $('body').on('click', '#closeSingleEvent', closeSingleEvent);
-  $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
-  $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
-  $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-  $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
-  $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
-  $('body').on('click', '#make-new-event-animal', makeNewEventAnimal);
-  $('body').on('click', '#make-new-event-food', makeNewEventFood);
-  $('body').on('click', '#make-new-event-show', makeNewEventShow);
-  $().on('click', '.alert', closeAlert);
+  $('.alertFood').addClass('close');
+  $('.myAlert').addClass('close');
 };
 
 export default {
   viewSingleEventCall,
-  removeEventAnimal,
   eventSingleViewClickEvents,
-  makeNewEventAnimal,
   filterEvents,
 };

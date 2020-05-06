@@ -13,7 +13,7 @@ const printShowChoices = (showObject) => {
   smash.getShowsNotInEvent(eventId)
     .then((shows) => {
       let domString = '';
-      domString += '<select class="custom-select dol-11 p-2" "id="inputShowChoices">';
+      domString += '<select class="custom-select dol-11 p-2" id="inputShowChoices">';
       domString += '<option disabled selected>Choose show to add to event:</option>';
       shows.forEach((show) => {
         domString += `<option class="showChoice" value="${eventId}" id="${show.id}">${show.name} / $${show.cost}</option>`;

@@ -74,9 +74,45 @@ const getEventSouvenirs = (eventId) => new Promise((resolve, reject) => {
           foundEventSouvenirItem.parentEventSouvenirId = eventSouvenirItem.id;
           foundEventSouvenirItem.parentQuantity = eventSouvenirItem.quantity;
           foundEventSouvenirItem.parentEventId = eventSouvenirItem.eventId;
+          foundEventSouvenirItem.rowTotal = foundEventSouvenirItem.parentQuantity * foundEventSouvenirItem.price;
           selectedEventSouvenirItems.push(foundEventSouvenirItem);
         });
         resolve(selectedEventSouvenirItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
+const getSouvenirsNotInEvent = (eventId) => new Promise((resolve, reject) => {
+  eventSouvenirData.getEventSouvenirByEventId(eventId)
+    .then((eventSouvenirs) => {
+      souvenirsData.getSouvenirs().then((allSouvenirs) => {
+        const unselectedEventSouvenirItems = [];
+        allSouvenirs.forEach((souvenir) => {
+          const exists = eventSouvenirs.find((x) => souvenir.id === x.souvenirId);
+          if (exists === undefined) {
+            unselectedEventSouvenirItems.push(souvenir);
+          }
+        });
+        resolve(unselectedEventSouvenirItems);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
+const getEventSouvenirTotal = (eventId) => new Promise((resolve, reject) => {
+  eventSouvenirData.getEventSouvenirByEventId(eventId)
+    .then((eventSouvenirs) => {
+      souvenirsData.getSouvenirs().then((allSouvenirs) => {
+        const rowTotalsArray = [];
+        eventSouvenirs.forEach((eventSouvenirItem) => {
+          const foundEventSouvenirItem = allSouvenirs.find((x) => x.id === eventSouvenirItem.souvenirId);
+          foundEventSouvenirItem.parentQuantity = eventSouvenirItem.quantity;
+          foundEventSouvenirItem.rowTotal = foundEventSouvenirItem.parentQuantity * foundEventSouvenirItem.price;
+          rowTotalsArray.push(foundEventSouvenirItem.rowTotal);
+        });
+        const souvenirTotal = rowTotalsArray.reduce((total, num) => total + num, 0);
+        resolve(souvenirTotal);
       });
     })
     .catch((error) => reject(error));
@@ -143,12 +179,27 @@ const getEventStaff = (eventId) => new Promise((resolve, reject) => {
         eventStaff.forEach((eventStaffMember) => {
           const foundEventStaffMember = allStaff.find((x) => x.id === eventStaffMember.staffId);
           foundEventStaffMember.parentEventStaffId = eventStaffMember.id;
-          foundEventStaffMember.parentQuantity = eventStaffMember.quantity;
           foundEventStaffMember.parentEventId = eventStaffMember.eventId;
-          foundEventStaffMember.rowTotal = foundEventStaffMember.parentQuantity * foundEventStaffMember.pay;
           selectedEventStaffMembers.push(foundEventStaffMember);
         });
         resolve(selectedEventStaffMembers);
+      });
+    })
+    .catch((error) => reject(error));
+});
+
+const getStaffNotInEvent = (eventId) => new Promise((resolve, reject) => {
+  eventStaffData.getEventStaffByEventId(eventId)
+    .then((eventStaff) => {
+      staffData.getStaff().then((allStaff) => {
+        const unselectedEventStaffMembers = [];
+        allStaff.forEach((staff) => {
+          const exists = eventStaff.find((x) => staff.id === x.staffId);
+          if (exists === undefined) {
+            unselectedEventStaffMembers.push(staff);
+          }
+        });
+        resolve(unselectedEventStaffMembers);
       });
     })
     .catch((error) => reject(error));
@@ -161,9 +212,7 @@ const getEventStaffTotal = (eventId) => new Promise((resolve, reject) => {
         const rowTotalsArray = [];
         eventStaff.forEach((eventStaffMember) => {
           const foundEventStaffMember = allStaff.find((x) => x.id === eventStaffMember.staffId);
-          foundEventStaffMember.parentQuantity = eventStaffMember.quantity;
-          foundEventStaffMember.rowTotal = foundEventStaffMember.parentQuantity * foundEventStaffMember.pay;
-          rowTotalsArray.push(foundEventStaffMember.rowTotal);
+          rowTotalsArray.push(foundEventStaffMember.pay);
         });
         const staffTotal = rowTotalsArray.reduce((total, num) => total + num, 0);
         resolve(staffTotal);
@@ -234,18 +283,21 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
                   getEventFoodTotal(eventId).then((foodTotal) => {
                     getEventStaffTotal(eventId).then((staffTotal) => {
                       getEventAnimalsTotal(eventId).then((animalsTotal) => {
-                        const finalEvent = { ...event };
-                        finalEvent.food = eventFood;
-                        finalEvent.foodTotalAmount = foodTotal;
-                        finalEvent.souvenirs = eventSouvenirs;
-                        finalEvent.shows = eventShows;
-                        finalEvent.showTotalAmount = showTotal;
-                        finalEvent.staff = eventStaff;
-                        finalEvent.staffTotalAmount = staffTotal;
-                        finalEvent.animals = eventAnimals;
-                        finalEvent.animalsTotalAmount = animalsTotal;
-                        finalEvent.id = eventId;
-                        resolve(finalEvent);
+                        getEventSouvenirTotal(eventId).then((souvenirTotal) => {
+                          const finalEvent = { ...event };
+                          finalEvent.food = eventFood;
+                          finalEvent.foodTotalAmount = foodTotal;
+                          finalEvent.souvenirs = eventSouvenirs;
+                          finalEvent.shows = eventShows;
+                          finalEvent.showTotalAmount = showTotal;
+                          finalEvent.staff = eventStaff;
+                          finalEvent.staffTotalAmount = staffTotal;
+                          finalEvent.animals = eventAnimals;
+                          finalEvent.animalsTotalAmount = animalsTotal;
+                          finalEvent.id = eventId;
+                          finalEvent.souvenirTotalAmount = souvenirTotal;
+                          resolve(finalEvent);
+                        });
                       });
                     });
                   });
@@ -261,9 +313,12 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
 
 export default {
   getEventFood,
+  getEventSouvenirs,
   getFoodNotInEvent,
   getCompleteEvent,
   getEventStaff,
   getAnimalsNotInEvent,
   getShowsNotInEvent,
+  getSouvenirsNotInEvent,
+  getStaffNotInEvent,
 };
