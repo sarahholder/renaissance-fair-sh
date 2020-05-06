@@ -3,7 +3,7 @@
     "type": "Camel",
     "description": "Ride Brown Female Humpback Camel",
     "imageUrl": "https://images.unsplash.com/photo-1542916514-3e2119eefeb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Josie",
+    "name": "Sally",
     "cost": 400.00,
     "isAvailable": "Available",
     "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
@@ -21,7 +21,7 @@
     "type": "Elephant",
     "description": "Ride a Grey Female African Bush Elephant",
     "imageUrl": "https://images.unsplash.com/photo-1582831776799-4515c8004897?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    "name": "Josie",
+    "name": "Horton",
     "cost": 600.00,
     "isAvailable": "Available",
     "uid": "ahDQZ2sCP8bRjRWtTAEPhg2HeZE3"

@@ -311,6 +311,40 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
     });
 });
 
+const completelyRemoveEvent = (eventId) => new Promise((resolve, reject) => {
+  eventData.getEventById(eventId)
+    .then(() => {
+      eventData.deleteEvent(eventId);
+      getEventSouvenirs(eventId).then((eventSouvenirs) => {
+        eventSouvenirs.forEach((sEvent) => {
+          eventSouvenirData.deleteEventSouvenir(sEvent.parentEventSouvenirId);
+        });
+        getEventStaff(eventId).then((eventStaff) => {
+          eventStaff.forEach((staff) => {
+            eventStaffData.deleteEventStaff(staff.parentEventStaffId);
+          });
+          getEventShow(eventId).then((eventShows) => {
+            eventShows.forEach((show) => {
+              eventShowData.deleteEventShow(show.parentEventShowId);
+            });
+            getEventAnimals(eventId).then((eventAnimals) => {
+              eventAnimals.forEach((animal) => {
+                eventAnimalData.deleteEventAnimal(animal.parentEventId);
+              });
+              getEventFood(eventId).then((eventFood) => {
+                eventFood.forEach((food) => {
+                  eventFoodData.deleteEventFood(food.parentEventFoodId);
+                });
+                resolve();
+              });
+            });
+          })
+            .catch((error) => reject(error));
+        });
+      });
+    });
+});
+
 export default {
   getEventFood,
   getEventSouvenirs,
@@ -319,6 +353,7 @@ export default {
   getEventStaff,
   getAnimalsNotInEvent,
   getShowsNotInEvent,
+  completelyRemoveEvent,
   getSouvenirsNotInEvent,
   getStaffNotInEvent,
 };
