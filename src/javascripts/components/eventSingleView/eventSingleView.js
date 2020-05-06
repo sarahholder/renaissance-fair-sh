@@ -68,6 +68,15 @@ const makeNewEventFood = (e) => {
   }
 };
 
+const makeNewEventSouvenir = () => {
+  $('.alertSouvenir').alert('close');
+  e.preventDefault();
+  const thisEventId = $('#inputSouvenirChoices option:selected').attr('value');
+  const souvenirId = $('#inputSouvenirChoices option:selected').attr('id');
+  const quantityVal = $('#inputSouvenirQuantity').val() * 1;
+  
+}
+
 const removeEventShow = (e) => {
   e.preventDefault();
   const eventShowId = e.target.closest('button').id;
