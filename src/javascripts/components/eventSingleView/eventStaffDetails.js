@@ -53,7 +53,6 @@ const getEventStaffDetails = (singleEvent) => {
   domString += '<th class="fix" scope="col">Staff Member Name</th>';
   domString += '<th class="fix" scope="col">Character Type</th>';
   domString += '<th class="fix" scope="col">Cost</th>';
-  domString += '<th class="fix" scope="col"></th>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';

@@ -131,7 +131,7 @@ const makeNewEventStaff = (e) => {
     viewSingleEvent(thisEventId);
   } else {
     let domString = '';
-    domString += `<div class="myAlert alert-warning fade show" role="myAlert">
+    domString += `<div class="myAlert alert-warning alert-dismissible fade show" role="alert">
     <strong>Please</strong> choose a staff member!
     <button type="button" class="close" data-dismiss="myAlert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
@@ -366,9 +366,6 @@ const viewSingleEventCall = (e) => {
 const closeAlert = () => {
   $('.alert').addClass('close');
   $('.alertFood').addClass('close');
-};
-
-const closeMyAlert = () => {
   $('.myAlert').addClass('close');
 };
 
