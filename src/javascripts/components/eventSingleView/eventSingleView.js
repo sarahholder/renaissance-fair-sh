@@ -88,7 +88,7 @@ const removeEventAnimal = (e) => {
 };
 
 const makeNewEventAnimal = (e) => {
-  $('.alert').alert('close');
+  $('.alertAnimal').alert('close');
   e.preventDefault();
   const animal = $('#inputGroupSelect04 option:selected').attr('id');
   const thisEventId = $('#inputGroupSelect04 option:selected').attr('value');
@@ -102,15 +102,16 @@ const makeNewEventAnimal = (e) => {
     viewSingleEvent(thisEventId);
   } else {
     let domString = '';
-    domString += `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    domString += `<div class="alert alert-warning alert-dismissible fade show alertAnimal" role="alert">
     <strong>I Cry Your Mercy!</strong> Prithee choose an item from the dropdown ere clicking the +Add button. 
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>`;
-    utils.printToDom('alert', domString);
+    utils.printToDom('alertAnimal', domString);
   }
 };
+
 const removeEventSouvenir = (e) => {
   e.preventDefault();
   const eventSouvenirId = e.target.closest('button').id;
@@ -296,7 +297,7 @@ const viewSingleEventCall = (e) => {
 };
 
 const closeAlert = () => {
-  $('.alert').addClass('close');
+  $('.alertAnimal').addClass('close');
 };
 
 const eventSingleViewClickEvents = () => {

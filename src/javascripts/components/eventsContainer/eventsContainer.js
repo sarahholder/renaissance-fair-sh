@@ -84,12 +84,10 @@ const buildAllEvents = () => {
 };
 
 const removeEvent = (e) => {
-  console.log('removeEvent clicked');
   e.preventDefault();
   const eventId = e.target.closest('.card').id;
   smash.completelyRemoveEvent(eventId)
     .then(() => {
-      utils.printToDom('events', '');
       buildAllEvents();
     })
     .catch((err) => console.error('could not delete complete event', err));

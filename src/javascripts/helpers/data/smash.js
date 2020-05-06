@@ -245,13 +245,11 @@ const getCompleteEvent = (eventId) => new Promise((resolve, reject) => {
 const completelyRemoveEvent = (eventId) => new Promise((resolve, reject) => {
   eventData.getEventById(eventId)
     .then(() => {
-      console.log('THIS IS THE SMASH EVENT', eventId);
       eventData.deleteEvent(eventId);
       getEventSouvenirs(eventId).then((eventSouvenirs) => {
         eventSouvenirs.forEach((sEvent) => {
           eventSouvenirData.deleteEventSouvenir(sEvent.parentEventSouvenirId);
         });
-        console.log(eventSouvenirs);
         getEventStaff(eventId).then((eventStaff) => {
           eventStaff.forEach((staff) => {
             eventStaffData.deleteEventStaff(staff.parentEventStaffId);
@@ -268,6 +266,7 @@ const completelyRemoveEvent = (eventId) => new Promise((resolve, reject) => {
                 eventFood.forEach((food) => {
                   eventFoodData.deleteEventFood(food.parentEventFoodId);
                 });
+                resolve();
               });
             });
           })

@@ -16,10 +16,10 @@ const printAnimalChoices = (event) => {
       animals.forEach((animal) => {
         if (animal.isAvailable === 'Available') {
           domString += `<option class="animalChoice"  value="${eventId}" id="${animal.id}">${animal.name} the ${animal.type} / $${animal.cost}</option>`;
-          utils.printToDom('animalChoices', domString);
         } else {
           domString += `<option class="animalChoice"  value="${eventId}" id="${animal.id}" disabled>${animal.name} the ${animal.type} / $${animal.cost}</option>`;
         }
+        utils.printToDom('animalChoices', domString);
       });
     })
     .catch((err) => console.error('cannot get animal event form', err));
@@ -35,10 +35,10 @@ const noSelectedAnimals = (eventId) => {
       animals.forEach((animal) => {
         if (animal.isAvailable === 'Available') {
           domString += `<option class="animalChoice" value="${eventNumber}" id="${animal.id}">${animal.name} the ${animal.type} / $${animal.cost}</option>`;
-          utils.printToDom('animalChoices', domString);
         } else {
           domString += `<option class="animalChoice"  value="${eventId}" id="${animal.id}" disabled>${animal.name} the ${animal.type} / $${animal.cost}</option>`;
         }
+        utils.printToDom('animalChoices', domString);
       });
     })
     .catch((err) => console.error('cannot get animal event form', err));
@@ -67,11 +67,11 @@ const getEventAnimalDetails = (singleEvent) => {
   domString += '    <tr>';
   domString += '      <th colspan="4" class="p-0">';
   domString += '        <div class="collapse" id="collapseExample">';
-  domString += '          <div class="d-flex flex-wrap row">';
-  domString += '            <div id="animalChoices" class="col-9 m-2 text-center"></div>';
+  domString += '          <div class="d-flex flex-wrap justify-content-center">';
+  domString += '            <div id="animalChoices" class="col-9 m-2"></div>';
   domString += '              </select>';
   domString += '                  <button class="btn btn-outline-secondary add-button" type="button" id="make-new-event-animal"><i class="fas fa-plus"></i>Add</button>';
-  domString += '               <div id="alert"></div>';
+  domString += '               <div class="justify-content-center align-self-center" id="alertAnimal"></div>';
   domString += '            </div>';
   domString += '          </div>';
   if (animalsFound.length !== 0) {
