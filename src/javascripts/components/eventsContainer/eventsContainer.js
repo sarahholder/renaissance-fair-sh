@@ -7,8 +7,8 @@ import eventCard from '../eventCard/eventCard';
 import singleView from '../eventSingleView/eventSingleView';
 import editEventForm from '../editEventForm/editEventForm';
 import addEventModal from './eventModalForm/eventModalForm.js';
-import charts from '../Charts/charts';
 import smash from '../../helpers/data/smash';
+// import charts from '../Charts/charts';
 
 import utils from '../../helpers/utils';
 import './eventsContainer.scss';
@@ -75,10 +75,11 @@ const buildAllEvents = () => {
         domString += eventCard.buildEventCard(event);
       });
       domString += '</div>';
-      domString += '<div id="chartdiv"></div>';
+      // domString += '<div id="chartdiv"></div>';
       utils.printToDom('events', domString);
       $('body').on('click', '#viewEventBtn', singleView.viewSingleEventCall);
-      charts.buildChart();
+      // Starter code for all events chart //
+      // charts.buildChart();
     })
     .catch((error) => console.error('build all events has failed', error));
 };
