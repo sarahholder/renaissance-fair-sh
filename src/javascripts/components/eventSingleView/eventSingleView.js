@@ -68,14 +68,27 @@ const makeNewEventFood = (e) => {
   }
 };
 
-const makeNewEventSouvenir = () => {
+const makeNewEventSouvenir = (e) => {
   $('.alertSouvenir').alert('close');
   e.preventDefault();
-  const thisEventId = $('#inputSouvenirChoices option:selected').attr('value');
-  const souvenirId = $('#inputSouvenirChoices option:selected').attr('id');
+  const thisEventId = $('#inputSouvChoices option:selected').attr('value');
+  const souvenirId = $('#inputSouvChoices option:selected').attr('id');
   const quantityVal = $('#inputSouvenirQuantity').val() * 1;
-  
-}
+  if (souvenirId !== undefined && quantityVal !== 0) {
+    const makeEventSouvenir = {
+      eventId: thisEventId,
+      souvenirId: $('#inputSouvenirChoices option:selected').attr('id'),
+      quantity: $('#inputSouvenirQuantity').val() * 1,
+    };
+    eventSouvenirData.addEventSouvenir(makeEventSouvenir);
+    // eslint-disable-next-line no-use-before-define
+    viewSingleEvent(thisEventId);
+  } else {
+    let domString = '';
+    domString += '<div class="alert alert-warning alert-warning alert-dismissible fade show" role="alert"><strong>Please choose a souvenir item and quantity!</strong><button> type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+    utils.printToDom('alertSouvenir', domString);
+  }
+};
 
 const removeEventShow = (e) => {
   e.preventDefault();
@@ -343,6 +356,7 @@ const eventSingleViewClickEvents = () => {
   $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
   $('body').on('click', '#make-new-event-animal', makeNewEventAnimal);
   $('body').on('click', '#make-new-event-food', makeNewEventFood);
+  $('body').on('click', '#make-new-event-souvenir', makeNewEventSouvenir);
   $().on('click', '.alert', closeAlert);
 };
 
