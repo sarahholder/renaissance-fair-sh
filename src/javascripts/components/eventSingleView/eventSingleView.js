@@ -107,16 +107,28 @@ const removeEventShow = (e) => {
     .catch((error) => console.error('could not delete show from event', error));
 };
 const makeNewEventShow = (e) => {
+  // Anca: closing the add show alert here since a new object will get created:
+  $('.alertShow').alert('close');
   e.preventDefault();
   const thisEventId = $('#inputShowChoices option:selected').attr('value');
-  const newEventShow = {
-    eventId: thisEventId,
-    showId: $('#inputShowChoices option:selected').attr('id'),
-    quantity: $('#inputShowQuantity').val() * 1,
-  };
-  eventShowData.addEventShow(newEventShow);
-  // eslint-disable-next-line no-use-before-define
-  viewSingleEvent(thisEventId);
+  const showId = $('#inputShowChoices option:selected').attr('id');
+  const quantityVal = $('#inputShowQuantity').val() * 1;
+  if (showId !== undefined && quantityVal !== 0) {
+    const newEventShow = {
+      eventId: thisEventId,
+      showId: $('#inputShowChoices option:selected').attr('id'),
+      quantity: $('#inputShowQuantity').val() * 1,
+    };
+    eventShowData.addEventShow(newEventShow);
+    // eslint-disable-next-line no-use-before-define
+    viewSingleEvent(thisEventId);
+  } else {
+    let domString = '';
+    domString += `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Please choose a show and quantity!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>`;
+
+    utils.printToDom('alertShow', domString);
+  }
 };
 
 const removeEventStaff = (e) => {
@@ -379,6 +391,7 @@ const viewSingleEvent = (eventId) => {
 const closeAlert = () => {
   $('.alertAnimal').addClass('close');
   $('.alertFood').addClass('close');
+  $('.alertShow').addClass('close');
   $('.myAlert').addClass('close');
   $('.alertSouvenir').addClass('close');
 };
