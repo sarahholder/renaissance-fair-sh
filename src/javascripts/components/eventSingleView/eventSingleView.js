@@ -188,7 +188,7 @@ const makeNewEventAnimal = (e) => {
 const removeEventSouvenir = (e) => {
   e.preventDefault();
   const eventSouvenirId = e.target.closest('button').id;
-  const eventId = e.target.closest('.souvenirRow').id;
+  const eventId = $('.deleteEventSouvenirBtn').data('id');
   eventSouvenirData.getSingleEventSouvenir(eventSouvenirId)
     .then(() => {
       eventSouvenirData.deleteEventSouvenir(eventSouvenirId)
@@ -367,6 +367,7 @@ const closeAlert = () => {
   $('.alertAnimal').addClass('close');
   $('.alertFood').addClass('close');
   $('.myAlert').addClass('close');
+  $('.alertSouvenir').addClass('close');
 };
 
 const eventSingleViewClickEvents = () => {

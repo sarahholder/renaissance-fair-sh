@@ -1,13 +1,16 @@
 import firebase from 'firebase/app';
-import smashData from '../../helpers/data/smash';
+
+import smash from '../../helpers/data/smash';
+
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
+
 import utils from '../../helpers/utils';
 import souvenirsData from '../../helpers/data/souvenirsData';
 
 const printSouvenirChoices = (souvenirObject) => {
   const eventId = souvenirObject.parentEventId;
-  smashData.getSouvenirsNotInEvent(eventId)
+  smash.getSouvenirsNotInEvent(eventId)
     .then((souvenirs) => {
       let domString = '';
       domString += '<select class="custom-select col-11 p-2" id="inputSouvChoices">';
