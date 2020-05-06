@@ -11,10 +11,10 @@ const printStaffChoices = (event) => {
   smash.getStaffNotInEvent(eventId)
     .then((staff) => {
       let domString = '';
-      domString += '<select class="custom-select col-11 p-2" id="inputGroupSelect04">';
-      domString += '  <option disabled selected>Choose animal to add to event...</option>';
+      domString += '<select class="custom-select col-11 p-2" id="inputStaffChoices">';
+      domString += '<option disabled selected>Choose staff to add to event...</option>';
       staff.forEach((staffMember) => {
-        domString += `<option class="animalChoice"  value="${eventId}" id="${staffMember.id}">${staffMember.name} the ${staffMember.characterType} / $${staffMember.pay}</option>`;
+        domString += `<option class="staffChoice" value="${eventId}" id="${staffMember.id}">${staffMember.name} the ${staffMember.characterType} / $${staffMember.pay}</option>`;
         utils.printToDom('staffChoices', domString);
       });
     })
@@ -27,7 +27,7 @@ const noSelectedStaff = (eventId) => {
   staffData.getStaff()
     .then((staff) => {
       let domString = '';
-      domString += '<select class="custom-select col-11 p-2" id="inputGroupSelect04">';
+      domString += '<select class="custom-select col-11 p-2" id="inputStaffChoices">';
       domString += ' <option disabled>Choose staff to add to event...</option>';
       staff.forEach((staffMember) => {
         domString += `<option class="staffChoice" value="${eventNumber}" id="${staffMember.id}">${staffMember.name} the ${staffMember.characterType} / $${staffMember.pay}</option>`;
@@ -45,7 +45,7 @@ const getEventStaffDetails = (singleEvent) => {
   domString += '<div id="eventStaffSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Staff Details</h4>';
   if (user.uid === singleEvent.uid) {
-    domString += '<button class="btn btn-default btn-lg d-flex ml-auto addEventItemBtn" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-plus"></i></button>';
+    domString += '<button class="btn btn-default btn-lg d-flex ml-auto addEventItemBtn" data-toggle="collapse" data-target="#collapseStaff" aria-expanded="false" aria-controls="collapseStaff"><i class="fas fa-plus"></i></button>';
   }
   domString += '<table class="table-responsive table-dark table-width">';
   domString += '<thead>';
@@ -59,36 +59,44 @@ const getEventStaffDetails = (singleEvent) => {
   domString += '<tbody>';
   domString += '<tr>';
   domString += '<th colspan="4" class="p-0">';
+  domString += '<div class="collapse" id="collapseStaff">';
   domString += '<div class="d-flex flex-wrap row">';
-  domString += '<div id="staffChoices" class="col-9 m-2 text-center">';
+  domString += '<div id="staffChoices" class="col-9 m-2 text-center"></div>';
+  domString += '</select>';
+  domString += '<button class="btn btn-outline-secondary add-button" type="button" id="make-new-event-staff"><i class="fas fa-plus"></i>Add</button>';
+  domString += '<div id="myAlert"></div>';
   domString += '</div>';
   domString += '</div>';
+  if (staffFound.length !== 0) {
+    singleEvent.staff.forEach((staffMember) => {
+      domString += `<tr class="staffRow" id="${eventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+      domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
+      domString += `<td class="cell-width">${staffMember.characterType}</td>`;
+      domString += `<td class="cell-width">$${staffMember.pay}</td>`;
+      if (user.uid === singleEvent.uid) {
+        domString += `<td class="cell-width"><button id="${staffMember.parentEventStaffId}" value="${staffMember.parentEventStaffId}" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>`;
+      }
+      printStaffChoices(staffMember);
+    });
+  } else {
+    noSelectedStaff(eventId);
+  }
   singleEvent.staff.forEach((staffMember) => {
     if (`${staffMember.pay}` < 101 && `${staffMember.pay}` > 0) {
-      domString += `<tr class="eventStaffMember staffRow from0To100" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+      domString += `<tr class="eventStaffMember from0To100" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     } else if (`${staffMember.pay}` > 100 && `${staffMember.pay}` < 201) {
-      domString += `<tr class="eventStaffMember staffRow from101To200" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+      domString += `<tr class="eventStaffMember from101To200" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     } else if (`${staffMember.pay}` > 200 && `${staffMember.pay}` < 301) {
-      domString += `<tr class="eventStaffMember staffRow from201To300" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+      domString += `<tr class="eventStaffMember from201To300" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     } else if (`${staffMember.pay}` > 300 && `${staffMember.pay}` < 401) {
-      domString += `<tr class="eventStaffMember staffRow from301To400" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+      domString += `<tr class="eventStaffMember from301To400" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     } else if (`${staffMember.pay}` > 400 && `${staffMember.pay}` < 501) {
-      domString += `<tr class="eventStaffMember staffRow from401To500" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
+      domString += `<tr class="eventStaffMember from401To500" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     } else if (`${staffMember.pay}` > 500) {
-      domString += `<tr class="eventStaffMember staffRow from501On" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
-    }
-    domString += `<th scope="row" class="cell-width">${staffMember.name}</th>`;
-    domString += `<td class="cell-width">$${staffMember.pay}/hr</td>`;
-    domString += `<td class="cell-width">${staffMember.parentQuantity}</td>`;
-    domString += `<td class="cell-width">$${staffMember.rowTotal}</td>`;
-    domString += '</div>';
-    if (user.uid === singleEvent.uid) {
-      domString += `<td class="cell-width"><button id="${staffMember.parentEventStaffId}" value="${staffMember.parentEventStaffId}" class="btn btn-default deleteEventBtn deleteEventStaffBtn"><i class="far fa-trash-alt"></i></button></td>`;
+      domString += `<tr class="eventStaffMember from501On" id="${staffMember.parentEventId}" data-id="${staffMember.id}" data-parent="${staffMember.parentEventStaffId}" data-container="${staffMember.parentEventId}">`;
     }
     domString += '</tr>';
   });
-  domString += '</tbody>';
-  domString += '</table>';
   domString += '</tbody>';
   domString += '</table>';
   domString += '<div class="input-group mb-3">';
@@ -110,4 +118,4 @@ const getEventStaffDetails = (singleEvent) => {
 };
 
 
-export default { getEventStaffDetails };
+export default { getEventStaffDetails, printStaffChoices };

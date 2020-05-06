@@ -143,9 +143,7 @@ const getEventStaff = (eventId) => new Promise((resolve, reject) => {
         eventStaff.forEach((eventStaffMember) => {
           const foundEventStaffMember = allStaff.find((x) => x.id === eventStaffMember.staffId);
           foundEventStaffMember.parentEventStaffId = eventStaffMember.id;
-          foundEventStaffMember.parentQuantity = eventStaffMember.quantity;
           foundEventStaffMember.parentEventId = eventStaffMember.eventId;
-          foundEventStaffMember.rowTotal = foundEventStaffMember.parentQuantity * foundEventStaffMember.pay;
           selectedEventStaffMembers.push(foundEventStaffMember);
         });
         resolve(selectedEventStaffMembers);
@@ -178,9 +176,7 @@ const getEventStaffTotal = (eventId) => new Promise((resolve, reject) => {
         const rowTotalsArray = [];
         eventStaff.forEach((eventStaffMember) => {
           const foundEventStaffMember = allStaff.find((x) => x.id === eventStaffMember.staffId);
-          foundEventStaffMember.parentQuantity = eventStaffMember.quantity;
-          foundEventStaffMember.rowTotal = foundEventStaffMember.parentQuantity * foundEventStaffMember.pay;
-          rowTotalsArray.push(foundEventStaffMember.rowTotal);
+          rowTotalsArray.push(foundEventStaffMember.pay);
         });
         const staffTotal = rowTotalsArray.reduce((total, num) => total + num, 0);
         resolve(staffTotal);
