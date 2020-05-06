@@ -97,6 +97,7 @@ const getEventFoodDetails = (singleEvent) => {
   domString += '</thead>';
   domString += '<tbody>';
 
+  console.error('FOOD array', singleEvent.food);
   if (foodsFound.length !== 0) {
     singleEvent.food.forEach((foodItem) => {
       if (`${foodItem.price}` < 101 && `${foodItem.price}` > 0) {

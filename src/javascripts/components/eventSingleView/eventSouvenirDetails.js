@@ -6,32 +6,7 @@ import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
 import utils from '../../helpers/utils';
-import souvenirData from '../../helpers/data/souvenirsData';
 import souvenirsData from '../../helpers/data/souvenirsData';
-import foodData from '../../helpers/data/foodData';
-
-const getSouvenirTotals = (singleEvent) => {
-  singleEvent.souvenirs.forEach((souvItem) => {
-    const x = souvItem.price;
-    const y = souvItem.parentQuantity;
-    // eslint-disable-next-line no-param-reassign
-    souvItem.rowTotal = x * y;
-    // eslint-disable-next-line no-param-reassign
-    return souvItem.rowTotal;
-  });
-  const rowTotalsArray = [];
-  singleEvent.souvenirs.forEach((souvItem) => {
-    rowTotalsArray.push(souvItem.rowTotal);
-  });
-  let souvenirTotal = 0;
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i <select rowTotalsArray.length; i++) {
-    souvenirTotal += rowTotalsArray[i];
-  }
-  // eslint-disable-next-line no-param-reassign
-  singleEvent.souvenirsCosts = souvenirTotal;
-  // eslint-disable-next-line no-use-before-define
-};
 
 const printSouvenirChoices = (souvenirObject) => {
   const eventId = souvenirObject.parentEventId;
@@ -40,7 +15,7 @@ const printSouvenirChoices = (souvenirObject) => {
       let domString = '';
       domString += '<select class="custom-select col-11 p-2" id="inputSouvChoices">';
       domString += '<option diabled selected>Choose a souvenir to add to this event:</option>';
-      souvenirsData.forEach((souvenir) => {
+      souvenirs.forEach((souvenir) => {
         if (souvenir.isAvailable === 'Available') {
           domString += `<option class="souvenirChoice" value="${eventId}" id="${souvenir.id}">${souvenir.type} / $${souvenir.price}</option>`;
         } else {
@@ -55,27 +30,27 @@ const printSouvenirChoices = (souvenirObject) => {
 
 const noSelectedSouvenirs = (event) => {
   const eventId = event.id;
-  souvenirData.getSouvenirs()
+  souvenirsData.getSouvenirs()
     .then((souvenirs) => {
       let domString = '';
       domString += '<select class="custom-select col-11 p-2" id="inputSouvenirChoices">';
       domString += '<option disabled selected>Choose souvenir to add to this event:</option>';
       souvenirs.forEach((souvenir) => {
-        if (foodData.isAvailable === 'Available') {
+        if (souvenirsData.isAvailable === 'Available') {
           domString += `option class="souvenirChoice" value="${eventId}" id="${souvenir.id}">${souvenir.type} / $${souvenir.price}</option>`;
         } else {
           domString += `<option class="souvenirChoice" value="${eventId}" id="${souvenir.id}" disabled>${souvenir.type} / $${souvenir.price}</option>`;
         }
       });
-      domString += '</select>'
+      domString += '</select>';
       utils.printToDom('souvenirChoices', domString);
     })
-    .catch((err) => console.error('cannnot add new souvenir to an empty souvenir sectio', error));
-}
+    .catch((err) => console.error('cannnot add new souvenir to an empty souvenir sectio', err));
+};
 
 const getEventSouvenirDetails = (singleEvent) => {
   const user = firebase.auth().currentUser;
-  const souvenirsFound = singleEvent.souvenir;
+  const souvenirsFound = singleEvent.souvenirs;
   let domString = '';
   domString += '<div id="eventSouvenirSection" class="quad col-md-4 col-sm-12">';
   domString += '<h4 class="eventSectionTitle">Souvenir Details</h4>';
@@ -102,41 +77,67 @@ const getEventSouvenirDetails = (singleEvent) => {
   domString += '<option class="souvenirQuantity" value="100">100</option>';
   domString += '<option class="souvenirQuantity" value="150">150</option>';
   domString += '<option class="souvenirQuantity" value="200">200</option>';
-  domstring += '<option class="souvenirQuantity" value="250">250</option>';
+  domString += '<option class="souvenirQuantity" value="250">250</option>';
   domString += '<option class="souvenirQuantity" value="500">500</option>';
+  domString += '</select>';
+  domString += '</th>';
+
+  domString += '<th colspan="1" class="p-0">';
+  domString += '<div class="input-group-append" colspan="1">';
+  domString += '<button class="btn btn-outline-secondary add-button my-2" type="button" id="make-new-event-souvenir"><i class="fas fa-plus"></i>Add</button>';
+  domString += '</div>';
+  domString += '</th>';
+  domString += '<div id="alertSouvenir" class="alertSouvenir"></div>';
+  domString += '</tr>';
 
   domString += '</thead>';
   domString += '<tbody>';
-  singleEvent.souvenirs.forEach((souvItem) => {
-    domString += `<tr class="souvenirRow" id="${souvItem.parentEventId}" data-parent="${souvItem.parentEventSouvenirId}" data-container="${souvItem.parentEventId}">`;
-    domString += `<th scope="row" class="cell-width">${souvItem.type}</th>`;
-    domString += `<td class="cell-width">$${souvItem.price}</td>`;
-    domString += `<td class="cell-width">${souvItem.parentQuantity}</td>`;
-    getSouvenirTotals(singleEvent);
-    domString += `<td class="cell-width">$${souvItem.rowTotal}</td>`;
-    const user = firebase.auth().currentUser;
-    if (user.uid === singleEvent.uid) {
-      domString += `<td class="cell-width"><button id="${souvItem.parentEventSouvenirId}" data-id="${souvItem.parentEventSouvenirId}" value="${souvItem.parentEventSouvenirId}" class="btn btn-default deleteEventSouvenirBtn deleteEventBtn"><i class="far fa-trash-alt"></i></button></td>`;
-    }
-    domString += '</tr>';
-  });
+
+  if (souvenirsFound.length !== 0) {
+    singleEvent.souvenirs.forEach((souvenirItem) => {
+      if (`${souvenirItem.price}` > 101 && `${souvenirItem.price}` > 0) {
+        domString += `<tr class="eventSouvenirItem souvenirRow from0to100" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+      } else if (`${souvenirItem.price}` > 100 && `${souvenirItem.price}` < 201) {
+        domString += `<tr class="eventSouvenirItem souvenirRow from101to200" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+      } else if (`${souvenirItem.price}` > 200 && `${souvenirItem.price}` < 301) {
+        domString += `<tr class="eventSouvenirItem souvenirRow from201to300" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+      } else if (`${souvenirItem.price}` > 300 && `${souvenirItem.price}` < 401) {
+        domString += `<tr class="eventSouvenirItem souvenirRow from301to400" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+      } else if (`${souvenirItem.price}` > 400 && `${souvenirItem.price}` < 501) {
+        domString += `<tr class="eventSouvenirItem souvenirRow from401to500" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+      } else if (`${souvenirItem.price}` > 500) {
+        domString += `<tr class="eventSouvenirItem souvenirRow from501On" data-id="${souvenirItem.id}" data-parent="${souvenirItem.parentEventSouvenirId}" data-container="${souvenirItem.parentEventId}">`;
+      }
+      domString += `<th scope="row" class="cell-width">${souvenirItem.type}</th>`;
+      domString += `<td class="cell-width">$${souvenirItem.price}</td>`;
+      domString += `<td class="cell-width">${souvenirItem.parentQuantity}</td>`;
+      domString += `<td class="cell-width">$${souvenirItem.rowTotal}</td>`;
+      printSouvenirChoices(souvenirItem);
+      domString += '</div>';
+      if (user.uid === singleEvent.uid) {
+        domString += `<td class="cell-width"><button id="deleteEventSouvenirBtn" class="btn btn-default deleteEventBtn deleteEventSouvenirBtn" data-id="${souvenirItem.parentEventSouvenirId}"><i class="far fa-trash-alt"></i></button></td>`;
+      }
+      domString += '</tr>';
+    });
+  } else {
+    noSelectedSouvenirs(singleEvent);
+  }
   domString += '</tbody>';
   domString += '</table>';
-  getSouvenirTotals(singleEvent);
-  domString += '<div class="input-group mb-4>';
+  domString += '<div class="input-group mb-3">';
   domString += '<div class="input-group-prepend">';
   domString += '<span class="input-group-text">Total Event Souvenir Costs:</span>';
+  domString += '</div>';
   domString += '<div class="input-group-prepend">';
   domString += '<span class="input-group-text">$</span>';
   domString += '</div>';
-  domString += `<input id="souvTotalCost" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value="${singleEvent.souvenirsCosts}">`;
+  domString += `<input id="souvenirTotalCost" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly value="${singleEvent.souvenirTotalAmount}">`;
   domString += '<div class="input-group-append">';
   domString += '<span class="input-group-text">.00</span>';
   domString += '</div>';
   domString += '</div>';
-  domString += '</div>';
-  domString += '</tfoot>';
 
+  domString += '</div>';
   return domString;
 };
 
