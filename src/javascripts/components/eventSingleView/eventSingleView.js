@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-
 import eventFoodData from '../../helpers/data/eventFoodData';
 import eventFoodDetails from './eventFoodDetails';
 import eventStaffData from '../../helpers/data/eventStaffData';
@@ -20,20 +18,6 @@ import utils from '../../helpers/utils';
 import './eventSingleView.scss';
 import '../../../styles/main.scss';
 
-const eventSingleViewClickEvents = () => {
-  $('body').on('click', '#closeSingleEvent', closeSingleEvent);
-  $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
-  $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
-  $('body').on('click', '.deleteEventShowBtn', removeEventShow);
-  $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
-  $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
-  $('body').on('click', '#make-new-event-animal', makeNewEventAnimal);
-  $('body').on('click', '#make-new-event-food', makeNewEventFood);
-  $('body').on('click', '#make-new-event-staff', makeNewEventStaff);
-  $('body').on('click', '#make-new-event-souvenir', makeNewEventSouvenir);
-  $().on('click', '.alert', closeAlert);
-  $().on('click', '.myAlert', closeAlert);
-};
 
 const closeSingleEvent = () => {
   utils.printToDom('single-view-event', '');
@@ -66,7 +50,6 @@ const makeNewEventFood = (e) => {
   const thisEventId = $('#inputFoodChoices option:selected').attr('value');
   const foodId = $('#inputFoodChoices option:selected').attr('id');
   const quantityVal = $('#inputFoodQuantity').val() * 1;
-  console.error('quantity value', quantityVal);
   if (foodId !== undefined && quantityVal !== 0) {
     const newEventFood = {
       eventId: thisEventId,
@@ -391,6 +374,22 @@ const closeAlert = () => {
   $('.alertFood').addClass('close');
   $('.myAlert').addClass('close');
 };
+
+const eventSingleViewClickEvents = () => {
+  $('body').on('click', '#closeSingleEvent', closeSingleEvent);
+  $('body').on('click', '.deleteEventFoodBtn', removeEventFood);
+  $('body').on('click', '.deleteEventStaffBtn', removeEventStaff);
+  $('body').on('click', '.deleteEventShowBtn', removeEventShow);
+  $('body').on('click', '.deleteEventAnimalBtn', removeEventAnimal);
+  $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
+  $('body').on('click', '#make-new-event-animal', makeNewEventAnimal);
+  $('body').on('click', '#make-new-event-food', makeNewEventFood);
+  $('body').on('click', '#make-new-event-staff', makeNewEventStaff);
+  $('body').on('click', '#make-new-event-souvenir', makeNewEventSouvenir);
+  $().on('click', '.alert', closeAlert);
+  $().on('click', '.myAlert', closeAlert);
+};
+
 
 export default {
   viewSingleEventCall,
