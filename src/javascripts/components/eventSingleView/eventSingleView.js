@@ -70,6 +70,19 @@ const removeEventShow = (e) => {
     })
     .catch((error) => console.error('could not delete show from event', error));
 };
+const makeNewEventShow = (e) => {
+  console.error('button');
+  e.preventDefault();
+  const thisEventId = $('#inputShowChoices option:selected').attr('value');
+  const newEventShow = {
+    eventId: thisEventId,
+    showId: $('#inputShowChoices option:selected').attr('id'),
+    quantity: $('#inputShowQuantity').val() * 1,
+  };
+  eventShowData.addEventShow(newEventShow);
+  // eslint-disable-next-line no-use-before-define
+  viewSingleEvent(thisEventId);
+};
 
 const removeEventStaff = (e) => {
   e.preventDefault();
@@ -321,6 +334,7 @@ const eventSingleViewClickEvents = () => {
   $('body').on('click', '.deleteEventSouvenirBtn', removeEventSouvenir);
   $('body').on('click', '#make-new-event-animal', makeNewEventAnimal);
   $('body').on('click', '#make-new-event-food', makeNewEventFood);
+  $('body').on('click', '#make-new-event-show', makeNewEventShow);
   $().on('click', '.alert', closeAlert);
 };
 
