@@ -126,7 +126,7 @@ const removeEventShow = (e) => {
 const removeEventStaff = (e) => {
   e.preventDefault();
   const eventStaffId = e.target.closest('button').id;
-  const eventId = e.target.closest('.staffRow').id;
+  const eventId = $('.staffRow').data('container');
   eventStaffData.getSingleEventStaff(eventStaffId)
     .then(() => {
       eventStaffData.deleteEventStaff(eventStaffId)

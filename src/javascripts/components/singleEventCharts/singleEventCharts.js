@@ -16,7 +16,7 @@ const buildSingleEventChart = (eventId) => {
     },
     {
       collection: 'Souvenirs',
-      cost: 1000,
+      cost: singleEvent.souvenirTotalAmount,
     },
     {
       collection: 'Shows',
