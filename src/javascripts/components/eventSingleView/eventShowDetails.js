@@ -81,6 +81,8 @@ const eventShowDetails = (singleEvent) => {
   domString += '<button class="btn btn-outline-secondary add-button my-2" type="button" id="make-new-event-show"><i class="fas fa-plus"></i>Add</button>';
   domString += '</div>';
   domString += '</th>';
+  // Anca: Adding a new div below for the add show alert!
+  domString += '<div id="alertShow" class="alertShow"></div>';
   domString += '</tr>';
   domString += '</thead>';
   domString += '<tbody>';
