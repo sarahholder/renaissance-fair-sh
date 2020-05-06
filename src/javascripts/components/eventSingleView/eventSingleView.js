@@ -68,6 +68,29 @@ const makeNewEventFood = (e) => {
   }
 };
 
+const makeNewEventSouvenir = (e) => {
+  $('.alertSouvenir').alert('close');
+  e.preventDefault();
+  const thisEventId = $('#inputSouvChoices option:selected').attr('value');
+  const souvId = $('#inputSouvChoices option:selected').attr('id');
+  const quantityVal = $('#inputSouvenirQuantity').val() * 1;
+  if (souvId !== undefined && quantityVal !== 0) {
+    const makeEventSouvenir = {
+      eventId: thisEventId,
+      souvenirId: souvId,
+      quantity: quantityVal,
+    };
+    eventSouvenirData.addEventSouvenir(makeEventSouvenir);
+    // eslint-disable-next-line no-use-before-define
+    viewSingleEvent(thisEventId);
+  } else {
+    let domString = '';
+    // eslint-disable-next-line max-len
+    domString += '<div class="alertSouvenir alert alert-warning alert-warning alert-dismissible fade show" role="alert"><strong>Please choose a souvenir item and quantity!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+    utils.printToDom('alertSouvenir', domString);
+  }
+};
+
 const removeEventShow = (e) => {
   e.preventDefault();
   const eventShowId = e.target.closest('button').id;
@@ -356,6 +379,7 @@ const eventSingleViewClickEvents = () => {
   $('body').on('click', '#make-new-event-animal', makeNewEventAnimal);
   $('body').on('click', '#make-new-event-food', makeNewEventFood);
   $('body').on('click', '#make-new-event-staff', makeNewEventStaff);
+  $('body').on('click', '#make-new-event-souvenir', makeNewEventSouvenir);
   $().on('click', '.alert', closeAlert);
   $().on('click', '.myAlert', closeAlert);
 };

@@ -6,7 +6,6 @@ import smash from '../../helpers/data/smash';
 const buildSingleEventChart = (eventId) => {
   smash.getCompleteEvent(eventId).then((singleEvent) => {
     const chart = am4core.create('chartDiv', am4charts.XYChart);
-    console.error('singleEvent', singleEvent);
     chart.marginRight = 400;
 
     // Add data
