@@ -41,17 +41,26 @@ const updateEvent = (e) => {
     })
     .catch((error) => console.error('could not update the event', error));
 };
+
 const makeNewEvent = (e) => {
   e.preventDefault();
+  const newName = $('#event-Name').val();
+  const newLocation = $('#event-location').val();
+  const newImageUrl = $('#event-imageUrl').val();
+  const newTimeStart = $('#event-timeStart').val();
+  const newTimeEnd = $('#event-timeEnd').val();
+  const newDate = $('#event-date').val();
+  const creator = firebase.auth().currentUser.uid;
   const newEventData = {
-    name: $('#event-Name').val(),
-    location: $('#event-location').val(),
-    imageUrl: $('#event-imageUrl').val(),
-    timeStart: $('#event-timeStart').val(),
-    timeEnd: $('#event-timeEnd').val(),
-    date: $('#event-date').val(),
-    uid: firebase.auth().currentUser.uid,
+    name: newName,
+    location: newLocation,
+    imageUrl: newImageUrl,
+    timeStart: newTimeStart,
+    timeEnd: newTimeEnd,
+    date: newDate,
+    uid: creator,
   };
+  console.log('THIS IS THE FREAKING NEW EVENT', newEventData);
   eventData.addEventData(newEventData)
     .then(() => {
       $('.modal-body input').val('');
