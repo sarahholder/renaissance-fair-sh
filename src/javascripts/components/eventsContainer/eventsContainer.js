@@ -28,7 +28,7 @@ const updateEvent = (e) => {
     location: $('#edit-event-location').val(),
     timeStart: $('#edit-event-timeStart').val(),
     timeEnd: $('#edit-event-timeEnd').val(),
-    date: $('#edit-event-date').val() * 1,
+    date: $('#edit-event-date').val(),
     imageUrl: $('#edit-event-photo').val(),
     cost: $('#edit-event-cost').val() * 1,
     uid: utils.getMyUid(),
@@ -60,7 +60,6 @@ const makeNewEvent = (e) => {
     date: newDate,
     uid: creator,
   };
-  console.log('THIS IS THE FREAKING NEW EVENT', newEventData);
   eventData.addEventData(newEventData)
     .then(() => {
       $('.modal-body input').val('');
