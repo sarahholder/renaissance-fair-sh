@@ -6,7 +6,7 @@
     "name": "Sally",
     "cost": 400.00,
     "isAvailable": "Available",
-    "uid": "JYSLprvc6fbCtisqi8VaH9DaBfj1"
+    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "animal2": {
     "type": "Horse",
@@ -51,7 +51,7 @@
     "name": "Hercules",
     "cost": 2000.00,
     "isAvailable": "Available",
-    "uid": "JYSLprvc6fbCtisqi8VaH9DaBfj1"
+    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "animal7": {
     "type": "BYOD (Dog)",
@@ -96,7 +96,7 @@
     "name": "Captain Sparrow",
     "cost": 300.00,
     "isAvailable": "Available",
-    "uid": "JYSLprvc6fbCtisqi8VaH9DaBfj1"
+    "uid": "du8GTsVCXqWQb5arAKgSxuZVgvf2"
   },
   "animal12": {
     "type": "Snake",
